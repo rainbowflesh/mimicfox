@@ -28,9 +28,15 @@ mimic Microsoft Edge and several community userChromes.
 
 /* use simpleMenuWizard */
 @import url("./plugins/simpleMenuWizard-master/userChrome.css") -moz-pref("uc.plugin.simpleMenuWizard");
+
+/* use edge-frfox */
+@import url("./plugins/edge-frfox-main/chrome/custom.css") -moz-pref("uc.plugin.edge-frfox");
+
 /* optional extra mica */
 @import url("./extra-mica.css") -moz-pref("widget.windows.mica.extra");
+
 /* optional icon only extension menu */
 @import url("./icon-only-extension-menu.css") -moz-pref("uc.tweak.icon-only-extension-menu");
+
 @import url("./sidebar.css");
 

@@ -12,9 +12,11 @@ panel:not(.autoscroller) {
   background: transparent !important;
   --panel-shadow-margin: 0px !important;
 }
-panelmultiview,
 .tab-preview-text-container,
-tab-preview-thumbnail-container {
+.menupopup-arrowscrollbox,
+panelmultiview,
+tab-preview-thumbnail-container,
+popupnotification {
   background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
 }
 toolbarseparator {
@@ -23,7 +25,7 @@ toolbarseparator {
 
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
   /* For acrylic, do the same we do for popups to guarantee some contrast */
-  background-color: light-dark(rgba(255, 255, 255, .6), rgba(0, 0, 0, .6));
+  background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
 }
 
 /* make about dialog background transparent */
@@ -133,22 +135,24 @@ toolbarseparator {
 }
 
 /* make commonDialog background transparent */
-@-moz-document url("chrome://global/content/commonDialog.xhtml") {
-  window,#commonDialogWindow{
+@-moz-document url("chrome://global/content/commonDialog.xhtml")
+{
+  window,
+  #commonDialogWindow {
     background: transparent !important;
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-    #commonDialog{
-      background-color: light-dark(rgba(255, 255, 255, .6), rgba(0, 0, 0, .6));
+    #commonDialog {
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
     }
   }
-	#checkbox {
-		margin-left: 23px !important;
-	}
-	#infoIcon {
-		-moz-context-properties: fill !important;
-		fill: var(--uwp-global-front) !important;
-	}
+  #checkbox {
+    margin-left: 23px !important;
+  }
+  #infoIcon {
+    -moz-context-properties: fill !important;
+    fill: var(--uwp-global-front) !important;
+  }
 }
 
 /* make datepicker dialog use accent color */
@@ -205,8 +209,8 @@ toolbarseparator {
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #placesToolbar,
     #placesList,
-    #contentView{
-      background-color: light-dark(rgba(255, 255, 255, .6), rgba(0, 0, 0, .6))!important;
+    #contentView {
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
     }
   }
   #infoBox {
@@ -217,5 +221,81 @@ toolbarseparator {
   }
   #infoBox {
     border-top: 1px solid var(--panel-border-color) !important;
+  }
+}
+
+@-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml")
+{ 
+  #main-window{
+    background: transparent !important;
+  }
+  /* Change Header Size */
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+    #topBar,
+    #mainDeck {
+      color: lightgray !important;
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
+      border: none !important;
+    }
+  }
+  #permHostBox > label {
+    margin-top: 7px !important;
+  }
+  #permList {
+    border: none !important;
+    -moz-appearance: none !important;
+  }
+  #feedListbox {
+    border: none !important;
+    -moz-appearance: none !important;
+  }
+  #feedListbox > richlistitem {
+    padding-inline-start: 0px !important;
+    padding-inline-end: 0px !important;
+  }
+  #feedListbox richlistitem:not([selected="true"]) {
+    border-bottom: 0px !important;
+  }
+  .text-link {
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+  }
+  .permission {
+    border: none !important;
+  }
+  .permission:hover {
+    background-color: #191919 !important;
+    color: white !important;
+  }
+  .permission:hover:active {
+    background-color: #333333 !important;
+  }
+  caption {
+    background-color: transparent !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
+  #imagecontainerbox {
+    background-color: black !important;
+    border: none !important;
+  }
+  #viewGroup > radio {
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+    padding-top: 9.5px !important;
+    padding-bottom: 9.5px !important;
+  }
+  #viewGroup > radio[selected="true"] {
+    background-color: transparent !important;
+    border-bottom: 3px solid AccentColor;
+    padding-bottom: 6.5px !important;
+  }
+  #viewGroup > radio > .radio-label-box {
+    outline: none !important;
+    color: var(--arrowpanel-color);
+  }
+  #viewGroup > radio:hover {
+    background-color: rgb(60, 60, 60) !important;
+    color: white !important;
   }
 }
