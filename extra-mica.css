@@ -4,14 +4,26 @@
   --panel-border-color: light-dark(#dadadabf, #6363637c) !important;
   --arrowpanel-background: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
 }
+.urlbarView
+{background-color: var(--arrowpanel-background);}
 
+#urlbar-background,
 menupopup,
-slot[part="content"],
-panel:not(.autoscroller) {
+panel:not(.autoscroller),
+slot[part="content"]
+{
   appearance: menupopup !important;
-  background: transparent !important;
   --panel-shadow-margin: 0px !important;
 }
+panel.autoscroller slot[part="content"],
+panel#autoscroller{
+  .autoscroller {
+    &[scrolldir="NS"] {
+    appearance: none !important;
+    }
+  }
+}
+
 .tab-preview-text-container,
 .menupopup-arrowscrollbox,
 panelmultiview,

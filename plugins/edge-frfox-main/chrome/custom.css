@@ -432,7 +432,6 @@
 
 /* Apply colours to the default 'Auto' theme. */
 :root:not([lwtheme]) #navigator-toolbox {
-  background-color: var(--lwt-accent-color) !important;
   color: var(--lwt-text-color) !important;
 
   /* Inactive window background colours. */
@@ -1066,15 +1065,6 @@ panel[type="autocomplete-richlistbox"] {
 
 /* disable context menu when this tweak is applied */
 @media not -moz-pref("uc.tweak.revert-context-menu") {
-  /* Context Menu */
-  menupopup:not(.PanelUI-subView),
-  menupopup:not(.PanelUI-subView) menuitem,
-  menupopup:not(.PanelUI-subView) menu,
-  menupopup:not(.PanelUI-subView) menuseparator,
-  panel:not([type="autocomplete-richlistbox"]) {
-    appearance: menupopup !important;
-  }
-
   menupopup:not(.PanelUI-subView),
   menulist > menupopup:not(.PanelUI-subView) > menucaption {
     -moz-window-shadow: none !important;
@@ -1626,5 +1616,304 @@ treechildren::-moz-tree-indentation {
 @media -moz-pref("uc.tweak.hide-forward-button") {
   :root:not([customizing]) #forward-button[disabled] {
     display: none !important;
+  }
+}
+
+
+
+
+
+/*  */
+/* Edge-Frfox - findbar.css
+ * https://github.com/bmFtZQ/edge-frfox */
+
+/*
+  MARK: Findbar textbox
+*/
+.findbar-textbox {
+  border: 0 !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  background-color: var(--toolbar-field-background-color) !important;
+
+  /* Add shadow when in light mode with no theme applied, like the URL bar. */
+  :root:not([lwtheme]) & {
+    box-shadow: 0 0 4px light-dark(rgb(0 0 0 / .1), transparent) !important;
+  }
+
+  &:focus {
+    outline-width: 2px !important;
+    outline-offset: -1px !important;
+  }
+
+  &[status="notfound"] {
+    outline: 2px solid var(--input-error-border-color, #E22850) !important;
+    outline-offset: -1px !important;
+  }
+}
+
+/* Prevent focus outline from being cut off on the findbar textbox. */
+.findbar-container {
+  overflow-inline: visible !important;
+
+  /* Add ability to drag window from empty space in the findbar. */
+  &::after {
+    content: "";
+    flex: 1;
+    align-self: stretch;
+    -moz-window-dragging: drag;
+  }
+}
+
+/*
+  MARK: Findbar buttons
+*/
+.findbar-find-previous,
+.findbar-find-next,
+findbar .close-icon {
+  border-radius: var(--toolbarbutton-border-radius) !important;
+
+  &:not([disabled]):hover {
+    background-color: var(--toolbarbutton-hover-background, rgb(190 190 190 / .2)) !important;
+
+    &:active {
+      background-color: var(--toolbarbutton-active-background, rgb(190 190 190 / .4)) !important;
+    }
+  }
+}
+
+/*
+  MARK: Rounded corners
+*/
+@media -moz-pref("uc.tweak.rounded-corners") {
+  findbar {
+    border: none !important;
+    margin-bottom: var(--uc-tweak-rounded-corners-padding, 0px) !important;
+    background-color: transparent !important;
+    padding-inline: var(--uc-tweak-rounded-corners-padding, 0px) !important;
+
+    &[hidden] {
+      margin-bottom: calc(var(--uc-tweak-rounded-corners-padding, 0px) - 40px) !important;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+/*  */
+/* Edge-Frfox - navbar.css
+ * https://github.com/bmFtZQ/edge-frfox */
+
+/*
+  MARK: Variables
+*/
+:root {
+  --toolbarbutton-border-radius: 4px !important;
+  --toolbarbutton-inner-padding: 7px !important;
+  --uc-toolbarbutton-inner-inline-padding: 12px !important;
+  --toolbarbutton-outer-padding: 2px !important;
+  --tabs-navbar-shadow-size: 0px !important;
+}
+
+#nav-bar {
+  border-top: none !important;
+}
+
+/*
+  MARK: Toolbar buttons
+*/
+#nav-bar .toolbarbutton-1>.toolbarbutton-icon {
+  width: calc(2 * var(--uc-toolbarbutton-inner-inline-padding) + 16px) !important;
+}
+
+#nav-bar .toolbarbutton-1>.toolbarbutton-icon,
+#nav-bar .toolbarbutton-1>.toolbarbutton-text,
+#nav-bar .toolbarbutton-1>.toolbarbutton-badge-stack {
+  padding-inline: var(--uc-toolbarbutton-inner-inline-padding) !important;
+}
+
+/* move reload/stop icon to middle of button */
+#reload-button>.toolbarbutton-animatable-box,
+#stop-button>.toolbarbutton-animatable-box {
+  top: calc(50% - 10px) !important;
+}
+
+#nav-bar-customization-target :where(#reload-button, #stop-button)>.toolbarbutton-icon {
+  padding: var(--toolbarbutton-inner-padding) var(--uc-toolbarbutton-inner-inline-padding) !important;
+}
+
+toolbar .toolbaritem-combined-buttons {
+  margin-inline: var(--toolbarbutton-outer-padding) !important;
+}
+
+/*
+  MARK: Account button
+*/
+.browser-toolbar #fxa-toolbar-menu-button,
+.browser-toolbar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack,
+#fxa-avatar-image {
+  border-radius: 99px !important;
+}
+
+.browser-toolbar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack {
+  padding: var(--toolbarbutton-inner-padding) !important;
+  margin-inline: calc(var(--uc-toolbarbutton-inner-inline-padding) - var(--toolbarbutton-inner-padding)) !important;
+}
+
+#TabsToolbar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack {
+  margin-inline: calc(var(--uc-toolbarbutton-inner-inline-padding) - (var(--toolbarbutton-inner-padding) + 2px)) !important;
+}
+
+#fxa-toolbar-menu-button {
+  display: flex !important;
+}
+
+#widget-overflow-list>#fxa-toolbar-menu-button #fxa-avatar-image {
+  scale: 1.25 !important;
+}
+
+.customization-target>#fxa-toolbar-menu-button #fxa-avatar-image {
+  scale: 1.5 !important;
+}
+
+/*
+  MARK: Button transitions
+*/
+@media not (prefers-reduced-motion) {
+  .toolbarbutton-1>.toolbarbutton-icon,
+  .toolbarbutton-1>.toolbarbutton-text,
+  .toolbarbutton-1>.toolbarbutton-badge-stack,
+  :not(.panel-subview-body>toolbaritem)>.bookmark-item:not(menu, menuitem),
+  .urlbar-page-action,
+  .identity-box-button,
+  #tracking-protection-icon-container,
+  panel button,
+  panel menulist,
+  .titlebar-button {
+    transition: background-color 0.25s ease !important;
+  }
+
+  .toolbarbutton-1:not([disabled=true]):is([open], [checked], :hover:active)>.toolbarbutton-icon,
+  .toolbarbutton-1:not([disabled=true]):is([open], [checked], :hover:active)>.toolbarbutton-text,
+  .toolbarbutton-1:not([disabled=true]):is([open], [checked], :hover:active)>.toolbarbutton-badge-stack,
+  :not(.panel-subview-body>toolbaritem)>.bookmark-item:not(menu, menuitem):not([disabled=true]):is([open], [checked], :hover:active),
+  .urlbar-page-action:not([disabled=true]):is([open], [checked], :hover:active),
+  .identity-box-button:not([disabled=true]):is([open], [checked], :hover:active),
+  #tracking-protection-icon-container:not([disabled=true]):is([open], [checked], :hover:active),
+  panel button:not([disabled=true]):is([open], [checked], :hover:active),
+  panel menulist:not([disabled=true]):is([open], [checked], :hover:active),
+  .titlebar-button:not([disabled=true]):hover:active {
+    transition-duration: 0s !important;
+  }
+}
+
+
+
+
+
+/*  */
+/* Edge-Frfox - personalbar.css
+ * https://github.com/bmFtZQ/edge-frfox */
+
+/*
+  MARK: Variables
+*/
+:root {
+  --bookmark-block-padding: 6px !important;
+  --bookmark-inline-padding: 6px !important;
+  --bookmark-block-margin: 2px !important;
+  --bookmark-inline-margin: 2px !important;
+  --uc-bookmark-toolbar-padding-bottom: 2px;
+  --bookmarks-toolbar-overlapping-browser-height: calc(var(--uc-bookmark-toolbar-padding-bottom) + 16px + (var(--bookmark-block-margin) + var(--bookmark-block-padding)) * 2) !important;
+}
+
+#PersonalToolbar {
+  padding-bottom: var(--uc-bookmark-toolbar-padding-bottom) !important;
+}
+
+/*
+  MARK: Bookmark items
+*/
+#personal-toolbar-empty-description,
+#PersonalToolbar .toolbarbutton-1,
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+  margin-block: var(--bookmark-block-margin) !important;
+  margin-inline: var(--bookmark-inline-margin) !important;
+  padding-block: var(--bookmark-block-padding) !important;
+  padding-inline: var(--bookmark-inline-padding) !important;
+  font-size: 12px !important;
+
+  /* Adjust vertical label position on Windows */
+  @media (-moz-platform: windows) {
+    & .toolbarbutton-text {
+      margin-block: -1px 0 !important;
+    }
+  }
+}
+
+#PersonalToolbar .toolbarbutton-1 {
+  padding: 0 !important;
+}
+
+/* Spacing between icon and label for bookmarks bar items */
+#managed-bookmarks>.toolbarbutton-icon,
+#bookmarks-toolbar-placeholder>.toolbarbutton-icon,
+#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]:not([label=""]),
+#OtherBookmarks.bookmark-item[container]>.toolbarbutton-icon {
+  margin-inline-end: 8px !important;
+}
+
+/* Sizing for bookmarks bar icons */
+#PersonalToolbar .toolbarbutton-1>.toolbarbutton-icon {
+  width: calc(2 * var(--bookmark-block-padding) + 16px) !important;
+  height: calc(2 * var(--bookmark-block-padding) + 16px) !important;
+  padding: var(--bookmark-block-padding) !important;
+}
+
+/*
+  MARK: Separators
+*/
+#PlacesToolbarItems > toolbarseparator {
+  padding-inline: calc(3px - var(--bookmark-inline-margin)) !important;
+  align-items: center !important;
+
+  &::before {
+    content: "";
+    border-inline-start: 1px solid var(--toolbarseparator-color) !important;
+    height: 16px !important;
+    border-image: none !important;
+  }
+
+  /* Fractional scaling adjustments (150%, 175%, etc.) */
+  @media (1dppx < resolution < 2dppx) {
+    &::before {
+      border-inline-start-width: 1.5px !important;
+    }
+  }
+}
+
+/* Left and Right padding of bookmarks bar */
+#PersonalToolbar {
+  padding-inline: calc(var(--toolbar-start-end-padding) - 2px) calc(var(--toolbar-start-end-padding) + 4px) !important;
+}
+
+
+
+
+/*  */
+/* Edge-Frfox - tabbar.css
+ * https://github.com/bmFtZQ/edge-frfox */
+
+/*
+  MARK: Variables
+*/
+@media not -moz-pref("uc.tweak.floating-tabs"){
+  :root {
+  /* Extra space at the top of the window. */
+    --uc-tab-top-margin: 8px !important;
   }
 }
