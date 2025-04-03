@@ -1640,7 +1640,7 @@ treechildren::-moz-tree-indentation {
   }
 }
 
-@media (max-width: 900px) { 
+@media (max-width: 900px) {
   .findbar-match-diacritics .checkbox-label {
     font-size: 0;
     position: relative;
@@ -1653,7 +1653,7 @@ treechildren::-moz-tree-indentation {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
   .findbar-case-sensitive .checkbox-label {
     font-size: 0;
     position: relative;
@@ -1664,7 +1664,9 @@ treechildren::-moz-tree-indentation {
     font-size: 14px;
     color: inherit;
   }
+}
 
+@media (max-width: 800px) {
   checkbox[anonid="highlight"] .checkbox-label {
     display: inline-block;
     width: 16px;
@@ -1681,7 +1683,7 @@ treechildren::-moz-tree-indentation {
     }
   }
 }
- 
+
 /*  */
 
 .findbar-textbox {
