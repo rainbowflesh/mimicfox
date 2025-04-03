@@ -1,0 +1,52 @@
+/* mimicfox */
+/* move toolbarspring between extension and application button to extensions-button */
+#vertical-spacer {
+  display: none;
+}
+#unified-extensions-button {
+  margin-right: calc(1rem + 30px) !important;
+}
+@media -moz-pref("uc.tweak.remove-toolbarspring") {
+  #vertical-spacer {
+    display: none;
+  }
+  #unified-extensions-button {
+    margin-right: 0 !important;
+  }
+}
+
+/* larger toolbarspring between extension and application buttons*/
+@media -moz-pref("uc.tweak.toolbarspring-large") {
+  #unified-extensions-button {
+    margin-right: calc(2rem + 40px) !important;
+  }
+}
+
+/* hide sidebar tab overflow shadow */
+@media -moz-pref("uc.tweak.remove-overflow-indicator") {
+  spacer[part="overflow-start-indicator"],
+  spacer[part="overflow-end-indicator"] {
+    display: none;
+  }
+}
+
+/* hide sidebar config button */
+@media -moz-pref("uc.tweak.remove-sidebar-config-button") {
+  moz-button[view="viewCustomizeSidebar"] {
+    display: none !important;
+  }
+
+  button-group.tools-and-extensions.actions-list {
+    padding-bottom: var(--space-small) !important;
+  }
+
+  #tabbrowser-tabs[orient="vertical"] {
+    &[overflow]::after {
+      border-bottom: none !important;
+    }
+  }
+
+  box#vertical-tabs {
+    margin-bottom: calc(-1 * var(--space-small));
+  }
+}
