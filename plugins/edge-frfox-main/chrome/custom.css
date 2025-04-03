@@ -1619,10 +1619,6 @@ treechildren::-moz-tree-indentation {
   }
 }
 
-
-
-
-
 /*  */
 /* Edge-Frfox - findbar.css
  * https://github.com/bmFtZQ/edge-frfox */
@@ -1630,6 +1626,64 @@ treechildren::-moz-tree-indentation {
 /*
   MARK: Findbar textbox
 */
+@media (max-width: 1000px) {
+  .findbar-entire-word .checkbox-label {
+    font-size: 0;
+    position: relative;
+  }
+
+  .findbar-entire-word .checkbox-label::before {
+    content: "ab";
+    font-size: 14px;
+    color: inherit;
+    text-decoration: underline overline;
+  }
+}
+
+@media (max-width: 900px) { 
+  .findbar-match-diacritics .checkbox-label {
+    font-size: 0;
+    position: relative;
+  }
+
+  .findbar-match-diacritics .checkbox-label::before {
+    content: "Aá";
+    font-size: 14px;
+    color: inherit;
+  }
+}
+
+@media (max-width: 800px) {
+  .findbar-case-sensitive .checkbox-label {
+    font-size: 0;
+    position: relative;
+  }
+
+  .findbar-case-sensitive .checkbox-label::before {
+    content: "Aa";
+    font-size: 14px;
+    color: inherit;
+  }
+
+  checkbox[anonid="highlight"] .checkbox-label {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    background-image: var(--icon-highlight);
+  }
+  @media (prefers-color-scheme: dark) {
+    checkbox[anonid="highlight"] .checkbox-label {
+      background-image: var(--icon-highlight-dark);
+    }
+  }
+}
+ 
+/*  */
+
 .findbar-textbox {
   border: 0 !important;
   border-radius: var(--toolbarbutton-border-radius) !important;
@@ -1637,7 +1691,7 @@ treechildren::-moz-tree-indentation {
 
   /* Add shadow when in light mode with no theme applied, like the URL bar. */
   :root:not([lwtheme]) & {
-    box-shadow: 0 0 4px light-dark(rgb(0 0 0 / .1), transparent) !important;
+    box-shadow: 0 0 4px light-dark(rgb(0 0 0 / 0.1), transparent) !important;
   }
 
   &:focus {
@@ -1646,7 +1700,7 @@ treechildren::-moz-tree-indentation {
   }
 
   &[status="notfound"] {
-    outline: 2px solid var(--input-error-border-color, #E22850) !important;
+    outline: 2px solid var(--input-error-border-color, #e22850) !important;
     outline-offset: -1px !important;
   }
 }
@@ -1661,6 +1715,7 @@ treechildren::-moz-tree-indentation {
     flex: 1;
     align-self: stretch;
     -moz-window-dragging: drag;
+    display: none !important;
   }
 }
 
@@ -1673,10 +1728,10 @@ findbar .close-icon {
   border-radius: var(--toolbarbutton-border-radius) !important;
 
   &:not([disabled]):hover {
-    background-color: var(--toolbarbutton-hover-background, rgb(190 190 190 / .2)) !important;
+    background-color: var(--toolbarbutton-hover-background, rgb(190 190 190 / 0.2)) !important;
 
     &:active {
-      background-color: var(--toolbarbutton-active-background, rgb(190 190 190 / .4)) !important;
+      background-color: var(--toolbarbutton-active-background, rgb(190 190 190 / 0.4)) !important;
     }
   }
 }
@@ -1696,13 +1751,6 @@ findbar .close-icon {
     }
   }
 }
-
-
-
-
-
-
-
 
 /*  */
 /* Edge-Frfox - navbar.css
@@ -1726,23 +1774,23 @@ findbar .close-icon {
 /*
   MARK: Toolbar buttons
 */
-#nav-bar .toolbarbutton-1>.toolbarbutton-icon {
+#nav-bar .toolbarbutton-1 > .toolbarbutton-icon {
   width: calc(2 * var(--uc-toolbarbutton-inner-inline-padding) + 16px) !important;
 }
 
-#nav-bar .toolbarbutton-1>.toolbarbutton-icon,
-#nav-bar .toolbarbutton-1>.toolbarbutton-text,
-#nav-bar .toolbarbutton-1>.toolbarbutton-badge-stack {
+#nav-bar .toolbarbutton-1 > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-badge-stack {
   padding-inline: var(--uc-toolbarbutton-inner-inline-padding) !important;
 }
 
 /* move reload/stop icon to middle of button */
-#reload-button>.toolbarbutton-animatable-box,
-#stop-button>.toolbarbutton-animatable-box {
+#reload-button > .toolbarbutton-animatable-box,
+#stop-button > .toolbarbutton-animatable-box {
   top: calc(50% - 10px) !important;
 }
 
-#nav-bar-customization-target :where(#reload-button, #stop-button)>.toolbarbutton-icon {
+#nav-bar-customization-target :where(#reload-button, #stop-button) > .toolbarbutton-icon {
   padding: var(--toolbarbutton-inner-padding) var(--uc-toolbarbutton-inner-inline-padding) !important;
 }
 
@@ -1754,29 +1802,31 @@ toolbar .toolbaritem-combined-buttons {
   MARK: Account button
 */
 .browser-toolbar #fxa-toolbar-menu-button,
-.browser-toolbar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack,
+.browser-toolbar #fxa-toolbar-menu-button > .toolbarbutton-badge-stack,
 #fxa-avatar-image {
   border-radius: 99px !important;
 }
 
-.browser-toolbar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack {
+.browser-toolbar #fxa-toolbar-menu-button > .toolbarbutton-badge-stack {
   padding: var(--toolbarbutton-inner-padding) !important;
   margin-inline: calc(var(--uc-toolbarbutton-inner-inline-padding) - var(--toolbarbutton-inner-padding)) !important;
 }
 
-#TabsToolbar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack {
-  margin-inline: calc(var(--uc-toolbarbutton-inner-inline-padding) - (var(--toolbarbutton-inner-padding) + 2px)) !important;
+#TabsToolbar #fxa-toolbar-menu-button > .toolbarbutton-badge-stack {
+  margin-inline: calc(
+    var(--uc-toolbarbutton-inner-inline-padding) - (var(--toolbarbutton-inner-padding) + 2px)
+  ) !important;
 }
 
 #fxa-toolbar-menu-button {
   display: flex !important;
 }
 
-#widget-overflow-list>#fxa-toolbar-menu-button #fxa-avatar-image {
+#widget-overflow-list > #fxa-toolbar-menu-button #fxa-avatar-image {
   scale: 1.25 !important;
 }
 
-.customization-target>#fxa-toolbar-menu-button #fxa-avatar-image {
+.customization-target > #fxa-toolbar-menu-button #fxa-avatar-image {
   scale: 1.5 !important;
 }
 
@@ -1784,10 +1834,10 @@ toolbar .toolbaritem-combined-buttons {
   MARK: Button transitions
 */
 @media not (prefers-reduced-motion) {
-  .toolbarbutton-1>.toolbarbutton-icon,
-  .toolbarbutton-1>.toolbarbutton-text,
-  .toolbarbutton-1>.toolbarbutton-badge-stack,
-  :not(.panel-subview-body>toolbaritem)>.bookmark-item:not(menu, menuitem),
+  .toolbarbutton-1 > .toolbarbutton-icon,
+  .toolbarbutton-1 > .toolbarbutton-text,
+  .toolbarbutton-1 > .toolbarbutton-badge-stack,
+  :not(.panel-subview-body > toolbaritem) > .bookmark-item:not(menu, menuitem),
   .urlbar-page-action,
   .identity-box-button,
   #tracking-protection-icon-container,
@@ -1797,23 +1847,20 @@ toolbar .toolbaritem-combined-buttons {
     transition: background-color 0.25s ease !important;
   }
 
-  .toolbarbutton-1:not([disabled=true]):is([open], [checked], :hover:active)>.toolbarbutton-icon,
-  .toolbarbutton-1:not([disabled=true]):is([open], [checked], :hover:active)>.toolbarbutton-text,
-  .toolbarbutton-1:not([disabled=true]):is([open], [checked], :hover:active)>.toolbarbutton-badge-stack,
-  :not(.panel-subview-body>toolbaritem)>.bookmark-item:not(menu, menuitem):not([disabled=true]):is([open], [checked], :hover:active),
-  .urlbar-page-action:not([disabled=true]):is([open], [checked], :hover:active),
-  .identity-box-button:not([disabled=true]):is([open], [checked], :hover:active),
-  #tracking-protection-icon-container:not([disabled=true]):is([open], [checked], :hover:active),
-  panel button:not([disabled=true]):is([open], [checked], :hover:active),
-  panel menulist:not([disabled=true]):is([open], [checked], :hover:active),
-  .titlebar-button:not([disabled=true]):hover:active {
+  .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active) > .toolbarbutton-icon,
+  .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active) > .toolbarbutton-text,
+  .toolbarbutton-1:not([disabled="true"]):is([open], [checked], :hover:active) > .toolbarbutton-badge-stack,
+  :not(.panel-subview-body > toolbaritem)
+    > .bookmark-item:not(menu, menuitem):not([disabled="true"]):is([open], [checked], :hover:active),
+  .urlbar-page-action:not([disabled="true"]):is([open], [checked], :hover:active),
+  .identity-box-button:not([disabled="true"]):is([open], [checked], :hover:active),
+  #tracking-protection-icon-container:not([disabled="true"]):is([open], [checked], :hover:active),
+  panel button:not([disabled="true"]):is([open], [checked], :hover:active),
+  panel menulist:not([disabled="true"]):is([open], [checked], :hover:active),
+  .titlebar-button:not([disabled="true"]):hover:active {
     transition-duration: 0s !important;
   }
 }
-
-
-
-
 
 /*  */
 /* Edge-Frfox - personalbar.css
@@ -1828,7 +1875,10 @@ toolbar .toolbaritem-combined-buttons {
   --bookmark-block-margin: 2px !important;
   --bookmark-inline-margin: 2px !important;
   --uc-bookmark-toolbar-padding-bottom: 2px;
-  --bookmarks-toolbar-overlapping-browser-height: calc(var(--uc-bookmark-toolbar-padding-bottom) + 16px + (var(--bookmark-block-margin) + var(--bookmark-block-padding)) * 2) !important;
+  --bookmarks-toolbar-overlapping-browser-height: calc(
+    var(--uc-bookmark-toolbar-padding-bottom) + 16px + (var(--bookmark-block-margin) + var(--bookmark-block-padding)) *
+      2
+  ) !important;
 }
 
 #PersonalToolbar {
@@ -1860,15 +1910,15 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 }
 
 /* Spacing between icon and label for bookmarks bar items */
-#managed-bookmarks>.toolbarbutton-icon,
-#bookmarks-toolbar-placeholder>.toolbarbutton-icon,
-#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]:not([label=""]),
-#OtherBookmarks.bookmark-item[container]>.toolbarbutton-icon {
+#managed-bookmarks > .toolbarbutton-icon,
+#bookmarks-toolbar-placeholder > .toolbarbutton-icon,
+#PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon[label]:not([label=""]),
+#OtherBookmarks.bookmark-item[container] > .toolbarbutton-icon {
   margin-inline-end: 8px !important;
 }
 
 /* Sizing for bookmarks bar icons */
-#PersonalToolbar .toolbarbutton-1>.toolbarbutton-icon {
+#PersonalToolbar .toolbarbutton-1 > .toolbarbutton-icon {
   width: calc(2 * var(--bookmark-block-padding) + 16px) !important;
   height: calc(2 * var(--bookmark-block-padding) + 16px) !important;
   padding: var(--bookmark-block-padding) !important;
@@ -1901,9 +1951,6 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   padding-inline: calc(var(--toolbar-start-end-padding) - 2px) calc(var(--toolbar-start-end-padding) + 4px) !important;
 }
 
-
-
-
 /*  */
 /* Edge-Frfox - tabbar.css
  * https://github.com/bmFtZQ/edge-frfox */
@@ -1911,9 +1958,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 /*
   MARK: Variables
 */
-@media not -moz-pref("uc.tweak.floating-tabs"){
+@media not -moz-pref("uc.tweak.floating-tabs") {
   :root {
-  /* Extra space at the top of the window. */
+    /* Extra space at the top of the window. */
     --uc-tab-top-margin: 8px !important;
   }
 }

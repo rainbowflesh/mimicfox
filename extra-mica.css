@@ -4,22 +4,22 @@
   --panel-border-color: light-dark(#dadadabf, #6363637c) !important;
   --arrowpanel-background: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
 }
-.urlbarView
-{background-color: var(--arrowpanel-background);}
+.urlbarView {
+  background-color: var(--arrowpanel-background);
+}
 
 #urlbar-background,
 menupopup,
 panel:not(.autoscroller),
-slot[part="content"]
-{
+slot[part="content"] {
   appearance: menupopup !important;
   --panel-shadow-margin: 0px !important;
 }
 panel.autoscroller slot[part="content"],
-panel#autoscroller{
+panel#autoscroller {
   .autoscroller {
     &[scrolldir="NS"] {
-    appearance: none !important;
+      appearance: none !important;
     }
   }
 }
@@ -237,8 +237,8 @@ toolbarseparator {
 }
 
 @-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml")
-{ 
-  #main-window{
+{
+  #main-window {
     background: transparent !important;
   }
   /* Change Header Size */
