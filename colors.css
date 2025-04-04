@@ -1,0 +1,244 @@
+/* Edge-Frfox - colors.css
+ * OG https://github.com/bmFtZQ/edge-frfox */
+
+/* extra mica */
+@media -moz-pref("widget.windows.mica.extra") {
+  :root:not([lwtheme]),
+  :root[privatebrowsingmode="temporary"]:where(
+      [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not(
+          [style*="--newtab-background-color-secondary: rgb(66, 65, 77)"]
+        )
+    ) {
+    --arrowpanel-border-color: transparent !important;
+    --arrowpanel-background: transparent !important;
+    --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
+  }
+}
+
+:root:not([lwtheme]),
+:root[privatebrowsingmode="temporary"]:where(
+    [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
+  ) {
+  --arrowpanel-background: light-dark(#fff, #4a4a4a) !important;
+  --arrowpanel-border-color: light-dark(#fff, #636363) !important;
+  --arrowpanel-color: light-dark(#1c1c1c, #fff) !important;
+  --arrowpanel-dimmed-further: light-dark(#707070, #707070) !important;
+  --arrowpanel-dimmed: light-dark(#565656, #565656) !important;
+  --button-active-bgcolor: light-dark(#c0c0c0, #7c7c7c) !important;
+  --button-bgcolor: light-dark(#efefef, #5c5c5c) !important;
+  --button-color: light-dark(#000, #fff) !important;
+  --button-hover-bgcolor: light-dark(#d5d5d5, #6e6e6e) !important;
+  --button-primary-active-bgcolor: light-dark(#0060aa, #3289cb) !important;
+  --button-primary-bgcolor: light-dark(#0078d4, #006cbe) !important;
+  --button-primary-color: light-dark(#fff, #fff) !important;
+  --button-primary-hover-bgcolor: light-dark(#006bbd, #1c7cc5) !important;
+  --error-text-color: light-dark(#ff9aa2, #ff9aa2) !important;
+  --focus-outline-color: light-dark(#0055d780, #63ade5) !important;
+  --input-bgcolor: light-dark(#fff, #4a4a4a) !important;
+  --input-border-color: light-dark(#bebebe, #808080) !important;
+  --input-color: light-dark(#2b2b2b, #fff) !important;
+  --input-error-border-color: light-dark(#ff848a, #ff848a) !important;
+  --link-color: light-dark(#0078d4, #75b6e8) !important;
+  --lwt-accent-color-inactive: light-dark(#e8e8e8, #2e2e2e) !important;
+  --lwt-accent-color: light-dark(#cecece, #1c1c1c) !important;
+  --lwt-text-color-inactive: light-dark(#3a3a3a, #cbcbcb) !important;
+  --lwt-text-color: light-dark(#000, #fff) !important;
+  --newtab-background-color: light-dark(#f7f7f7, #252525) !important;
+  --panel-banner-item-update-supported-bgcolor: light-dark(#188038, #81c995) !important;
+  --panel-description-color: light-dark(#000a, #fffb) !important;
+  --panel-disabled-color: light-dark(#9e9e9e, #b9b9b9) !important;
+  --panel-item-active-bgcolor: light-dark(#ddd, #747474) !important;
+  --panel-item-hover-bgcolor: light-dark(#eee, #646464) !important;
+  --panel-separator-color: light-dark(#dadada, #636363) !important;
+  --sidebar-background-color: light-dark(#f7f7f7, #3b3b3b) !important;
+  --sidebar-border-color: light-dark(#bfbfbf, #686868) !important;
+  --sidebar-text-color: light-dark(#000, #fff) !important;
+  --tab-attention-icon-color: light-dark(#0078d4, #93d0ff) !important;
+  --tab-icon-overlay-fill: var(--toolbar-color) !important;
+  --tab-icon-overlay-stroke: var(--toolbar-bgcolor) !important;
+  --tab-selected-bgcolor: var(--toolbar-bgcolor) !important;
+  --tab-selected-textcolor-inactive: light-dark(#3e3e3e, #cbcbcb) !important;
+  --tab-selected-textcolor: light-dark(#000, #fff) !important;
+  --tabpanel-background-color: var(--newtab-background-color, var(--toolbar-bgcolor, transparent)) !important;
+  --toolbar-bgcolor: light-dark(#f7f7f7, #3b3b3b) !important;
+  --toolbar-color: light-dark(#000, #fff) !important;
+  --toolbar-field-background-color: light-dark(#fff, #2b2b2b) !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-color: light-dark(#000, #fff) !important;
+  --toolbar-field-focus-background-color: var(--toolbar-field-background-color) !important;
+  --toolbar-field-focus-border-color: light-dark(#0055d780, #63ade5) !important;
+  --toolbar-field-focus-color: var(--toolbar-field-color) !important;
+  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
+  --toolbarbutton-active-background: color-mix(in srgb, currentColor 13.5%, transparent) !important;
+  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important;
+  --toolbarbutton-icon-fill-attention: light-dark(#0078d4, #4c98d1) !important;
+  --toolbarbutton-icon-fill: var(--toolbar-color) !important;
+  --toolbarseparator-color: color-mix(in srgb, currentColor 25%, transparent) !important;
+  --uc-urlbarView-accent-color: light-dark(#1a6397, #75b6e8) !important;
+  --urlbar-box-active-bgcolor: light-dark(rgb(0 0 0 / 0.22), rgb(255 255 255 / 0.28)) !important;
+  --urlbar-box-bgcolor: light-dark(rgb(0 0 0 / 0.09), rgb(255 255 255 / 0.11)) !important;
+  --urlbar-box-focus-bgcolor: var(--urlbar-box-hover-bgcolor) !important;
+  --urlbar-box-hover-bgcolor: light-dark(rgb(0 0 0 / 0.09), rgb(255 255 255 / 0.11)) !important;
+  --urlbar-icon-fill-opacity: 0.58 !important;
+  --urlbarView-highlight-background: light-dark(#f2f2f2, #383838) !important;
+  --urlbarView-highlight-color: light-dark(#000, #fff) !important;
+  --urlbarView-hover-background: light-dark(#e5e5e5, #444444) !important;
+  --urlbarView-separator-color: light-dark(#efefef, #5f5f5f) !important;
+  /* ::::: Dialog theme ::::: */
+  & #window-modal-dialog::backdrop {
+    /* Overlay when dialog is shown. */
+    background-color: rgb(20 20 20 / 0.2) !important;
+  }
+
+  &[dialogroot] {
+    /* Dialog */
+    --in-content-page-background: var(--arrowpanel-background) !important;
+    --in-content-page-color: var(--arrowpanel-color) !important;
+    /* Primary button */
+    --in-content-primary-button-text-color: var(--button-primary-color) !important;
+    --in-content-primary-button-background: var(--button-primary-bgcolor) !important;
+    --in-content-primary-button-background-hover: var(--button-primary-hover-bgcolor) !important;
+    --in-content-primary-button-background-active: var(--button-primary-active-bgcolor) !important;
+    /* Secondary button */
+    --in-content-button-text-color: var(--button-color) !important;
+    --in-content-button-background: var(--button-bgcolor) !important;
+    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;
+    --in-content-button-background-active: var(--button-active-bgcolor) !important;
+    /* Text input */
+    --in-content-box-background: var(--input-bgcolor) !important;
+    --in-content-box-border-color: var(--input-border-color) !important;
+  }
+  accent-color: var(--button-primary-bgcolor) !important;
+}
+
+/*
+  MARK: Linux / GTK csd
+*/
+@media (-moz-gtk-csd-available) {
+  :root:not([lwtheme]),
+    /* `--newtab-background-color-secondary used` to differentiate between a dark
+   * private window and private window with the 'Dark' theme enabled.
+   * May not be the most reliable method, but works for now up to FF 123. */
+    :root[privatebrowsingmode="temporary"]:where([style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])) {
+    /* Used for mixing colours differently in light/dark themes. */
+    --uc-tint: light-dark(black, white);
+    /* Colour adjusted for readability. */
+    --uc-accent-adjusted: light-dark(
+      color-mix(in oklch, AccentColor 92%, black),
+      color-mix(in oklch, AccentColor 60%, white)
+    );
+    /* Toolbars */
+    --lwt-accent-color: light-dark(color-mix(in srgb, ActiveCaption 90%, black), ActiveCaption) !important;
+    --lwt-accent-color-inactive: light-dark(color-mix(in srgb, InactiveCaption 94%, black), InactiveCaption) !important;
+    --lwt-text-color: CaptionText !important;
+    --lwt-text-color-inactive: color-mix(in srgb, CaptionText 65%, transparent) !important;
+    --tab-selected-textcolor: var(--toolbar-color) !important;
+    --tab-selected-textcolor-inactive: color-mix(in srgb, var(--toolbar-color) 65%, transparent) !important;
+    --tab-selected-bgcolor: var(--toolbar-bgcolor) !important;
+    --tab-attention-icon-color: var(--uc-accent-adjusted) !important;
+    --toolbar-bgcolor: light-dark(-moz-dialog, color-mix(in srgb, -moz-dialog 92%, white)) !important;
+    --toolbar-color: -moz-dialogtext !important;
+    --toolbarbutton-icon-fill-attention: var(--uc-accent-adjusted) !important;
+    --chrome-content-separator-color: color-mix(in srgb, currentColor 17%, var(--toolbar-bgcolor)) !important;
+    --newtab-background-color: light-dark(-moz-dialog, color-mix(in srgb, -moz-dialog 82%, black)) !important;
+    /* URL bar */
+    --toolbar-field-background-color: light-dark(Field, color-mix(in srgb, Field 96%, -moz-dialogtext)) !important;
+    --toolbar-field-color: FieldText !important;
+    --toolbar-field-focus-border-color: light-dark(
+      color-mix(in srgb, var(--focus-outline-color) 50%, transparent),
+      var(--focus-outline-color)
+    ) !important;
+    --urlbar-box-bgcolor: var(--button-bgcolor) !important;
+    --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor) !important;
+    --urlbar-box-active-bgcolor: var(--button-active-bgcolor) !important;
+    /* URL bar suggestions. */
+    --link-color: var(--uc-accent-adjusted) !important;
+    --uc-urlbarView-accent-color: var(--uc-accent-adjusted) !important;
+    --urlbarView-highlight-background: var(--panel-item-hover-bgcolor) !important;
+    --urlbarView-highlight-color: var(--toolbar-field-color) !important;
+    --urlbarView-hover-background: var(--panel-item-active-bgcolor) !important;
+    --urlbarView-separator-color: var(--panel-separator-color) !important;
+    /* Menus/panels */
+    --arrowpanel-background: Field !important;
+    --arrowpanel-color: FieldText !important;
+    --arrowpanel-border-color: light-dark(transparent, var(--panel-separator-color)) !important;
+    --arrowpanel-dimmed: color-mix(in srgb, currentColor 17%, transparent) !important;
+    --arrowpanel-dimmed-further: color-mix(in srgb, currentColor 30%, transparent) !important;
+    --panel-separator-color: color-mix(in srgb, currentColor 17%, var(--arrowpanel-background)) !important;
+    --panel-description-color: GrayText !important;
+    --panel-disabled-color: GrayText !important;
+    --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 8%, transparent) !important;
+    --panel-item-active-bgcolor: color-mix(in srgb, currentColor 13%, transparent) !important;
+    /* Primary button */
+    --button-primary-bgcolor: AccentColor !important;
+    --button-primary-color: AccentColorText !important;
+    --button-primary-hover-bgcolor: color-mix(in srgb, var(--uc-tint) 10%, var(--button-primary-bgcolor)) !important;
+    --button-primary-active-bgcolor: color-mix(in srgb, var(--uc-tint) 20%, var(--button-primary-bgcolor)) !important;
+    /* Secondary button */
+    --button-bgcolor: color-mix(in srgb, currentColor 10%, transparent) !important;
+    --button-color: currentColor !important;
+    --button-hover-bgcolor: color-mix(in srgb, currentColor 14%, transparent) !important;
+    --button-active-bgcolor: color-mix(in srgb, currentColor 20%, transparent) !important;
+    /* Text input field, e.g. bookmarks editor. */
+    --focus-outline-color: var(--uc-accent-adjusted) !important;
+    --input-bgcolor: var(--arrowpanel-background) !important;
+    --input-color: var(--arrowpanel-color) !important;
+    --input-border-color: color-mix(in srgb, currentColor 35%, var(--arrowpanel-background)) !important;
+    /* Sidebar */
+    --sidebar-background-color: var(--toolbar-bgcolor) !important;
+    --sidebar-text-color: var(--toolbar-color) !important;
+    --sidebar-border-color: var(--chrome-content-separator-color) !important;
+  }
+}
+
+@-moz-document url-prefix(about:) {
+  :root {
+    --in-content-page-color: light-dark(#252525, #fff) !important;
+    --in-content-page-background: light-dark(#f7f7f7, #252525) !important;
+    --in-content-deemphasized-text: light-dark(#666, #bbb) !important;
+    --in-content-box-background: light-dark(#fff, #333) !important;
+    --in-content-box-background-odd: light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255 / 0.05)) !important;
+    --in-content-box-info-background: light-dark(#f7f7f7, rgb(255 255 255 / 0.15)) !important;
+    --in-content-icon-color: light-dark(#666, #fff) !important;
+    --in-content-accent-color: light-dark(#006cbe, #75b6e8) !important;
+    --in-content-accent-color-active: light-dark(#1683d8, #4c98d1) !important;
+    --in-content-border-hover: light-dark(rgb(0 0 0 / 0.5), rgb(255 255 255 / 0.3)) !important;
+    --in-content-border-invalid: var(--red-50) !important;
+    --in-content-border-color: light-dark(#bebebe, rgb(255 255 255 / 0.2)) !important;
+    --in-content-error-text-color: light-dark(#ff848a, #ff9aa2) !important;
+    --in-content-link-color: light-dark(#0078d4, #75b6e8) !important;
+    --in-content-link-color-hover: light-dark(#006cbe, #63ade5) !important;
+    --in-content-link-color-active: light-dark(#0749ac, #4c98d1) !important;
+    --in-content-link-color-visited: light-dark(#0078d4, #75b6e8) !important;
+    --link-color: var(--in-content-link-color) !important;
+    --link-color-hover: var(--in-content-link-color-hover) !important;
+    --link-color-active: var(--in-content-link-color-active) !important;
+    --link-color-visited: var(--in-content-link-color-visited) !important;
+    --in-content-button-text-color: var(--in-content-text-color) !important;
+    --in-content-button-text-color-hover: var(--in-content-text-color) !important;
+    --in-content-button-text-color-active: var(--in-content-button-text-color-hover) !important;
+    --in-content-button-background: light-dark(#ededed, #3b3b3b) !important;
+    --in-content-button-background-hover: light-dark(#e5e5e5, #545454) !important;
+    --in-content-button-background-active: light-dark(#d5d5d5, #606060) !important;
+    --in-content-primary-button-text-color: light-dark(#fff, #fff) !important;
+    --in-content-primary-button-background: light-dark(#0061e0, #006cbe) !important;
+    --in-content-primary-button-background-hover: light-dark(#0250bb, #0078d4) !important;
+    --in-content-primary-button-background-active: light-dark(#053e94, #005ca3) !important;
+    --color-accent-primary: light-dark(#0078d4, #006cbe) !important;
+    --color-accent-primary-hover: light-dark(#006cbe, #0078d4) !important;
+    --color-accent-primary-active: light-dark(#0749ac, #005ca3) !important;
+    --in-content-danger-button-background: light-dark(#df4951, #e12424) !important;
+    --in-content-danger-button-background-hover: light-dark(#ea656c, #f94343) !important;
+    --in-content-danger-button-background-active: light-dark(#bb353c, #aa1e1e) !important;
+    --in-content-focus-outline-color: light-dark(rgb(0 85 215 / 0.5), #63ade5) !important;
+    --focus-outline-color: var(--in-content-focus-outline-color) !important;
+    --in-content-table-background: light-dark(#f7f7f7, #252525) !important;
+    --in-content-text-color: var(--in-content-page-color) !important;
+    --border-interactive-color: light-dark(#929292, #858585) !important;
+    scrollbar-color: light-dark(rgb(37 37 37 / 0.4), rgb(255 255 255 / 0.4)) light-dark(#f7f7f7, #252525) !important;
+  }
+  ::selection {
+    background-color: light-dark(#0078d4, #93b8e7);
+    color: light-dark(#fff, #000);
+  }
+}

@@ -30,13 +30,20 @@ mimic Microsoft Edge and several community userChromes.
 @import url("./plugins/simpleMenuWizard-master/userChrome.css") -moz-pref("uc.plugin.simpleMenuWizard");
 
 /* use edge-frfox */
-@import url("./plugins/edge-frfox-main/chrome/custom.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./icons/icons.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./colors.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./findbar.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./navbar.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./popup.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./tabbar.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./tree.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./urlbar.css") -moz-pref("uc.plugin.edge-frfox");
+@import url("./browser.css") -moz-pref("uc.plugin.edge-frfox");
 
 /* optional extra mica */
-@import url("./extra-mica.css") -moz-pref("widget.windows.mica.extra");
+@import url("./mica.css") -moz-pref("widget.windows.mica.extra");
 
 /* optional icon only extension menu */
 @import url("./icon-only-extension-menu.css") -moz-pref("uc.tweak.icon-only-extension-menu");
 
 @import url("./sidebar.css");
-

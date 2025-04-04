@@ -1,0 +1,125 @@
+/* Edge-Frfox - findbar.css
+ * OG https://github.com/bmFtZQ/edge-frfox */
+
+/* dynamic findbar content */
+@media (max-width: 1000px) {
+  .findbar-entire-word .checkbox-label {
+    font-size: 0;
+    position: relative;
+  }
+
+  .findbar-entire-word .checkbox-label::before {
+    content: "ab";
+    font-size: 14px;
+    color: inherit;
+    text-decoration: underline overline;
+  }
+}
+
+@media (max-width: 900px) {
+  .findbar-match-diacritics .checkbox-label {
+    font-size: 0;
+    position: relative;
+  }
+
+  .findbar-match-diacritics .checkbox-label::before {
+    content: "Aá";
+    font-size: 14px;
+    color: inherit;
+  }
+}
+
+@media (max-width: 850px) {
+  .findbar-case-sensitive .checkbox-label {
+    font-size: 0;
+    position: relative;
+  }
+
+  .findbar-case-sensitive .checkbox-label::before {
+    content: "Aa";
+    font-size: 14px;
+    color: inherit;
+  }
+}
+
+@media (max-width: 800px) {
+  checkbox[anonid="highlight"] .checkbox-label {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    background-image: var(--icon-highlight);
+  }
+  @media (prefers-color-scheme: dark) {
+    checkbox[anonid="highlight"] .checkbox-label {
+      background-image: var(--icon-highlight-dark);
+    }
+  }
+}
+
+.findbar-textbox {
+  border: 0 !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  background-color: var(--toolbar-field-background-color) !important;
+
+  /* Add shadow when in light mode with no theme applied, like the URL bar. */
+  :root:not([lwtheme]) & {
+    box-shadow: 0 0 4px light-dark(rgb(0 0 0 / 0.1), transparent) !important;
+  }
+
+  &:focus {
+    outline-width: 2px !important;
+    outline-offset: -1px !important;
+  }
+
+  &[status="notfound"] {
+    outline: 2px solid var(--input-error-border-color, #e22850) !important;
+    outline-offset: -1px !important;
+  }
+}
+
+/* Prevent focus outline from being cut off on the findbar textbox. */
+.findbar-container {
+  overflow-inline: visible !important;
+
+  /* Add ability to drag window from empty space in the findbar. */
+  &::after {
+    content: "";
+    flex: 1;
+    align-self: stretch;
+    -moz-window-dragging: drag;
+    display: none !important;
+  }
+}
+
+/* Findbar buttons */
+.findbar-find-previous,
+.findbar-find-next,
+findbar .close-icon {
+  border-radius: var(--toolbarbutton-border-radius) !important;
+
+  &:not([disabled]):hover {
+    background-color: var(--toolbarbutton-hover-background, rgb(190 190 190 / 0.2)) !important;
+
+    &:active {
+      background-color: var(--toolbarbutton-active-background, rgb(190 190 190 / 0.4)) !important;
+    }
+  }
+}
+
+/* Rounded corners */
+@media -moz-pref("uc.tweak.rounded-corners") {
+  findbar {
+    border: none !important;
+    margin-bottom: var(--uc-tweak-rounded-corners-padding, 0px) !important;
+    background-color: transparent !important;
+    padding-inline: var(--uc-tweak-rounded-corners-padding, 0px) !important;
+
+    &[hidden] {
+      margin-bottom: calc(var(--uc-tweak-rounded-corners-padding, 0px) - 40px) !important;
+    }
+  }
+}

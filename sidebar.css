@@ -1,11 +1,25 @@
 /* mimicfox */
-/* move toolbarspring between extension and application button to extensions-button */
+
+/* dynamic padding sidebar */
+@media -moz-pref("uc.tweak.rounded-corners") {
+  #main-window:not([sizemode="maximized"]) #vertical-tabs {
+    margin-right: calc(var(--uc-tweak-rounded-corners-padding) * -1) !important;
+  }
+
+  #main-window[sizemode="maximized"] #vertical-tabs {
+    margin-right: 0 !important;
+  }
+}
+
 #vertical-spacer {
   display: none;
 }
+
+/* move toolbarspring between extension and application button to extensions-button */
 #unified-extensions-button {
   margin-right: calc(1rem + 30px) !important;
 }
+
 @media -moz-pref("uc.tweak.remove-toolbarspring") {
   #vertical-spacer {
     display: none;

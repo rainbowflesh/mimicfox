@@ -1,0 +1,284 @@
+/* Edge-Frfox - browser.css  */
+/* OG https://github.com/bmFtZQ/edge-frfox  */
+
+/* Add a shadow when the toolbars move over content, eg. in macOS hovering over
+ * the menu bar in fullscreen mode. */
+#navigator-toolbox[style*="transform"] {
+  box-shadow: 0 -3px 5px 3px light-dark(rgb(0 0 0 / 0.3), rgb(0 0 0 / 0.6)) !important;
+}
+
+/*
+  MARK: Rounded corners (Rc)
+*/
+@media -moz-pref("uc.tweak.rounded-corners") {
+  /* Since Firefox 120, when the bookmarks bar is set to only open on new tabs,
+   * the bookmarks bar overlaps the #browser element. */
+  /* Change the element that shifts the browser content to the correct position. */
+  #main-window[BookmarksToolbarOverlapsBrowser] .newTabBrowserPanel,
+  #main-window[BookmarksToolbarOverlapsBrowser] #sidebar-box {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  #main-window[BookmarksToolbarOverlapsBrowser] #browser {
+    margin-top: var(--bookmarks-toolbar-overlapping-browser-height);
+  }
+
+  /* Make sure that the toolbars are not positioned in-front of the browser
+   * element. */
+  #main-window[BookmarksToolbarOverlapsBrowser] #navigator-toolbox:not([style*="z-index"]) {
+    z-index: auto !important;
+  }
+
+  /* Move the browser element in-front of the toolbars when on the new tab page. */
+  #main-window:not([BookmarksToolbarOverlapsBrowser]) #browser {
+    z-index: 1 !important;
+  }
+
+  /*
+    MARK: Rc Variables
+  */
+  #main-window:not([chromehidden~="toolbar"]) {
+    --uc-tweak-rounded-corners-padding: 4px;
+    --uc-tweak-rounded-corners-radius: 8px;
+    --uc-tweak-rounded-corners-shadow: 0 -0.8px 0 0 rgb(0 0 0 / 0.02), 0 0.5px 1px 1px rgb(0 0 0 / 0.06),
+      0 1px 1px rgb(0 0 0 / 0.1);
+    --browser-frame-bgcolor: var(--toolbar-bgcolor, var(--lwt-accent-color));
+
+    /* Different shadow for higher resolution displays. */
+    @media (resolution > 1.8dppx) {
+      --uc-tweak-rounded-corners-shadow: 0 0 0.5px 0.5px rgb(0 0 0 / 0.06), 0 0.5px 1.5px rgb(0 0 0 / 0.1);
+    }
+  }
+
+  /* Hide border below titlebar on macOS, as its titlebar already has a border. */
+  @media (-moz-platform: macos) {
+    :root[chromehidden~="toolbar"][chromehidden~="location"][chromehidden~="directories"] {
+      border-top: none !important;
+    }
+  }
+
+  /* Disable rounded corners in fullscreen, only if the toolbar is hidden. */
+  :root[inFullscreen] #navigator-toolbox[style*="margin-top"] + #browser,
+  :root[inDOMFullscreen] #browser {
+    --uc-tweak-rounded-corners-padding: 0;
+    --uc-tweak-rounded-corners-radius: 0;
+    --uc-tweak-rounded-corners-shadow: unset;
+  }
+
+  /*
+    MARK: Rc Browser
+  */
+  /* padding browser container inner */
+  #main-window:not([sizemode="maximized"]) #tabbrowser-tabbox {
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+    margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    margin-left: var(--uc-tweak-rounded-corners-padding) !important;
+  }
+
+  #main-window:not([sizemode="maximized"]) browser {
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  }
+
+  /* Prevent status panel corners and shadow from appearing outside the browser. */
+  #statuspanel {
+    overflow: hidden;
+  }
+
+  /*
+    MARK: Rc Sidebar
+  */
+  #sidebar-box {
+    margin-inline-start: var(--uc-tweak-rounded-corners-padding) !important;
+    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+
+    &[positionend] {
+      margin-inline-start: 0 !important;
+      margin-inline-end: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+  }
+
+  /*
+    MARK: Rc Devtools
+  */
+
+  /* Devtools window when docked to the left or right. */
+  .devtools-toolbox-side-iframe {
+    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+
+    /* Devtools window when docked to the left. */
+    &:first-child {
+      margin-inline-start: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+
+    /* Devtools window when docked to the right. */
+    &:last-child {
+      margin-inline-end: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+  }
+
+  /* Devtools window when docked to the bottom. */
+  .devtools-toolbox-bottom-iframe {
+    margin: var(--uc-tweak-rounded-corners-padding) !important;
+    margin-block-start: 0 !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+  }
+
+  /* Hide devtools splitter. */
+  .devtools-side-splitter,
+  .devtools-horizontal-splitter {
+    background-color: transparent !important;
+  }
+
+  /* Responsive design mode. */
+  .browserContainer.responsive-mode {
+    background-color: transparent !important;
+
+    & .rdm-toolbar {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+      border-top-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
+      border-top-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
+      width: calc(100% - var(--uc-tweak-rounded-corners-padding) * 2) !important;
+    }
+  }
+
+  /* Change colour of page when loading */
+  #tabbrowser-tabpanels {
+    background-color: transparent !important;
+  }
+}
+
+/* Ensure that dark mode is enabled completely in private browsing mode. */
+@media -moz-pref("browser.theme.dark-private-windows") {
+  :root[privatebrowsingmode="temporary"],
+  :root[privatebrowsingmode="temporary"] #nav-bar,
+  :root[privatebrowsingmode="temporary"] #PersonalToolbar {
+    --toolbar-color-scheme: dark !important;
+    --tab-selected-color-scheme: dark !important;
+    color-scheme: dark !important;
+  }
+}
+
+/* Apply colours to the default 'Auto' theme. */
+:root:not([lwtheme]) #navigator-toolbox {
+  color: var(--lwt-text-color) !important;
+
+  /* Inactive window background colours. */
+  &:-moz-window-inactive {
+    background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;
+    color: var(--lwt-text-color-inactive, var(--lwt-text-color)) !important;
+  }
+}
+
+/* Status/link preview panel */
+#statuspanel-label {
+  background-color: var(--toolbar-field-focus-background-color) !important;
+  color: var(--toolbar-field-focus-color) !important;
+  border-color: transparent !important;
+  box-shadow: 0 2px 5px #0002, 0 0 0 1px light-dark(#0001, #0002) !important;
+  border-radius: 0 4px 0 0 !important;
+
+  #statuspanel[mirror] & {
+    border-radius: 4px 0 0 0 !important;
+  }
+}
+
+/*
+  MARK: Windows
+*/
+@media (-moz-platform: windows) {
+  /* Colour the text selection background and foreground. */
+  ::selection {
+    background-color: light-dark(#0078d4, #93b8e7) !important;
+    color: light-dark(#fff, #000) !important;
+  }
+
+  /* Use accent colour in titlebar when Windows option is enabled. */
+  @media (-moz-windows-accent-color-in-titlebar) and -moz-pref("browser.theme.windows.accent-color-in-tabs.enabled") {
+    /* Uses :root:root to beat specificity of floating tabs adjustments. */
+    :root:root:not([lwtheme]) {
+      --lwt-accent-color: ActiveCaption !important;
+      --lwt-text-color: CaptionText !important;
+      --lwt-accent-color-inactive: InActiveCaption !important;
+      --lwt-text-color-inactive: InActiveCaptionText !important;
+    }
+  }
+
+  .titlebar-button:not(.titlebar-close):hover {
+    background-color: color-mix(in srgb, currentColor 11%, transparent) !important;
+
+    &:active {
+      background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
+    }
+  }
+
+  .titlebar-close:hover {
+    stroke: white !important;
+    background-color: #e81123 !important;
+
+    &:active {
+      background-color: #dc5c66 !important;
+    }
+
+    toolbar[brighttext] &:active {
+      background-color: #971821 !important;
+    }
+  }
+}
+
+/*
+  MARK: Preferences page
+*/
+@-moz-document url-prefix(about:preferences),
+url-prefix(about:addons) {
+  .category[selected] {
+    position: relative !important;
+    border-radius: 4px !important;
+  }
+
+  .category[selected]:not(:hover, :active) {
+    background-color: var(--in-content-button-background) !important;
+  }
+
+  .category[selected]::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    margin-block: auto;
+    height: 24px;
+    width: 3px;
+    left: 2px;
+    background-color: var(--in-content-accent-color);
+    border-radius: 3px;
+  }
+
+  button.tab-button:hover {
+    border-block-color: transparent var(--in-content-box-border-color) !important;
+  }
+
+  button.tab-button[selected],
+  button.tab-button[selected]:hover {
+    border-block-color: transparent currentColor !important;
+  }
+
+  .toggle-button {
+    --toggle-dot-margin: 4px !important;
+    --toggle-width: 40px !important;
+    --toggle-height: 20px !important;
+    --toggle-background-color: transparent !important;
+    --toggle-dot-background-color: var(--in-content-page-color) !important;
+    --toggle-dot-background-color-on-pressed: #fff !important;
+    --toggle-dot-transform-x: calc(
+      var(--toggle-width) - 2 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width) - var(--toggle-dot-width)
+    ) !important;
+  }
+}

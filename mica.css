@@ -1,20 +1,21 @@
 /* mimicfox */
 /* extra mica must use with MicaForEveryone */
+
 :root {
-  --panel-border-color: light-dark(#dadadabf, #6363637c) !important;
-  --arrowpanel-background: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
-}
-.urlbarView {
-  background-color: var(--arrowpanel-background);
+  --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
+  --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
 }
 
-#urlbar-background,
+/* handle all popup background to mica background */
 menupopup,
 panel:not(.autoscroller),
 slot[part="content"] {
+  background-color: transparent !important;
   appearance: menupopup !important;
   --panel-shadow-margin: 0px !important;
 }
+
+/* restore autoscroller */
 panel.autoscroller slot[part="content"],
 panel#autoscroller {
   .autoscroller {
@@ -24,21 +25,22 @@ panel#autoscroller {
   }
 }
 
-.tab-preview-text-container,
-.menupopup-arrowscrollbox,
-panelmultiview,
-tab-preview-thumbnail-container,
-popupnotification {
-  background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
-}
+/* reduce border color */
 toolbarseparator {
-  border-color: var(--mica-separator-color) !important;
+  border-color: var(--arrowpanel-border-color-mica) !important;
 }
 
+/* give all acrylics background color */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-  /* For acrylic, do the same we do for popups to guarantee some contrast */
-  background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
+  panelmultiview,
+  #tab-preview-panel,
+  #editBookmarkPanel,
+  .menupopup-arrowscrollbox {
+    background-color: var(--arrowpanel-background-mica) !important;
+  }
 }
+
+/* popup windows */
 
 /* make about dialog background transparent */
 @-moz-document url("chrome://browser/content/aboutDialog.xhtml")
@@ -47,15 +49,12 @@ toolbarseparator {
   #aboutDialogContainer {
     background: transparent !important;
   }
-
-  #clientBox {
-    background-clip: padding-box !important;
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+    #clientBox,
+    #bottomBox {
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
+    }
   }
-
-  #bottomBox {
-    background-color: transparent !important;
-  }
-
   #rightBox {
     -moz-context-properties: fill !important;
   }
@@ -216,23 +215,23 @@ toolbarseparator {
   #placesContentUrl,
   #places {
     background-color: transparent !important;
-    border: 0px !important;
+    border: 0.5px !important;
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #placesToolbar,
     #placesList,
     #contentView {
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
+      background-color: var(--arrowpanel-background-mica) !important;
     }
   }
   #infoBox {
-    border-top: 1px solid var(--panel-border-color) !important;
+    border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
   }
   #placesView > splitter {
-    border-inline-end: 1px solid var(--panel-border-color) !important;
+    border-inline-end: 1px solid var(--arrowpanel-border-color-mica) !important;
   }
   #infoBox {
-    border-top: 1px solid var(--panel-border-color) !important;
+    border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
   }
 }
 
