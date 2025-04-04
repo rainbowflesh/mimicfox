@@ -7,32 +7,19 @@
 }
 
 /* handle all popup background to mica background */
+#browser:not(.browser-toolbox-background),
 menupopup,
-panel:not(.autoscroller),
+panel:not(#autoscroller),
 slot[part="content"] {
   background-color: transparent !important;
   appearance: menupopup !important;
   --panel-shadow-margin: 0px !important;
 }
 
-/* restore autoscroller */
-panel.autoscroller slot[part="content"],
-panel#autoscroller {
-  .autoscroller {
-    &[scrolldir="NS"] {
-      appearance: none !important;
-    }
-  }
-}
-
-/* reduce border color */
-toolbarseparator {
-  border-color: var(--arrowpanel-border-color-mica) !important;
-}
-
 /* give all acrylics background color */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
   panelmultiview,
+  popupnotification,
   #tab-preview-panel,
   #editBookmarkPanel,
   .menupopup-arrowscrollbox {
@@ -40,8 +27,37 @@ toolbarseparator {
   }
 }
 
-/* popup windows */
+/* change autoscroller more visible */
+.autoscroller {
+  --panel-border-color: rgba(0, 0, 0, 0) !important;
+  --panel-shadow: 0 !important;
+  border: 0 !important;
+  pointer-events: none;
+}
 
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  .autoscroller {
+    --autoscroll-background-image: url('data:image/svg+xml,<svg fill="black" stroke="white" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg"><path d="M7.293,7.707a1,1,0,0,1,0-1.414l4-4a1,1,0,0,1,1.414,0l4,4a1,1,0,1,1-1.414,1.414L12,4.414,8.707,7.707A1,1,0,0,1,7.293,7.707Zm0,10,4,4a1,1,0,0,0,1.414,0l4-4a1,1,0,0,0-1.414-1.414L12,19.586,8.707,16.293a1,1,0,1,0-1.414,1.414Z"/></svg>') !important;
+    --panel-background: rgba(249, 249, 250, 0.8) no-repeat center var(--autoscroll-background-image);
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .autoscroller {
+    --autoscroll-background-image: url('data:image/svg+xml,<svg fill="white" stroke="black" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg"><path d="M7.293,7.707a1,1,0,0,1,0-1.414l4-4a1,1,0,0,1,1.414,0l4,4a1,1,0,1,1-1.414,1.414L12,4.414,8.707,7.707A1,1,0,0,1,7.293,7.707Zm0,10,4,4a1,1,0,0,0,1.414,0l4-4a1,1,0,0,0-1.414-1.414L12,19.586,8.707,16.293a1,1,0,1,0-1.414,1.414Z"/></svg>') !important;
+    --panel-background: rgba(30, 30, 30, 0.8) no-repeat center var(--autoscroll-background-image);
+  }
+}
+
+
+/* reduce border color */
+toolbarseparator {
+  border-color: var(--arrowpanel-border-color-mica) !important;
+}
+
+/* external windows */
 /* make about dialog background transparent */
 @-moz-document url("chrome://browser/content/aboutDialog.xhtml")
 {
