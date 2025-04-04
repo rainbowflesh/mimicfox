@@ -28,7 +28,7 @@
 
 /* hide sidebar config button */
 @media -moz-pref("uc.tweak.remove-sidebar-config-button") {
-  moz-button[view="viewCustomizeSidebar"] {
+  moz-button.expanded-button {
     display: none !important;
   }
 
