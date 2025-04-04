@@ -35,9 +35,23 @@
 .AnimatedTabList {
   overflow: hidden;
 }
-
+.Tab .close {
+  top: auto !important;
+  width: 16px;
+  height: 16px;
+}
 /* center tabs in thin view */
 @media (max-width: 100px) {
+  .Tab[data-pin="false"] .audio {
+    top: 6px !important;
+    left: calc(8px + var(--tabs-inner-gap)) !important;
+  }
+  .Tab[data-pin="true"] .audio {
+    background: var(--tabs-activated-bg);
+    top: 16px !important;
+    left: calc(8px + var(--tabs-inner-gap)) !important;
+  }
+
   .PinnedTabsBar {
     margin-top: 4px;
   }
@@ -65,10 +79,8 @@
 
   /* make pinned tabs act like native grid */
   .Tab .close {
-    top: -6px;
+    top: -6px !important;
     left: -6px;
-    width: 16px;
-    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
