@@ -4,7 +4,7 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 
 ## Preview
 
-[![Preview](https://rainbowflesh.github.io/images/blogs/mimicfox/dark-preview.png)](https://rainbowflesh.github.io/html/mimicfox.html "click image show light/dark theme comparison")
+[![Preview](./assets/previews/preview.png)](https://rainbowflesh.github.io/html/mimicfox.html "click image show light/dark theme comparison")
 
 ###### click image show light/dark theme comparison
 
