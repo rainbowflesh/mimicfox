@@ -3,7 +3,7 @@
 /* mimic native styles */
 
 #root.root {
-  --tabs-normal-bg: rgb(50, 49, 58);
+  --tabs-normal-bg: color-mix(in srgb, var(--tabs-activated-bg) 50%, transparent);
   --general-border-radius: 8px;
 }
 
@@ -22,6 +22,9 @@
 
 .TabsPanel.panel .Tab[data-active="false"] .body {
   background-color: transparent;
+}
+.PinnedTabsBar .Tab[data-active="false"] .body {
+  background-color: var(--tabs-normal-bg);
 }
 
 .new-tab-btns {
