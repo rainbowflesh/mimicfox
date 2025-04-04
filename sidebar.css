@@ -48,7 +48,7 @@
 }
 
 /* hide native sidebar */
-@media -moz-pref("uc.tweak.hide-native-sidebar") {
+@media -moz-pref("uc.tweak.remove-native-sidebar") {
   #sidebar-main,
   #sidebar-button {
     display: none;

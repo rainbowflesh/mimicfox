@@ -32,7 +32,7 @@
 /*
   MARK: Hide tab close button
 */
-@media -moz-pref("uc.tweak.hide-tab-close-button") {
+@media -moz-pref("uc.tweak.remove-tab-close-button") {
   .tabbrowser-tab .tab-close-button {
     visibility: collapse !important;
   }
