@@ -1,8 +1,12 @@
-/* Edge-Frfox - navbar.css  */
+/* mimicfox 🔥🦊 */
+/* navbar.css  */
 /* OG https://github.com/bmFtZQ/edge-frfox  */
 
-toolbarbutton#PlacesChevron.toolbarbutton-1 {
-  /* display: none; */
+/* hide persenal bookmark overflow button when space enough */
+@media (min-width: 1000px) {
+  toolbarbutton#PlacesChevron.toolbarbutton-1 {
+    display: none;
+  }
 }
 
 :root {

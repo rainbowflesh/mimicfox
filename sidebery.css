@@ -1,0 +1,166 @@
+/* mimicfox 🔥🦊 */
+
+/* mimic native styles */
+
+#root.root {
+  --tabs-normal-bg: rgb(50, 49, 58);
+  --general-border-radius: 8px;
+}
+
+:root {
+  background: transparent !important;
+  --tab-size: 32px;
+}
+
+#root.root {
+  --frame-bg: transparent !important;
+}
+
+.PinnedTabsBar {
+  margin-top: 2px;
+}
+
+.TabsPanel.panel .Tab[data-active="false"] .body {
+  background-color: transparent;
+}
+
+.new-tab-btns {
+  padding-bottom: 8px !important;
+}
+
+/* hide overflow tabs */
+.AnimatedTabList {
+  overflow: hidden;
+}
+
+/* center tabs in thin view */
+@media (max-width: 100px) {
+  .PinnedTabsBar {
+    margin-top: 4px;
+  }
+  .Tab,
+  .tab-wrapper {
+    margin: auto;
+    width: var(--tab-size);
+    padding-inline: 0;
+  }
+  .fav {
+    margin: auto !important;
+  }
+  .t-box {
+    display: none;
+  }
+  div.new-tab-btns {
+    margin: auto;
+    width: var(--tab-size) !important;
+    padding-inline: 0;
+    padding-left: 0px !important;
+  }
+  div.Tab .body {
+    height: var(--tab-size) !important;
+  }
+
+  /* make pinned tabs act like native grid */
+  .Tab .close {
+    top: -6px;
+    left: -6px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: light-dark(#f7f7f7, #3b3b3b);
+    box-shadow: 0 0.125px 0.25px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
+      0 1px 2px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+  }
+
+  .Tab .close:hover {
+    background-color: color-mix(in srgb, currentColor 17%, light-dark(#e5e5e5, #444444));
+    opacity: 0.5;
+  }
+
+  .close-icon {
+    filter: brightness(1.4) contrast(1.2);
+    fill: light-dark(black, white) !important;
+    position: unset !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* leave space for separator */
+  #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
+    margin-bottom: 6px;
+  }
+  .panel[data-pos="center"] {
+    margin-top: 8px;
+  }
+
+  /* add native like separator */
+  .PinnedTabsBar[data-empty="false"] ~ .panel-box::before {
+    content: "" !important;
+    display: block !important;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent) !important;
+    margin-inline: calc(3 * 0.267rem) !important;
+  }
+
+  /* padding tabs */
+  .TabsPanel.panel .Tab {
+    margin-top: 5.1px;
+    margin-bottom: 4px;
+  }
+
+  /* padding pinned tabs */
+  #root[data-pinned-tabs-position="top"] .PinnedTabsBar .tab-wrapper {
+    padding-block: 3px 2px !important;
+  }
+}
+
+@media (min-width: 101px) {
+  /* make pinned tabs act like native grid */
+  .PinnedTabsBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--tabs-margin);
+    padding: 0 var(--tabs-margin) var(--tabs-margin);
+  }
+  .PinnedTabsBar .tab-wrapper {
+    flex: 1 1 0;
+  }
+  .PinnedTabsBar .tab-wrapper .Tab {
+    min-width: var(--tab-size) !important;
+    width: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* restore tab size */
+  .Tab[data-pin="false"] .fav {
+    margin: 0 10px 0 calc(var(--tabs-inner-gap) + 2px);
+    z-index: 20;
+  }
+
+  /* padding pinned tabs */
+  #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
+    margin-bottom: 4px;
+  }
+  .panel[data-pos="center"] {
+    margin-top: 4px;
+  }
+
+  /* padding pinned tabs */
+  #root[data-pinned-tabs-position="top"] .PinnedTabsBar .tab-wrapper {
+    padding-block: 4px 2px !important;
+  }
+  /* padding tabs */
+  .TabsPanel.panel .Tab {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+/* fix scroll size after tabs padded */
+.ScrollBox > .scroll-container > .scrollable {
+  min-height: 0%;
+}

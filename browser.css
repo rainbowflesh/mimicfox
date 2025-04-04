@@ -79,20 +79,6 @@
     overflow: hidden;
   }
 
-  /* Sidebar */
-  #sidebar-box {
-    margin-inline-start: var(--uc-tweak-rounded-corners-padding) !important;
-    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
-    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    overflow: hidden !important;
-    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
-
-    &[positionend] {
-      margin-inline-start: 0 !important;
-      margin-inline-end: var(--uc-tweak-rounded-corners-padding) !important;
-    }
-  }
-
   /* Change colour of page when loading */
   #tabbrowser-tabpanels {
     background-color: transparent !important;

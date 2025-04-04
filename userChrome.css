@@ -43,7 +43,4 @@ mimic Microsoft Edge and several community userChromes.
 /* optional extra mica */
 @import url("./mica.css") -moz-pref("widget.windows.mica.extra");
 
-/* optional icon only extension menu */
-@import url("./icon-only-extension-menu.css") -moz-pref("uc.tweak.icon-only-extension-menu");
-
 @import url("./sidebar.css");

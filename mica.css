@@ -8,6 +8,7 @@
 
 /* handle all popup background to mica background */
 #browser:not(.browser-toolbox-background),
+window#webextpanels-window,
 menupopup,
 panel:not(#autoscroller),
 slot[part="content"] {
@@ -22,6 +23,8 @@ slot[part="content"] {
   popupnotification,
   #tab-preview-panel,
   #editBookmarkPanel,
+  .tab-preview-text-container,
+  tab-preview-thumbnail-container,
   .menupopup-arrowscrollbox {
     background-color: var(--arrowpanel-background-mica) !important;
   }
@@ -51,11 +54,11 @@ slot[part="content"] {
   }
 }
 
-
 /* reduce border color */
 toolbarseparator {
   border-color: var(--arrowpanel-border-color-mica) !important;
 }
+
 
 /* external windows */
 /* make about dialog background transparent */
@@ -179,6 +182,9 @@ toolbarseparator {
   #infoIcon {
     -moz-context-properties: fill !important;
     fill: var(--uwp-global-front) !important;
+  }
+  button[dlgtype="extra1"][label="Disable"] {
+    display:none;
   }
 }
 

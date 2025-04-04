@@ -26,6 +26,16 @@ A Cutting "edge" firefox userChrome.css that mimic Microsoft Edge and several co
 | uc.tweak.remove-sidebar-config-button  | true             | remove-sidebar-config-button.jpg                                                                                 |
 | uc.plugin.simpleMenuWizard             | true             | remove-sidebar-config-button.jpg                                                                                 |
 
+uc.tweak.navbar.compact
+uc.tweak.revert-context-menu
+uc.tweak.compact-extensions-menu
+uc.tweak.remove-toolbar-spacer
+uc.tweak.toolbar-spacer-large
+uc.tweak.remove-overflow-indicator
+uc.tweak.hide-tab-close-button
+uc.tweak.always-show-navbar-button
+uc.tweak.privacy-enhance
+
 ## Relate links
 
 [example](https://example.com)

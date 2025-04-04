@@ -1,8 +1,7 @@
-/* Edge-Frfox - popup.css  */
+/* mimicfox 🔥🦊 */
+/* popup.css */
 /* OG https://github.com/bmFtZQ/edge-frfox  */
-/*
-  MARK: Variables
-*/
+
 :root {
   --panel-subview-body-padding: 2px 0 !important;
   --arrowpanel-border-radius: 8px !important;
@@ -341,7 +340,65 @@ panelview .toolbarbutton-1,
   --uei-icon-size: 24px !important;
 }
 
-@media -moz-pref("uc.tweak.context-menu.compact-extensions-menu") {
+/* icon only extension menu  */
+@media -moz-pref("uc.tweak.icon-only-extensions-menu") {
+  #unified-extensions-panel #unified-extensions-view {
+    width: 100% !important; /*  For firefox v115.x */
+  }
+
+  #unified-extensions-panel .unified-extensions-item {
+    width: 40px;
+    height: 40px;
+  }
+
+  #unified-extensions-view {
+    --uei-icon-size: 20px; /*  Change icon size */
+    --firefoxcss-number-of-extensions-in-a-row: 3; /*  Increase to the number of icons you want in one row */
+  }
+
+  #unified-extensions-view .panel-header,
+  #unified-extensions-view .panel-header + toolbarseparator,
+  #unified-extensions-view .panel-subview-body + toolbarseparator,
+  #unified-extensions-view #unified-extensions-manage-extensions,
+  #unified-extensions-view .unified-extensions-item-menu-button.subviewbutton,
+  #unified-extensions-view .unified-extensions-item-action-button .unified-extensions-item-contents {
+    display: none !important;
+  }
+
+  #unified-extensions-view .panel-subview-body {
+    padding: 2px !important;
+  }
+
+  #unified-extensions-view .unified-extensions-item .unified-extensions-item-icon,
+  #unified-extensions-view .unified-extensions-item .toolbarbutton-badge-stack {
+    margin-inline-end: 0px !important;
+  }
+
+  #unified-extensions-view #overflowed-extensions-list,
+  #unified-extensions-view #unified-extensions-area,
+  #unified-extensions-view .unified-extensions-list {
+    display: grid !important;
+    grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row), auto);
+    justify-items: left !important;
+    align-items: left !important;
+  }
+
+  #unified-extensions-view .unified-extensions-list .unified-extensions-item,
+  #unified-extensions-view .unified-extensions-list {
+    max-width: max-content;
+  }
+
+  #unified-extensions-view #unified-extensions-area {
+    padding-bottom: 2px !important;
+    border-bottom: 1px solid #aeaeae33 !important;
+  }
+
+  #unified-extensions-view:is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
+    margin: 2px !important;
+  }
+}
+/* compact extensions menu */
+@media -moz-pref("uc.tweak.compact-extensions-menu") {
   :root {
     --uei-icon-size: 16px !important;
   }
@@ -811,18 +868,21 @@ dialog {
   }
 }
 
-
 /* ----- Replace email address in hamburger menu */
 /* ----- to any text you want */
-#appMenu-fxa-label2 #appMenu-header-description {display: none !important;}
+#appMenu-fxa-label2 #appMenu-header-description {
+  display: none !important;
+}
 
 #appMenu-popup #appMenu-fxa-label2::before {
-	content: 'Firefox account' !important; /* Write any text you want */
+  content: "Firefox account" !important; /* Write any text you want */
 }
 
 /* Fix when icons in main menu */
-#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{ background-image: none !important;}
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
+  background-image: none !important;
+}
 
-#appMenu-fxa-status2[fxastatus] > toolbarbutton::before{
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
   width: initial !important;
 }

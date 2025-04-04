@@ -1,4 +1,5 @@
-/* mimicfox */
+/* mimicfox 🔥🦊 */
+/* sidebar.css */
 
 /* dynamic padding sidebar */
 @media -moz-pref("uc.tweak.rounded-corners") {
@@ -10,7 +11,9 @@
     margin-right: 0 !important;
   }
 }
-
+#vertical-pinned-tabs-container-separator {
+  margin-bottom: -2px;
+}
 #vertical-spacer {
   display: none;
 }
@@ -41,5 +44,48 @@
 
   box#vertical-tabs {
     margin-bottom: calc(-1 * var(--space-small));
+  }
+}
+
+/* hide native sidebar */
+@media -moz-pref("uc.tweak.hide-native-sidebar") {
+  #sidebar-main,
+  #sidebar-button {
+    display: none;
+  }
+  #nav-bar-customization-target {
+    padding-left: var(--toolbar-start-end-padding);
+  }
+}
+
+@media -moz-pref("uc.tweak.rounded-corners") {
+  /* Sidebar */
+  #sidebar-box {
+    margin-inline-start: var(--uc-tweak-rounded-corners-padding) !important;
+    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+
+    &[positionend] {
+      margin-inline-start: 0 !important;
+      margin-inline-end: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+  }
+  @media -moz-pref("uc.plugin.sidebery") {
+    #main-window:not([sizemode="maximized"]) #sidebar-box {
+      margin: 0px -6px -1.5px 4px !important;
+    }
+    #sidebar-box {
+      margin: 4px -0px 0px 6px !important;
+      min-width: 55px !important;
+    }
+    browser#sidebar {
+      background: transparent !important;
+      @media -moz-pref("widget.windows.mica.extra") {
+        --sidebar-border-color: transparent !important;
+        box-shadow: 0 0 !important;
+      }
+    }
   }
 }

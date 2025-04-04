@@ -1,5 +1,7 @@
-/* urlbar.css
- * OG https://github.com/bmFtZQ/edge-frfox */
+/* mimicfox 🔥🦊 */
+/* urlbar.css */
+/* OG https://github.com/bmFtZQ/edge-frfox */
+
 :root {
   --urlbar-min-height: 30px !important;
   --urlbarView-item-inline-padding: calc(
@@ -271,4 +273,3 @@
     }
   }
 }
-
