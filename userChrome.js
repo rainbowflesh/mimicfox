@@ -1,5 +1,2 @@
-gBrowser.tabContainer.addEventListener("dblclick", function (event) {
-  if (event.target.localName == "tab" && event.button == 0) {
-    gBrowser.getBrowserForTab(event.target).reload();
-  }
-});
+// userChrome.js
+userChrome.import("./userChrome/tabstoolbar_doubleclickontab_reloadtab.uc.js");

@@ -1,5 +1,6 @@
-/* Edge-Frfox - colors.css
- * OG https://github.com/bmFtZQ/edge-frfox */
+/* mimicfox 🔥🦊 */
+/* colors.css  */
+/* OG https://github.com/bmFtZQ/edge-frfox  */
 
 /* extra mica */
 @media -moz-pref("widget.windows.mica.extra") {
@@ -111,9 +112,7 @@
   accent-color: var(--button-primary-bgcolor) !important;
 }
 
-/*
-  MARK: Linux / GTK csd
-*/
+/* Linux / GTK */
 @media (-moz-gtk-csd-available) {
   :root:not([lwtheme]),
     /* `--newtab-background-color-secondary used` to differentiate between a dark
@@ -139,7 +138,6 @@
     --toolbar-bgcolor: light-dark(-moz-dialog, color-mix(in srgb, -moz-dialog 92%, white)) !important;
     --toolbar-color: -moz-dialogtext !important;
     --toolbarbutton-icon-fill-attention: var(--uc-accent-adjusted) !important;
-    --chrome-content-separator-color: color-mix(in srgb, currentColor 17%, var(--toolbar-bgcolor)) !important;
     --newtab-background-color: light-dark(-moz-dialog, color-mix(in srgb, -moz-dialog 82%, black)) !important;
     /* URL bar */
     --toolbar-field-background-color: light-dark(Field, color-mix(in srgb, Field 96%, -moz-dialogtext)) !important;
@@ -187,7 +185,6 @@
     /* Sidebar */
     --sidebar-background-color: var(--toolbar-bgcolor) !important;
     --sidebar-text-color: var(--toolbar-color) !important;
-    --sidebar-border-color: var(--chrome-content-separator-color) !important;
   }
 }
 
