@@ -1,19 +1,15 @@
 /* mimicfox 🔥🦊 */
-
 /* mimic native styles */
-
 #root.root {
   --tabs-normal-bg: color-mix(in srgb, var(--tabs-activated-bg) 50%, transparent);
   --general-border-radius: 8px;
+  --tabs-margin: 6px;
+  --frame-bg: transparent !important;
 }
 
 :root {
   background: transparent !important;
   --tab-size: 32px;
-}
-
-#root.root {
-  --frame-bg: transparent !important;
 }
 
 .PinnedTabsBar {
@@ -119,12 +115,6 @@
     margin-inline: calc(3 * 0.267rem) !important;
   }
 
-  /* padding tabs */
-  .TabsPanel.panel .Tab {
-    margin-top: 5.1px;
-    margin-bottom: 4px;
-  }
-
   /* padding pinned tabs */
   #root[data-pinned-tabs-position="top"] .PinnedTabsBar .tab-wrapper {
     padding-block: 3px 2px !important;
@@ -167,11 +157,6 @@
   /* padding pinned tabs */
   #root[data-pinned-tabs-position="top"] .PinnedTabsBar .tab-wrapper {
     padding-block: 4px 2px !important;
-  }
-  /* padding tabs */
-  .TabsPanel.panel .Tab {
-    margin-top: 6px;
-    margin-bottom: 6px;
   }
 }
 
