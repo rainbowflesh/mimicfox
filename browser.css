@@ -66,8 +66,10 @@
   #main-window:not([sizemode="maximized"]) #tabbrowser-tabbox {
     border-radius: var(--uc-tweak-rounded-corners-radius) !important;
     margin-right: var(--uc-tweak-rounded-corners-padding) !important;
-    margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
-    margin-left: var(--uc-tweak-rounded-corners-padding) !important;
+    margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;'
+    #main-window:not([sizemode="maximized"]){
+      margin-left: var(--uc-tweak-rounded-corners-padding) !important;      
+    }
   }
 
   #main-window:not([sizemode="maximized"]) browser {

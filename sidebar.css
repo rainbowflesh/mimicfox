@@ -11,11 +11,21 @@
     margin-right: 0 !important;
   }
 }
+
 #vertical-pinned-tabs-container-separator {
   margin-bottom: -2px;
 }
+
 #vertical-spacer {
   display: none;
+}
+
+/* fix sidebar separator length  */
+#main-window:not([sizemode="maximized"]) #vertical-pinned-tabs-container-separator {
+  display: block;
+  border-bottom: var(--tabstrip-inner-border);
+  margin-left: var(--tab-inner-inline-margin) !important;;
+  margin-right: calc(var(--tab-inner-inline-margin) + 3px) !important;;
 }
 
 /* hide sidebar tab overflow shadow */
