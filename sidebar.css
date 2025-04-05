@@ -1,6 +1,10 @@
 /* mimicfox 🔥🦊 */
 /* sidebar.css */
 
+:root {
+  --sidebar-box-size: calc(4em + 3px);
+}
+
 /* dynamic padding sidebar */
 @media -moz-pref("uc.tweak.rounded-corners") {
   #main-window:not([sizemode="maximized"]) #vertical-tabs {
@@ -24,8 +28,8 @@
 #main-window:not([sizemode="maximized"]) #vertical-pinned-tabs-container-separator {
   display: block;
   border-bottom: var(--tabstrip-inner-border);
-  margin-left: var(--tab-inner-inline-margin) !important;;
-  margin-right: calc(var(--tab-inner-inline-margin) + 3px) !important;;
+  margin-left: var(--tab-inner-inline-margin) !important;
+  margin-right: calc(var(--tab-inner-inline-margin) + 3px) !important;
 }
 
 /* hide sidebar tab overflow shadow */
@@ -38,7 +42,7 @@
 
 /* hide sidebar config button */
 @media -moz-pref("uc.tweak.remove-sidebar-config-button") {
-  moz-button.expanded-button {
+  button-group.tools-and-extensions.actions-list[orientation="vertical"] moz-button[view="viewCustomizeSidebar"] {
     display: none !important;
   }
 
@@ -59,6 +63,10 @@
 
 /* hide native sidebar */
 @media -moz-pref("uc.tweak.remove-native-sidebar") {
+  #sidebar-box {
+    min-width: var(--sidebar-box-size) !important;
+    max-width: 75vw;
+  }
   #sidebar-main,
   #sidebar-button {
     display: none;
@@ -69,33 +77,22 @@
 }
 
 @media -moz-pref("uc.tweak.rounded-corners") {
-  /* Sidebar */
   #sidebar-box {
-    margin-inline-start: var(--uc-tweak-rounded-corners-padding) !important;
-    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
     border-radius: var(--uc-tweak-rounded-corners-radius) !important;
     overflow: hidden !important;
     box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
-
+    padding-right: 0 !important;
     &[positionend] {
       margin-inline-start: 0 !important;
       margin-inline-end: var(--uc-tweak-rounded-corners-padding) !important;
     }
   }
-  @media -moz-pref("uc.plugin.sidebery") {
-    #main-window:not([sizemode="maximized"]) #sidebar-box {
-      margin: 0px -6px -1.5px 4px !important;
-    }
-    #sidebar-box {
-      margin: 4px -0px 0px 6px !important;
-      min-width: 55px !important;
-    }
-    browser#sidebar {
-      background: transparent !important;
-      @media -moz-pref("widget.windows.mica.extra") {
-        --sidebar-border-color: transparent !important;
-        box-shadow: 0 0 !important;
-      }
-    }
+}
+
+@media -moz-pref("widget.windows.mica.extra") {
+  browser#sidebar {
+    background: transparent !important;
+    --sidebar-border-color: transparent !important;
+    box-shadow: 0 0 !important;
   }
 }
