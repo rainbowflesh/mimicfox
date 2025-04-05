@@ -31,8 +31,9 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 | `widget.windows.mica.popups`             | 0 or 1 or 2                       | Disabled / Enabled / Auto (Firefox 138+)                                                                                  |
 | `widget.windows.mica.toplevel-backdrop`  | 0 or 1 or 2 or 3                  | Auto / Mica / Acrylic / MicaAlt (Firefox 138+)                                                                            |
 | `toolkit.tabbox.switchByScrolling`       | TRUE/false                        | switchByScrolling.gif                                                                                                     |
-| `uc.plugin.sidebery`                     | true/FALSE                        | Sidebery compatible                                                                                                       |
-| `uc.plugin.simpleMenuWizard`             | TRUE/false                        | remove-sidebar-config-button.jpg                                                                                          |
+| `uc.plugin.sidebery`                     | true/FALSE                        | Sidebery compatible, copy everything in `./sidebery.css` to make sidebery looks like native vertical tab styles           |
+| `uc.plugin.simpleMenuWizard`             | TRUE/false                        | To use simpleMenuWizard put entire `simpleMenuWizard-master` to `./plugins/`                                              |
+| `uc.plugin.edge-frfox`                   | TRUE/false                        | Enable edge-frfox styles                                                                                                  |
 | `uc.tweak.always-show-navbar-button`     | true/FALSE                        | ![](./assets/previews/always-show-navbar-button.gif) Always show navbar buttons even window really have no space for them |
 | `uc.tweak.compact-extensions-menu`       | true/FALSE                        | ![](./assets/previews/extension1.png)                                                                                     |
 | `uc.tweak.icon-only-extension-menu`      | TRUE/false                        | ![](./assets/previews/extension2.png)                                                                                     |
