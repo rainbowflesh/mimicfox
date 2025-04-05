@@ -49,6 +49,9 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 | `uc.tweak.toolbar-spacer-large`          | true/FALSE                        | ![](./assets/previews/toolbar-spacer-large.gif)                                                                           |
 | `uc.tweak.rounded-corners`               | TRUE/false                        | ![](./assets/previews/rounded-corners.gif)                                                                                |
 
+> [!IMPORTANT]
+> Firefox are super dynamic on sidebar width, you will encounter unwanted sidebar size and tab size without adjusting by yourself in `./sidebar` and `./sidebery`.
+
 ## Relate links
 
 - https://github.com/bmFtZQ/edge-frfox

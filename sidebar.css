@@ -2,6 +2,7 @@
 /* sidebar.css */
 
 :root {
+  /* define sidebar minimal width */
   --sidebar-box-size: calc(4em + 3px);
 }
 

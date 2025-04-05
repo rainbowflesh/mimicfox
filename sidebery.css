@@ -6,6 +6,7 @@
   --tab-selected-shadow: 0 0.125px 0.25px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
     0 1px 2px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
   --tab-selected-shadow-size: 2px;
+  /* define tab size */
   --tab-size: max(32px, calc(1.7 * 1em));
   --tab-button-size: 16px;
 }
@@ -13,13 +14,14 @@
 #root.root {--tabs-pinned-height: var(--tab-size);}
 #root.root {--tabs-pinned-width: var(--tab-size);}
 #root.root {--tabs-height: var(--tab-size);}
+#root.root {--ntb-btn-height: var(--tab-size);}
 #root.root {--tabs-indent: 12px;}
 #root.root {--tabs-inner-gap: 5px;}
-#root.root {--frame-bg: transparent;}
-#root.root {--general-border-radius: 8px;}
 #root.root {--tabs-normal-bg: color-mix(in srgb, var(--tabs-activated-bg) 50%, transparent);}
-#root.root {--ntb-btn-height: var(--tab-size);}
+#root.root {--general-border-radius: 8px;}
 #root.root {--general-margin: 9px;}
+/* for extra mica */
+#root.root {--frame-bg: transparent;}
 
 .Notifications + .main-box .central-box {
   margin-top: 5px !important;
