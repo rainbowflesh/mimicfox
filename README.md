@@ -11,7 +11,7 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 ## Installation
 
 1. Download [code](https://github.com/rainbowflesh/mimicfox/archive/refs/heads/main.zip) or clone this [repo](https://github.com/rainbowflesh/mimicfox.git)
-2. Unzip and move to `about:profiles` > `Profile` > `Root Directory`.
+2. Unzip and move to `about:profiles` > `Profile` > `Root Directory`, change folder name to `chrome`.
 3. Go to [about:config](about:config), change following preference
 
    > `toolkit.legacyUserProfileCustomizations.stylesheets` = `true`
