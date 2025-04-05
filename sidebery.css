@@ -23,10 +23,6 @@
   background-color: var(--tabs-normal-bg);
 }
 
-.new-tab-btns {
-  padding-bottom: 8px !important;
-}
-
 /* hide overflow tabs */
 .AnimatedTabList {
   overflow: hidden;
