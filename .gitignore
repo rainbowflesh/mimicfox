@@ -1,3 +1,4 @@
 examples/*
 plugins/simpleMenuWizard-master
-!plugins/edge-frfox-main/chrome/custom.css
+plugins/scripts
+user.js
