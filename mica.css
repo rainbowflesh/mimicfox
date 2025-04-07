@@ -1,6 +1,6 @@
 /* mimicfox */
 /* extra mica must use with MicaForEveryone */
-
+@import url("./acrylic-noise.css");
 :root {
   --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
   --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
@@ -21,13 +21,19 @@ slot[part="content"] {
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
   panelmultiview,
   popupnotification,
-  #tab-preview-panel,
-  #editBookmarkPanel,
-  .tab-preview-text-container,
+  panel#editBookmarkPanel,
   tab-preview-thumbnail-container,
+  #tab-preview-panel,
+  .tab-preview-text-container,
   .menupopup-arrowscrollbox {
     background-color: var(--arrowpanel-background-mica) !important;
+    background-image: var(--acrylic-noise) !important;
+    background-repeat: repeat !important;
   }
+}
+#navigator-toolbox,
+#main-window {
+  background-image: var(--acrylic-noise) !important;
 }
 
 /* change autoscroller more visible */
@@ -59,7 +65,6 @@ toolbarseparator {
   border-color: var(--arrowpanel-border-color-mica) !important;
 }
 
-
 /* external windows */
 /* make about dialog background transparent */
 @-moz-document url("chrome://browser/content/aboutDialog.xhtml")
@@ -71,6 +76,7 @@ toolbarseparator {
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #clientBox,
     #bottomBox {
+      background-image: var(--acrylic-noise) !important;
       background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
     }
   }
@@ -184,7 +190,7 @@ toolbarseparator {
     fill: var(--uwp-global-front) !important;
   }
   button[dlgtype="extra1"][label="Disable"] {
-    display:none;
+    display: none;
   }
 }
 
@@ -244,6 +250,7 @@ toolbarseparator {
     #placesList,
     #contentView {
       background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
     }
   }
   #infoBox {
@@ -267,7 +274,8 @@ toolbarseparator {
     #topBar,
     #mainDeck {
       color: lightgray !important;
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
       border: none !important;
     }
   }

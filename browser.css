@@ -68,7 +68,7 @@
     margin-right: var(--uc-tweak-rounded-corners-padding) !important;
     margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;'
     #main-window:not([sizemode="maximized"]){
-      margin-left: var(--uc-tweak-rounded-corners-padding) !important;      
+      margin-left: var(--uc-tweak-rounded-corners-padding) !important;
     }
   }
 
@@ -85,6 +85,12 @@
   #tabbrowser-tabpanels {
     background-color: transparent !important;
   }
+
+/* make picture in picture rounded   */
+    @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml"){
+    html{
+      border-radius: 8px;
+    }
 }
 
 /* Ensure that dark mode is enabled completely in private browsing mode. */
