@@ -578,7 +578,6 @@ panel[type="autocomplete-richlistbox"] {
   menupopup:not(.PanelUI-subView),
   menulist > menupopup:not(.PanelUI-subView) > menucaption {
     -moz-window-shadow: none !important;
-    background: 0 !important;
     border: 0 !important;
     color: var(--arrowpanel-color) !important;
   }
