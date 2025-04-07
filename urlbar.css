@@ -12,7 +12,7 @@
   --urlbar-margin-inline: 6px !important;
   --identity-box-margin-inline: 6px !important;
   --uc-urlbar-icon-inline-padding: var(--uc-toolbarbutton-inner-inline-padding);
-  --uc-urlbar-inline-padding: 5px;
+  --uc-urlbar-inline-padding: 8px;
   --uc-urlbar-shadow: 0 0 4px rgb(0 0 0 / 0.1);
   --urlbarView-rich-suggestion-default-icon-size: 32px !important;
   --uc-urlbar-open-border-radius: 8px !important;
@@ -59,6 +59,7 @@
 #searchbar {
   padding-inline: var(--uc-urlbar-inline-padding) !important;
 }
+
 /* urlbar suggestions container. */
 .urlbarView {
   margin-inline: 0 !important;
@@ -77,47 +78,7 @@
   }
 }
 
-/* ----------- urlbar item ----------- */
-.urlbarView-row {
-  padding-block: 0 !important;
-  border: none !important;
-  border-radius: 0 !important;
-
-  & .urlbarView-row-inner {
-    padding-block: 8px !important;
-  }
-
-  /* Vertically align search suggestion thumbnail images. */
-  &[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
-    margin-inline-start: calc(
-      var(--urlbarView-icon-margin-start) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
-    ) !important;
-    margin-inline-end: calc(
-      var(--urlbarView-icon-margin-end) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
-    ) !important;
-  }
-}
-
-.urlbarView-row[selected] .urlbarView-row-inner {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* search item winui3 identical */
-.urlbarView-row[selected] .urlbarView-row-inner::before {
-  content: "";
-  width: 0 !important;
-  display: block !important;
-  position: absolute !important;
-  background-color: AccentColor !important;
-  border-radius: 99px;
-  padding: 1rem 2px !important;
-  left: 0px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
+/* ----------- urlbar ----------- */
 /* Keep urlbar in place when expanding. */
 #urlbar[breakout][breakout-extend] {
   /* Firefox < v133 */
@@ -125,7 +86,6 @@
     left: 0 !important;
     width: 100% !important;
   }
-
   /* Firefox >= v133 */
   &[style*="--urlbar-width"] {
     margin-left: 0 !important;
@@ -150,7 +110,6 @@
     margin-inline-end: 8px !important;
   }
 }
-/* Search engine indicator. */
 #urlbar-search-mode-indicator {
   :root:not([lwtheme]) & {
     background-color: var(--urlbar-box-hover-bgcolor) !important;
@@ -160,116 +119,238 @@
     font-size: 0.9em !important;
   }
 }
+
 /* Remove border between urlbar input and suggestions. */
 #urlbar[open] > .urlbarView > .urlbarView-body-outer > .urlbarView-body-inner {
   border-top: 0 !important;
 }
 
-/* ----------- urlbar buttons ----------- */
-.urlbar-page-action,
-#urlbar-go-button,
-.search-go-button,
-#tracking-protection-icon-container,
-#identity-icon-box {
-  padding-inline: var(--uc-urlbar-icon-inline-padding) !important;
-  width: calc(var(--uc-urlbar-icon-inline-padding) * 2 + 16px) !important;
+/* ----------- urlbar item ----------- */
+/* Remove empty space from tabs bar */
+.urlbarView-row {
+  padding-block: 0 !important;
+  /* Vertically align search suggestion thumbnail images. */
+  &[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
+    margin-inline-start: calc(
+      var(--urlbarView-icon-margin-start) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
+    ) !important;
+    margin-inline-end: calc(
+      var(--urlbarView-icon-margin-end) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
+    ) !important;
+  }
 }
-
-/* Site information and Permissions buttons. */
-#identity-icon-box,
-#identity-permission-box,
-.notification-anchor-icon {
-  padding-inline: var(--uc-urlbar-icon-inline-padding) !important;
-}
-
-/* Zoom level and tab container indicators. */
-#userContext-icons,
-#urlbar-zoom-button {
-  padding-inline: var(--uc-urlbar-icon-inline-padding) !important;
-  margin-block: 0 !important;
-  margin-inline: 0 !important;
-}
-
-/* Move tracking protection button. */
-#tracking-protection-icon-container,
-#page-action-buttons {
-  order: 2 !important;
-}
-
-/* Hide tracking protection button when not hovering over urlbar. */
-.browser-toolbar:not(:hover) #tracking-protection-icon-container:not([open]) {
-  visibility: collapse !important;
-}
-
-/* Focus border for urlbar. */
-#urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background,
-#searchbar:focus-within {
-  outline-offset: calc(var(--focus-outline-width) * -1 + 1px) !important;
-}
-
-/* Pin icon for urlbar suggested sites. */
-.urlbarView-row[pinned] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-type-icon {
-  fill: var(--toolbar-field-color) !important;
-}
-
-#urlbar-input::placeholder,
-.searchbar-textbox::placeholder {
-  opacity: 0.6 !important;
-}
-/* Make the lock icon brighter in dark mode. */
-#nav-bar[brighttext] #identity-box:not([pageproxystate="invalid"]) #identity-icon {
-  fill-opacity: calc(var(--urlbar-icon-fill-opacity) * 1.8) !important;
-}
-
-/* Make the urlbar label opaque in light mode, matching the icons. */
-#nav-bar:not([brighttext]) #identity-box #identity-icon-label {
-  opacity: var(--urlbar-icon-fill-opacity) !important;
-}
-
-/* ----------- urlbar label ----------- */
-/* Label on the left of the urlbar, shown when viewing Firefox or extension pages. */
-#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button {
+.urlbarView-row[selected] .urlbarView-row-inner {
+  display: flex;
+  align-items: center;
   position: relative;
-  width: unset !important;
+}
+/* search item winui3 identical */
+.urlbarView-row[selected] .urlbarView-row-inner::before {
+  content: "";
+  width: 0 !important;
+  display: block !important;
+  position: absolute !important;
+  background-color: AccentColor !important;
+  border-radius: 99px;
+  padding: 0.7em 2px !important;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  /* Spacing between the icon and label. */
-  & #identity-icon-label {
-    padding-inline-start: 8px !important;
+/* ----------- urlbar buttons ----------- */
+/* Hide blocked permission icons, see it when pressing permission button */
+#blocked-permissions-container {
+  display: none !important;
+}
+
+/* rounded conner */
+@media -moz-pref("uc.tweak.rounded-corners") {
+  .urlbar-page-action,
+  .search-go-button,
+  #urlbar-go-button,
+  #tracking-protection-icon-container,
+  #blocked-permissions-container,
+  #identity-permission-box,
+  #identity-icon-box,
+  .urlbarView-button.urlbarView-button-menu {
+    border-radius: var(--uc-urlbar-open-border-radius) !important;
+  }
+}
+
+/* show buttons on hover */
+#identity-box:hover #identity-icon-box,
+#identity-box:hover #identity-permission-box,
+#identity-box #identity-permission-box[open="true"],
+#identity-box #identity-icon-box[open="true"] {
+  opacity: 1 !important;
+  margin-inline-start: initial !important;
+}
+
+#identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
+  opacity: 0;
+  visibility: collapse;
+}
+
+#identity-box.extensionPage #identity-icon-box #identity-icon-label {
+  transition: opacity 0.3s ease;
+}
+
+#tracking-protection-icon-container,
+#identity-icon-box,
+#identity-permission-box {
+  /* Initial hidden state for the elements */
+  /* persistsearchterms - is when you see globe in search */
+  #urlbar & {
+    margin-inline-start: calc(-16px - 2 * var(--urlbar-icon-padding));
+    transition: margin-inline-start 150ms ease-in-out, opacity 100ms ease-in-out;
+    transition-delay: 100ms;
   }
 
-  /* Separator to the right of the label. */
-  &::after {
-    content: "";
-    position: absolute;
-    height: 16px;
-    border-right: 1px solid currentColor;
-    right: 0;
-    inset-block: 0;
-    margin-block: auto;
-    opacity: 0;
+  /* Specific rules to keep the elements shown when hovering */
+  #urlbar:has(#identity-box:hover) &,
+  #urlbar:has(#tracking-protection-icon-container:hover) & {
+    margin-inline-start: initial !important;
+    transition: margin-inline-start 100ms ease, opacity 100ms ease;
+    transition-delay: 100ms;
   }
 
-  /* Fractional scaling adjustments (150%, 175%, etc.) */
-  @media (1dppx < resolution < 2dppx) {
-    &::after {
-      border-right-width: 1.5px !important;
+  #urlbar &:hover:active,
+  #urlbar &[open="true"] {
+    margin-inline-start: initial !important;
+  }
+}
+#tracking-protection-icon-container {
+  margin-inline-start: calc(-18px - 2 * var(--urlbar-icon-padding)) !important;
+}
+
+#urlbar #identity-box[pageproxystate="valid"] {
+  &.weakCipher,
+  &.mixedDisplayContent,
+  &.mixedDisplayContentLoadedActiveBlocked,
+  &.certUserOverridden,
+  &.certErrorPage,
+  &.notSecureText {
+    & #identity-icon-box {
+      margin-inline-start: initial !important;
+      opacity: 1 !important;
     }
   }
 
-  /* Remove background from urlbar box. */
-  &:not(:hover, [open]) {
-    background-color: transparent !important;
-
-    /* Separator opacity */
-    &::after {
-      opacity: 0.375;
+  &.notSecure,
+  &.mixedActiveContent,
+  &.httpsOnlyErrorPage {
+    & #identity-icon-box {
+      margin-inline-start: initial !important;
+      opacity: 1 !important;
     }
   }
+}
 
-  /* Fade transition for separator. */
-  @media not (prefers-reduced-motion) {
-    &::after {
-      transition: opacity 0.2s ease;
-    }
+#urlbar #identity-box[pageproxystate="valid"]:is(.chromeUI, .extensionPage) > #identity-icon-box {
+  margin-inline-start: initial !important;
+  opacity: 1 !important;
+}
+
+#urlbar:not([persistsearchterms]) .urlbar-input-container .urlbar-input-box {
+  padding-inline-start: 3px !important;
+}
+
+#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons {
+  padding-inline-start: 6px;
+}
+
+#urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] > .identity-box-button {
+  padding-inline: var(--urlbar-icon-padding) !important;
+}
+
+#page-action-buttons .urlbar-page-action {
+  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding)) !important;
+  opacity: 0 !important;
+  transition: margin-inline-end 150ms ease-in-out, opacity 100ms ease-in-out;
+}
+
+#translations-button-locale {
+  color: white !important;
+}
+
+#page-action-buttons #translations-button[translationsactive="true"] {
+  margin-inline-end: initial !important;
+  opacity: 1 !important;
+}
+
+#page-action-buttons #reader-mode-button[readeractive] {
+  margin-inline-end: initial !important;
+  opacity: 1 !important;
+}
+
+#page-action-buttons:hover > .urlbar-page-action,
+#page-action-buttons .urlbar-page-action[open],
+#page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
+  opacity: 1 !important;
+  margin-inline-end: initial !important;
+  transition: margin-inline-end 100ms ease, opacity 100ms ease;
+}
+
+/* Create visual dots on both sides */
+/* left side identity-box dots modification dark color %23FFFFFF*/
+#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after,
+#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
+  position: relative;
+  content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>');
+  pointer-events: none;
+  -moz-context-properties: fill, fill-opacity;
+  fill: var(--toolbarbutton-icon-fill) !important;
+  transition: opacity 100ms ease;
+  align-self: center;
+  font-size: 1.25rem;
+  padding-left: 0px;
+  margin-left: 2px;
+  margin-right: -2px;
+  padding-right: 0px;
+}
+
+#identity-box::after,
+#page-action-buttons::before {
+  opacity: 0.3;
+}
+
+#identity-box::after {
+  left: 2px;
+}
+
+#page-action-buttons::before {
+  right: 2px;
+}
+
+#identity-box:hover::after,
+#page-action-buttons:hover::before {
+  /* brighter when hover */
+  opacity: 0.8 !important;
+  transition: opacity 50ms ease;
+  pointer-events: none;
+}
+
+#identity-box[pageproxystate="invalid"]::after,
+.urlbar-input-container[pageproxystate="invalid"] > #page-action-buttons::before {
+  opacity: 0 !important;
+  transition: opacity 50ms ease;
+}
+
+/* Linux changes for visual dots */
+@media (-moz-platform: linux) {
+  #identity-box::after,
+  #page-action-buttons::before {
+    content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>') !important;
+    transform: none !important;
+    font-size: unset !important;
+  }
+
+  #page-action-buttons::before {
+    right: 2px;
+  }
+
+  #identity-box::after {
+    left: 2px;
   }
 }

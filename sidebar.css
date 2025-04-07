@@ -67,6 +67,7 @@
   #sidebar-box {
     min-width: var(--sidebar-box-size) !important;
     max-width: 75vw;
+    padding-bottom: 0 !important;
   }
   #sidebar-main,
   #sidebar-button {
@@ -92,8 +93,10 @@
 
 @media -moz-pref("widget.windows.mica.extra") {
   browser#sidebar {
-    background: transparent !important;
+    background-color: transparent !important;
     --sidebar-border-color: transparent !important;
+    background-image: var(--acrylic-noise);
+    background-repeat: repeat;
     box-shadow: 0 0 !important;
   }
 }
