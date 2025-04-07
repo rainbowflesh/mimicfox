@@ -57,7 +57,7 @@
 
 /* add background to pinned tabs */
 .PinnedTabsBar .Tab[data-active="false"] .body {
-  background-color: var(--tabs-normal-bg);
+  background-color: var(--tabs-normal-bg) !important;
 }
 
 /* hide overflow tabs */
@@ -78,7 +78,8 @@
   align-items: center;
   justify-content: center;
 }
-.Tab .close:hover {
+.Tab .close:hover,
+.Tab[data-active="true"] .close:hover {
   /* hover color */
   background-color: light-dark(#e5e5e5, #5b5b5c);
 }
