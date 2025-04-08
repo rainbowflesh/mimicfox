@@ -159,6 +159,11 @@
 }
 
 /* ----------- urlbar buttons ----------- */
+/* search mode button border radius*/
+#searchmode-switcher-chicklet {
+  border-start-end-radius: var(--urlbar-icon-border-radius)
+}
+
 /* Hide blocked permission icons, see it when pressing permission button */
 #blocked-permissions-container {
   display: none !important;
