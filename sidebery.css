@@ -79,7 +79,7 @@
   justify-content: center;
 }
 .Tab .close:hover,
-.Tab[data-active="true"] .close:hover {
+.Tab[data-active="true"] .close:hover{
   /* hover color */
   background-color: light-dark(#e5e5e5, #5b5b5c);
 }
@@ -125,8 +125,8 @@
   .Tab[data-pin="false"] .audio {
     height: 16px;
     width: 16px;
-    top: 20px;
-    left: calc(10px + var(--tabs-inner-gap));
+    top: calc(1em + var(--tabs-inner-gap));
+    left: calc(1em + var(--tabs-inner-gap));
   }
   .Tab[data-pin="true"] .audio {
     background: var(--tabs-activated-bg);
