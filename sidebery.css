@@ -41,6 +41,11 @@
   --general-margin: 9px;
 }
 
+/* fancy animation */
+.Tab {
+  transition: all 300ms ease;
+}
+
 .Notifications + .main-box .central-box {
   margin-top: 5px !important;
 }
@@ -125,8 +130,8 @@
   .Tab[data-pin="false"] .audio {
     height: 16px;
     width: 16px;
-    top: 20px;
-    left: calc(10px + var(--tabs-inner-gap));
+    top: calc(1em + var(--tabs-inner-gap));
+    left: calc(1em + var(--tabs-inner-gap));
   }
   .Tab[data-pin="true"] .audio {
     background: var(--tabs-activated-bg);

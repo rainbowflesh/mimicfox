@@ -6,6 +6,19 @@
   --sidebar-box-size: calc(4em + 3px);
 }
 
+  :root[sidebar-expand-on-hover] #sidebar-main {
+    background-color: var(--sidebar-background-color)!important;
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    margin:var(--uc-tweak-rounded-corners-padding) !important;
+}
+
+  
+/* smooooth animation on sidebar size change */
+#sidebar-box {
+  /* larger the value greater the damping */
+  transition: width 30ms ease;
+}
+
 /* dynamic padding sidebar */
 @media -moz-pref("uc.tweak.rounded-corners") {
   #main-window:not([sizemode="maximized"]) #vertical-tabs {
@@ -62,14 +75,39 @@
   }
 }
 
-/* hide native sidebar */
-@media -moz-pref("uc.tweak.remove-native-sidebar") {
-  #sidebar-box {
-    min-width: var(--sidebar-box-size) !important;
-    max-width: 75vw;
-    padding-bottom: 0 !important;
+/* dynamic hide native tabbar when sidebery enabled */
+@media -moz-pref("uc.tweak.dynamic-tabbar") {
+  /* horizontal tabs */
+  #main-window #TabsToolbar > .toolbar-items {
+    transition: height 150ms ease;
   }
-  #sidebar-main,
+  /*  initial height  */
+  #main-window[uidensity="touch"] #TabsToolbar > .toolbar-items {
+    height: 3.35em !important;
+  }
+  #main-window[uidensity="compact"] #TabsToolbar > .toolbar-items {
+    height: 2.7em !important;
+  }
+  #main-window[titlepreface*="sidebery"] #TabsToolbar > .toolbar-items {
+    height: 0 !important;
+  }
+
+  #main-window[titlepreface*="sidebery"] #tabbrowser-tabs {
+    z-index: 0 !important;
+  }
+  #main-window[titlepreface*="sidebery"] #TabsToolbar .titlebar-spacer,
+  #main-window[titlepreface*="sidebery"] #TabsToolbar .titlebar-buttonbox-container {
+    display: none !important;
+  }
+
+  /* vertical tabs */
+  #sidebar-box {
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+    min-width: var(--sidebar-box-size) !important;
+    opacity: 1;
+  }
+  #main-window[titlepreface*="sidebery"] #sidebar-main,
   #sidebar-button {
     display: none;
   }
@@ -99,4 +137,9 @@
     background-repeat: repeat;
     box-shadow: 0 0 !important;
   }
+}
+
+#main-window #TabsToolbar > .toolbar-items {
+  overflow: hidden;
+  transition: height 0.3s 0.3s !important;
 }
