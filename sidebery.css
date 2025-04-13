@@ -84,7 +84,7 @@
   justify-content: center;
 }
 .Tab .close:hover,
-.Tab[data-active="true"] .close:hover {
+.Tab[data-active="true"] .close:hover{
   /* hover color */
   background-color: light-dark(#e5e5e5, #5b5b5c);
 }
