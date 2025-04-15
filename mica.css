@@ -21,9 +21,10 @@ slot[part="content"] {
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
   panelmultiview,
   popupnotification,
-  panel#editBookmarkPanel,
   tab-preview-thumbnail-container,
-  #tab-preview-panel,
+  panel#editBookmarkPanel,
+  panel#tab-preview-panel html description,
+  #invalid-form-popup,
   .tab-preview-text-container,
   .menupopup-arrowscrollbox {
     background-color: var(--arrowpanel-background-mica) !important;
@@ -179,7 +180,8 @@ toolbarseparator {
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #commonDialog {
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
+     background-color: var(--in-content-page-background) !important;
+/*       background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)); */
     }
   }
   #checkbox {
@@ -203,6 +205,13 @@ toolbarseparator {
   }
   .spinner {
     scrollbar-width: thin !important;
+  }
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+/*     {
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+    } */
   }
 }
 
