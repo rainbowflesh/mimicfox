@@ -181,7 +181,9 @@ toolbarseparator {
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #commonDialog {
      background-color: var(--in-content-page-background) !important;
-/*       background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)); */
+    }
+    dialog#commonDialog[windowtype="prompt:alert"]{
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
     }
   }
   #checkbox {
