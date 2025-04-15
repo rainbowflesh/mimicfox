@@ -49,6 +49,7 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 | `uc.tweak.toolbar-spacer-large`          | true/FALSE                        | ![](./assets/previews/toolbar-spacer-large.gif)                                                                                                                |
 | `uc.tweak.rounded-corners`               | TRUE/false                        | ![](./assets/previews/rounded-corners.gif)                                                                                                                     |
 | `uc.tweak.dynamic-tabbar`                | TRUE/false                        | Same feature from <https://github.com/mbnuqw/sidebery/wiki/Firefox-Styles-Snippets-(via-userChrome.css)#dynamic-native-tabs-for-hiding-native-horizontal-tabs> |
+| `uc.tweak.urlbar-button`                 | null or 0 or 1 or 2               | Chose to show urlbar buttons with none hide (0), hide on left (1), or hide on right(2) ![](./assets/previews/urlbar-button.gif)                                |
 
 > [!IMPORTANT]
 > Firefox are super dynamic on sidebar width, you will encounter unwanted sidebar size and tab size without adjusting by yourself in `./sidebar` and `./sidebery`.

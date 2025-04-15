@@ -3,7 +3,6 @@
 /* OG https://github.com/bmFtZQ/edge-frfox */
 
 :root {
-  --urlbar-min-height: 30px !important;
   --urlbarView-item-inline-padding: calc(
     1px + var(--uc-urlbar-inline-padding) + var(--uc-urlbar-icon-inline-padding)
   ) !important;
@@ -16,6 +15,7 @@
   --uc-urlbar-shadow: 0 0 4px rgb(0 0 0 / 0.1);
   --urlbarView-rich-suggestion-default-icon-size: 32px !important;
   --uc-urlbar-open-border-radius: 8px !important;
+  --dot-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>');
 
   & #urlbar {
     --urlbar-toolbar-height: calc(8px + 16px + var(--toolbarbutton-inner-padding) * 2) !important;
@@ -121,7 +121,7 @@
 }
 
 /* Remove border between urlbar input and suggestions. */
-#urlbar[open] > .urlbarView > .urlbarView-body-outer > .urlbarView-body-inner {
+#urlbar[open] .urlbarView-body-inner {
   border-top: 0 !important;
 }
 
@@ -161,44 +161,62 @@
 /* ----------- urlbar buttons ----------- */
 /* search mode button border radius*/
 #searchmode-switcher-chicklet {
-  border-start-end-radius: var(--urlbar-icon-border-radius)
+  border-start-end-radius: var(--urlbar-icon-border-radius);
 }
-
 /* Hide blocked permission icons, see it when pressing permission button */
 #blocked-permissions-container {
   display: none !important;
 }
 
-/* rounded conner */
-@media -moz-pref("uc.tweak.rounded-corners") {
-  .urlbar-page-action,
-  .search-go-button,
-  #urlbar-go-button,
-  #tracking-protection-icon-container,
-  #blocked-permissions-container,
-  #identity-permission-box,
-  #identity-icon-box,
-  .urlbarView-button.urlbarView-button-menu {
-    border-radius: var(--uc-urlbar-open-border-radius) !important;
-  }
+/* brighter when hover */
+#identity-box::after,
+#page-action-buttons::before {
+  opacity: 0.3;
+  transition: opacity 50ms ease;
+  pointer-events: none;
+}
+#identity-box:hover::after,
+#page-action-buttons:hover::before {
+  opacity: 0.8 !important;
 }
 
-/* show buttons on hover */
-#identity-box:hover #identity-icon-box,
-#identity-box:hover #identity-permission-box,
-#identity-box #identity-permission-box[open="true"],
-#identity-box #identity-icon-box[open="true"] {
-  opacity: 1 !important;
-  margin-inline-start: initial !important;
-}
-
-#identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
-  opacity: 0;
-  visibility: collapse;
-}
-
+/* animations */
 #identity-box.extensionPage #identity-icon-box #identity-icon-label {
   transition: opacity 0.3s ease;
+}
+
+/* Create visual dots on both sides */
+#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after,
+#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
+  position: relative;
+  content: var(--dot-image);
+  pointer-events: none;
+  -moz-context-properties: fill, fill-opacity;
+  fill: var(--toolbarbutton-icon-fill) !important;
+  transition: opacity 100ms ease;
+  align-self: center;
+  font-size: 1.25rem;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#page-action-buttons .urlbar-page-action {
+  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding)) !important;
+  opacity: 0 !important;
+  transition: margin-inline-end 150ms ease-in-out, opacity 100ms ease-in-out;
+}
+#tracking-protection-icon-container {
+  margin-inline-start: calc(-16px - 1em);
+  /*! margin-inline-end: 2px; */
+  padding-inline: var(--toolbarbutton-inner-padding) !important;
+}
+#identity-icon-box {
+  margin-inline-start: calc(-16px - 1em);
+  padding-left: 2px;
+}
+#identity-permission-box {
+  margin-inline-start: calc(-12px - 1em);
+}
+#notification-popup-box {
 }
 
 #tracking-protection-icon-container,
@@ -207,8 +225,7 @@
   /* Initial hidden state for the elements */
   /* persistsearchterms - is when you see globe in search */
   #urlbar & {
-    margin-inline-start: calc(-16px - 2 * var(--urlbar-icon-padding));
-    transition: margin-inline-start 150ms ease-in-out, opacity 100ms ease-in-out;
+    transition: margin-inline-start 250ms ease-in-out, opacity 100ms ease-in-out;
     transition-delay: 100ms;
   }
 
@@ -225,8 +242,153 @@
     margin-inline-start: initial !important;
   }
 }
-#tracking-protection-icon-container {
-  margin-inline-start: calc(-18px - 2 * var(--urlbar-icon-padding)) !important;
+#translations-button-locale {
+  color: white !important;
+}
+
+#page-action-buttons #translations-button[translationsactive="true"] {
+  margin-inline-end: initial !important;
+  opacity: 1 !important;
+}
+
+#page-action-buttons #reader-mode-button[readeractive] {
+  margin-inline-end: initial !important;
+  opacity: 1 !important;
+}
+
+#page-action-buttons:hover > .urlbar-page-action,
+#page-action-buttons .urlbar-page-action[open],
+#page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
+  opacity: 1 !important;
+  margin-inline-end: initial !important;
+  transition: margin-inline-end 100ms ease, opacity 100ms ease;
+}
+
+/* show all buttons */
+@media -moz-pref("uc.tweak.urlbar-button",0) {
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before,
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after {
+    display: none;
+  }
+
+  #tracking-protection-icon-container {
+    margin-inline-start: 0;
+    /*! margin-inline-end: 2px; */
+    padding-inline: 0 !important;
+  }
+  #identity-icon-box {
+    margin-inline-start: 0;
+    padding-left: 0px;
+  }
+  #identity-permission-box {
+    margin-inline-start: 0;
+  }
+  #notification-popup-box {
+  }
+  #tracking-protection-icon-container,
+  #identity-icon-box,
+  #identity-permission-box {
+    #urlbar:has(#identity-box:hover) &,
+    #urlbar:has(#tracking-protection-icon-container:hover) & {
+      margin-inline-start: 0 !important;
+    }
+
+    #urlbar &:hover:active,
+    #urlbar &[open="true"] {
+      margin-inline-start: 0 !important;
+    }
+  }
+  #page-action-buttons .urlbar-page-action {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+  #page-action-buttons #translations-button[translationsactive="true"] {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+
+  #page-action-buttons #reader-mode-button[readeractive] {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+
+  #page-action-buttons:hover > .urlbar-page-action,
+  #page-action-buttons .urlbar-page-action[open],
+  #page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
+    opacity: 1 !important;
+    margin-inline-end: initial !important;
+    transition: margin-inline-end 100ms ease, opacity 100ms ease;
+  }
+}
+
+/* hide left buttons */
+@media -moz-pref("uc.tweak.urlbar-button",1) {
+  /* Create visual dots on left sides */
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
+    display: none;
+  }
+  #page-action-buttons .urlbar-page-action {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+  #page-action-buttons #translations-button[translationsactive="true"] {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+
+  #page-action-buttons #reader-mode-button[readeractive] {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+
+  #page-action-buttons:hover > .urlbar-page-action,
+  #page-action-buttons .urlbar-page-action[open],
+  #page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
+    opacity: 1 !important;
+    margin-inline-end: initial !important;
+    transition: margin-inline-end 100ms ease, opacity 100ms ease;
+  }
+}
+
+/* hide right buttons */
+@media -moz-pref("uc.tweak.urlbar-button",2) {
+  /* Visual dots on right side only */
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after {
+    display: none;
+  }
+
+  #tracking-protection-icon-container {
+    margin-inline-start: 0;
+    /*! margin-inline-end: 2px; */
+    padding-inline: 0 !important;
+  }
+  #identity-icon-box {
+    margin-inline-start: 0;
+    padding-left: 0px;
+  }
+  #identity-permission-box {
+    margin-inline-start: 0;
+  }
+  #notification-popup-box {
+  }
+  #tracking-protection-icon-container,
+  #identity-icon-box,
+  #identity-permission-box {
+    #urlbar:has(#identity-box:hover) &,
+    #urlbar:has(#tracking-protection-icon-container:hover) & {
+      margin-inline-start: 0 !important;
+    }
+
+    #urlbar &:hover:active,
+    #urlbar &[open="true"] {
+      margin-inline-start: 0 !important;
+    }
+  }
+}
+
+#identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
+  opacity: 0;
+  visibility: collapse;
 }
 
 #urlbar #identity-box[pageproxystate="valid"] {
@@ -260,64 +422,12 @@
 #urlbar:not([persistsearchterms]) .urlbar-input-container .urlbar-input-box {
   padding-inline-start: 3px !important;
 }
-
-#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons {
-  padding-inline-start: 6px;
-}
-
 #urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] > .identity-box-button {
   padding-inline: var(--urlbar-icon-padding) !important;
 }
 
-#page-action-buttons .urlbar-page-action {
-  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding)) !important;
-  opacity: 0 !important;
-  transition: margin-inline-end 150ms ease-in-out, opacity 100ms ease-in-out;
-}
-
-#translations-button-locale {
-  color: white !important;
-}
-
-#page-action-buttons #translations-button[translationsactive="true"] {
-  margin-inline-end: initial !important;
-  opacity: 1 !important;
-}
-
-#page-action-buttons #reader-mode-button[readeractive] {
-  margin-inline-end: initial !important;
-  opacity: 1 !important;
-}
-
-#page-action-buttons:hover > .urlbar-page-action,
-#page-action-buttons .urlbar-page-action[open],
-#page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
-  opacity: 1 !important;
-  margin-inline-end: initial !important;
-  transition: margin-inline-end 100ms ease, opacity 100ms ease;
-}
-
-/* Create visual dots on both sides */
-/* left side identity-box dots modification dark color %23FFFFFF*/
-#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after,
-#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
-  position: relative;
-  content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>');
-  pointer-events: none;
-  -moz-context-properties: fill, fill-opacity;
-  fill: var(--toolbarbutton-icon-fill) !important;
-  transition: opacity 100ms ease;
-  align-self: center;
-  font-size: 1.25rem;
-  padding-left: 0px;
-  margin-left: 2px;
-  margin-right: -2px;
-  padding-right: 0px;
-}
-
-#identity-box::after,
-#page-action-buttons::before {
-  opacity: 0.3;
+#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons {
+  padding-inline-start: 6px;
 }
 
 #identity-box::after {
@@ -326,14 +436,6 @@
 
 #page-action-buttons::before {
   right: 2px;
-}
-
-#identity-box:hover::after,
-#page-action-buttons:hover::before {
-  /* brighter when hover */
-  opacity: 0.8 !important;
-  transition: opacity 50ms ease;
-  pointer-events: none;
 }
 
 #identity-box[pageproxystate="invalid"]::after,
