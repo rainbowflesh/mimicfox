@@ -183,7 +183,8 @@ toolbarseparator {
       background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
     }
     #commonDialog[windowtype="prompt:alert"],
-    #commonDialog[windowtype="prompt:alertCheck"] {
+    #commonDialog[windowtype="prompt:alertCheck"],
+    #commonDialog[windowtype="prompt:confirmEx"] {
       background-color: var(--in-content-page-background) !important;
     }
   }
