@@ -179,13 +179,11 @@ toolbarseparator {
     background: transparent !important;
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-    #commonDialog[windowtype="prompt:confirmEx"] {
+    windows[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
       background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
     }
-    #commonDialog[windowtype="prompt:alert"],
-    #commonDialog[windowtype="prompt:alertCheck"],
-    #commonDialog[windowtype="prompt:confirmEx"] {
-      background-color: var(--in-content-page-background) !important;
+    #commonDialog {
+      background-color: var(--in-content-page-background);
     }
   }
   #checkbox {
