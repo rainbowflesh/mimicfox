@@ -1,18 +1,22 @@
 /* mimicfox 🔥🦊 */
 /* sidebar.css */
-
 :root {
-  /* define sidebar minimal width */
-  --sidebar-box-size: calc(4em + 3px);
+  --sidebar-box-size: calc(4em);
 }
 
-  :root[sidebar-expand-on-hover] #sidebar-main {
-    background-color: var(--sidebar-background-color)!important;
-    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    margin:var(--uc-tweak-rounded-corners-padding) !important;
+/* bigger sidebar for small screen */
+@media screen and (max-width: 1280px) {
+  :root {
+    --sidebar-box-size: calc(5em);
+  }
 }
 
-  
+:root[sidebar-expand-on-hover] #sidebar-main {
+  background-color: var(--sidebar-background-color) !important;
+  border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  margin: var(--uc-tweak-rounded-corners-padding) !important;
+}
+
 /* smooooth animation on sidebar size change */
 #sidebar-box {
   /* larger the value greater the damping */

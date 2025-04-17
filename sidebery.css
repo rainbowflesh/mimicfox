@@ -10,6 +10,13 @@
   --tab-button-size: 16px;
 }
 
+/* auto zoom for small screen */
+@media (min-width: 60px) {
+  :root {
+    --tab-size: max(32px, calc(1.7 * 2em));
+  }
+}
+
 #root.root {
   --tabs-pinned-height: var(--tab-size);
 }
@@ -43,6 +50,9 @@
 
 /* fancy animation */
 .Tab {
+  transition: all 300ms ease;
+}
+.new-tab-btns {
   transition: all 300ms ease;
 }
 
@@ -84,7 +94,7 @@
   justify-content: center;
 }
 .Tab .close:hover,
-.Tab[data-active="true"] .close:hover{
+.Tab[data-active="true"] .close:hover {
   /* hover color */
   background-color: light-dark(#e5e5e5, #5b5b5c);
 }
