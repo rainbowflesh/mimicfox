@@ -13,7 +13,8 @@
 /* auto zoom for small screen */
 @media (min-width: 60px) {
   :root {
-    --tab-size: max(32px, calc(1.7 * 2em));
+    --tab-size: 41px;
+    /* --tab-size: max(32px, calc(1.7 * 2em)); */
   }
 }
 
