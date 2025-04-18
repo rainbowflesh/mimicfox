@@ -179,8 +179,8 @@ toolbarseparator {
     background: transparent !important;
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-    windows[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
+    window[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6))!important;
     }
     #commonDialog {
       background-color: var(--in-content-page-background);

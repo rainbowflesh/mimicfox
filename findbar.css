@@ -82,20 +82,6 @@
   }
 }
 
-/* Prevent focus outline from being cut off on the findbar textbox. */
-.findbar-container {
-  overflow-inline: visible !important;
-
-  /* Add ability to drag window from empty space in the findbar. */
-  &::after {
-    content: "";
-    flex: 1;
-    align-self: stretch;
-    -moz-window-dragging: drag;
-    display: none !important;
-  }
-}
-
 /* Findbar buttons */
 .findbar-find-previous,
 .findbar-find-next,
