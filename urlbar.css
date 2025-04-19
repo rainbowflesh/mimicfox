@@ -78,6 +78,11 @@
   }
 }
 
+/* margin search engine button */
+.search-panel-one-offs {
+  margin-inline-start: 8px !important;
+}
+
 /* ----------- urlbar ----------- */
 /* Keep urlbar in place when expanding. */
 #urlbar[breakout][breakout-extend] {
