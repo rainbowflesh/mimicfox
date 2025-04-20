@@ -87,10 +87,8 @@
 .findbar-find-next,
 findbar .close-icon {
   border-radius: var(--toolbarbutton-border-radius) !important;
-
   &:not([disabled]):hover {
     background-color: var(--toolbarbutton-hover-background, rgb(190 190 190 / 0.2)) !important;
-
     &:active {
       background-color: var(--toolbarbutton-active-background, rgb(190 190 190 / 0.4)) !important;
     }
@@ -100,8 +98,8 @@ findbar .close-icon {
 /* Rounded corners */
 @media -moz-pref("uc.tweak.rounded-corners") {
   findbar {
+    -moz-window-dragging: drag;
     border: none !important;
-    margin-bottom: var(--uc-tweak-rounded-corners-padding, 0px) !important;
     background-color: transparent !important;
     padding-inline: var(--uc-tweak-rounded-corners-padding, 0px) !important;
 

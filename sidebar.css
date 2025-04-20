@@ -23,6 +23,11 @@
   transition: width 30ms ease;
 }
 
+/* prevent drag */
+browser#sidebar {
+  -moz-window-dragging: no-drag;
+}
+
 /* dynamic padding sidebar */
 @media -moz-pref("uc.tweak.rounded-corners") {
   #main-window:not([sizemode="maximized"]) #vertical-tabs {
@@ -122,24 +127,13 @@
 
 @media -moz-pref("uc.tweak.rounded-corners") {
   #sidebar-box {
-    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    overflow: hidden !important;
-    box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+    border-radius: var(--uc-tweak-rounded-corners-radius);
+    box-shadow: var(--uc-tweak-rounded-corners-shadow);
     padding-right: 0 !important;
     &[positionend] {
       margin-inline-start: 0 !important;
       margin-inline-end: var(--uc-tweak-rounded-corners-padding) !important;
     }
-  }
-}
-
-@media -moz-pref("widget.windows.mica.extra") {
-  browser#sidebar {
-    background-color: transparent !important;
-    --sidebar-border-color: transparent !important;
-    background-image: var(--acrylic-noise);
-    background-repeat: repeat;
-    box-shadow: 0 0 !important;
   }
 }
 

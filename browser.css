@@ -32,6 +32,7 @@
   /* Move the browser element in-front of the toolbars when on the new tab page. */
   #main-window:not([BookmarksToolbarOverlapsBrowser]) #browser {
     z-index: 1 !important;
+    -moz-window-dragging: drag;
   }
 
   #main-window:not([chromehidden~="toolbar"]) {
@@ -62,18 +63,74 @@
     --uc-tweak-rounded-corners-shadow: unset;
   }
 
-  /* padding browser container inner */
-  #main-window:not([sizemode="maximized"]) #tabbrowser-tabbox {
-    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    margin-right: var(--uc-tweak-rounded-corners-padding) !important;
-    margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;'
-    #main-window:not([sizemode="maximized"]){
-      margin-left: var(--uc-tweak-rounded-corners-padding) !important;
-    }
+  /* Change colour of page when loading */
+  #tabbrowser-tabpanels {
+    padding: 0.3px !important;
+    background-color: transparent !important;
   }
 
-  #main-window:not([sizemode="maximized"]) browser {
-    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  /* give browser main content view rounded conner   */
+  browser[contextmenu="contentAreaContextMenu"] {
+    border-radius: var(--uc-tweak-rounded-corners-radius);
+  }
+  .browserContainer > findbar:not([hidden="true"]) ~ browser[contextmenu="contentAreaContextMenu"] {
+    border-radius: 0px !important;
+  }
+
+  /* padding browser container inner */
+  #main-window #tabbrowser-tabbox {
+    -moz-window-dragging: no-drag;
+    border-radius: var(--uc-tweak-rounded-corners-radius);
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",0) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",1) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",2) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",3) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",4) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
   }
 
   /* Prevent status panel corners and shadow from appearing outside the browser. */
@@ -81,26 +138,23 @@
     overflow: hidden;
   }
 
-  /* Change colour of page when loading */
-  #tabbrowser-tabpanels {
-    background-color: transparent !important;
-  }
-
-/* make picture in picture rounded   */
-    @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml"){
-    html{
+  /* make picture in picture rounded   */
+  @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml")
+  {
+    html {
       border-radius: 8px;
     }
-}
+  }
 
-/* Ensure that dark mode is enabled completely in private browsing mode. */
-@media -moz-pref("browser.theme.dark-private-windows") {
-  :root[privatebrowsingmode="temporary"],
-  :root[privatebrowsingmode="temporary"] #nav-bar,
-  :root[privatebrowsingmode="temporary"] #PersonalToolbar {
-    --toolbar-color-scheme: dark !important;
-    --tab-selected-color-scheme: dark !important;
-    color-scheme: dark !important;
+  /* Ensure that dark mode is enabled completely in private browsing mode. */
+  @media -moz-pref("browser.theme.dark-private-windows") {
+    :root[privatebrowsingmode="temporary"],
+    :root[privatebrowsingmode="temporary"] #nav-bar,
+    :root[privatebrowsingmode="temporary"] #PersonalToolbar {
+      --toolbar-color-scheme: dark !important;
+      --tab-selected-color-scheme: dark !important;
+      color-scheme: dark !important;
+    }
   }
 }
 
@@ -172,4 +226,65 @@ url-prefix(about:addons) {
       var(--toggle-width) - 2 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width) - var(--toggle-dot-width)
     ) !important;
   }
+}
+
+/* Devtools */
+@-moz-document url("about:devtools-toolbox"), url-prefix("chrome://devtools/content/")
+{
+  div.devtools-tabbar {
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  }
+}
+
+/* Devtools window when docked to the left or right. */
+.devtools-toolbox-side-iframe {
+  border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  overflow: hidden !important;
+  box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+
+  /* Devtools window when docked to the left. */
+  &:first-child {
+    padding-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+  }
+
+  /* Devtools window when docked to the right. */
+  &:last-child {
+    padding-left: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+  }
+}
+
+/* Devtools window when docked to the bottom. */
+.devtools-toolbox-bottom-iframe {
+  margin-top: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+  border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  overflow: hidden !important;
+  box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
+}
+
+/* Hide devtools splitter. */
+.devtools-side-splitter,
+.devtools-horizontal-splitter {
+  background-color: transparent !important;
+}
+
+div.devtools-tabbar {
+  border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+}
+
+/* Responsive design mode. */
+.browserContainer.responsive-mode {
+  background-color: transparent !important;
+  & .rdm-toolbar {
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  }
+}
+
+/* Remove sidebar border when not in full screen. */
+:not(:root[inFullscreen] #navigator-toolbox[style*="margin-top"]) + #browser #sidebar-splitter {
+  border-inline-width: 0 !important;
+}
+
+/* Change colour of page when loading */
+#tabbrowser-tabpanels {
+  background-color: transparent !important;
 }

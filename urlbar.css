@@ -209,11 +209,17 @@
   opacity: 0 !important;
   transition: margin-inline-end 150ms ease-in-out, opacity 100ms ease-in-out;
 }
+
+/* padding tracking-protection-icon */
+:fullscreen #tracking-protection-icon-container {
+  margin-inline-end: calc(-17px - 2 * var(--urlbar-icon-padding)) !important;
+}
 #tracking-protection-icon-container {
-  margin-inline-start: calc(-16px - 1em);
-  /*! margin-inline-end: 2px; */
+  margin-inline-start: calc(-17px - 1em);
   padding-inline: var(--toolbarbutton-inner-padding) !important;
 }
+
+/* padding other button in left */
 #identity-icon-box {
   margin-inline-start: calc(-16px - 1em);
   padding-left: 2px;

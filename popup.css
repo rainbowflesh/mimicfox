@@ -478,8 +478,9 @@ panel[type="autocomplete-richlistbox"] {
   --panel-border-color: var(--arrowpanel-border-color) !important;
 
   > .autocomplete-richlistbox {
-    background: transparent !important;
     color: inherit !important;
+    margin-top: -2px !important;
+    margin-bottom: -2px !important;
   }
 
   .autocomplete-richlistitem {
