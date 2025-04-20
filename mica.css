@@ -6,15 +6,22 @@
   --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
 }
 
-/* handle all popup background to mica background */
+/* handle all mica background */
 #browser:not(.browser-toolbox-background),
 window#webextpanels-window,
 menupopup,
 panel:not(#autoscroller),
+browser#sidebar,
 slot[part="content"] {
   background-color: transparent !important;
   appearance: menupopup !important;
   --panel-shadow-margin: 0px !important;
+}
+
+browser#sidebar,
+#sidebar-box {
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 /* give all acrylics background color */
@@ -26,15 +33,25 @@ slot[part="content"] {
   panel#tab-preview-panel html description,
   #invalid-form-popup,
   .tab-preview-text-container,
-  .menupopup-arrowscrollbox {
+  .menupopup-arrowscrollbox,
+  .autocomplete-richlistbox {
     background-color: var(--arrowpanel-background-mica) !important;
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
   }
 }
-#navigator-toolbox,
+
 #main-window {
   background-image: var(--acrylic-noise) !important;
+}
+
+/* remove inactive window background colours. */
+@media -moz-pref("widget.windows.mica.extra") {
+  :root:not([lwtheme]) #navigator-toolbox {
+    &:-moz-window-inactive {
+      background-color: transparent !important;
+    }
+  }
 }
 
 /* change autoscroller more visible */
@@ -180,7 +197,7 @@ toolbarseparator {
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     window[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6))!important;
+      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
     }
     #commonDialog {
       background-color: var(--in-content-page-background);
