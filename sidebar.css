@@ -2,6 +2,7 @@
 /* sidebar.css */
 :root {
   --sidebar-box-size: calc(4em);
+  --sidebar-tab-audio-size: 12px;
 }
 
 /* bigger sidebar for small screen */
@@ -15,6 +16,16 @@
   background-color: var(--sidebar-background-color) !important;
   border-radius: var(--uc-tweak-rounded-corners-radius) !important;
   margin: var(--uc-tweak-rounded-corners-padding) !important;
+}
+
+/* fix big audio icon */
+.tab-icon-overlay {
+  #tabbrowser-tabs[orient="vertical"]:not([expanded]) &:not([crashed]), &[pinned]:not([crashed]) {
+    &[soundplaying] {
+      width:  var(--sidebar-tab-audio-size) !important;
+      height: var(--sidebar-tab-audio-size) !important;
+    }
+  }
 }
 
 /* smooooth animation on sidebar size change */

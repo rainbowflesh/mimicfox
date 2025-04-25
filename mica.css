@@ -3,7 +3,7 @@
 @import url("./acrylic-noise.css");
 :root {
   --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
-  --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
+  --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.7)) !important;
 }
 
 /* handle all mica background */
@@ -38,11 +38,16 @@ browser#sidebar,
     background-color: var(--arrowpanel-background-mica) !important;
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
+    background-size: 12.5% !important;
+    backdrop-filter: brightness(90%) saturate(112%) !important;
   }
 }
-
 #main-window {
+  background-color: var(--arrowpanel-background-mica) !important;
   background-image: var(--acrylic-noise) !important;
+  background-size: 12.5%;
+  background-repeat: repeat !important;
+  backdrop-filter: brightness(90%) saturate(112%) !important;
 }
 
 /* remove inactive window background colours. */

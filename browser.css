@@ -104,32 +104,32 @@
   }
   @media -moz-pref("uc.tweak.browser-rounded-padding",2) {
     #main-window #tabbrowser-tabbox {
-      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
-      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
     #main-window[sizemode="maximized"] #tabbrowser-tabbox {
-      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
-      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
   }
   @media -moz-pref("uc.tweak.browser-rounded-padding",3) {
     #main-window #tabbrowser-tabbox {
-      margin-right: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
-      margin-bottom: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
-    }
-    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
-      margin-right: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
-      margin-bottom: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
-    }
-  }
-  @media -moz-pref("uc.tweak.browser-rounded-padding",4) {
-    #main-window #tabbrowser-tabbox {
       margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
       margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
     #main-window[sizemode="maximized"] #tabbrowser-tabbox {
-      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
-      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",4) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(3 * var(--uc-tweak-rounded-corners-padding))  !important;
     }
   }
 

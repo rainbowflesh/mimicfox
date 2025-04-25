@@ -1,0 +1,28 @@
+/* made for sidebery */
+@import url("./acrylic-noise.css");
+div.popup[style*="--fg"][style*="--bg"] {
+  .header {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    background-image: var(--acrylic-noise) !important;
+    background-repeat: repeat !important;
+    backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
+    background-size: 12.5% !important;
+  }
+  @media not (-moz-bool-pref: "sidebar.position_start") {
+  }
+  @media (-moz-bool-pref: "sidebar.position_start") {
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  div.popup[style*="--fg"][style*="--bg"] {
+    background: transparent !important;
+    .header {
+      background-color: rgba(32, 32, 32, 0.7) !important;
+      background-image: var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+      backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
+      background-size: 12.5% !important;
+    }
+  }
+}
