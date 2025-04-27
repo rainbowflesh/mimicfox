@@ -1,9 +1,44 @@
 /* mimicfox */
 /* extra mica must use with MicaForEveryone */
 @import url("./acrylic-noise.css");
-:root {
-  --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
-  --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.7)) !important;
+@media -moz-pref("widget.windows.mica.extra"){
+  :root:not([lwtheme]),
+  :root[privatebrowsingmode="temporary"]:where(
+  [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
+  ) {
+    --arrowpanel-border-color: transparent !important;
+    --panel-separator-color:light-dark(#ffffff87, rgba(100,100,100,0.5)) !important
+  }
+}
+
+/* mica */
+@media -moz-pref("widget.windows.mica.toplevel-backdrop", 1) {
+      --arrowpanel-background-mica: transparent !important;
+}
+
+/* mica alt */
+@media -moz-pref("widget.windows.mica.toplevel-backdrop", 3) {
+      --arrowpanel-background-mica: transparent !important;
+}
+
+/* acrylic */
+@media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+  :root {
+    --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
+    --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
+  }
+
+  @media -moz-pref("uc.tweak.acrylic-color",1){
+    :root {
+      --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
+    }
+  }
+
+  @media -moz-pref("uc.tweak.acrylic-color",2){
+    :root {
+      --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
+    }
+  }
 }
 
 /* handle all mica background */
@@ -39,7 +74,6 @@ browser#sidebar,
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
     background-size: 25% !important;
-/*     backdrop-filter: brightness(90%) saturate(112%) !important; */
   }
 }
 #main-window {
@@ -83,7 +117,7 @@ browser#sidebar,
 }
 
 /* reduce border color */
-toolbarseparator {
+toolbarseparator,menuseparator,toolbarseparator {
   border-color: var(--arrowpanel-border-color-mica) !important;
 }
 
@@ -98,8 +132,8 @@ toolbarseparator {
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #clientBox,
     #bottomBox {
+      background-color: var(--arrowpanel-background-mica) !important;
       background-image: var(--acrylic-noise) !important;
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
     }
   }
   #rightBox {
@@ -201,7 +235,8 @@ toolbarseparator {
   }
   @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     window[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
-      background-color: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)) !important;
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
     }
     #commonDialog {
       background-color: var(--in-content-page-background);

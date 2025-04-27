@@ -40,7 +40,7 @@ mimic Microsoft Edge and several community userChromes.
 @import url("./urlbar.css") -moz-pref("uc.plugin.edge-frfox");
 @import url("./browser.css") -moz-pref("uc.plugin.edge-frfox");
 
-/* optional extra mica */
 @import url("./mica.css") -moz-pref("widget.windows.mica.extra");
+/* optional extra mica */
 
 @import url("./sidebar.css");
