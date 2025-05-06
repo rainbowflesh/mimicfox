@@ -587,11 +587,13 @@ panel[type="autocomplete-richlistbox"] {
   .menupopup-arrowscrollbox {
     border: 1px solid var(--arrowpanel-border-color) !important;
   }
-
-  /* cut off shadow so it doesn't get in the way of the menubar items */
-  menubar menupopup {
-    padding: 1px 8px 20px !important;
-    margin: -1px -4px -16px !important;
+  
+  @media not -moz-pref("widget.windows.mica"){
+    /* cut off shadow so it doesn't get in the way of the menubar items */
+    menubar menupopup {
+      padding: 1px 8px 20px !important;
+      margin: -1px -4px -16px !important;
+    }
   }
 
   menupopup {
