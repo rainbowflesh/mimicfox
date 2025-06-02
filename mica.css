@@ -46,7 +46,7 @@
 window#webextpanels-window,
 menupopup,
 panel:not(#autoscroller),
-browser#sidebar,
+browser#sidebar,#urlbar,.urlbarView,#urlbar-results,
 slot[part="content"] {
   background-color: transparent !important;
   appearance: menupopup !important;

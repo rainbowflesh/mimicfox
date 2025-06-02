@@ -1,0 +1,348 @@
+/* Add rounded corners to player holder */
+.player-holder {
+  border-radius: 8px !important;
+}
+
+/* ------------------------- Nebula Picture in Picture ------------------------- */
+
+@media not -moz-pref("nebula.pip.disabled") {
+  @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml")
+  {
+    /*noinspection CssInvalidFunction*/
+    * {
+      --nebula-primary-color: #a0d490;
+      --nebula-colors-primary: color-mix(in srgb, var(--nebula-primary-color) 50%, black 50%);
+      --nebula-colors-secondary: color-mix(in srgb, var(--nebula-colors-primary) 20%, white 80%);
+
+      @media (prefers-color-scheme: dark) {
+        --nebula-colors-primary: color-mix(in srgb, var(--nebula-primary-color) 20%, #1d1d1d 80%);
+        --nebula-colors-secondary: color-mix(in srgb, var(--nebula-primary-color) 30%, #1d1d1d 70%);
+      }
+
+      /* Material: Haze */
+      --nebula-mat-hz-background: rgba(255, 255, 255, 0.8);
+      --nebula-mat-hz-background-tinted: color-mix(in srgb, var(--nebula-primary-color) 30%, rgba(255, 255, 255, 0.8));
+      --nebula-mat-hz-blur-radius: 100px;
+
+      @media (prefers-color-scheme: dark) {
+        --nebula-mat-hz-background: rgba(0, 0, 0, 0.8);
+        --nebula-mat-hz-background-tinted: color-mix(in srgb, var(--nebula-colors-secondary) 40%, rgba(0, 0, 0, 0.8));
+      }
+
+      /* Material: Glass */
+      --nebula-mat-ga-background: color-mix(in srgb, var(--nebula-colors-secondary) 75%, transparent);
+      --nebula-mat-ga-shadow-color: color-mix(in srgb, var(--nebula-colors-secondary) 75%, light-dark(black, white));
+      --toolbarbutton-hover-background: color-mix(in srgb, light-dark(#1d1d1d, #ebebeb) 10%, transparent 90%);
+      --toolbarbutton-active-background: light-dark(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.11));
+
+      @media -moz-pref("nebula.theme.force-dark-shadows") {
+        --nebula-mat-ga-shadow-color: color-mix(in srgb, var(--nebula-colors-secondary) 75%, black);
+      }
+    }
+
+    @keyframes pip-fadein-html {
+      0% {
+        background-color: transparent;
+        scale: 0.9;
+      }
+
+      99% {
+        background-color: transparent;
+        scale: 1;
+      }
+
+      100% {
+        background-color: black;
+      }
+    }
+
+    @keyframes pip-fadein-player {
+      0% {
+        filter: blur(30px);
+        opacity: 0;
+      }
+
+      70% {
+        filter: blur(5px);
+      }
+
+      100% {
+        filter: blur(0);
+        opacity: 1;
+      }
+    }
+
+    html {
+      animation: pip-fadein-html 0.3s ease !important;
+    }
+
+    .player-holder {
+      animation: pip-fadein-player 0.3s ease !important;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    #controls {
+      opacity: 1 !important;
+
+      /*noinspection CssInvalidFunction*/
+      & > button {
+        opacity: 0 !important;
+        top: 0 !important;
+        filter: blur(5px);
+        border-radius: 8px !important;
+        transition: opacity 0.3s ease, top 0.3s ease, filter 0.3s ease, background-color 0.2s ease !important;
+        backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.5) !important;
+
+        @media -moz-pref("nebula.pip.tinted-haze") {
+          background-color: var(--nebula-mat-hz-background-tinted) !important;
+        }
+
+        &::before {
+          content: "";
+          padding: 2px;
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          align-content: center;
+          justify-content: center;
+          fill: white !important;
+
+          @media (prefers-color-scheme: light) {
+            fill: black !important;
+          }
+        }
+      }
+
+      #controls-bottom-gradient {
+        display: none !important;
+      }
+
+      /*noinspection CssInvalidFunction*/
+      #controls-bottom {
+        opacity: 0 !important;
+        bottom: -5px !important;
+        border-radius: 8px !important;
+        padding: 10px 15px !important;
+        margin: 0 5px !important;
+        margin-bottom: 5px !important;
+        width: min(calc(100% - 10px), 700px) !important;
+        box-sizing: border-box !important;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.3) !important;
+        background-color: var(--nebula-mat-hz-background) !important;
+        backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
+        filter: blur(10px);
+        transition: opacity 0.3s ease, bottom 0.3s ease, filter 0.3s ease !important;
+        left: calc(50% - 5px) !important;
+        transform: translateX(-50%) !important;
+
+        @media -moz-pref("nebula.pip.tinted-haze") {
+          background-color: var(--nebula-mat-hz-background-tinted) !important;
+        }
+        .start-controls {
+          @media (width > 300px) {
+            display: flex !important;
+          }
+
+          /*noinspection CssInvalidFunction*/
+          #timestamp {
+            color: light-dark(black, white) !important;
+          }
+        }
+
+        .end-controls {
+          display: flex !important;
+        }
+
+        #scrubber,
+        #audio-scrubber {
+          &::-moz-range-progress {
+            background-color: light-dark(black, white) !important;
+          }
+
+          margin: 0 !important;
+
+          /*noinspection CssInvalidFunction*/
+          #scrubber::-moz-range-progress {
+            background: white !important;
+          }
+
+          /*noinspection CssInvalidFunction*/
+          &::-moz-range-track {
+            background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
+          }
+
+          /*noinspection CssInvalidFunction*/
+          &::-moz-range-thumb {
+            background-color: light-dark(rgba(0, 0, 0), rgba(255, 255, 255)) !important;
+            width: 12px !important;
+            height: 12px !important;
+            border: none !important;
+          }
+        }
+
+        #audio-scrubber {
+          &::-moz-range-thumb {
+            width: 10px !important;
+            height: 10px !important;
+            opacity: 1 !important;
+          }
+        }
+
+        /*noinspection CssInvalidFunction*/
+        button {
+          opacity: 1 !important;
+          position: relative;
+          padding: 6px !important;
+          width: 28px !important;
+          height: 28px !important;
+          border-radius: 8px !important;
+          transition: background-color 0.2s ease !important;
+          -moz-context-properties: fill;
+          fill: light-dark(black, white) !important;
+
+          &[disabled] {
+            cursor: default !important;
+            fill-opacity: 0.4 !important;
+
+            &::after {
+              display: none !important;
+            }
+          }
+
+          &:not([disabled]) {
+            &:hover {
+              background-color: var(--toolbarbutton-hover-background) !important;
+            }
+
+            &:active {
+              background-color: var(--toolbarbutton-active-background) !important;
+            }
+          }
+        }
+
+        .controls-bottom-upper {
+          margin: 0 !important;
+          margin-bottom: 5px !important;
+          width: 100% !important;
+          height: fit-content !important;
+
+          .scrubber-no-drag {
+            margin: 0 !important;
+          }
+
+          &:has(#scrubber[hidden]) {
+            display: none !important;
+            margin: 0 !important;
+          }
+        }
+
+        .controls-bottom-lower {
+          margin: 0 !important;
+        }
+      }
+
+      #settings {
+        bottom: 80px !important;
+        right: 0 !important;
+        display: block !important;
+        transition: opacity 0.3s ease, bottom 0.3s ease !important;
+
+        .arrow {
+          display: none !important;
+        }
+
+        /*noinspection CssInvalidFunction*/
+        label,
+        legend {
+          font-family: system-ui !important;
+          color: light-dark(black, white) !important;
+        }
+
+        /*noinspection CssInvalidFunction*/
+        .slider {
+          background-color: rgba(0, 0, 0, 0.07) !important;
+          outline: 1px solid light-dark(#8f8f9d, #bfbfc9) !important;
+
+          /*noinspection CssInvalidFunction*/
+          &::before {
+            background-color: light-dark(#8f8f9d, #bfbfc9) !important;
+          }
+        }
+
+        input {
+          /*noinspection CssInvalidFunction*/
+          &:checked {
+            border-color: light-dark(var(--nebula-colors-primary), var(--nebula-primary-color)) !important;
+          }
+
+          /*noinspection CssInvalidFunction*/
+          &:checked + .slider {
+            background-color: light-dark(var(--nebula-colors-primary), var(--nebula-primary-color)) !important;
+            outline-color: light-dark(var(--nebula-colors-primary), var(--nebula-primary-color)) !important;
+
+            &::before {
+              background-color: white !important;
+            }
+          }
+        }
+
+        /*noinspection CssInvalidFunction*/
+        & > .panel-fieldset {
+          background-color: var(--nebula-mat-hz-background) !important;
+          backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
+          filter: blur(0);
+          transition: backdrop-filter 0.3s ease, filter 0.3s ease;
+          border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+          box-shadow: 0 0 10px var(--nebula-mat-ga-shadow-color) !important;
+          padding: 0 !important;
+        }
+
+        /*noinspection CssInvalidFunction*/
+        .grey-line {
+          width: calc(100% - 10px) !important;
+          margin: 0 auto !important;
+          background-color: light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+        }
+
+        &.hide {
+          bottom: 70px !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+
+          & > .panel-fieldset {
+            backdrop-filter: none !important;
+            filter: blur(5px);
+          }
+        }
+      }
+    }
+
+    body:fullscreen #controls[showing]:hover,
+    body:not(:fullscreen) #controls:hover {
+      & > button {
+        opacity: 1 !important;
+        top: 10px !important;
+        filter: blur(0) !important;
+      }
+
+      #controls-bottom {
+        opacity: 1 !important;
+        bottom: 5px !important;
+        filter: blur(0);
+      }
+    }
+
+    body:fullscreen {
+      &:has(#controls:not([showing])) {
+        cursor: none !important;
+      }
+    }
+  }
+}
+
+.control-item:focus-visible::after,
+.control-item:hover::after {
+}

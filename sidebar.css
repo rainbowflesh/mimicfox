@@ -18,6 +18,10 @@
   margin: var(--uc-tweak-rounded-corners-padding) !important;
 }
 
+#sidebar-panel-header{
+  display:none;
+}
+
 /* fix big audio icon */
 .tab-icon-overlay {
   #tabbrowser-tabs[orient="vertical"]:not([expanded]) &:not([crashed]), &[pinned]:not([crashed]) {

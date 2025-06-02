@@ -144,6 +144,10 @@
     ) !important;
   }
 }
+.urlbarView-row:hover{
+     background-color: var(--urlbar-box-hover-bgcolor) !important;
+
+}
 .urlbarView-row[selected] .urlbarView-row-inner {
   display: flex;
   align-items: center;

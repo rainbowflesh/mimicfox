@@ -44,3 +44,7 @@ mimic Microsoft Edge and several community userChromes.
 /* optional extra mica */
 
 @import url("./sidebar.css");
+
+/* animations from nebula */
+@import url("./animations.css") -moz-pref("uc.plugin.nebula-animations");
+@import url("./pip.css") -moz-pref("uc.plugin.pip")
