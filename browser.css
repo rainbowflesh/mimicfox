@@ -10,6 +10,12 @@
 
 /* ---------- rounded corners ---------- */
 @media -moz-pref("uc.tweak.rounded-corners") {
+  /* fix browser pages    */
+  html:not([sizemode="fullscreen"]) .browserContainer,
+  html:not([sizemode="fullscreen"]) .browserStack {
+    clip-path: inset(0 round var(--uc-tweak-rounded-corners-radius));
+  }
+
   /* Since Firefox 120, when the bookmarks bar is set to only open on new tabs,
    * the bookmarks bar overlaps the #browser element. */
   /* Change the element that shifts the browser content to the correct position. */
@@ -31,7 +37,7 @@
 
   /* Move the browser element in-front of the toolbars when on the new tab page. */
   #main-window:not([BookmarksToolbarOverlapsBrowser]) #browser {
-    z-index: 1 !important;
+    /*     z-index: 1 !important; */
     -moz-window-dragging: drag;
   }
 
@@ -101,6 +107,14 @@
       margin-right: var(--uc-tweak-rounded-corners-padding) !important;
       margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
     }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+    }
   }
   @media -moz-pref("uc.tweak.browser-rounded-padding",2) {
     #main-window #tabbrowser-tabbox {
@@ -110,6 +124,14 @@
     #main-window[sizemode="maximized"] #tabbrowser-tabbox {
       margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
       margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
   }
   @media -moz-pref("uc.tweak.browser-rounded-padding",3) {
@@ -121,6 +143,14 @@
       margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
       margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
   }
   @media -moz-pref("uc.tweak.browser-rounded-padding",4) {
     #main-window #tabbrowser-tabbox {
@@ -128,8 +158,16 @@
       margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
     #main-window[sizemode="maximized"] #tabbrowser-tabbox {
-      margin-right: calc(3 * var(--uc-tweak-rounded-corners-padding)) !important;
-      margin-bottom: calc(3 * var(--uc-tweak-rounded-corners-padding))  !important;
+      margin-right: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
   }
 

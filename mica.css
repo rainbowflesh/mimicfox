@@ -8,6 +8,8 @@
   ) {
     --arrowpanel-border-color: transparent !important;
     --panel-separator-color:light-dark(#ffffff87, rgba(100,100,100,0.5)) !important
+      --toolbar-bgcolor: transparent !important;
+
   }
 }
 
@@ -81,6 +83,16 @@ browser#sidebar,
   background-image: var(--acrylic-noise) !important;
   background-size: 12.5%;
   background-repeat: repeat !important;
+}
+
+
+/* remove toolbar bg color */
+.browser-toolbar {
+  @media not -moz-pref("sidebar.verticalTabs") {
+    &:not(.browser-titlebar) {
+      background-color: transparent !important;
+    }
+  }
 }
 
 /* remove inactive window background colours. */

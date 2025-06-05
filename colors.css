@@ -1,21 +1,6 @@
 /* mimicfox 🔥🦊 */
 /* colors.css  */
 /* OG https://github.com/bmFtZQ/edge-frfox  */
-
-/* extra mica */
-@media -moz-pref("widget.windows.mica.extra") {
-  :root:not([lwtheme]),
-  :root[privatebrowsingmode="temporary"]:where(
-      [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not(
-          [style*="--newtab-background-color-secondary: rgb(66, 65, 77)"]
-        )
-    ) {
-    --arrowpanel-border-color: transparent !important;
-    --arrowpanel-background: transparent !important;
-    --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
-  }
-}
-
 :root:not([lwtheme]),
 :root[privatebrowsingmode="temporary"]:where(
     [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
@@ -93,6 +78,16 @@
   --urlbarView-highlight-color: light-dark(#000, #fff) !important;
   --urlbarView-hover-background: light-dark(#e5e5e5, #444444) !important;
   --urlbarView-separator-color: light-dark(#efefef, #5f5f5f) !important;
+
+  /* extra mica override */
+  @media -moz-pref("widget.windows.mica.extra") {
+    --arrowpanel-border-color: transparent !important;
+    --arrowpanel-background: transparent !important;
+    --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
+    --toolbar-bgcolor: transparent !important;
+    --focus-outline-color: AccentColor !important;
+  }
+
   /* ::::: Dialog theme ::::: */
   & #window-modal-dialog::backdrop {
     /* Overlay when dialog is shown. */
@@ -178,7 +173,7 @@
     --button-text-color-ghost: inherit !important;
     --button-text-color-ghost-hover: inherit !important;
     --button-text-color-ghost-active: inherit !important;
-    --button-text-color-ghost-disabled: inherit !important;   
+    --button-text-color-ghost-disabled: inherit !important;
     /* Primary button */
     --button-primary-bgcolor: AccentColor !important;
     --button-primary-color: AccentColorText !important;

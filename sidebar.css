@@ -45,10 +45,6 @@ browser#sidebar {
 
 /* dynamic padding sidebar */
 @media -moz-pref("uc.tweak.rounded-corners") {
-  #main-window:not([sizemode="maximized"]) #vertical-tabs {
-    margin-right: calc(var(--uc-tweak-rounded-corners-padding) * -1) !important;
-  }
-
   #main-window[sizemode="maximized"] #vertical-tabs {
     margin-right: 0 !important;
   }
@@ -96,6 +92,20 @@ browser#sidebar {
 
   box#vertical-tabs {
     margin-bottom: calc(-1 * var(--space-small));
+  }
+}
+
+ 
+/* hide sidebar button-group */
+@media -moz-pref("uc.tweak.remove-sidebar-button-group"){
+  button-group.tools-and-extensions.actions-list{
+    display:none !important;
+  }
+
+  #tabbrowser-tabs[orient="vertical"] {
+    &[overflow]::after {
+      border-bottom: 0 !important;
+    }
   }
 }
 

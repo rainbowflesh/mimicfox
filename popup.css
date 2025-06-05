@@ -50,7 +50,8 @@
 }
 
 .menu-icon {
-  menuitem:not(.menuitem-iconic, [image]) > &, menu:not(.menu-iconic) > & {
+  menuitem:not(.menuitem-iconic, [image]) > &,
+  menu:not(.menu-iconic) > & {
     display: none !important;
   }
 }
@@ -58,7 +59,7 @@
 menupopup[needsgutter] {
   @media (-moz-platform: linux) or (-moz-platform: windows) {
     > :is(menu, menuitem) > .menu-icon {
-      padding-right:4px;
+      padding-right: 4px;
     }
   }
 }
@@ -346,6 +347,89 @@ panelview .toolbarbutton-1,
 /*
   MARK: Extensions
 */
+@media -moz-pref("uc.tweak.sort-extensions") {
+  #unified-extensions-panel .unified-extensions-item {
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"a' i]) {
+      order: -26;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"b' i]) {
+      order: -25;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"c' i]) {
+      order: -24;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"d' i]) {
+      order: -23;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"e' i]) {
+      order: -22;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"f' i]) {
+      order: -21;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"g' i]) {
+      order: -20;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"h' i]) {
+      order: -19;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"i' i]) {
+      order: -18;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"j' i]) {
+      order: -17;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"k' i]) {
+      order: -16;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"l' i]) {
+      order: -15;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"m' i]) {
+      order: -14;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"n' i]) {
+      order: -13;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"o' i]) {
+      order: -12;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"p' i]) {
+      order: -11;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"q' i]) {
+      order: -10;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"r' i]) {
+      order: -9;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"s' i]) {
+      order: -8;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"t' i]) {
+      order: -7;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"u' i]) {
+      order: -6;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"v' i]) {
+      order: -5;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"w' i]) {
+      order: -4;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"x' i]) {
+      order: -3;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"y' i]) {
+      order: -2;
+    }
+    &:has(.unified-extensions-item-menu-button[data-l10n-args^='{"extensionName":"z' i]) {
+      order: -1;
+    }
+  }
+}
+
 /* #region */
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"])
   > toolbarbutton:not(.toolbarbutton-1)[disabled] {
@@ -610,8 +694,8 @@ panel[type="autocomplete-richlistbox"] {
   .menupopup-arrowscrollbox {
     border: 1px solid var(--arrowpanel-border-color) !important;
   }
-  
-  @media not -moz-pref("widget.windows.mica"){
+
+  @media not -moz-pref("widget.windows.mica") {
     /* cut off shadow so it doesn't get in the way of the menubar items */
     menubar menupopup {
       padding: 1px 8px 20px !important;
@@ -798,7 +882,9 @@ panel[type="autocomplete-richlistbox"] {
 
   #context-navigation:not([hidden]) {
     padding: 0 !important;
-    height: calc( 16px + (var(--uc-contextmenu-menuitem-padding-block) + var(--uc-contextmenu-menuitem-border-width)) * 2 ) !important;
+    height: calc(
+      16px + (var(--uc-contextmenu-menuitem-padding-block) + var(--uc-contextmenu-menuitem-border-width)) * 2
+    ) !important;
     --menuitem-min-width: calc(16px + var(--uc-contextmenu-menuitem-padding-inline) * 2) !important;
     min-width: calc(4 * var(--menuitem-min-width));
   }

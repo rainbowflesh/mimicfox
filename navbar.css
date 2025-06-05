@@ -32,7 +32,14 @@
 
 /* remove navbar top border */
 #nav-bar {
-  border-top: 0 !important; 
+  border-top: 0 !important;
+}
+
+/* move navbar */
+html:not([sizemode="fullscreen"]) {
+  #nav-bar {
+    margin-bottom: -1px;
+  }
 }
 
 /*

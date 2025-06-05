@@ -32,6 +32,15 @@
   }
 }
 
+/* bookmark star as accent color */
+.urlbar-icon {
+  fill: accentColor !important;
+}
+
+#star-button[starred] {
+  fill: accentColor !important;
+}
+
 #urlbar-background,
 #searchbar {
   border-radius: calc(var(--urlbar-icon-border-radius) + 2px) !important;
@@ -144,9 +153,8 @@
     ) !important;
   }
 }
-.urlbarView-row:hover{
-     background-color: var(--urlbar-box-hover-bgcolor) !important;
-
+.urlbarView-row:hover {
+  background-color: var(--urlbar-box-hover-bgcolor) !important;
 }
 .urlbarView-row[selected] .urlbarView-row-inner {
   display: flex;
@@ -170,8 +178,9 @@
 /* ----------- urlbar buttons ----------- */
 /* search mode button border radius*/
 #searchmode-switcher-chicklet {
-  border-start-end-radius: var(--urlbar-icon-border-radius);
+  border-start-end-radius: var(--urlbar-icon-border-radius) !important;
 }
+
 /* Hide blocked permission icons, see it when pressing permission button */
 #blocked-permissions-container {
   display: none !important;
