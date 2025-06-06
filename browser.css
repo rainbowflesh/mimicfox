@@ -207,37 +207,18 @@
   }
 }
 
-
 /* Status/link preview panel */
-#statuspanel{
-padding-inline:4px;
-  padding-bottom:2px;
+#statuspanel {
+  padding-inline: 4px;
+  padding-bottom: 2px;
 }
 
 #statuspanel-label {
-  background-image: var(--acrylic-noise) !important;
-  background-repeat: repeat !important;
-  backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
-  background-size: 25% !important;
   color: var(--toolbar-field-focus-color) !important;
-  border-color: transparent !important;
   box-shadow: 0 2px 5px #0002, 0 0 0 1px light-dark(#0001, #0002) !important;
   border-radius: 4px !important;
-
   #statuspanel[mirror] & {
     border-radius: 4px 0 0 0 !important;
-  }
-}
-
-@media (prefers-color-scheme: dark){
-  #statuspanel-label {
-    background-color: rgba(14, 14, 14, 0.7) !important;
-  }
-}
-
-@media (prefers-color-scheme: ligt){
-  #statuspanel-label {
-    background-color: rgba(255, 255, 255, 0.7) !important;
   }
 }
 

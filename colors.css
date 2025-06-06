@@ -79,15 +79,6 @@
   --urlbarView-hover-background: light-dark(#e5e5e5, #444444) !important;
   --urlbarView-separator-color: light-dark(#efefef, #5f5f5f) !important;
 
-  /* extra mica override */
-  @media -moz-pref("widget.windows.mica.extra") {
-    --arrowpanel-border-color: transparent !important;
-    --arrowpanel-background: transparent !important;
-    --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
-    --toolbar-bgcolor: transparent !important;
-    --focus-outline-color: AccentColor !important;
-  }
-
   /* ::::: Dialog theme ::::: */
   & #window-modal-dialog::backdrop {
     /* Overlay when dialog is shown. */

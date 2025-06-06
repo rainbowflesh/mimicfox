@@ -1,26 +1,26 @@
 /* mimicfox */
 /* extra mica must use with MicaForEveryone */
 @import url("./acrylic-noise.css");
-@media -moz-pref("widget.windows.mica.extra"){
-  :root:not([lwtheme]),
-  :root[privatebrowsingmode="temporary"]:where(
-  [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
+:root:not([lwtheme]),
+:root[privatebrowsingmode="temporary"]:where(
+    [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
   ) {
-    --arrowpanel-border-color: transparent !important;
-    --panel-separator-color:light-dark(#ffffff87, rgba(100,100,100,0.5)) !important
-      --toolbar-bgcolor: transparent !important;
-
-  }
+  /* colors override */
+  --arrowpanel-border-color: transparent !important;
+  --arrowpanel-background: transparent !important;
+  --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
+  --toolbar-bgcolor: transparent !important;
+  --focus-outline-color: AccentColor !important;
 }
 
 /* mica */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 1) {
-      --arrowpanel-background-mica: transparent !important;
+  --arrowpanel-background-mica: transparent !important;
 }
 
 /* mica alt */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 3) {
-      --arrowpanel-background-mica: transparent !important;
+  --arrowpanel-background-mica: transparent !important;
 }
 
 /* acrylic */
@@ -30,13 +30,13 @@
     --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
   }
 
-  @media -moz-pref("uc.tweak.acrylic-color",1){
+  @media -moz-pref("uc.tweak.acrylic-color",1) {
     :root {
       --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
     }
   }
 
-  @media -moz-pref("uc.tweak.acrylic-color",2){
+  @media -moz-pref("uc.tweak.acrylic-color",2) {
     :root {
       --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
     }
@@ -44,15 +44,15 @@
 }
 
 /* handle all mica background */
-#browser:not(.browser-toolbox-background),
-window#webextpanels-window,
-menupopup,
-tooltip,
-panel:not(#autoscroller),
 .urlbarView,
-browser#sidebar,
-#urlbar,
+#browser:not(.browser-toolbox-background),
 #urlbar-results,
+#urlbar,
+browser#sidebar,
+menupopup,
+panel:not(#autoscroller),
+tooltip,
+window#webextpanels-window,
 slot[part="content"] {
   background-color: transparent !important;
   appearance: menupopup !important;
@@ -67,29 +67,44 @@ browser#sidebar,
 
 /* give all acrylics background color */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+  .autocomplete-richlistbox,
+  .menupopup-arrowscrollbox,
+  .tab-preview-text-container,
+  #invalid-form-popup,
+  #main-window,
+  panel#editBookmarkPanel,
+  panel#tab-preview-panel html description,
   panelmultiview,
   popupnotification,
   tab-preview-thumbnail-container,
-  tooltip,
-  panel#editBookmarkPanel,
-  panel#tab-preview-panel html description,
-  #invalid-form-popup,
-  .tab-preview-text-container,
-  .menupopup-arrowscrollbox,
-  .autocomplete-richlistbox {
+  tooltip {
     background-color: var(--arrowpanel-background-mica) !important;
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
     background-size: 25% !important;
   }
 }
+
 #main-window {
-  background-color: var(--arrowpanel-background-mica) !important;
-  background-image: var(--acrylic-noise) !important;
-  background-size: 12.5%;
-  background-repeat: repeat !important;
+  background-size: 12.5% !important;
 }
 
+/* handle acrylic blur */
+/* dialogs */
+.dialogFrame,
+#urlbar-background,
+#statuspanel-label {
+  background-image: var(--acrylic-noise) !important;
+  background-repeat: repeat !important;
+  backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
+  background-size: 25% !important;
+  background-color: transparent !important;
+}
+
+/* #statuspanel-label */
+#statuspanel-label {
+  border-color: transparent !important;
+}
 
 /* remove toolbar bg color */
 .browser-toolbar {
@@ -101,11 +116,9 @@ browser#sidebar,
 }
 
 /* remove inactive window background colours. */
-@media -moz-pref("widget.windows.mica.extra") {
-  :root:not([lwtheme]) #navigator-toolbox {
-    &:-moz-window-inactive {
-      background-color: transparent !important;
-    }
+:root:not([lwtheme]) #navigator-toolbox {
+  &:-moz-window-inactive {
+    background-color: transparent !important;
   }
 }
 
@@ -123,6 +136,11 @@ browser#sidebar,
     --autoscroll-background-image: url('data:image/svg+xml,<svg fill="black" stroke="white" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg"><path d="M7.293,7.707a1,1,0,0,1,0-1.414l4-4a1,1,0,0,1,1.414,0l4,4a1,1,0,1,1-1.414,1.414L12,4.414,8.707,7.707A1,1,0,0,1,7.293,7.707Zm0,10,4,4a1,1,0,0,0,1.414,0l4-4a1,1,0,0,0-1.414-1.414L12,19.586,8.707,16.293a1,1,0,1,0-1.414,1.414Z"/></svg>') !important;
     --panel-background: rgba(249, 249, 250, 0.8) no-repeat center var(--autoscroll-background-image);
   }
+  .dialogFrame,
+  #urlbar-background,
+  #statuspanel-label {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+  }
 }
 
 /* Dark mode */
@@ -131,10 +149,18 @@ browser#sidebar,
     --autoscroll-background-image: url('data:image/svg+xml,<svg fill="white" stroke="black" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg"><path d="M7.293,7.707a1,1,0,0,1,0-1.414l4-4a1,1,0,0,1,1.414,0l4,4a1,1,0,1,1-1.414,1.414L12,4.414,8.707,7.707A1,1,0,0,1,7.293,7.707Zm0,10,4,4a1,1,0,0,0,1.414,0l4-4a1,1,0,0,0-1.414-1.414L12,19.586,8.707,16.293a1,1,0,1,0-1.414,1.414Z"/></svg>') !important;
     --panel-background: rgba(30, 30, 30, 0.8) no-repeat center var(--autoscroll-background-image);
   }
+
+  .dialogFrame,
+  #urlbar-background,
+  #statuspanel-label {
+    background-color: rgba(14, 14, 14, 0.7) !important;
+  }
 }
 
 /* reduce border color */
-toolbarseparator,menuseparator,toolbarseparator {
+toolbarseparator,
+menuseparator,
+toolbarseparator {
   border-color: var(--arrowpanel-border-color-mica) !important;
 }
 
