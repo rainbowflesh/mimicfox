@@ -47,8 +47,12 @@
 #browser:not(.browser-toolbox-background),
 window#webextpanels-window,
 menupopup,
+tooltip,
 panel:not(#autoscroller),
-browser#sidebar,#urlbar,.urlbarView,#urlbar-results,
+.urlbarView,
+browser#sidebar,
+#urlbar,
+#urlbar-results,
 slot[part="content"] {
   background-color: transparent !important;
   appearance: menupopup !important;
@@ -66,6 +70,7 @@ browser#sidebar,
   panelmultiview,
   popupnotification,
   tab-preview-thumbnail-container,
+  tooltip,
   panel#editBookmarkPanel,
   panel#tab-preview-panel html description,
   #invalid-form-popup,
