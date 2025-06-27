@@ -10,11 +10,10 @@
   --tab-button-size: 16px;
 }
 
-/* support for small screen */
+/* auto zoom for small screen */
 @media (min-width: 60px) {
   :root {
     --tab-size: 41px;
-    /* temporary fix https://github.com/mbnuqw/sidebery/issues/1900 */
     /* --tab-size: max(32px, calc(1.7 * 2em)); */
   }
 }
@@ -135,16 +134,18 @@
   /* move close button to upper left*/
   .Tab .close {
     top: -8px !important;
-    left: -8px;
+    right: -8px;
+
+    /* uncomment this line to move close button to left*/
+    /* left: -8px; !important */
   }
 
-  /* audio button size */
+  /* audio button hover color */
   .Tab .audio {
     height: 16px !important;
     width: 16px !important;
     border-radius: 99px;
   }
-  /* audio button hover color */
   .Tab .audio:hover {
     background: var(--tabs-activated-bg);
   }
@@ -155,7 +156,6 @@
   .Tab[data-pin="true"] .audio:hover {
     background: var(--tabs-activated-bg) !important;
   }
-
   /* move audio button to lower right */
   .Tab[data-pin="false"] .audio {
     top: calc(1em + var(--tabs-inner-gap));
