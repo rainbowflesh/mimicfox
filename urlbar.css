@@ -32,11 +32,28 @@
   }
 }
 
-/* bookmark star as accent color */
-.urlbar-icon {
-  fill: accentColor !important;
+/* show-tab-close-button on hover on tab */
+@media not -moz-pref("uc.tweak.always-show-tab-close-button") {
+  /* show close button on hover */
+  .tabbrowser-tab:not([pinned]) .tab-close-button {
+    display: none !important;
+  }
+  .tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    display: inline-flex !important;
+  }
 }
 
+/* urlbar focus border size */
+#urlbar[focused] > #urlbar-background {
+  outline: 1px solid var(--focus-outline-color) !important;
+  outline-offset: -1px !important;
+}
+
+/* .urlbar-icon {
+  fill: accentColor !important;
+} */
+
+/* bookmark star as accent color */
 #star-button[starred] {
   fill: accentColor !important;
 }
@@ -161,6 +178,7 @@
   align-items: center;
   position: relative;
 }
+
 /* search item winui3 identical */
 .urlbarView-row[selected] .urlbarView-row-inner::before {
   content: "";
@@ -240,8 +258,6 @@
 #identity-permission-box {
   margin-inline-start: calc(-12px - 1em);
 }
-#notification-popup-box {
-}
 
 #tracking-protection-icon-container,
 #identity-icon-box,
@@ -268,6 +284,10 @@
 }
 #translations-button-locale {
   color: white !important;
+  border-radius: 99px !important;
+}
+#translations-button-icon {
+  margin-right: 6px;
 }
 
 #page-action-buttons #translations-button[translationsactive="true"] {

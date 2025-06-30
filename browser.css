@@ -252,7 +252,7 @@ url-prefix(about:addons) {
 
   button.tab-button[selected],
   button.tab-button[selected]:hover {
-    border-block-color: transparent currentColor !important;
+    border-block-color: transparent AccentColor !important;
   }
 
   .toggle-button {

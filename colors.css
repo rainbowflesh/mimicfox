@@ -19,7 +19,9 @@
   --button-primary-color: light-dark(#fff, #fff) !important;
   --button-primary-hover-bgcolor: light-dark(#006bbd, #1c7cc5) !important;
   --error-text-color: light-dark(#ff9aa2, #ff9aa2) !important;
-  --focus-outline-color: light-dark(#0055d780, #63ade5) !important;
+  /* --focus-outline-color: light-dark(#0055d780, #63ade5) !important; */
+  --focus-outline-color: AccentColor !important;
+  --toolbar-field-focus-border-color: var(--focus-outline-color) !important;
   --input-bgcolor: light-dark(#fff, #4a4a4a) !important;
   --input-border-color: light-dark(#bebebe, #808080) !important;
   --input-color: light-dark(#2b2b2b, #fff) !important;
@@ -60,7 +62,7 @@
   --toolbar-field-border-color: transparent !important;
   --toolbar-field-color: light-dark(#000, #fff) !important;
   --toolbar-field-focus-background-color: var(--toolbar-field-background-color) !important;
-  --toolbar-field-focus-border-color: light-dark(#0055d780, #63ade5) !important;
+  /* --toolbar-field-focus-border-color: light-dark(#0055d780, #63ade5) !important; */
   --toolbar-field-focus-color: var(--toolbar-field-color) !important;
   --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
   --toolbarbutton-active-background: color-mix(in srgb, currentColor 13.5%, transparent) !important;

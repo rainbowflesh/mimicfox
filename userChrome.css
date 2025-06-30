@@ -48,3 +48,6 @@ mimic Microsoft Edge and several community userChromes.
 /* animations from nebula */
 @import url("./animations.css") -moz-pref("uc.tweak.enable-nebula-animations");
 @import url("./pip.css") -moz-pref("uc.tweak.pip");
+
+/* your personal custom css */
+@import url("./custom.css");

@@ -563,7 +563,6 @@
   list-style-image: url("extension-blocked.svg") !important;
 }
 
-
 .tab-icon-overlay[muted] {
   list-style-image: url("tab-audio-muted-small.svg") !important;
 }

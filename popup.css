@@ -690,10 +690,10 @@ panel[type="autocomplete-richlistbox"] {
     color: var(--arrowpanel-color) !important;
   }
 
-  .popup-internal-box,
+  /* .popup-internal-box,
   .menupopup-arrowscrollbox {
     border: 1px solid var(--arrowpanel-border-color) !important;
-  }
+  } */
 
   @media not -moz-pref("widget.windows.mica") {
     /* cut off shadow so it doesn't get in the way of the menubar items */
@@ -735,7 +735,7 @@ panel[type="autocomplete-richlistbox"] {
   .popup-internal-box,
   .menupopup-arrowscrollbox {
     padding: var(--uc-contextmenu-padding) !important;
-    border-radius: var(--uc-contextmenu-border-radius) !important;
+    /* border-radius: var(--uc-contextmenu-border-radius) !important; */
     color: inherit !important;
   }
 
