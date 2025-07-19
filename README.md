@@ -66,6 +66,9 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 > [!IMPORTANT]
 > Firefox are super dynamic on sidebar width, you will encounter unwanted sidebar size and tab size without adjusting by yourself in `./sidebar` and `./sidebery`.
 
+### Your personal customization override
+Edit `./custom.css`
+
 ## Relate links
 
 - https://github.com/bmFtZQ/edge-frfox
