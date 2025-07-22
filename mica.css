@@ -92,7 +92,8 @@ browser#sidebar,
 /* handle acrylic blur */
 /* dialogs */
 .dialogFrame,
-#urlbar-background,
+/* #urlbar-background, */ /* v142 hot fix*/
+#urlbar,
 #statuspanel-label {
   background-image: var(--acrylic-noise) !important;
   background-repeat: repeat !important;
