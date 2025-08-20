@@ -24,6 +24,11 @@
   }
 }
 
+#personal-toolbar-empty-description, toolbarbutton.bookmark-item:not(.subviewbutton) {
+  margin-top: 4px !important;
+  margin-bottom:4px !important;
+}
+
 /* shink unload tab opacity */
 .tabbrowser-tab[pending="true"] {
     opacity: 0.5; /

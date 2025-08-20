@@ -5,6 +5,19 @@
   --sidebar-tab-audio-size: 12px;
 }
 
+:root[sidebar-expand-on-hover] #sidebar-main {
+  background-color: var(--sidebar-background-color) !important;
+  border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+  margin: var(--uc-tweak-rounded-corners-padding) !important;
+}
+
+/* stylelint-disable-next-line media-query-no-invalid */
+@media -moz-pref("sidebar.revamp") {
+  #sidebar-splitter {
+    width: 1px !important;
+  }
+}
+
 /* bigger sidebar for small screen */
 @media screen and (max-width: 1280px) {
   :root {
@@ -12,21 +25,16 @@
   }
 }
 
-:root[sidebar-expand-on-hover] #sidebar-main {
-  background-color: var(--sidebar-background-color) !important;
-  border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-  margin: var(--uc-tweak-rounded-corners-padding) !important;
-}
-
-#sidebar-panel-header{
-  display:none;
+#sidebar-panel-header {
+  display: none;
 }
 
 /* fix big audio icon */
 .tab-icon-overlay {
-  #tabbrowser-tabs[orient="vertical"]:not([expanded]) &:not([crashed]), &[pinned]:not([crashed]) {
+  #tabbrowser-tabs[orient="vertical"]:not([expanded]) &:not([crashed]),
+  &[pinned]:not([crashed]) {
     &[soundplaying] {
-      width:  var(--sidebar-tab-audio-size) !important;
+      width: var(--sidebar-tab-audio-size) !important;
       height: var(--sidebar-tab-audio-size) !important;
     }
   }
@@ -95,11 +103,10 @@ browser#sidebar {
   }
 }
 
- 
 /* hide sidebar button-group */
-@media -moz-pref("uc.tweak.remove-sidebar-button-group"){
-  button-group.tools-and-extensions.actions-list{
-    display:none !important;
+@media -moz-pref("uc.tweak.remove-sidebar-button-group") {
+  button-group.tools-and-extensions.actions-list {
+    display: none !important;
   }
 
   #tabbrowser-tabs[orient="vertical"] {

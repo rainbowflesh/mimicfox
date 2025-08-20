@@ -72,6 +72,8 @@ browser#sidebar,
   .tab-preview-text-container,
   #invalid-form-popup,
   #main-window,
+  #urlbar-background,
+  .urlbar:is([focused], [open]) > .urlbar-background, #searchbar:focus-within,
   panel#editBookmarkPanel,
   panel#tab-preview-panel html description,
   panelmultiview,
@@ -92,7 +94,6 @@ browser#sidebar,
 /* handle acrylic blur */
 /* dialogs */
 .dialogFrame,
-/* #urlbar-background, */ /* v142 hot fix*/
 #urlbar,
 #statuspanel-label {
   background-image: var(--acrylic-noise) !important;

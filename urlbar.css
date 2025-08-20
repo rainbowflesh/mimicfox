@@ -44,7 +44,7 @@
 }
 
 /* urlbar focus border size */
-#urlbar[focused] > #urlbar-background {
+#urlbar[focused] > .urlbar-background {
   outline: 1px solid var(--focus-outline-color) !important;
   outline-offset: -1px !important;
 }
@@ -58,7 +58,7 @@
   fill: accentColor !important;
 }
 
-#urlbar-background,
+.urlbar-background,
 #searchbar {
   border-radius: calc(var(--urlbar-icon-border-radius) + 2px) !important;
 
