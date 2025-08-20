@@ -34,7 +34,7 @@
 
 /* search mod background */
 .searchmode-switcher-chicklet {
-  border-start-end-radius: var(--urlbar-icon-border-radius);
+  border-start-end-radius: var(--urlbar-icon-border-radius) !important;
   border-end-end-radius: var(--urlbar-icon-border-radius);
 }
 
