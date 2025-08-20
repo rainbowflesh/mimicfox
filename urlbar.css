@@ -32,6 +32,12 @@
   }
 }
 
+/* search mod background */
+.searchmode-switcher-chicklet {
+  border-start-end-radius: var(--urlbar-icon-border-radius);
+  border-end-end-radius: var(--urlbar-icon-border-radius);
+}
+
 /* show-tab-close-button on hover on tab */
 @media not -moz-pref("uc.tweak.always-show-tab-close-button") {
   /* show close button on hover */
