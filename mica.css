@@ -73,7 +73,8 @@ browser#sidebar,
   #invalid-form-popup,
   #main-window,
   #urlbar-background,
-  .urlbar:is([focused], [open]) > .urlbar-background, #searchbar:focus-within,
+  .urlbar:is([focused], [open]) > .urlbar-background,
+  #searchbar:focus-within,
   panel#editBookmarkPanel,
   panel#tab-preview-panel html description,
   panelmultiview,
@@ -91,11 +92,16 @@ browser#sidebar,
   background-size: 12.5% !important;
 }
 
+/* fix urlbar backdrop leak */
+#urlbar:not([open]) {
+  backdrop-filter: none !important;
+}
+
 /* handle acrylic blur */
 /* dialogs */
 .dialogFrame,
-#urlbar,
-#statuspanel-label {
+#statuspanel-label,
+#urlbar[open] {
   background-image: var(--acrylic-noise) !important;
   background-repeat: repeat !important;
   backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
