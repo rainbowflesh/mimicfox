@@ -76,7 +76,24 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 
 ### Your personal customization override
 
-Edit `./custom.css`
+Add `./custom.css`
+```css
+/* override mimicfox styles by copy pastes, tweak and add ! mark */
+/* eg. */
+/* colors.css  */
+:root:not([lwtheme]),
+:root[privatebrowsingmode="temporary"]:where(
+    [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
+  ) {
+  /* --focus-outline-color: light-dark(#0055d780, #63ade5) !important; */
+  --focus-outline-color: AccentColor !important;
+  --toolbar-field-focus-border-color: var(--focus-outline-color) !important;
+}
+
+#taskbar-tabs-button{
+  display:none
+}
+```
 
 ## Relate links
 
