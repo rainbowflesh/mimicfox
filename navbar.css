@@ -52,7 +52,6 @@ html:not([sizemode="fullscreen"]) {
   :not(.panel-subview-body > toolbaritem) > .bookmark-item:not(menu, menuitem),
   .urlbar-page-action,
   .identity-box-button,
-  #tracking-protection-icon-container,
   panel button,
   panel menulist,
   .titlebar-button {

@@ -1,7 +1,6 @@
 /* mimicfox 🔥🦊 */
 /* urlbar.css */
 /* OG https://github.com/bmFtZQ/edge-frfox */
-
 :root {
   --urlbarView-item-inline-padding: calc(
     1px + var(--uc-urlbar-inline-padding) + var(--uc-urlbar-icon-inline-padding)
@@ -16,7 +15,6 @@
   --urlbarView-rich-suggestion-default-icon-size: 32px !important;
   --uc-urlbar-open-border-radius: 8px !important;
   --dot-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>');
-
   & #urlbar {
     --urlbar-toolbar-height: calc(8px + 16px + var(--toolbarbutton-inner-padding) * 2) !important;
     --urlbar-height: calc(16px + var(--toolbarbutton-inner-padding) * 2) !important;
@@ -63,7 +61,6 @@
 #star-button[starred] {
   fill: accentColor !important;
 }
-
 .urlbar-background,
 #searchbar {
   border-radius: calc(var(--urlbar-icon-border-radius) + 2px) !important;
@@ -79,7 +76,6 @@
     border-color: transparent !important;
     box-shadow: 0 10px 16px rgb(0 0 0 / 0.18), 0 3px 5px rgb(0 0 0 / 0.33) !important;
     outline: 0.5px solid var(--arrowpanel-border-color) !important;
-
     :root:not([lwtheme]) & {
       outline-color: var(--panel-separator-color) !important;
     }
@@ -98,7 +94,6 @@
   width: 100% !important;
   border-inline: 0 !important;
   padding-block: 0 !important;
-
   & .urlbarView-body-inner {
     width: 100% !important;
     margin-inline: 0 !important;
@@ -133,16 +128,13 @@
 /* Search engine selector */
 .search-one-offs:not([hidden]) {
   padding-block: 6px !important;
-
   & .searchbar-engine-one-off-item {
     min-width: 30px !important;
     height: 30px !important;
   }
-
   .urlbarView:not([noresults]) > & {
     border-color: var(--urlbarView-separator-color) !important;
   }
-
   #urlbar-anon-search-settings {
     margin-inline-end: 8px !important;
   }
@@ -151,7 +143,6 @@
   :root:not([lwtheme]) & {
     background-color: var(--urlbar-box-hover-bgcolor) !important;
   }
-
   & #urlbar-search-mode-indicator-title {
     font-size: 0.9em !important;
   }
@@ -210,84 +201,7 @@
   display: none !important;
 }
 
-/* brighter when hover */
-#identity-box::after,
-#page-action-buttons::before {
-  opacity: 0.3;
-  transition: opacity 50ms ease;
-  pointer-events: none;
-}
-#identity-box:hover::after,
-#page-action-buttons:hover::before {
-  opacity: 0.8 !important;
-}
-
-/* animations */
-#identity-box.extensionPage #identity-icon-box #identity-icon-label {
-  transition: opacity 0.3s ease;
-}
-
-/* Create visual dots on both sides */
-#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after,
-#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
-  position: relative;
-  content: var(--dot-image);
-  pointer-events: none;
-  -moz-context-properties: fill, fill-opacity;
-  fill: var(--toolbarbutton-icon-fill) !important;
-  transition: opacity 100ms ease;
-  align-self: center;
-  font-size: 1.25rem;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-#page-action-buttons .urlbar-page-action {
-  margin-inline-end: calc(-16px - 2 * var(--urlbar-icon-padding)) !important;
-  opacity: 0 !important;
-  transition: margin-inline-end 150ms ease-in-out, opacity 100ms ease-in-out;
-}
-
-/* padding tracking-protection-icon */
-:fullscreen #tracking-protection-icon-container {
-  margin-inline-end: calc(-17px - 2 * var(--urlbar-icon-padding)) !important;
-}
-#tracking-protection-icon-container {
-  margin-inline-start: calc(-17px - 1em);
-  padding-inline: var(--toolbarbutton-inner-padding) !important;
-}
-
-/* padding other button in left */
-#identity-icon-box {
-  margin-inline-start: calc(-16px - 1em);
-  padding-left: 2px;
-}
-#identity-permission-box {
-  margin-inline-start: calc(-12px - 1em);
-}
-
-#tracking-protection-icon-container,
-#identity-icon-box,
-#identity-permission-box {
-  /* Initial hidden state for the elements */
-  /* persistsearchterms - is when you see globe in search */
-  #urlbar & {
-    transition: margin-inline-start 250ms ease-in-out, opacity 100ms ease-in-out;
-    transition-delay: 100ms;
-  }
-
-  /* Specific rules to keep the elements shown when hovering */
-  #urlbar:has(#identity-box:hover) &,
-  #urlbar:has(#tracking-protection-icon-container:hover) & {
-    margin-inline-start: initial !important;
-    transition: margin-inline-start 100ms ease, opacity 100ms ease;
-    transition-delay: 100ms;
-  }
-
-  #urlbar &:hover:active,
-  #urlbar &[open="true"] {
-    margin-inline-start: initial !important;
-  }
-}
+/* rounded translations-button */
 #translations-button-locale {
   color: white !important;
   border-radius: 99px !important;
@@ -296,151 +210,11 @@
   margin-right: 6px;
 }
 
-#page-action-buttons #translations-button[translationsactive="true"] {
-  margin-inline-end: initial !important;
-  opacity: 1 !important;
-}
-
-#page-action-buttons #reader-mode-button[readeractive] {
-  margin-inline-end: initial !important;
-  opacity: 1 !important;
-}
-
-#page-action-buttons:hover > .urlbar-page-action,
-#page-action-buttons .urlbar-page-action[open],
-#page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
-  opacity: 1 !important;
-  margin-inline-end: initial !important;
-  transition: margin-inline-end 100ms ease, opacity 100ms ease;
-}
-
-/* show all buttons */
-@media -moz-pref("uc.tweak.urlbar-button",0) {
-  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before,
-  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after {
-    display: none;
-  }
-
-  #tracking-protection-icon-container {
-    margin-inline-start: 0;
-    /*! margin-inline-end: 2px; */
-    padding-inline: 0 !important;
-  }
-  #identity-icon-box {
-    margin-inline-start: 0;
-    padding-left: 0px;
-  }
-  #identity-permission-box {
-    margin-inline-start: 0;
-  }
-  #notification-popup-box {
-  }
-  #tracking-protection-icon-container,
-  #identity-icon-box,
-  #identity-permission-box {
-    #urlbar:has(#identity-box:hover) &,
-    #urlbar:has(#tracking-protection-icon-container:hover) & {
-      margin-inline-start: 0 !important;
-    }
-
-    #urlbar &:hover:active,
-    #urlbar &[open="true"] {
-      margin-inline-start: 0 !important;
-    }
-  }
-  #page-action-buttons .urlbar-page-action {
-    margin-inline-end: 0 !important;
-    opacity: 1 !important;
-  }
-  #page-action-buttons #translations-button[translationsactive="true"] {
-    margin-inline-end: 0 !important;
-    opacity: 1 !important;
-  }
-
-  #page-action-buttons #reader-mode-button[readeractive] {
-    margin-inline-end: 0 !important;
-    opacity: 1 !important;
-  }
-
-  #page-action-buttons:hover > .urlbar-page-action,
-  #page-action-buttons .urlbar-page-action[open],
-  #page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
-    opacity: 1 !important;
-    margin-inline-end: initial !important;
-    transition: margin-inline-end 100ms ease, opacity 100ms ease;
-  }
-}
-
-/* hide left buttons */
-@media -moz-pref("uc.tweak.urlbar-button",1) {
-  /* Create visual dots on left sides */
-  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
-    display: none;
-  }
-  #page-action-buttons .urlbar-page-action {
-    margin-inline-end: 0 !important;
-    opacity: 1 !important;
-  }
-  #page-action-buttons #translations-button[translationsactive="true"] {
-    margin-inline-end: 0 !important;
-    opacity: 1 !important;
-  }
-
-  #page-action-buttons #reader-mode-button[readeractive] {
-    margin-inline-end: 0 !important;
-    opacity: 1 !important;
-  }
-
-  #page-action-buttons:hover > .urlbar-page-action,
-  #page-action-buttons .urlbar-page-action[open],
-  #page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action {
-    opacity: 1 !important;
-    margin-inline-end: initial !important;
-    transition: margin-inline-end 100ms ease, opacity 100ms ease;
-  }
-}
-
-/* hide right buttons */
-@media -moz-pref("uc.tweak.urlbar-button",2) {
-  /* Visual dots on right side only */
-  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after {
-    display: none;
-  }
-
-  #tracking-protection-icon-container {
-    margin-inline-start: 0;
-    /*! margin-inline-end: 2px; */
-    padding-inline: 0 !important;
-  }
-  #identity-icon-box {
-    margin-inline-start: 0;
-    padding-left: 0px;
-  }
-  #identity-permission-box {
-    margin-inline-start: 0;
-  }
-  #notification-popup-box {
-  }
-  #tracking-protection-icon-container,
-  #identity-icon-box,
-  #identity-permission-box {
-    #urlbar:has(#identity-box:hover) &,
-    #urlbar:has(#tracking-protection-icon-container:hover) & {
-      margin-inline-start: 0 !important;
-    }
-
-    #urlbar &:hover:active,
-    #urlbar &[open="true"] {
-      margin-inline-start: 0 !important;
-    }
-  }
-}
-
+/* === search engine identity icon === */
 #identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
   opacity: 0;
   visibility: collapse;
 }
-
 #urlbar #identity-box[pageproxystate="valid"] {
   &.weakCipher,
   &.mixedDisplayContent,
@@ -450,64 +224,167 @@
   &.notSecureText {
     & #identity-icon-box {
       margin-inline-start: initial !important;
-      opacity: 1 !important;
+      opacity: 1;
     }
   }
-
   &.notSecure,
   &.mixedActiveContent,
   &.httpsOnlyErrorPage {
     & #identity-icon-box {
-      margin-inline-start: initial !important;
-      opacity: 1 !important;
+      margin-inline-start: initial;
+      opacity: 1;
     }
   }
 }
-
 #urlbar #identity-box[pageproxystate="valid"]:is(.chromeUI, .extensionPage) > #identity-icon-box {
-  margin-inline-start: initial !important;
-  opacity: 1 !important;
+  margin-inline-start: initial;
+  opacity: 1;
 }
-
-#urlbar:not([persistsearchterms]) .urlbar-input-container .urlbar-input-box {
-  padding-inline-start: 3px !important;
-}
-#urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] > .identity-box-button {
-  padding-inline: var(--urlbar-icon-padding) !important;
-}
-
-#urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons {
-  padding-inline-start: 6px;
-}
-
 #identity-box::after {
   left: 2px;
 }
-
-#page-action-buttons::before {
-  right: 2px;
-}
-
 #identity-box[pageproxystate="invalid"]::after,
 .urlbar-input-container[pageproxystate="invalid"] > #page-action-buttons::before {
   opacity: 0 !important;
-  transition: opacity 50ms ease;
+  transition: opacity 250ms ease;
 }
 
-/* Linux changes for visual dots */
-@media (-moz-platform: linux) {
-  #identity-box::after,
-  #page-action-buttons::before {
-    content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>') !important;
-    transform: none !important;
-    font-size: unset !important;
+/* ----- hide urlbar buttons ------- */
+/* show all buttons */
+@media -moz-pref("uc.tweak.urlbar-button",0) {
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before,
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after {
+    display: none;
+  }
+  #tracking-protection-icon-container {
+    margin-inline-start: 0;
+    padding-inline: 0 !important;
+  }
+  #identity-icon-box {
+    margin-inline-start: 0;
+    padding-left: 0px;
+  }
+  #identity-permission-box {
+    margin-inline-start: 0;
+  }
+  #notification-popup-box {
+  }
+  #tracking-protection-icon-container,
+  #identity-icon-box,
+  #identity-permission-box {
+    #urlbar:has(#identity-box:hover) &,
+    #urlbar:has(#tracking-protection-icon-container:hover) & {
+      margin-inline-start: 0 !important;
+    }
+    #urlbar &:hover:active,
+    #urlbar &[open="true"] {
+      margin-inline-start: 0 !important;
+    }
+  }
+  #page-action-buttons .urlbar-page-action {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+  #page-action-buttons #translations-button[translationsactive="true"] {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+  #page-action-buttons #reader-mode-button[readeractive] {
+    margin-inline-end: 0 !important;
+    opacity: 1 !important;
+  }
+}
+
+/* hide left */
+@media -moz-pref("uc.tweak.urlbar-button",1) {
+  /* visual dots */
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms])
+    #tracking-protection-icon-container::before {
+    content: var(--dot-image);
+    position: relative;
+    pointer-events: none;
+    -moz-context-properties: fill, fill-opacity;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    transition: opacity 250ms ease;
+    align-self: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 4px;
+    opacity: 0.3;
+  }
+  #urlbar:has(#identity-box:hover) #tracking-protection-icon-container::before,
+  #tracking-protection-icon-container:hover::before {
+    opacity: 1 !important;
   }
 
-  #page-action-buttons::before {
-    right: 2px;
+  /* === Initial hidden state === */
+  #tracking-protection-icon-box,
+  #identity-icon-box,
+  #identity-permission-box {
+    opacity: 0;
+    margin-inline-start: -2em;
+    pointer-events: none;
+    transition: opacity 250ms ease 0ms, margin-inline-start 250ms ease 50ms;
   }
 
-  #identity-box::after {
-    left: 2px;
+  /* === Show buttons when hovering tracking or identity container === */
+  #urlbar:has(#tracking-protection-icon-container:hover) #tracking-protection-icon-box,
+  #urlbar:has(#tracking-protection-icon-container:hover) #identity-icon-box,
+  #urlbar:has(#tracking-protection-icon-container:hover) #identity-permission-box,
+  #urlbar:has(#identity-box:hover) #tracking-protection-icon-box,
+  #urlbar:has(#identity-box:hover) #identity-icon-box,
+  #urlbar:has(#identity-box:hover) #identity-permission-box {
+    opacity: 1;
+    margin-inline-start: 0;
+    pointer-events: auto;
+    transition-delay: 0ms;
+  }
+}
+
+/* hide right side */
+@media -moz-pref("uc.tweak.urlbar-button",2) {
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
+    content: var(--dot-image);
+    position: relative;
+    pointer-events: none;
+    -moz-context-properties: fill, fill-opacity;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    transition: opacity 250ms ease;
+    align-self: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 4px;
+    opacity: 0.3;
+  }
+  #urlbar:has(#page-action-buttons:hover) #page-action-buttons::before {
+    opacity: 1 !important;
+  }
+
+  /* === Initial hidden state === */
+  #page-action-buttons .urlbar-page-action {
+    opacity: 0;
+    margin-inline-end: -2em;
+    pointer-events: none;
+  }
+  #page-action-buttons .urlbar-page-action {
+    transition: opacity 250ms ease 0ms, margin-inline-end 250ms ease 50ms;
+  }
+  /* === Show buttons on container hover === */
+  #page-action-buttons:hover .urlbar-page-action {
+    opacity: 1;
+    margin-inline-end: 0;
+    pointer-events: auto;
+    transition-delay: 0ms;
+  }
+
+  /* Already-open buttons */
+  #page-action-buttons .urlbar-page-action[open],
+  #page-action-buttons .urlbar-page-action[open] ~ .urlbar-page-action,
+  #page-action-buttons #translations-button[translationsactive="true"],
+  #page-action-buttons #reader-mode-button[readeractive] {
+    opacity: 1;
+    margin-inline-end: 0;
+    pointer-events: auto;
+    transition-delay: 0ms;
   }
 }
