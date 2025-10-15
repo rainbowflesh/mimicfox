@@ -6,6 +6,7 @@
     1px + var(--uc-urlbar-inline-padding) + var(--uc-urlbar-icon-inline-padding)
   ) !important;
   --urlbar-icon-border-radius: 99px !important;
+  --urlbar-inner-border-radius: 99px !important;
   --urlbar-icon-padding: calc(var(--toolbarbutton-inner-padding) - 2px) !important;
   --urlbar-margin-inline: 6px !important;
   --identity-box-margin-inline: 6px !important;
@@ -28,6 +29,10 @@
       var(--uc-urlbar-icon-inline-padding) + var(--identity-box-margin-inline)
     ) !important;
   }
+}
+
+.urlbarView-row {
+  border-radius: var(--uc-urlbar-open-border-radius) !important;
 }
 
 /* search mod background */

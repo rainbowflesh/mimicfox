@@ -2,6 +2,11 @@
 /* browser.css  */
 /* OG https://github.com/bmFtZQ/edge-frfox  */
 
+/* 145.0b1 browser content area fix */
+.browserSidebarContainer{
+  min-width:100% !important;
+} 
+
 /* Add a shadow when the toolbars move over content, eg. in macOS hovering over
  * the menu bar in fullscreen mode. */
 #navigator-toolbox[style*="transform"] {
