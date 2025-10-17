@@ -29,13 +29,11 @@
     --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
     --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
   }
-
   @media -moz-pref("uc.tweak.acrylic-color",1) {
     :root {
       --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
     }
   }
-
   @media -moz-pref("uc.tweak.acrylic-color",2) {
     :root {
       --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
@@ -58,7 +56,6 @@ slot[part="content"] {
   appearance: menupopup !important;
   --panel-shadow-margin: 0px !important;
 }
-
 browser#sidebar,
 #sidebar-box {
   box-shadow: none !important;
@@ -87,7 +84,6 @@ browser#sidebar,
     background-size: 25% !important;
   }
 }
-
 #main-window {
   background-size: 12.5% !important;
 }
@@ -141,8 +137,8 @@ browser#sidebar,
 /* Light mode */
 @media (prefers-color-scheme: light) {
   .autoscroller {
-    --autoscroll-background-image: url('data:image/svg+xml,<svg fill="black" stroke="white" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg"><path d="M7.293,7.707a1,1,0,0,1,0-1.414l4-4a1,1,0,0,1,1.414,0l4,4a1,1,0,1,1-1.414,1.414L12,4.414,8.707,7.707A1,1,0,0,1,7.293,7.707Zm0,10,4,4a1,1,0,0,0,1.414,0l4-4a1,1,0,0,0-1.414-1.414L12,19.586,8.707,16.293a1,1,0,1,0-1.414,1.414Z"/></svg>') !important;
-    --panel-background: rgba(249, 249, 250, 0.8) no-repeat center var(--autoscroll-background-image);
+    filter: drop-shadow(0 0 0 white) drop-shadow(0.5px 0 white) drop-shadow(-0.5px 0 white) drop-shadow(0 0.5px white)
+      drop-shadow(0 -0.5px white);
   }
   .dialogFrame,
   #urlbar-background,
@@ -154,9 +150,13 @@ browser#sidebar,
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .autoscroller {
-    --autoscroll-background-image: url('data:image/svg+xml,<svg fill="white" stroke="black" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg"><path d="M7.293,7.707a1,1,0,0,1,0-1.414l4-4a1,1,0,0,1,1.414,0l4,4a1,1,0,1,1-1.414,1.414L12,4.414,8.707,7.707A1,1,0,0,1,7.293,7.707Zm0,10,4,4a1,1,0,0,0,1.414,0l4-4a1,1,0,0,0-1.414-1.414L12,19.586,8.707,16.293a1,1,0,1,0-1.414,1.414Z"/></svg>') !important;
-    --panel-background: rgba(30, 30, 30, 0.8) no-repeat center var(--autoscroll-background-image);
+    filter: invert(1) drop-shadow(0 0 0 black) drop-shadow(0.5px 0 black) drop-shadow(-0.5px 0 black)
+      drop-shadow(0 0.5px black) drop-shadow(0 -0.5px black);
   }
+  /* .autoscroller[scrolldir="NS"] {
+  }
+  .autoscroller[scrolldir="EW"] {
+  } */
 
   .dialogFrame,
   #urlbar-background,
@@ -190,30 +190,24 @@ toolbarseparator {
   #rightBox {
     -moz-context-properties: fill !important;
   }
-
   @media (prefers-color-scheme: light) {
     .text-link {
       color: color-mix(in srgb, AccentColor 80%, black) !important;
     }
-
     .text-link:hover {
       color: color-mix(in srgb, AccentColor 65%, black) !important;
     }
-
     .text-link:hover:active {
       color: color-mix(in srgb, AccentColor 50%, black) !important;
     }
   }
-
   @media (prefers-color-scheme: dark) {
     .text-link {
       color: color-mix(in srgb, AccentColor 80%, white) !important;
     }
-
     .text-link:hover {
       color: color-mix(in srgb, AccentColor 65%, white) !important;
     }
-
     .text-link:hover:active {
       color: color-mix(in srgb, AccentColor 50%, white) !important;
     }
@@ -229,11 +223,9 @@ toolbarseparator {
     width: unset !important;
     line-height: unset !important;
   }
-
   html.dialog-window {
     background-color: var(--in-content-page-background) !important;
   }
-
   .abuse-report-buttons {
     margin-bottom: 10px !important;
   }
@@ -381,7 +373,6 @@ toolbarseparator {
     border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
   }
 }
-
 @-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml")
 {
   #main-window {

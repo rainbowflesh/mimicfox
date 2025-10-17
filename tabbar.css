@@ -24,6 +24,12 @@
   }
 }
 
+@media -moz-pref("uc.tweak.rounded-corners") {
+  .tab-background{
+    border-radius: 8px !important;
+  }
+}
+
 #personal-toolbar-empty-description, toolbarbutton.bookmark-item:not(.subviewbutton) {
   margin-top: 4px !important;
   margin-bottom:4px !important;
