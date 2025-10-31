@@ -44,6 +44,22 @@
   --uc-contextmenu-separator-horizontal: 0;
 }
 
+/* download panel width */
+#downloadsPanel{
+  max-width: 50rem;
+}
+
+/* tab group content popup */
+#tabgroup-panel-content{
+  max-width: 30rem;
+}
+
+/* tab grop setting menu */
+div.panel-body:nth-child(4),
+#tab-group-main{
+  padding:4px;
+}
+
 /* 140 fix */
 .menu-icon {
   width: unset !important;
