@@ -1,0 +1,9 @@
+* {
+	font-family: "Segoe UI Display", "Segoe UI"; /* Segoe UI is the standard Windows 10/11 font */
+	font: "Segoe UI Display", "Segoe UI";
+	font-size: 1.3rem; /* size may depend on screen resolution and scale settings, also on personal opinion */
+}
+toolbar { /* needed for the minimize, maximize and close button to work */
+	font-size: 1rem !important; /* may also depend on resolution and scaling */
+	font-family: system-font, sans-serif !important; /* important, with Segoe UI the symbols won't be displayed correctly */
+}
