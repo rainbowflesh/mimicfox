@@ -49,7 +49,6 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 
 | preference name                         | value                         | description                                                                                                                                                               |
 | --------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `uc.tweak.acrylic-color`                | null or 0 or 1 or 2           | Greeter, grayer                                                                                                                                                           |
 | `toolkit.tabbox.switchByScrolling`      | boolean                       | ![](./assets/previews/switchByScrolling.gif)                                                                                                                              |
 | `uc.tweak.enable-nebula-animations`     | true                          | Enable some fancy animations I have stolen from [nebula](https://github.com/JustAdumbPrsn/Zen-Nebula)                                                                     |
 | `uc.tweak.animation.page-loading`       | null or 0 or 1 or 2 or 3 or 4 | [nebula-tab-loading-animation](https://github.com/JustAdumbPrsn/Zen-Nebula/blob/main/Nebula/Nebula-config.css)                                                            |
@@ -77,6 +76,7 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 ### Your personal customization override
 
 Add `./custom.css`
+
 ```css
 /* override mimicfox styles by copy pastes, tweak and add ! mark */
 /* eg. */
@@ -90,8 +90,8 @@ Add `./custom.css`
   --toolbar-field-focus-border-color: var(--focus-outline-color) !important;
 }
 
-#taskbar-tabs-button{
-  display:none
+#taskbar-tabs-button {
+  display: none;
 }
 ```
 
