@@ -9,7 +9,7 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 ###### click image show light/dark theme comparison
 
 ## Installation
-
+0. Install [Mica for Everyone](https://github.com/MicaForEveryone/MicaForEveryone)
 1. Download [code](https://github.com/rainbowflesh/mimicfox/archive/refs/heads/main.zip) or clone this [repo](https://github.com/rainbowflesh/mimicfox.git)
 2. Unzip and move to `about:profiles` > `Profile` > `Root Directory`, change folder name to `chrome`.
 3. Go to [about:config](about:config), change following preference
