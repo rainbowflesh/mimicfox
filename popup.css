@@ -44,20 +44,30 @@
   --uc-contextmenu-separator-horizontal: 0;
 }
 
+.tab-preview-thumbnail-container {
+  width: auto;
+  margin: 0;
+  overflow: hidden;
+
+  > canvas {
+    border: 0px !important;
+  }
+}
+
 /* download panel width */
-#downloadsPanel{
+#downloadsPanel {
   max-width: 50rem;
 }
 
 /* tab group content popup */
-#tabgroup-panel-content{
+#tabgroup-panel-content {
   max-width: 30rem;
 }
 
 /* tab grop setting menu */
 div.panel-body:nth-child(4),
-#tab-group-main{
-  padding:4px;
+#tab-group-main {
+  padding: 4px;
 }
 
 /* 140 fix */
@@ -336,8 +346,8 @@ panelview .toolbarbutton-1,
 #downloadsListBox,
 .downloadsPanelFooterButton {
   margin: var(--arrowpanel-menuitem-margin) !important;
-  width: auto !important;
-  min-width: auto !important;
+  /*! width: auto !important; */
+  /*! min-width: auto !important; */
 }
 
 #downloadsPanel-blockedSubview,
@@ -997,8 +1007,7 @@ dialog {
   }
 }
 
-/* ----- Replace email address in hamburger menu */
-/* ----- to any text you want */
+/* Replace email address in hamburger menu to any text you want */
 #appMenu-fxa-label2 #appMenu-header-description {
   display: none !important;
 }

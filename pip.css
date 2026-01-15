@@ -3,7 +3,7 @@
   border-radius: 8px !important;
 }
 
-/* ------------------------- Nebula Picture in Picture ------------------------- */
+/* ===== Nebula Picture in Picture ===== */
 
 @media not -moz-pref("nebula.pip.disabled") {
   @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml")

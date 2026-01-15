@@ -115,7 +115,7 @@
   margin-inline-start: 8px !important;
 }
 
-/* ----------- urlbar ----------- */
+/* ===== urlbar ===== */
 /* Keep urlbar in place when expanding. */
 #urlbar[breakout][breakout-extend] {
   /* Firefox < v133 */
@@ -158,7 +158,7 @@
   border-top: 0 !important;
 }
 
-/* ----------- urlbar item ----------- */
+/* ===== urlbar item ===== */
 /* Remove empty space from tabs bar */
 .urlbarView-row {
   padding-block: 0 !important;
@@ -195,7 +195,7 @@
   transform: translateY(-50%);
 }
 
-/* ----------- urlbar buttons ----------- */
+/* ===== urlbar buttons ===== */
 /* search mode button border radius*/
 #searchmode-switcher-chicklet {
   border-start-end-radius: var(--urlbar-icon-border-radius) !important;
@@ -254,7 +254,7 @@
   transition: opacity 250ms ease;
 }
 
-/* ----- hide urlbar buttons ------- */
+/* ===== hide urlbar buttons ===== */
 /* show all buttons */
 @media -moz-pref("uc.tweak.urlbar-button",0) {
   #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before,

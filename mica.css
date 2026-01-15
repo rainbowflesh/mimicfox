@@ -7,19 +7,14 @@
   ) {
   /* colors override */
   --arrowpanel-border-color: transparent !important;
-  --arrowpanel-background: transparent !important;
+  --focus-outline-color: AccentColor !important;
   --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
   --toolbar-bgcolor: transparent !important;
-  --focus-outline-color: AccentColor !important;
 }
 
+/* ===== bg color override ===== */
 /* mica */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 1) {
-  --arrowpanel-background-mica: transparent !important;
-}
-
-/* mica alt */
-@media -moz-pref("widget.windows.mica.toplevel-backdrop", 3) {
   --arrowpanel-background-mica: transparent !important;
 }
 
@@ -41,7 +36,13 @@
   }
 }
 
-/* handle all mica background */
+/* mica alt */
+@media -moz-pref("widget.windows.mica.toplevel-backdrop", 3) {
+  --arrowpanel-background-mica: transparent !important;
+}
+
+/* ===== DWM backdrop ===== */
+.browserContainer,
 .urlbarView,
 #browser:not(.browser-toolbox-background),
 #urlbar-results,
@@ -50,8 +51,8 @@ browser#sidebar,
 menupopup,
 panel:not(#autoscroller),
 tooltip,
-window#webextpanels-window,
 window#bookmarkproperties,
+window#webextpanels-window,
 slot[part="content"] {
   background-color: transparent !important;
   appearance: menupopup !important;
@@ -63,57 +64,80 @@ browser#sidebar,
   border-radius: 0 !important;
 }
 
-/* give all acrylics background color */
+/* ====== Acrylic noise and color ===== */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
   .autocomplete-richlistbox,
   .menupopup-arrowscrollbox,
-  .tab-preview-text-container,
-  .tab-group-editor-panel,
-  .urlbar:is([focused], [open]) > .urlbar-background,
   .tab-group-editor-name,
   .tab-group-editor-panel > toolbarseparator:nth-child(3),
-  #tab-group-suggestions-loading,
-  #tab-group-suggestions-load-actions,
-  #tab-group-suggestions-container,
-  #tab-group-main,
-  #tab-group-default-header,
-  #tab-group-suggestions-heading,
+  .tab-group-editor-panel,
+  .tab-preview-text-container,
+  .tab-preview-thumbnail-container,
   #invalid-form-popup,
   #main-window,
-  #urlbar-background,
   #searchbar:focus-within,
+  #tab-group-default-header,
+  #tab-group-main,
+  #tab-group-suggestions-container,
+  #tab-group-suggestions-heading,
+  #tab-group-suggestions-load-actions,
+  #tab-group-suggestions-loading,
+  panel.tab-group-editor-panel,
   panel#editBookmarkPanel,
   panel#tab-preview-panel html description,
-  panel.tab-group-editor-panel,
   panelmultiview,
   popupnotification,
-  tab-preview-thumbnail-container,
   tooltip {
-    background-color: var(--arrowpanel-background-mica) !important;
+    background-color: Menu !important;
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
     background-size: 25% !important;
   }
-}
-#main-window {
-  background-size: 12.5% !important;
-}
 
-/* fix urlbar backdrop leak */
-#urlbar:not([open]) {
-  backdrop-filter: none !important;
-}
+  @media (prefers-color-scheme: light) {
+    .urlbar:is([focused], [open]) > .urlbar-background {
+      background-color: rgba(240, 240, 240, 0.6) !important;
+    }
 
-/* handle acrylic blur */
-/* dialogs */
-.dialogFrame,
-#statuspanel-label,
-#urlbar[open] {
-  background-image: var(--acrylic-noise) !important;
-  background-repeat: repeat !important;
-  backdrop-filter: blur(20px) brightness(90%) saturate(112%) !important;
-  background-size: 25% !important;
-  background-color: transparent !important;
+    .dialogFrame,
+    #statuspanel-label,
+    #urlbar[open] {
+      border-radius: 8px !important;
+      background-image: linear-gradient(rgba(242, 242, 242, 0.6), rgba(235, 235, 235, 0.4)), var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+      background-size: 50% !important;
+      backdrop-filter: blur(20px) brightness(115%) contrast(125%) saturate(140%) !important;
+      background-color: transparent !important;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .urlbar:is([focused], [open]) > .urlbar-background {
+      background-color: rgba(12, 12, 12, 0.55) !important;
+    }
+
+    .dialogFrame,
+    #statuspanel-label,
+    #urlbar[open] {
+      background-image: linear-gradient(rgba(18, 18, 18, 0.22), rgba(12, 12, 12, 0.26)), var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+      background-size: 50% !important;
+      backdrop-filter: blur(20px) brightness(98.6%) saturate(120%) contrast(100%) !important;
+      background-color: transparent !important;
+    }
+  }
+
+  /* more density acrylic noise for main window background */
+  #main-window {
+    background-size: 12.5% !important;
+  }
+
+  /* fix urlbar backdrop leak */
+  .dialogFrame,
+  #statuspanel-label,
+  #urlbar[open] {
+    border-radius: 8px !important;
+  }
 }
 
 /* #statuspanel-label */
@@ -121,6 +145,14 @@ browser#sidebar,
   border-color: transparent !important;
 }
 
+/* reduce border color */
+toolbarseparator,
+menuseparator,
+toolbarseparator {
+  border-color: var(--arrowpanel-border-color-mica) !important;
+}
+
+/* ===== Remove background ===== */
 /* remove toolbar bg color */
 .browser-toolbar {
   @media not -moz-pref("sidebar.verticalTabs") {
@@ -137,6 +169,7 @@ browser#sidebar,
   }
 }
 
+/* ===== autoscroller (mid click scroller) ===== */
 /* change autoscroller more visible */
 .autoscroller {
   --panel-border-color: rgba(0, 0, 0, 0) !important;
@@ -176,14 +209,7 @@ browser#sidebar,
   }
 }
 
-/* reduce border color */
-toolbarseparator,
-menuseparator,
-toolbarseparator {
-  border-color: var(--arrowpanel-border-color-mica) !important;
-}
-
-/* external windows */
+/* ===== External windows ===== */
 /* make about dialog background transparent */
 @-moz-document url("chrome://browser/content/aboutDialog.xhtml")
 {
@@ -283,6 +309,15 @@ toolbarseparator {
 /* make commonDialog background transparent */
 @-moz-document url("chrome://global/content/commonDialog.xhtml")
 {
+  @media (prefers-color-scheme: dark) and (not (forced-colors)) {
+    /* For dialogs, use a different background colour. We don't do
+   * this in forced colors mode, as we should be using system colours then.
+   */
+    :root[dialogroot] {
+      --background-color-canvas: transparent !important;
+    }
+  }
+
   window,
   #commonDialogWindow {
     background: transparent !important;

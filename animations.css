@@ -1,13 +1,12 @@
-/* ------------------------ Glance Animation ----------------------- */
+/* ===== Glance Animation ===== */
 .browserSidebarContainer.zen-glance-background.deck-selected {
   filter: blur(5px) brightness(50%);
   transition: filter 0.1s ease-in-out;
 }
 
-/* ---------------------- Tab Loading Animation ---------------------- */
+/* ===== Tab Loading Animation ===== */
 .browserSidebarContainer:not([zen-split="true"]) {
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important,
-    filter 0.18s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) filter 0.18s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
 }
 
 #main-window:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer:not([zen-split="true"]) {
@@ -19,8 +18,7 @@
 
 @media (-moz-pref("uc.tweak.animation.page-loading", 2)) {
   .browserSidebarContainer:not([zen-split="true"]) {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important,
-      filter 0.3s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35) filter 0.3s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
   }
   #main-window:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer:not([zen-split="true"]) {
     filter: blur(20px) brightness(60%) !important;
@@ -31,8 +29,7 @@
 
 @media (-moz-pref("uc.tweak.animation.page-loading", 3)) {
   .browserSidebarContainer:not([zen-split="true"]) {
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.935) !important,
-      filter 0.2s cubic-bezier(0.2, 0.8, 0.4, 1.5) !important;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.935) filter 0.2s cubic-bezier(0.2, 0.8, 0.4, 1.5) !important;
   }
   #main-window:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer:not([zen-split="true"]) {
     filter: blur(10px) brightness(60%) !important;
@@ -43,8 +40,7 @@
 
 @media (-moz-pref("uc.tweak.animation.page-loading", 4)) {
   .browserSidebarContainer:not([zen-split="true"]) {
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important,
-      filter all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) filter all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
   }
   #main-window:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer:not([zen-split="true"]) {
     filter: saturate(0%) brightness(60%) !important;
@@ -55,8 +51,7 @@
 
 @media (-moz-pref("uc.tweak.animation.page-loading", 5)) {
   .browserSidebarContainer:not([zen-split="true"]) {
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important,
-      filter all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) filter all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
   }
   #main-window:has(.tabbrowser-tab[selected][busy]) .browserSidebarContainer:not([zen-split="true"]) {
     filter: saturate(0%) brightness(60%) blur(6px) !important;
@@ -77,7 +72,7 @@
   }
 }
 
-/* --------------------- Tab Switch Animation --------------------- */
+/* ===== Tab Switch Animation ===== */
 #tabbrowser-tabpanels > hbox:not(:has(.zen-glance-background)):not([zen-split="true"]) {
   &:is([zen-split]) {
     transition: all 0.17s cubic-bezier(0.175, 0.685, 0.52, 1.05), filter 0.1s ease-out !important;
@@ -180,7 +175,7 @@
   }
 }
 
-/* ----------------- Other animations ------------------ */
+/* ===== Other animations ===== */
 
 /* website view animations [works for split tabs] */
 #browser:not(:has(.zen-glance-background)) #tabbrowser-tabpanels {
@@ -266,5 +261,91 @@ slot:nth-child(1) {
     image {
       padding: 2px !important;
     }
+  }
+}
+
+/* ===== url list view animation ===== */
+
+.urlbarView {
+  will-change: clip-path !important;
+  animation: urlSlide 0.111s cubic-bezier(0, 0, 0, 1) forwards !important;
+}
+
+@keyframes urlSlide {
+  0% {
+    clip-path: inset(0 0 125% 0);
+  }
+  100% {
+    clip-path: inset(-20px -16px -20px -16px);
+  }
+}
+
+#urlbar-results {
+  will-change: transform !important;
+  animation: resultSlide 0.111s cubic-bezier(0, 0, 0, 1) forwards !important;
+}
+
+@keyframes resultSlide {
+  0% {
+    transform: translateY(-100%) translateZ(0px);
+  }
+  100% {
+    transform: translateY(0%) translateZ(0px);
+  }
+}
+
+/* Staggered animation */
+.urlbarView-row {
+  opacity: 0;
+}
+.urlbarView-row:nth-child(1) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 0ms !important;
+}
+.urlbarView-row:nth-child(2) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 40ms !important;
+}
+.urlbarView-row:nth-child(3) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 80ms !important;
+}
+.urlbarView-row:nth-child(4) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 120ms !important;
+}
+.urlbarView-row:nth-child(5) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 140ms !important;
+}
+.urlbarView-row:nth-child(6) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 160ms !important;
+}
+.urlbarView-row:nth-child(7) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 180ms !important;
+}
+.urlbarView-row:nth-child(8) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 200ms !important;
+}
+.urlbarView-row:nth-child(9) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 220ms !important;
+}
+.urlbarView-row:nth-child(10) {
+  animation: resultOpacity 0.222s cubic-bezier(0, 0, 0, 1) forwards !important;
+  animation-delay: 240ms !important;
+}
+
+@keyframes resultOpacity {
+  from {
+    opacity: 0;
+    translate: 0 -50%;
+  }
+  to {
+    opacity: 100%;
+    translate: 0 0;
   }
 }

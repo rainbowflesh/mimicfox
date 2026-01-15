@@ -94,7 +94,7 @@ groupbox:not(#sineInstallationGroup:popover-open) {
   }
 }
 
-/* ------------ BETTER PDF VIEWER ----------- */
+/* ===== BETTER PDF VIEWER ===== */
 :root {
   --pdf-js-pseudobg-bg: #dedede;
   @media (prefers-color-scheme: dark) {
@@ -129,8 +129,8 @@ groupbox:not(#sineInstallationGroup:popover-open) {
   border-radius: 10px !important;
   width: var(--sidebar-width) !important;
 }
-/* ---- Config ----- */
 
+/* ===== Config ===== */
 /*
 Feel free to change these values to whatever you want, as long
 as they use the correct format.

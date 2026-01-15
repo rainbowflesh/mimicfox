@@ -2,11 +2,10 @@
 /* browser.css  */
 /* OG https://github.com/bmFtZQ/edge-frfox  */
 
-
 /* 145.0b1 browser content area fix */
-.browserSidebarContainer{
-  min-width:100% !important;
-} 
+.browserSidebarContainer {
+  min-width: 100% !important;
+}
 
 /* Add a shadow when the toolbars move over content, eg. in macOS hovering over
  * the menu bar in fullscreen mode. */
@@ -14,7 +13,7 @@
   box-shadow: 0 -3px 5px 3px light-dark(rgb(0 0 0 / 0.3), rgb(0 0 0 / 0.6)) !important;
 }
 
-/* ---------- rounded corners ---------- */
+/* ===== rounded corners ===== */
 @media -moz-pref("uc.tweak.rounded-corners") {
   /* fix browser pages    */
   html:not([sizemode="fullscreen"]) .browserContainer,
