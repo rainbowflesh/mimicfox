@@ -28,7 +28,7 @@
   --tabs-height: var(--tab-size);
 }
 #root.root {
-  --tabs-indent: 12px;
+  --tabs-indent: 8px;
 }
 #root.root {
   --tabs-inner-gap: 5px;
@@ -46,7 +46,7 @@
   --ntb-btn-height: var(--tab-size);
 }
 #root.root {
-  --general-margin: 9px;
+  --general-margin: 8px;
 }
 
 /* fancy animation */
@@ -87,7 +87,7 @@
   width: var(--tab-button-size);
   height: var(--tab-button-size);
   border-radius: 4px;
-  margin-right: 4px;
+
   box-shadow: var(--tab-selected-shadow);
   background-color: light-dark(#f7f7f7, #2b2b2b);
   display: flex;
@@ -110,7 +110,7 @@
     content: "" !important;
     display: block !important;
     border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent) !important;
-    margin-inline: calc(3 * 0.267rem) !important;
+
   }
   .PinnedTabsBar[data-empty="false"] ~ .panel-box .TabsPanel.panel {
     padding-top: 10px;
@@ -133,11 +133,10 @@
 
   /* move close button to upper left*/
   .Tab .close {
-    top: -8px !important;
-    right: -8px;
-
-    /* uncomment this line to move close button to left*/
-    /* left: -8px; !important */
+    top: -7px !important;
+/*     right: -8px; */
+/* uncomment this line to move close button to left*/
+		left: -7px; !important
   }
 
   /* audio button hover color */

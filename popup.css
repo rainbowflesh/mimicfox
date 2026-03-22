@@ -958,7 +958,9 @@ panel[type="autocomplete-richlistbox"] {
 .dialogBox:not(.spotlightBox) {
   border-radius: 8px !important;
   outline: 0.5px solid var(--panel-separator-color) !important;
-  box-shadow: 0 20px 38px rgb(0 0 0 / 0.23), 0 5px 9px rgb(0 0 0 / 0.22) !important;
+  box-shadow:
+    0 20px 38px rgb(0 0 0 / 0.23),
+    0 5px 9px rgb(0 0 0 / 0.22) !important;
 }
 
 dialog {

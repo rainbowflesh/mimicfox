@@ -18,11 +18,10 @@
   }
 }
 
-/* bigger sidebar for small screen */
-@media screen and (max-width: 1280px) {
-  :root {
-    --sidebar-box-size: calc(5em);
-  }
+/* allow smaller sidebar */
+.sidebar {
+  min-width: 4em;
+  width: fit-content;
 }
 
 #sidebar-panel-header {

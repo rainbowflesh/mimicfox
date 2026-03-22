@@ -71,8 +71,10 @@ browser#sidebar,
   .tab-group-editor-name,
   .tab-group-editor-panel > toolbarseparator:nth-child(3),
   .tab-group-editor-panel,
-  .tab-preview-text-container,
-  .tab-preview-thumbnail-container,
+/*   .tab-preview-text-container, */
+/*   .tab-preview-thumbnail-container, */
+  .tab-preview-content-main,
+  #tab-preview-panel,
   #invalid-form-popup,
   #main-window,
   #searchbar:focus-within,

@@ -13,5 +13,6 @@
         "toolbarseparator",
         "urlbar",
         "webextpanels"
-    ]
+    ],
+    "java.search.scope": "all"
 }
