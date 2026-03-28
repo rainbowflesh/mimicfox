@@ -98,7 +98,7 @@ browser#sidebar,
 
   @media (prefers-color-scheme: light) {
     .urlbar:is([focused], [open]) > .urlbar-background {
-      background-color: rgba(240, 240, 240, 0.6) !important;
+/*       background-color: rgba(240, 240, 240, 0.6) !important; */
     }
 
     .dialogFrame,
@@ -115,7 +115,7 @@ browser#sidebar,
 
   @media (prefers-color-scheme: dark) {
     .urlbar:is([focused], [open]) > .urlbar-background {
-      background-color: rgba(12, 12, 12, 0.55) !important;
+/*       background-color: rgba(12, 12, 12, 0.55) !important; */
     }
 
     .dialogFrame,
