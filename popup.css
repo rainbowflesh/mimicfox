@@ -45,6 +45,12 @@
   --panel-menuitem-margin: 0 4px 0 4px !important;
 }
 
+tooltip {
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+}
+
 #editBookmarkPanelContent {
   padding: 8px !important;
 }
