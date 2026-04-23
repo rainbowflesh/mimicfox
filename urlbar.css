@@ -30,9 +30,14 @@
     ) !important;
   }
 }
-
+button#main-button span.button-background.labelled{
+   border-radius: var(--urlbar-icon-border-radius) !important;
+}
 .urlbarView-row {
   border-radius: var(--uc-urlbar-open-border-radius) !important;
+}
+.urlbarView-row[label] {
+  margin-block-start: 1.5rem !important;
 }
 
 /* search mod background */
@@ -107,7 +112,8 @@
 
   /* Remove padding from top of urlbar results, not needed as urlbar input already has padding. */
   & .urlbarView-results {
-    padding-block-start: 0 !important;
+    padding-block: 2px !important;
+    padding-inline: 2px;
   }
 }
 

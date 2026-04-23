@@ -42,8 +42,27 @@
     var(--uc-contextmenu-menuitem-margin-inline);
   --uc-contextmenu-separator-vertical: calc(4px - var(--uc-contextmenu-menuitem-border-width));
   --uc-contextmenu-separator-horizontal: 0;
+  --panel-menuitem-margin: 0 4px 0 4px !important;
 }
 
+.searchmode-switcher-panel-list {
+  padding: 4px 0 4px 0 !important;
+}
+
+.searchmode-switcher-panel-description{
+  text-align: center;
+  padding:0px !important;
+}
+#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button, #urlbar-label-box {
+  padding-inline: auto !important;
+}
+
+toolbaritem:is([overflowedItem="true"], [cui-areatype="panel"]).unified-extensions-item, unified-extensions-item.unified-extensions-item {
+}
+
+.panel-subview-body:where(:not([hidden])){
+  padding: 4px 0 4px 0 !important;
+}
 .tab-preview-thumbnail-container {
   width: auto;
   margin: 0;
@@ -511,8 +530,8 @@ panelview .toolbarbutton-1,
   #unified-extensions-view .unified-extensions-list {
     display: grid !important;
     grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row), auto);
-    justify-items: left !important;
-    align-items: left !important;
+    justify-items:  center !important;
+    padding: 1px;
   }
 
   #unified-extensions-view .unified-extensions-list .unified-extensions-item,
@@ -526,7 +545,7 @@ panelview .toolbarbutton-1,
   }
 
   #unified-extensions-view:is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
-    margin: 2px !important;
+    /*! margin: 2px !important; */
   }
 }
 /* compact extensions menu */
