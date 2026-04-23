@@ -45,22 +45,32 @@
   --panel-menuitem-margin: 0 4px 0 4px !important;
 }
 
+#editBookmarkPanelContent {
+  padding: 8px !important;
+}
+
+#trustpanel-header-section {
+  padding: 0 2px 0 0 !important;
+}
+
 .searchmode-switcher-panel-list {
   padding: 4px 0 4px 0 !important;
 }
 
-.searchmode-switcher-panel-description{
+.searchmode-switcher-panel-description {
   text-align: center;
-  padding:0px !important;
+  padding: 0px !important;
 }
-#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button, #urlbar-label-box {
+#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button,
+#urlbar-label-box {
   padding-inline: auto !important;
 }
 
-toolbaritem:is([overflowedItem="true"], [cui-areatype="panel"]).unified-extensions-item, unified-extensions-item.unified-extensions-item {
+toolbaritem:is([overflowedItem="true"], [cui-areatype="panel"]).unified-extensions-item,
+unified-extensions-item.unified-extensions-item {
 }
 
-.panel-subview-body:where(:not([hidden])){
+.panel-subview-body:where(:not([hidden])) {
   padding: 4px 0 4px 0 !important;
 }
 .tab-preview-thumbnail-container {
@@ -530,7 +540,7 @@ panelview .toolbarbutton-1,
   #unified-extensions-view .unified-extensions-list {
     display: grid !important;
     grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row), auto);
-    justify-items:  center !important;
+    justify-items: center !important;
     padding: 1px;
   }
 
