@@ -147,6 +147,10 @@
   list-style-image: url("help.svg") !important;
 }
 
+#appMenu-quit-button2 {
+  list-style-image: url("ic_fluent_arrow_exit_16_regular.svg") !important;
+}
+
 #new-tab-button {
   list-style-image: url("new-tab.svg") !important;
 }
@@ -229,6 +233,10 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
 #unified-extensions-button,
 #unified-extensions-manage-extensions {
   list-style-image: url("extension.svg") !important;
+}
+
+#appMenu-zoom-controls {
+  list-style-image: url("ic_fluent_zoom_fit_16_regular.svg") !important;
 }
 
 #zoom-out-button,
@@ -463,23 +471,19 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
 
 /* tab icons */
 .tab-icon-image[src="chrome://branding/content/icon32.png"],
-.tab-icon-image[src="chrome://browser/skin/privatebrowsing/favicon.svg"]
-{
+.tab-icon-image[src="chrome://browser/skin/privatebrowsing/favicon.svg"] {
   content: url("new-tab-image.svg") !important;
 }
 
-.tab-icon-image[src="chrome://global/skin/icons/settings.svg"]
-{
+.tab-icon-image[src="chrome://global/skin/icons/settings.svg"] {
   content: url("settings.svg") !important;
 }
 
-.tab-icon-image[src="chrome://mozapps/skin/extensions/extension.svg"]
-{
+.tab-icon-image[src="chrome://mozapps/skin/extensions/extension.svg"] {
   content: url("extension.svg") !important;
 }
 
-.tab-icon-image[src="chrome://browser/skin/customize.svg"]
-{
+.tab-icon-image[src="chrome://browser/skin/customize.svg"] {
   content: url("customize.svg") !important;
 }
 

@@ -9,7 +9,7 @@
 /*** When left-clicking on the main menubar (open with ALT key) ***/
 
 /* #file-menu,                              /* File                             */
-/* #profiles-menu                               /* profiles */
+#profiles-menu, #appMenu-empty-profiles-button                               /* profiles
 /* #menu_newNavigatorTab,                       /* New Tab                          */
 /* #menu_newUserContext,                        /* New Container Tab                */
 /* #menu_newNavigator,                          /* New Window                       */

@@ -227,6 +227,7 @@ button#main-button span.button-background.labelled{
   opacity: 0;
   visibility: collapse;
 }
+
 #urlbar #identity-box[pageproxystate="valid"] {
   &.weakCipher,
   &.mixedDisplayContent,
