@@ -1,16 +1,6 @@
 /* mimicfox */
 /* extra mica must use with MicaForEveryone */
 @import url("./acrylic-noise.css");
-:root:not([lwtheme]),
-:root[privatebrowsingmode="temporary"]:where(
-    [style*="--lwt-accent-color: rgb(28, 27, 34)"]:not([style*="--newtab-background-color-secondary: rgb(66, 65, 77)"])
-  ) {
-  /* colors override */
-  --arrowpanel-border-color: transparent !important;
-  --focus-outline-color: AccentColor !important;
-  --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(59, 59, 59, 0.6)) !important;
-  --toolbar-bgcolor: transparent !important;
-}
 
 /* ===== bg color override ===== */
 /* mica */
@@ -71,8 +61,6 @@ browser#sidebar,
   .tab-group-editor-name,
   .tab-group-editor-panel > toolbarseparator:nth-child(3),
   .tab-group-editor-panel,
-/*   .tab-preview-text-container, */
-/*   .tab-preview-thumbnail-container, */
   .tab-preview-content-main,
   #tab-preview-panel,
   #invalid-form-popup,
@@ -99,14 +87,15 @@ browser#sidebar,
 
   @media (prefers-color-scheme: light) {
     .urlbar:is([focused], [open]) > .urlbar-background {
-/*       background-color: rgba(240, 240, 240, 0.6) !important; */
+      /*       background-color: rgba(240, 240, 240, 0.6) !important; */
     }
 
     .dialogFrame,
     #statuspanel-label,
     #urlbar[open] {
       border-radius: 8px !important;
-      background-image: linear-gradient(rgba(242, 242, 242, 0.6), rgba(235, 235, 235, 0.4)), var(--acrylic-noise) !important;
+      background-image:
+        linear-gradient(rgba(242, 242, 242, 0.6), rgba(235, 235, 235, 0.4)), var(--acrylic-noise) !important;
       background-repeat: repeat !important;
       background-size: 50% !important;
       backdrop-filter: blur(20px) brightness(115%) contrast(125%) saturate(140%) !important;
@@ -116,13 +105,14 @@ browser#sidebar,
 
   @media (prefers-color-scheme: dark) {
     .urlbar:is([focused], [open]) > .urlbar-background {
-/*       background-color: rgba(12, 12, 12, 0.55) !important; */
+      /*       background-color: rgba(12, 12, 12, 0.55) !important; */
     }
 
     .dialogFrame,
     #statuspanel-label,
     #urlbar[open] {
-      background-image: linear-gradient(rgba(18, 18, 18, 0.22), rgba(12, 12, 12, 0.26)), var(--acrylic-noise) !important;
+      background-image:
+        linear-gradient(rgba(18, 18, 18, 0.22), rgba(12, 12, 12, 0.26)), var(--acrylic-noise) !important;
       background-repeat: repeat !important;
       background-size: 50% !important;
       backdrop-filter: blur(20px) brightness(98.6%) saturate(120%) contrast(100%) !important;

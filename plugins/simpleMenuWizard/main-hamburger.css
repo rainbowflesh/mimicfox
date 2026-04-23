@@ -1,0 +1,96 @@
+/*AGENT_SHEET*/
+
+/*********************************************************************************************
+  simpleMenuWizard: userChrome.css tweaks to remove context menu items in Firefox.
+  https://github.com/stonecrusher/simpleMenuWizard
+**********************************************************************************************
+
+/*** main-hamburger.css ***/
+/*** When left-clicking on the hamburger menu on top right ***/
+
+/* #appMenu-proton-update-banner,                     /* Downloading Firefox update / 
+                                                         Update available — download now / 
+                                                         Unable to update — system incompatible / 
+                                                         Update available — restart now */
+/* #appMenu-fxa-status2,                              /* Sync and save data / Sign In  */
+/* #appMenu-fxa-separator,                            /*********** Separator ***********/
+/* #appMenu-new-tab-button2,                          /* New Tab                       */
+/* #appMenu-new-window-button2,                       /* New Window                    */
+/* #appMenu-new-private-window-button2,               /* New Private Window            */
+/* #appMenu-new-private-window-button2
+       + toolbarseparator,                            /*********** Separator ***********/
+/* #appMenu-bookmarks-button,                         /* Bookmarks                     */
+/* #panelMenuBookmarkThisPage,                            /* Bookmark Current Tab          */
+/* #panelMenu_searchBookmarks,                            /* Search Bookmarks              */
+/* #panelMenu_viewBookmarksToolbar,                       /* Show Bookmarks Toolbar        */
+/* #panelMenu_viewBookmarksToolbar + toolbarseparator,    /*********** Separator ***********/
+/* #panelMenu_recentBookmarks,                            /* Recent Bookmarks (label)      */
+/* #panelMenu_bookmarksMenu,                              /* Recent Bookmarks (list)       */
+/* #panelMenu_showAllBookmarks,                           /* Manage Bookmarks              */
+/* #appMenu-history-button,                           /* History                       */
+/* #appMenuRecentlyClosedTabs,                            /* Recently Closed Tabs          */
+/* #appMenu-library-recentlyClosedTabs > .restoreallitem,     /* Reopen All Tabs               */
+/* #appMenuRecentlyClosedWindows,                         /* Recently Closed Windows       */
+/* #appMenuRestoreSession,                                /* Restore Previous Session      */
+/* #appMenuRestoreSession + toolbarseparator,             /*********** Separator ***********/
+/* #appMenuClearRecentHistory,                            /* Clear Recent History…         */
+/* #appMenuClearRecentHistory + toolbarseparator,         /*********** Separator ***********/
+/* #panelMenu_recentHistory,                              /* Recent History (label)        */
+/* #appMenu_historyMenu,                                  /* Recent History (list)         */
+/* #appMenu_historyMenu + toolbarseparator,               /*********** Separator ***********/
+/* #PanelUI-historyMore,                                  /* Manage History                */
+/* #appMenu-downloads-button,                         /* Downloads                     */
+/* #appMenu-passwords-button,                         /* Passwords                     */
+/* #appMenu-extensions-themes-button,                 /* Add-ons and Themes            */
+/* #appMenu-extensions-themes-button
+       + toolbarseparator,                            /*********** Separator ***********/
+/* #appMenu-print-button2,                            /* Print…                        */
+/* #appMenu-save-file-button2,                        /* Save Page As…                 */
+/* #appMenu-find-button2,                             /* Find In Page…                 */
+/* #appMenu-zoom-controls,                            /* Zoom                          */
+/* #appMenu-zoom-controls + toolbarseparator,         /*********** Separator ***********/
+/* #appMenu-settings-button,                          /* Settings                      */
+/* #appMenu-more-button2,                             /* More Tools                    */
+/* #appmenu-moreTools-button,                             /* Customize Toolbar…            */
+/* #appmenu-moreTools-button + toolbarseparator,          /*********** Separator ***********/
+/* #appmenu-developer-tools,                              /* Browser Tools (label)         */
+/* #appmenu-developer-tools-view
+       > toolbarbutton[key="key_toggleToolbox"],          /* Web Developer Tools           */
+/* #appmenu-developer-tools-view
+       > toolbarbutton[oncommand="switchToTabHavingURI('about:performance', true)"],
+                                                          /* Task Manager                  */
+/* #appmenu-developer-tools-view 
+       > toolbarbutton[oncommand="switchToTabHavingURI('about:performance', true)"]
+       + toolbarbutton[label*="Debug"],                   /* Remote Debugging              */
+/* #appmenu-developer-tools-view 
+       > toolbarbutton[key="key_browserToolbox"],         /* Browser Toolbox               */
+/* #appmenu-developer-tools-view 
+       > toolbarbutton[key="key_browserToolbox"]
+       + toolbarbutton[label*="Browser"],                 /* Browser Content Toolbox       */
+/* #appmenu-developer-tools-view 
+       > toolbarbutton[key="key_browserConsole"],         /* Browser Console               */
+/* #appmenu-developer-tools-view 
+       > toolbarbutton[key="key_responsiveDesignMode"],   /* Responsive Design Mode        */
+/* #appmenu-developer-tools-view 
+       > toolbarbutton[key="key_responsiveDesignMode"]
+       + toolbarbutton,                                   /* Eyedropper                    */
+/* #appmenu-developer-tools-view
+       > toolbarbutton[key="key_viewSource"],             /* Page Source                   */
+/* #appmenu-developer-tools-view
+       > toolbarbutton[key="key_viewSource"]
+       + toolbarbutton,                                   /* Extensions for Developers     */
+/* #appMenu-help-button2,                             /* Help                          */
+/* #PanelUI-helpItems > #appMenu_menu_openHelp,           /* Get Help                         */
+/* #PanelUI-helpItems > #appMenu_feedbackPage,            /* Submit Feedback…                 */
+/* #PanelUI-helpItems > #appMenu_helpSafeMode,            /* Troubleshoot Mode…               */
+/* #PanelUI-helpItems > #appMenu_troubleShooting,         /* More Troubleshooting Information */
+/* #PanelUI-helpItems > #appMenu_help_reportSiteIssue,    /* Report Site Issue…               */
+/* #PanelUI-helpItems
+       > #appMenu_menu_HelpPopup_reportPhishingtoolmenu,  /* Report Deceptive Site…           */
+/* #PanelUI-helpItems > #appMenu_helpSwitchDevice,        /* Switching to a new device        */
+/* #PanelUI-helpItems > #appMenu_aboutName,               /* About Firefox                    */
+/* #appMenu-help-button2 + toolbarseparator,          /*********** Separator ***********/
+/* #appMenu-quit-button2,                             /* Exit                          */
+
+#leave_this_dummy_here
+    { display:none !important; }

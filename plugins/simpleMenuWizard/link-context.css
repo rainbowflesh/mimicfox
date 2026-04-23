@@ -1,0 +1,32 @@
+/*AGENT_SHEET*/
+
+/*********************************************************************************************
+  simpleMenuWizard: userChrome.css tweaks to remove context menu items in Firefox.
+  https://github.com/stonecrusher/simpleMenuWizard
+**********************************************************************************************
+
+/*** link-context.css ***/
+/*** When right-clicking on a link ***/
+
+/* #context-openlinkintab,                 /* Open Link in New Tab             */
+/* #context-openlinkinusercontext-menu,    /* Open Link in New Container Tab   */
+/* #context-openlink,                      /* Open Link in New Window          */
+/* #context-openlinkprivate,               /* Open Link in New Private Window  */
+#context-copy-link-to-highlight,          /* Copy Link to Highlight                    */
+/* #context-sep-open,                      /************ Separator *************/
+#context-bookmarklink,                  /* Bookmark Link                    */
+/* #context-savelink,                      /* Save Link As…                    */
+#context-savelinktopocket,              /* Save Link to Pocket              */
+#context-copyemail,                     /* Copy Email Address               */
+/* #context-copylink,                      /* Copy Link                        */
+#context-stripOnShareLink,              /* Copy Link Without Site Tracking  */
+#context-sendlinktodevice,              /* Send Link to Device              */
+#context-sep-sendlinktodevice,          /************ Separator *************/
+/* #context-sep-copylink,                  /************ Separator *************/
+/* #context-searchselect,                  /* Search [Google] for "[selected]" */
+/* #frame-sep,                             /************ Separator *************/
+/* #context-inspect,                       /* Inspect (Q)                      */
+
+#leave_this_dummy_here {
+  display: none !important;
+}

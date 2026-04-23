@@ -1,6 +1,10 @@
 # mimicfox
 
-A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica and mimic Microsoft Edge with several community themes inspired.
+Create an elegant, detail-oriented, and highly efficient design.
+
+Draw inspiration from several beautiful designs, then synthesize and emulate them into the ultimate expression of the theme.
+
+Only on Windows11, Linux compatibility are on the way.
 
 ## Preview
 
@@ -9,6 +13,7 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 ###### click image show light/dark theme comparison
 
 ## Installation
+
 0. Install [Mica for Everyone](https://github.com/MicaForEveryone/MicaForEveryone)
 1. Download [code](https://github.com/rainbowflesh/mimicfox/archive/refs/heads/main.zip) or clone this [repo](https://github.com/rainbowflesh/mimicfox.git)
 2. Unzip and move to `about:profiles` > `Profile` > `Root Directory`, change folder name to `chrome`.
@@ -30,48 +35,45 @@ A Cutting edge firefox minimal style userChrome.css that enhance Windows 11 mica
 > 1. I reused Firefox’s native sidebar implementation. To enable the dynamic sidebar, you need to manually go to **about\:preferences > Ctrl+F > search "sidebar"**, then set **Browser Layout** to `Vertical tabs` and **Show sidebar** to `on`.
 > 2. Firefox are super dynamic on sidebar width, you will encounter unwanted sidebar size and tab size without adjusting by yourself in `./sidebar` and `./sidebery`.
 
-#### Recommended
+#### Must have
 
-| preference name                          | value            | description                                                                                                                                                                                             |
-| ---------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `browser.tabs.allow_transparent_browser` | true             | Allow browser framework transparent                                                                                                                                                                     |
-| `uc.plugin.edge-frfox`                   | true             | Enable edge-frfox styles                                                                                                                                                                                |
-| `uc.plugin.sidebery`                     | boolean          | Sidebery custom css, copy everything in `./sidebery.css` to [Sidebery setting](https://github.com/mbnuqw/sidebery/wiki/Sidebery-Styles-Snippets) to make sidebery looks like native vertical tab styles |
-| `uc.plugin.simpleMenuWizard`             | boolean          | To use simpleMenuWizard put entire `simpleMenuWizard-master` to `./plugins/`                                                                                                                            |
-| `uc.tweak.dynamic-tabbar`                | true             | Same feature from <https://github.com/mbnuqw/sidebery/wiki/Firefox-Styles-Snippets-(via-userChrome.css)#dynamic-native-tabs-for-hiding-native-horizontal-tabs>                                          |
-| `widget.windows.mica`                    | true             | Enable mica effect on Windows 10/11                                                                                                                                                                     |
-| `widget.windows.mica.extra`              | true             | Enable custom extra mica content (Require [MicaForEveryone](https://github.com/MicaForEveryone/MicaForEveryone))                                                                                        |
-| `widget.windows.mica.popups`             | 0 or 1 or 2      | Disabled / Enabled / Auto (Firefox 138+)                                                                                                                                                                |
-| `widget.windows.mica.popups`             | true             | (Firefox 137)                                                                                                                                                                                           |
-| `widget.windows.mica.toplevel-backdrop`  | 0 or 1 or 2 or 3 | Auto / Mica / Acrylic / MicaAlt (Firefox 138+)                                                                                                                                                          |
+| preference name                          | value | description                         |
+| ---------------------------------------- | ----- | ----------------------------------- |
+| `browser.tabs.allow_transparent_browser` | true  | Allow browser framework transparent |
+| `widget.windows.mica`                    | true  | Enable mica effect on Windows 10/11 |
 
 #### Optional
 
-| preference name                         | value                         | description                                                                                                                                                               |
-| --------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `toolkit.tabbox.switchByScrolling`      | boolean                       | ![](./assets/previews/switchByScrolling.gif)                                                                                                                              |
-| `uc.tweak.enable-nebula-animations`     | true                          | Enable some fancy animations I have stolen from [nebula](https://github.com/JustAdumbPrsn/Zen-Nebula)                                                                     |
-| `uc.tweak.animation.page-loading`       | null or 0 or 1 or 2 or 3 or 4 | [nebula-tab-loading-animation](https://github.com/JustAdumbPrsn/Zen-Nebula/blob/main/Nebula/Nebula-config.css)                                                            |
-| `uc.tweak.animation.page-showing`       | null or 0 or 1 or 2 or 3 or 4 | [nebula-tab-switch-animation](https://github.com/JustAdumbPrsn/Zen-Nebula/blob/main/Nebula/Nebula-config.css)                                                             |
-| `uc.tweak.pip`                          | true                          | Enable Picture-in-Picture styles ![](./assets/previews/pip.png)                                                                                                           |
-| `uc.tweak.always-show-navbar-button`    | boolean                       | ![](./assets/previews/always-show-navbar-button.gif) Always show navbar buttons even window really have no space for them                                                 |
-| `uc.tweak.always-show-tab-close-button` | boolean                       | ![](./assets/previews/always-show-close-button.png)Always show tab close button, or show only on hover                                                                    |
-| `uc.tweak.browser-rounded-padding`      | null or 0 or 1 or 2 or 3 or 4 | Every value add 0.5em extra padding ![](./assets/previews/browser-rounded-padding.gif)                                                                                    |
-| `uc.tweak.compact-extensions-menu`      | boolean                       | ![](./assets/previews/extension1.png)                                                                                                                                     |
-| `uc.tweak.icon-only-extension-menu`     | boolean                       | ![](./assets/previews/extension2.png)                                                                                                                                     |
-| `uc.tweak.sort-extensions`              | true/false                    | Sort extension items by alphabet                                                                                                                                          |
-| `uc.tweak.floating-tabs`                | true                          | ![](./assets/previews/floating-tabs.gif)                                                                                                                                  |
-| `uc.tweak.navbar.compact`               | boolean                       | ![](./assets/previews/navbar-compact.gif)                                                                                                                                 |
-| `uc.tweak.toolbar-spacer-large`         | boolean                       | ![](./assets/previews/toolbar-spacer-large.gif)                                                                                                                           |
-| `uc.tweak.remove-toolbar-spacer`        | boolean                       | ![](./assets/previews/remove-toolbar-spacer.gif)                                                                                                                          |
-| `uc.tweak.remove-overflow-indicator`    | boolean                       | ![](./assets/previews/remove-overflow-indicator.gif)                                                                                                                      |
-| `uc.tweak.remove-sidebar-button-group`  | boolean                       | ![](./assets/previews/remove-sidebar-config-button.gif)                                                                                                                   |
-| `uc.tweak.remove-sidebar-config-button` | boolean                       | ![](./assets/previews/remove-sidebar-config-button.gif)                                                                                                                   |
-| `uc.tweak.remove-tab-close-button`      | boolean                       | ![](./assets/previews/remove-tab-close-button.gif)![](./assets/previews/remove-tab-close-button1.gif)                                                                     |
-| `uc.tweak.rounded-corners`              | true                          | ![](./assets/previews/rounded-corners.gif)                                                                                                                                |
-| `uc.tweak.urlbar-button`                | null or 0 or 1 or 2           | Chose to show urlbar buttons with none hide (0), hide on left (1), or hide on right(2) ![](./assets/previews/urlbar-button.gif) ![](./assets/previews/urlbar-button1.gif) |
-| `uc.tweak.privacy-enhance`              | boolean                       | ![](./assets/previews/privacy-enhance.gif)                                                                                                                                |
-| `uc.tweak.revert-context-menu`          | boolean                       | Disable custom context menu css                                                                                                                                           |
+| preference name                         | value                         | description                                                                                                                                                                                             |
+| --------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `widget.windows.mica.popups`            | 0 or 1 or 2                   | Disabled / Enabled / Auto (Firefox 138+) / true (Firefox 137)                                                                                                                                           |
+| `widget.windows.mica.toplevel-backdrop` | 0 or 1 or 2 or 3              | Auto / Mica / Acrylic / MicaAlt (Firefox 138+)                                                                                                                                                          |
+| `uc.plugin.sidebery`                    | boolean                       | Sidebery custom css, copy everything in `./sidebery.css` to [Sidebery setting](https://github.com/mbnuqw/sidebery/wiki/Sidebery-Styles-Snippets) to make sidebery looks like native vertical tab styles |
+| `uc.plugin.simpleMenuWizard`            | boolean                       | To use simpleMenuWizard put entire `simpleMenuWizard-master` to `./plugins/`                                                                                                                            |
+| `uc.tweak.dynamic-tabbar`               | true                          | Same feature from <https://github.com/mbnuqw/sidebery/wiki/Firefox-Styles-Snippets-(via-userChrome.css)#dynamic-native-tabs-for-hiding-native-horizontal-tabs>                                          |
+| `toolkit.tabbox.switchByScrolling`      | boolean                       | ![](./assets/previews/switchByScrolling.gif)                                                                                                                                                            |
+| `uc.tweak.enable-nebula-animations`     | true                          | Enable some fancy animations I have stolen from [nebula](https://github.com/JustAdumbPrsn/Zen-Nebula)                                                                                                   |
+| `uc.tweak.animation.page-loading`       | null or 0 or 1 or 2 or 3 or 4 | [nebula-tab-loading-animation](https://github.com/JustAdumbPrsn/Zen-Nebula/blob/main/Nebula/Nebula-config.css)                                                                                          |
+| `uc.tweak.animation.page-showing`       | null or 0 or 1 or 2 or 3 or 4 | [nebula-tab-switch-animation](https://github.com/JustAdumbPrsn/Zen-Nebula/blob/main/Nebula/Nebula-config.css)                                                                                           |
+| `uc.tweak.pip`                          | true                          | Enable Picture-in-Picture styles ![](./assets/previews/pip.png)                                                                                                                                         |
+| `uc.tweak.always-show-navbar-button`    | boolean                       | ![](./assets/previews/always-show-navbar-button.gif) Always show navbar buttons even window really have no space for them                                                                               |
+| `uc.tweak.always-show-tab-close-button` | boolean                       | ![](./assets/previews/always-show-close-button.png)Always show tab close button, or show only on hover                                                                                                  |
+| `uc.tweak.browser-rounded-padding`      | null or 0 or 1 or 2 or 3 or 4 | Every value add 0.5em extra padding ![](./assets/previews/browser-rounded-padding.gif)                                                                                                                  |
+| `uc.tweak.compact-extensions-menu`      | boolean                       | ![](./assets/previews/extension1.png)                                                                                                                                                                   |
+| `uc.tweak.icon-only-extension-menu`     | boolean                       | ![](./assets/previews/extension2.png)                                                                                                                                                                   |
+| `uc.tweak.sort-extensions`              | true/false                    | Sort extension items by alphabet                                                                                                                                                                        |
+| `uc.tweak.floating-tabs`                | true                          | ![](./assets/previews/floating-tabs.gif)                                                                                                                                                                |
+| `uc.tweak.navbar.compact`               | boolean                       | ![](./assets/previews/navbar-compact.gif)                                                                                                                                                               |
+| `uc.tweak.toolbar-spacer-large`         | boolean                       | ![](./assets/previews/toolbar-spacer-large.gif)                                                                                                                                                         |
+| `uc.tweak.remove-toolbar-spacer`        | boolean                       | ![](./assets/previews/remove-toolbar-spacer.gif)                                                                                                                                                        |
+| `uc.tweak.remove-overflow-indicator`    | boolean                       | ![](./assets/previews/remove-overflow-indicator.gif)                                                                                                                                                    |
+| `uc.tweak.remove-sidebar-button-group`  | boolean                       | ![](./assets/previews/remove-sidebar-config-button.gif)                                                                                                                                                 |
+| `uc.tweak.remove-sidebar-config-button` | boolean                       | ![](./assets/previews/remove-sidebar-config-button.gif)                                                                                                                                                 |
+| `uc.tweak.remove-tab-close-button`      | boolean                       | ![](./assets/previews/remove-tab-close-button.gif)![](./assets/previews/remove-tab-close-button1.gif)                                                                                                   |
+| `uc.tweak.rounded-corners`              | true                          | ![](./assets/previews/rounded-corners.gif)                                                                                                                                                              |
+| `uc.tweak.urlbar-button`                | null or 0 or 1 or 2           | Chose to show urlbar buttons with none hide (0), hide on left (1), or hide on right(2) ![](./assets/previews/urlbar-button.gif) ![](./assets/previews/urlbar-button1.gif)                               |
+| `uc.tweak.privacy-enhance`              | boolean                       | ![](./assets/previews/privacy-enhance.gif)                                                                                                                                                              |
+| `uc.tweak.revert-context-menu`          | boolean                       | Disable custom context menu css                                                                                                                                                                         |
 
 ### Your personal customization override
 
@@ -98,6 +100,7 @@ Add `./custom.css`
 ## Relate links
 
 - https://github.com/bmFtZQ/edge-frfox
+- https://github.com/JustAdumbPrsn/Zen-Nebula
 - https://github.com/muckSponge/MaterialFox
 - https://github.com/Guerra24/Firefox-UWP-Style
 - https://github.com/Aris-t2/CustomJSforFx

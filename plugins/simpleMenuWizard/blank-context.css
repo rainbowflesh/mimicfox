@@ -1,0 +1,32 @@
+/*AGENT_SHEET*/
+
+/*********************************************************************************************
+  simpleMenuWizard: userChrome.css tweaks to remove context menu items in Firefox.
+  https://github.com/stonecrusher/simpleMenuWizard
+**********************************************************************************************
+
+/*** blank-context.css ***/
+/*** When right-clicking on a blank area on a webpage ***/
+
+/* #context-navigation,             /* Hide whole navigation bar            */
+/* #context-back,                     /* Navi: Back arrow                     */
+/* #context-forward,                  /* Navi: Forward arrow                  */
+/* #context-reload,                   /* Navi: Reload icon - 
+                                           combined position with stop icon   */
+/* #context-stop,                     /* Navi: Stop icon (x) - 
+                                           combined position with reload icon */
+#context-bookmarkpage,             /* Navi: Bookmark star icon             */
+#context-sep-navigation,         /************** Separator ***************/
+#context-savepage,               /* Save Page As...                      */
+#context-pocket,                 /* Save Page to Pocket                  */
+/* #context-selectall,              /* Select All                           */
+#context-sep-selectall,          /************** Separator ***************/
+#context-take-screenshot,        /* Take Screenshot                      */
+#context-sep-screenshots,        /************** Separator ***************/
+#context-viewsource,             /* View Page Source                     */
+/* #context-inspect,                /* Inspect (Q)                          */
+#context-media-eme-separator,    /************** Separator ***************/
+/* Here are context menus of addons */
+
+#leave_this_dummy_here
+    { display:none !important; }

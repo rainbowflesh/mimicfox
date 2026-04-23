@@ -1,0 +1,32 @@
+/*AGENT_SHEET*/
+
+/*********************************************************************************************
+  simpleMenuWizard: userChrome.css tweaks to remove context menu items in Firefox.
+  https://github.com/stonecrusher/simpleMenuWizard
+**********************************************************************************************
+
+/*** frame-context.css ***/
+/*** When right-clicking on an iframe ***/
+
+/*** "This Frame" in context menu ***/
+/* menu#frame,                          /* This Frame    */
+/* #context-showonlythisframe,              /* Show Only This Frame     */
+/* #context-openframeintab,                 /* Open Frame in New Tab    */
+/* #context-openframe,                      /* Open Frame in New Window */
+/* #open-frame-sep,                         /******** Separator *********/
+/* #context-reloadframe,                    /* Reload Frame             */
+#context-reloadframe + menuseparator,    /******** Separator *********/
+#context-bookmarkframe,                  /* Bookmark This Frame      */
+#context-saveframe,                      /* Save Frame As…           */
+#context-saveframe + menuseparator,      /******** Separator *********/
+#context-printframe,                     /* Print Frame…             */
+#context-printframe + menuseparator,     /******** Separator *********/
+#context-take-frame-screenshot,          /* Take Screenshot          */
+#context-take-frame-screenshot
+                       + menuseparator,     /******** Separator *********/
+#context-viewframesource,                /* View Frame Source        */
+/* #context-viewframeinfo,                  /* View Frame Info          */
+#spell-separator,                    /*** Separator ***/
+
+#leave_this_dummy_here
+    { display:none !important; }

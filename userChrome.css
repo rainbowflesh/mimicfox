@@ -27,23 +27,19 @@ mimic Microsoft Edge and several community userChromes.
 /* ---------------------------------------------------------------- */
 
 /* use simpleMenuWizard */
-@import url("./plugins/simpleMenuWizard-master/userChrome.css") -moz-pref("uc.plugin.simpleMenuWizard");
+@import url("./plugins/simpleMenuWizard/userChrome.css") -moz-pref("uc.plugin.simpleMenuWizard");
 
-/* use edge-frfox */
-@import url("./icons/icons.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./colors.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./findbar.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./navbar.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./popup.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./tabbar.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./tree.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./urlbar.css") -moz-pref("uc.plugin.edge-frfox");
-@import url("./browser.css") -moz-pref("uc.plugin.edge-frfox");
-
-@import url("./mica.css") -moz-pref("widget.windows.mica.extra");
-/* optional extra mica */
-
+@import url("./icons/icons.css");
+@import url("./colors.css");
+@import url("./findbar.css");
+@import url("./navbar.css");
+@import url("./popup.css");
+@import url("./tabbar.css");
+@import url("./tree.css");
+@import url("./urlbar.css");
+@import url("./browser.css");
 @import url("./sidebar.css");
+@import url("./mica.css");
 
 /* animations from nebula */
 @import url("./animations.css") -moz-pref("uc.tweak.enable-nebula-animations");
