@@ -30,8 +30,8 @@
     ) !important;
   }
 }
-button#main-button span.button-background.labelled{
-   border-radius: var(--urlbar-icon-border-radius) !important;
+button#main-button span.button-background.labelled {
+  border-radius: var(--urlbar-icon-border-radius) !important;
 }
 .urlbarView-row {
   border-radius: var(--uc-urlbar-open-border-radius) !important;
@@ -84,7 +84,9 @@ button#main-button span.button-background.labelled{
   #urlbar[open] & {
     border-radius: var(--uc-urlbar-open-border-radius) !important;
     border-color: transparent !important;
-    box-shadow: 0 10px 16px rgb(0 0 0 / 0.18), 0 3px 5px rgb(0 0 0 / 0.33) !important;
+    box-shadow:
+      0 10px 16px rgb(0 0 0 / 0.18),
+      0 3px 5px rgb(0 0 0 / 0.33) !important;
     outline: 0.5px solid var(--arrowpanel-border-color) !important;
     top: 4px !important;
     :root:not([lwtheme]) & {
@@ -309,11 +311,16 @@ button#main-button span.button-background.labelled{
 }
 
 /* hide left */
-@media -moz-pref("uc.tweak.urlbar-button",1) {
-  /* visual dots */
-  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms])
-    #tracking-protection-icon-container::before {
-    content: var(--dot-image);
+@media -moz-pref("uc.tweak.urlbar-button", 1) {
+  /* hide useless buttons */
+  #tracking-protection-icon-container,
+  box#identity-box.verifiedDomain #identity-icon-box.identity-box-button {
+    display: none !important;
+  }
+
+  /* identicator dot placeholder img */
+  #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #trust-icon-container::before {
+    content: var(--dot-image, url("chrome://global/skin/icons/more.svg"));
     position: relative;
     pointer-events: none;
     -moz-context-properties: fill, fill-opacity;
@@ -325,28 +332,27 @@ button#main-button span.button-background.labelled{
     margin-right: 4px;
     opacity: 0.3;
   }
-  #urlbar:has(#identity-box:hover) #tracking-protection-icon-container::before,
-  #tracking-protection-icon-container:hover::before {
+
+  /* hover on identicater */
+  #urlbar:has(:is(#trust-icon-container, #identity-box):hover) #trust-icon-container::before,
+  #trust-icon-container:hover::before {
     opacity: 1 !important;
   }
 
-  /* === Initial hidden state === */
-  #tracking-protection-icon-box,
-  #identity-icon-box,
+  /* initial hidding state */
+  #trust-icon-container > *,
   #identity-permission-box {
     opacity: 0;
     margin-inline-start: -2em;
     pointer-events: none;
-    transition: opacity 250ms ease 0ms, margin-inline-start 250ms ease 50ms;
+    transition:
+      opacity 250ms ease 0ms,
+      margin-inline-start 250ms ease 50ms;
   }
 
-  /* === Show buttons when hovering tracking or identity container === */
-  #urlbar:has(#tracking-protection-icon-container:hover) #tracking-protection-icon-box,
-  #urlbar:has(#tracking-protection-icon-container:hover) #identity-icon-box,
-  #urlbar:has(#tracking-protection-icon-container:hover) #identity-permission-box,
-  #urlbar:has(#identity-box:hover) #tracking-protection-icon-box,
-  #urlbar:has(#identity-box:hover) #identity-icon-box,
-  #urlbar:has(#identity-box:hover) #identity-permission-box {
+  /* expand */
+  #urlbar:has(:is(#trust-icon-container, #identity-box):hover) #trust-icon-container > *,
+  #urlbar:has(:is(#trust-icon-container, #identity-box):hover) #identity-permission-box {
     opacity: 1;
     margin-inline-start: 0;
     pointer-events: auto;
@@ -380,7 +386,9 @@ button#main-button span.button-background.labelled{
     pointer-events: none;
   }
   #page-action-buttons .urlbar-page-action {
-    transition: opacity 250ms ease 0ms, margin-inline-end 250ms ease 50ms;
+    transition:
+      opacity 250ms ease 0ms,
+      margin-inline-end 250ms ease 50ms;
   }
   /* === Show buttons on container hover === */
   #page-action-buttons:hover .urlbar-page-action {

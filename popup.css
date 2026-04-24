@@ -564,6 +564,7 @@ panelview .toolbarbutton-1,
     /*! margin: 2px !important; */
   }
 }
+
 /* compact extensions menu */
 @media -moz-pref("uc.tweak.compact-extensions-menu") {
   :root {
