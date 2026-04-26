@@ -274,6 +274,9 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
 #context-ask-chat {
   list-style-image: var("ic_fluent_agents_16_regular.svg") !important;
 }
+#context-add-engine {
+  list-style-image: var("ic_fluent_add_circle_16_regular.svg") !important;
+}
 
 #screenshot-button {
   list-style-image: url("screenshot.svg") !important;
