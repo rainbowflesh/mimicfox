@@ -25,10 +25,10 @@
 /* #context-media-hidecontrols,          /* Hide Controls                   */
 /* #context-media-showcontrols,          /* Show Controls                   */
 /* #context-media-sep-video-commands,    /************ Separator ************/
-/* #context-viewvideo,                   /* Open Video in New Tab           */
-/* #context-video-pictureinpicture,      /* Watch in Picture-in-Picture     */
-/* #context-media-sep-commands,          /************ Separator ************/
-/* #context-video-saveimage,             /* Take Snapshot…                  */
+#context-viewvideo,                   /* Open Video in New Tab           */
+#context-video-pictureinpicture,      /* Watch in Picture-in-Picture     */
+#context-media-sep-commands,          /************ Separator ************/
+#context-video-saveimage,             /* Take Snapshot…                  */
 /* #context-savevideo,                   /* Save Video As…                  */
 /* #context-saveaudio,                   /* Save Audio As…                  */
 /* #context-copyvideourl,                /* Copy Video Link                 */
@@ -38,5 +38,6 @@
 /* #context-sep-setbackground,           /************ Separator ************/
 /* #context-inspect,                     /* Inspect (Q)                     */
 
-#leave_this_dummy_here
-    { display:none !important; }
+#leave_this_dummy_here {
+  display: none !important;
+}

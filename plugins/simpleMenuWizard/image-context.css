@@ -12,12 +12,15 @@
 /* #context-viewimage,               /* Open Image in New Tab           */
 /* #context-saveimage,               /* Save Image As…                  */
 /* #context-copyimage-contents,      /* Copy Image                      */
-/* #context-copyimage,               /* Copy Image Link                 */
+#context-copyimage,               /* Copy Image Link
+#context-openlinkinsplitview,    /* Open Link in Split View          */
 #context-sendimage,               /* Email Image…                    */
 #context-sep-setbackground,       /************ Separator ************/
 #context-setDesktopBackground,    /* Set As Desktop Background...    */
-/* #context-sep-sharing,             /************ Separator ************/
+#context-sep-sharing,             /************ Separator *********** */
+#context-viewimageinfo,
 /* #context-inspect,                 /* Inspect (Q)                     */
 
-#leave_this_dummy_here
-    { display:none !important; }
+#leave_this_dummy_here {
+  display: none !important;
+}

@@ -225,11 +225,11 @@ button#main-button span.button-background.labelled {
 }
 
 /* === search engine identity icon === */
-#identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
+/* #identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
   opacity: 0;
   visibility: collapse;
 }
-
+ */
 #urlbar #identity-box[pageproxystate="valid"] {
   &.weakCipher,
   &.mixedDisplayContent,
@@ -266,7 +266,7 @@ button#main-button span.button-background.labelled {
 
 /* ===== hide urlbar buttons ===== */
 /* show all buttons */
-@media -moz-pref("uc.tweak.urlbar-button",0) {
+@media not -moz-pref("uc.tweak.urlbar-button") {
   #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before,
   #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #identity-box::after {
     display: none;
@@ -311,7 +311,7 @@ button#main-button span.button-background.labelled {
 }
 
 /* hide left */
-@media -moz-pref("uc.tweak.urlbar-button", 1) {
+@media -moz-pref("uc.tweak.urlbar-button", 0), -moz-pref("uc.tweak.urlbar-button", 2) {
   /* hide useless buttons */
   #tracking-protection-icon-container,
   box#identity-box.verifiedDomain #identity-icon-box.identity-box-button {
@@ -320,8 +320,9 @@ button#main-button span.button-background.labelled {
 
   /* identicator dot placeholder img */
   #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #trust-icon-container::before {
-    content: var(--dot-image, url("chrome://global/skin/icons/more.svg"));
+    content: url("chrome://global/skin/icons/more.svg");
     position: relative;
+    transform: rotate(90deg);
     pointer-events: none;
     -moz-context-properties: fill, fill-opacity;
     fill: var(--toolbarbutton-icon-fill) !important;
@@ -333,37 +334,71 @@ button#main-button span.button-background.labelled {
     opacity: 0.3;
   }
 
-  /* hover on identicater */
-  #urlbar:has(:is(#trust-icon-container, #identity-box):hover) #trust-icon-container::before,
+  /* hover on identicater to highlight */
+  #urlbar:has(#trust-icon-container:hover) #trust-icon-container::before,
+  #urlbar:has(#identity-box:not(.extensionPage):hover) #trust-icon-container::before,
   #trust-icon-container:hover::before {
     opacity: 1 !important;
   }
 
   /* initial hidding state */
-  #trust-icon-container > *,
+  #trust-icon-container:not(.insecure) > *,
+  #trust-icon-container #trust-label,
   #identity-permission-box {
     opacity: 0;
-    margin-inline-start: -2em;
     pointer-events: none;
+    margin-inline-start: -1.5em;
     transition:
       opacity 250ms ease 0ms,
       margin-inline-start 250ms ease 50ms;
   }
 
-  /* expand */
-  #urlbar:has(:is(#trust-icon-container, #identity-box):hover) #trust-icon-container > *,
+  #trust-icon-container #trust-label {
+    margin-inline-start: -5em !important;
+  }
+
+  #identity-box.extensionPage #identity-icon-box:not([open]) #identity-icon-label {
+    opacity: 0;
+    visibility: collapse;
+  }
+
+  #identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button,
+  #urlbar-label-box {
+    background-color: transparent;
+  }
+
+  /* expand on hover*/
+  #urlbar:has(#trust-icon-container:hover) #trust-icon-container > *,
+  #urlbar:has(#identity-box:not(.extensionPage):hover) #trust-icon-container > *,
   #urlbar:has(:is(#trust-icon-container, #identity-box):hover) #identity-permission-box {
     opacity: 1;
-    margin-inline-start: 0;
+    margin-inline-start: 0 !important;
     pointer-events: auto;
     transition-delay: 0ms;
+    visibility: visible !important;
+  }
+  #urlbar:has(:is(#trust-icon-container):hover) #trust-label {
+    cursor: default;
+    margin-block: var(--space-xxsmall) !important;
+    margin-inline: var(--space-xsmall) !important;
+  }
+  #urlbar:has(:is(#identity-box):hover)
+    #identity-box.extensionPage
+    #identity-icon-box:not([open])
+    #identity-icon-label {
+    opacity: 1;
+    transition:
+      opacity 350ms ease,
+      visibility 350ms ease;
+    visibility: visible;
   }
 }
 
 /* hide right side */
-@media -moz-pref("uc.tweak.urlbar-button",2) {
+@media -moz-pref("uc.tweak.urlbar-button", 1), -moz-pref("uc.tweak.urlbar-button", 2) {
   #urlbar:is(:not([usertyping]), :not([focused])):not([persistsearchterms]) #page-action-buttons::before {
-    content: var(--dot-image);
+    content: url("chrome://global/skin/icons/more.svg");
+    transform: rotate(90deg);
     position: relative;
     pointer-events: none;
     -moz-context-properties: fill, fill-opacity;
