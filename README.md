@@ -107,3 +107,4 @@ Add `./custom.css`
 - https://github.com/mbnuqw/sidebery
 - https://github.com/joelshepherd/tabliss
 - https://github.com/MicaForEveryone/MicaForEveryone
+- https://github.com/microsoft/fluentui-system-icons
