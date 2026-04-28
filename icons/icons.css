@@ -272,10 +272,15 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
 }
 
 #context-ask-chat {
-  list-style-image: var("ic_fluent_agents_16_regular.svg") !important;
+  list-style-image: url("ic_fluent_agents_16_regular.svg") !important;
 }
+
 #context-add-engine {
-  list-style-image: var("ic_fluent_add_circle_16_regular.svg") !important;
+  list-style-image: url("ic_fluent_add_circle_16_regular.svg") !important;
+}
+
+#context-visual-search {
+  list-style-image: url("ic_fluent_search_visual_16_regular.svg") !important;
 }
 
 #screenshot-button {
@@ -862,6 +867,7 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
 
   #context-openlinkintab,
   #context-openlinkincontainertab,
+  #context-openlinkincurrent,
   .openintabs-menuitem,
   menuitem[id="placesContext_open:newtab"],
   menuitem[id="placesContext_openLinks:tabs"],
