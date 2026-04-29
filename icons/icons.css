@@ -267,21 +267,6 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   list-style-image: url("mail.svg") !important;
 }
 
-#context-copyemail {
-  list-style-image: url("ic_fluent_mail_copy_32_regular.svg") !important;
-}
-
-#context-ask-chat {
-  list-style-image: url("ic_fluent_agents_16_regular.svg") !important;
-}
-
-#context-add-engine {
-  list-style-image: url("ic_fluent_add_circle_16_regular.svg") !important;
-}
-
-#context-visual-search {
-  list-style-image: url("ic_fluent_search_visual_16_regular.svg") !important;
-}
 
 #screenshot-button {
   list-style-image: url("screenshot.svg") !important;
@@ -661,6 +646,21 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
     }
   }
 
+#context-copyemail {
+  --menu-image: url("ic_fluent_mail_copy_32_regular.svg") !important;
+}
+
+#context-ask-chat {
+  --menu-image: url("ic_fluent_agents_16_regular.svg") !important;
+}
+
+#context-add-engine {
+  --menu-image: url("ic_fluent_add_circle_16_regular.svg") !important;
+}
+
+#context-visual-search {
+  --menu-image: url("ic_fluent_search_visual_16_regular.svg") !important;
+}
   #context-video-pictureinpicture:not([checked="true"]) .menu-iconic-icon {
     list-style-image: url("media-pip.svg") !important;
   }
