@@ -45,9 +45,13 @@ window#bookmarkproperties,
 window#webextpanels-window,
 slot[part="content"] {
   background-color: transparent !important;
-  appearance: menupopup !important;
+  appearance: auto !important;
+  -moz-default-appearance: menupopup !important;
   --panel-shadow-margin: 0px !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-border-color: transparent !important;
 }
+
 browser#sidebar,
 #sidebar-box {
   box-shadow: none !important;
@@ -105,7 +109,7 @@ browser#sidebar,
 
   @media (prefers-color-scheme: dark) {
     .urlbar:is([focused], [open]) > .urlbar-background {
-      /*       background-color: rgba(12, 12, 12, 0.55) !important; */
+      /*             background-color: rgba(12, 12, 12, 0.55) !important; */
     }
 
     .dialogFrame,
