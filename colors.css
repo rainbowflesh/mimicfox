@@ -60,6 +60,7 @@
   --tab-selected-textcolor: var(--button-color) !important;
   --toolbar-color: var(--button-color) !important;
   --toolbar-field-background-color: light-dark(#fff, #2b2b2b) !important;
+  --toolbar-field-background-color-focus: var(--toolbar-field-background-color) !important;
   --toolbarbutton-icon-fill-attention: light-dark(#0078d4, #4c98d1) !important;
   --uc-urlbarView-accent-color: light-dark(#1a6397, #75b6e8) !important;
   --urlbar-box-active-bgcolor: light-dark(rgb(0 0 0 / 0.22), rgb(255 255 255 / 0.28)) !important;

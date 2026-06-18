@@ -141,13 +141,13 @@ browser#sidebar {
   }
 
   /* vertical tabs */
-  #sidebar-box {
+  #sidebar-box,#sidebar-container {
     padding-bottom: 0 !important;
     overflow: hidden !important;
     min-width: var(--sidebar-box-size) !important;
     opacity: 1;
   }
-  #main-window[titlepreface*="sidebery"] #sidebar-main,
+  #main-window[titlepreface*="sidebery"] #sidebar-main,#sidebar-container,
   #sidebar-button {
     display: none;
   }
