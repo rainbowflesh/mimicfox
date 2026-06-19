@@ -190,6 +190,7 @@ toolbarseparator {
 .autoscroller {
   --panel-border-color: rgba(0, 0, 0, 0) !important;
   --panel-shadow: 0 !important;
+  --panel-box-shadow-margin: 0px !important;
   border: 0 !important;
   pointer-events: none;
 }
