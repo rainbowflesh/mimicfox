@@ -217,7 +217,9 @@ toolbarseparator {
     .dialogFrame,
     #urlbar-background,
     #statuspanel-label {
-        background-color: rgba(255, 255, 255, 0.7) !important;
+/*         background-color: rgba(255, 255, 255, 0.7) !important; */
+        background-color: var(--panel-background) !important;
+
     }
 }
 
@@ -235,7 +237,8 @@ toolbarseparator {
     .dialogFrame,
     #urlbar-background,
     #statuspanel-label {
-        background-color: rgba(14, 14, 14, 0.7) !important;
+/*         background-color: rgba(14, 14, 14, 0.7) !important; */
+        background-color: var(--panel-background) !important;
     }
 }
 
