@@ -5,6 +5,7 @@
         "autoscroller",
         "bookmarkproperties",
         "lwtheme",
+        "mimicfox",
         "panelmultiview",
         "popupnotification",
         "privatebrowsingmode",
@@ -14,5 +15,6 @@
         "urlbar",
         "webextpanels"
     ],
-    "java.search.scope": "all"
+    "java.search.scope": "all",
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true
 }

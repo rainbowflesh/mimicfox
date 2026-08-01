@@ -20,6 +20,7 @@
     --urlbar-toolbar-height: calc(8px + 16px + var(--toolbarbutton-inner-padding) * 2) !important;
     --urlbar-height: calc(16px + var(--toolbarbutton-inner-padding) * 2) !important;
     --urlbar-min-height: calc(16px + var(--toolbarbutton-inner-padding) * 2) !important;
+    --urlbar-basic-component-size: calc(var(--urlbar-height) - 6px) !important;
   }
 
   /* Spacing for urlbar suggestion icons. */
@@ -30,12 +31,20 @@
     ) !important;
   }
 }
+
+::-moz-selection{
+  background: var(--button-primary-bgcolor);
+}
+
+
 button#main-button span.button-background.labelled {
   border-radius: var(--urlbar-icon-border-radius) !important;
 }
+
 .urlbarView-row {
   border-radius: var(--uc-urlbar-open-border-radius) !important;
 }
+
 .urlbarView-row[label] {
   margin-block-start: 1.5rem !important;
 }

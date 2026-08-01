@@ -100,6 +100,9 @@
     --urlbarview-background-color-selected: var(--tab-selected-bgcolor) !important;
     --urlbarview-text-color-selected: var(--lwt-text-color) !important;
 
+    accent-color: var(--button-primary-bgcolor) !important;
+    
+    
     /* ::::: Dialog theme ::::: */
     & #window-modal-dialog::backdrop {
         /* Overlay when dialog is shown. */
@@ -125,7 +128,6 @@
         --in-content-box-border-color: var(--input-border-color) !important;
     }
 
-    accent-color: var(--button-primary-bgcolor) !important;
 }
 
 /* Linux / GTK */
