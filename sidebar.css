@@ -20,15 +20,15 @@
 
 /* sidebar icon */
 #contentAreaContextMenu
-> menuitem[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"]
-> .menu-icon {
+  menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"]
+  .menu-icon {
     filter: brightness(0) invert(0);
 }
 
 @media (prefers-color-scheme: dark) {
-  #contentAreaContextMenu
-> menuitem[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"]
-> .menu-icon {
+#contentAreaContextMenu
+  menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"]
+  .menu-icon {
     filter: brightness(0) invert(1);
 }
 }
