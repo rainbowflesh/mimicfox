@@ -890,6 +890,11 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
     --menu-image: url("new-tab-image.svg");
   }
 
+  #context_moveTabToNewGroup,
+  #toolbar-context-moveTabToNewGroup {
+    --menu-image: url("ic_fluent_tab_group_16_regular.svg");
+  }
+
   #context-openlinkinusercontext-menu,
   menu[id="placesContext_open:newcontainertab"],
   menu[id="placesContext_openContainer:tabs"] {
@@ -966,6 +971,10 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
     --menu-image: url("pin.svg");
   }
 
+  #context_unloadTab {
+    --menu-image: url("ic_fluent_sleep_20_regular.svg");
+  }
+
   #context_duplicateTab,
   #context_duplicateTabs {
     --menu-image: url("duplicate-tab.svg");
@@ -978,6 +987,10 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   #toolbar-context-bookmarkSelectedTab,
   #toolbar-context-bookmarkSelectedTabs {
     --menu-image: url("bookmark-hollow.svg");
+  }
+
+  #context_addNote {
+    --menu-image: url("chrome://global/skin/icons/tab-notes.svg");
   }
 
   #sidebar-switcher-bookmarks {

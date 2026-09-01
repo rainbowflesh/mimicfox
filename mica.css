@@ -5,38 +5,38 @@
 /* ===== bg color override ===== */
 /* mica */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 1) {
-    --arrowpanel-background-mica: transparent !important;
-    --panel-background-mica: transparent !important;
+  --arrowpanel-background-mica: transparent !important;
+  --panel-background-mica: transparent !important;
 }
 
 /* acrylic */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+  :root {
+    --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
+    --panel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
+    --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
+    --panel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
+  }
+
+  @media -moz-pref("uc.tweak.acrylic-color", 1) {
     :root {
-        --arrowpanel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
-        --panel-border-color-mica: light-dark(#ffffff87, #63636330) !important;
-        --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
-        --panel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.6)) !important;
+      --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
+      --panel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
     }
+  }
 
-    @media -moz-pref("uc.tweak.acrylic-color", 1) {
-        :root {
-            --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
-            --panel-background-mica: light-dark(rgba(255, 255, 255, 0.7), rgba(14, 14, 14, 0.6)) !important;
-        }
+  @media -moz-pref("uc.tweak.acrylic-color", 2) {
+    :root {
+      --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
+      --panel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
     }
-
-    @media -moz-pref("uc.tweak.acrylic-color", 2) {
-        :root {
-            --arrowpanel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
-            --panel-background-mica: light-dark(rgba(255, 255, 255, 0.8), rgba(32, 32, 32, 0.6)) !important;
-        }
-    }
+  }
 }
 
 /* mica alt */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 3) {
-    --arrowpanel-background-mica: transparent !important;
-    --panel-background-mica: transparent !important;
+  --arrowpanel-background-mica: transparent !important;
+  --panel-background-mica: transparent !important;
 }
 
 /* ===== DWM backdrop ===== */
@@ -53,521 +53,524 @@ tooltip,
 window#bookmarkproperties,
 window#webextpanels-window,
 slot[part="content"] {
-    background-color: transparent !important;
-    appearance: auto !important;
-    -moz-default-appearance: menupopup !important;
-    --panel-shadow-margin: 0px !important;
-    --panel-box-shadow-margin: 0px !important;
-    --panel-border-color: transparent !important;
+  background-color: transparent !important;
+  appearance: auto !important;
+  -moz-default-appearance: menupopup !important;
+  --panel-shadow-margin: 0px !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-border-color: transparent !important;
 }
 
 browser#sidebar,
 #sidebar-box {
-    box-shadow: none !important;
-    border-radius: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 /* ====== Acrylic noise and color ===== */
 @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+  .autocomplete-richlistbox,
+  .menupopup-arrowscrollbox,
+  .tab-group-editor-name,
+  .tab-group-editor-panel > toolbarseparator:nth-child(3),
+  .tab-group-editor-panel,
+  .tab-preview-content-main,
+  .tab-preview-content-interactive,
+  #tab-preview-panel,
+  #invalid-form-popup,
+  #main-window,
+  #searchbar:focus-within,
+  #searchmode-switcher-panel-list-urlbar,
+  #tab-group-default-header,
+  #tab-group-main,
+  #tab-group-suggestions-container,
+  #tab-group-suggestions-heading,
+  #tab-group-suggestions-load-actions,
+  #tab-group-suggestions-loading,
+  panel.tab-group-editor-panel,
+  panel#editBookmarkPanel,
+  panel#tab-preview-panel html description,
+  panelmultiview,
+  popupnotification,
+  tooltip {
+    background-color: Menu !important;
+    background-image: var(--acrylic-noise) !important;
+    background-repeat: repeat !important;
+    background-size: 25% !important;
+  }
 
-    .autocomplete-richlistbox,
-    .menupopup-arrowscrollbox,
-    .tab-group-editor-name,
-    .tab-group-editor-panel>toolbarseparator:nth-child(3),
-    .tab-group-editor-panel,
-    .tab-preview-content-main,
-    #tab-preview-panel,
-    #invalid-form-popup,
-    #main-window,
-    #searchbar:focus-within,
-    #searchmode-switcher-panel-list-urlbar,
-    #tab-group-default-header,
-    #tab-group-main,
-    #tab-group-suggestions-container,
-    #tab-group-suggestions-heading,
-    #tab-group-suggestions-load-actions,
-    #tab-group-suggestions-loading,
-    panel.tab-group-editor-panel,
-    panel#editBookmarkPanel,
-    panel#tab-preview-panel html description,
-    panelmultiview,
-    popupnotification,
-    tooltip {
-        background-color: Menu !important;
-        background-image: var(--acrylic-noise) !important;
-        background-repeat: repeat !important;
-        background-size: 25% !important;
+  /* nova */
+  @media -moz-pref("browser.nova.enabled") {
+    #navigator-toolbox,
+    #sidebar-main,
+    #sidebar-box {
+      background-color: transparent !important;
+      border: unset !important;
     }
 
-    /* nova */
-    @media -moz-pref("browser.nova.enabled") {
-
-        #navigator-toolbox,
-        #sidebar-main,
-        #sidebar-box {
-            background-color: transparent !important;
-            border: unset !important;
-        }
-
-        #sidebar-box {
-            margin-left: 4px;
-            border-radius: 8px;
-        }
-
-        #tabbrowser-tabpanels> :not(.split-view-panel) .browserContainer,
-        .chrome-block {
-            border-width: 1px !important;
-            border-color: var(--arrowpanel-border-color-mica) !important;
-        }
+    #sidebar-box {
+      margin-left: 4px;
+      border-radius: 8px;
     }
 
-    @media (prefers-color-scheme: light) {
-        .urlbar:is([focused], [open])>.urlbar-background {
-            /*       background-color: rgba(240, 240, 240, 0.6) !important; */
-        }
+    #tabbrowser-tabpanels > :not(.split-view-panel) .browserContainer,
+    .chrome-block {
+      border-width: 1px !important;
+      border-color: var(--arrowpanel-border-color-mica) !important;
+    }
+  }
 
-        .dialogFrame,
-        #statuspanel-label,
-        #urlbar[open] {
-            border-radius: 8px !important;
-            background-image:
-                linear-gradient(rgba(242, 242, 242, 0.6), rgba(235, 235, 235, 0.4)), var(--acrylic-noise) !important;
-            background-repeat: repeat !important;
-            background-size: 50% !important;
-            backdrop-filter: blur(20px) brightness(115%) contrast(125%) saturate(140%) !important;
-            background-color: transparent !important;
-        }
+  @media (prefers-color-scheme: light) {
+    .urlbar:is([focused], [open]) > .urlbar-background {
+      /*       background-color: rgba(240, 240, 240, 0.6) !important; */
     }
 
-    @media (prefers-color-scheme: dark) {
-        .urlbar:is([focused], [open])>.urlbar-background {
-            /*             background-color: rgba(12, 12, 12, 0.55) !important; */
-        }
-
-        .dialogFrame,
-        #statuspanel-label,
-        #urlbar[open] {
-            background-image:
-                linear-gradient(rgba(18, 18, 18, 0.22), rgba(12, 12, 12, 0.26)), var(--acrylic-noise) !important;
-            background-repeat: repeat !important;
-            background-size: 50% !important;
-            backdrop-filter: blur(20px) brightness(98.6%) saturate(120%) contrast(100%) !important;
-            background-color: transparent !important;
-        }
-    }
-
-    /* more density acrylic noise for main window background */
-    #main-window {
-        background-size: 12.5% !important;
-    }
-
-    /* fix urlbar backdrop leak */
     .dialogFrame,
     #statuspanel-label,
     #urlbar[open] {
-        border-radius: 8px !important;
+      border-radius: 8px !important;
+      background-image:
+        linear-gradient(rgba(242, 242, 242, 0.6), rgba(235, 235, 235, 0.4)), var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+      background-size: 50% !important;
+      backdrop-filter: blur(20px) brightness(115%) contrast(125%) saturate(140%) !important;
+      background-color: transparent !important;
     }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .urlbar:is([focused], [open]) > .urlbar-background {
+      /*             background-color: rgba(12, 12, 12, 0.55) !important; */
+    }
+
+    .dialogFrame,
+    #statuspanel-label,
+    #urlbar[open] {
+      background-image:
+        linear-gradient(rgba(18, 18, 18, 0.22), rgba(12, 12, 12, 0.26)), var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+      background-size: 50% !important;
+      backdrop-filter: blur(20px) brightness(98.6%) saturate(120%) contrast(100%) !important;
+      background-color: transparent !important;
+    }
+  }
+
+  /* more density acrylic noise for main window background */
+  #main-window {
+    background-size: 12.5% !important;
+  }
+
+  /* fix urlbar backdrop leak */
+  .dialogFrame,
+  #statuspanel-label,
+  #urlbar[open] {
+    border-radius: 8px !important;
+  }
 }
 
 /* #statuspanel-label */
 #statuspanel-label {
-    border-color: transparent !important;
+  border-color: transparent !important;
 }
 
 /* reduce border color */
 toolbarseparator,
 menuseparator,
 toolbarseparator {
-    border-color: var(--arrowpanel-border-color-mica) !important;
+  border-color: var(--arrowpanel-border-color-mica) !important;
 }
 
 /* ===== Remove background ===== */
 /* remove toolbar bg color */
 .browser-toolbar {
-    @media not -moz-pref("sidebar.verticalTabs") {
-        &:not(.browser-titlebar) {
-            background-color: transparent !important;
-        }
+  @media not -moz-pref("sidebar.verticalTabs") {
+    &:not(.browser-titlebar) {
+      background-color: transparent !important;
     }
+  }
 }
 
 /* remove inactive window background colours. */
 :root:not([lwtheme]) #navigator-toolbox {
-    &:-moz-window-inactive {
-        background-color: transparent !important;
-    }
+  &:-moz-window-inactive {
+    background-color: transparent !important;
+  }
 }
 
 /* ===== autoscroller (mid click scroller) ===== */
 /* change autoscroller more visible */
 .autoscroller {
-    --panel-border-color: rgba(0, 0, 0, 0) !important;
-    --panel-shadow: 0 !important;
-    --panel-box-shadow-margin: 0px !important;
-    border: 0 !important;
-    pointer-events: none;
+  --panel-border-color: rgba(0, 0, 0, 0) !important;
+  --panel-shadow: 0 !important;
+  --panel-box-shadow-margin: 0px !important;
+  border: 0 !important;
+  pointer-events: none;
 }
 
 /* Light mode */
 @media (prefers-color-scheme: light) {
-    .autoscroller {
-        filter: drop-shadow(0 0 0 white) drop-shadow(0.5px 0 white) drop-shadow(-0.5px 0 white) drop-shadow(0 0.5px white) drop-shadow(0 -0.5px white);
-    }
+  .autoscroller {
+    filter: drop-shadow(0 0 0 white) drop-shadow(0.5px 0 white) drop-shadow(-0.5px 0 white) drop-shadow(0 0.5px white)
+      drop-shadow(0 -0.5px white);
+  }
 
-    .dialogFrame,
-    #urlbar-background,
-    #statuspanel-label {
-/*         background-color: rgba(255, 255, 255, 0.7) !important; */
-        background-color: var(--panel-background) !important;
-
-    }
+  .dialogFrame,
+  #urlbar-background,
+  #statuspanel-label {
+    /*         background-color: rgba(255, 255, 255, 0.7) !important; */
+    background-color: var(--panel-background) !important;
+  }
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-    .autoscroller {
-        filter: invert(1) drop-shadow(0 0 0 black) drop-shadow(0.5px 0 black) drop-shadow(-0.5px 0 black) drop-shadow(0 0.5px black) drop-shadow(0 -0.5px black);
-    }
+  .autoscroller {
+    filter: invert(1) drop-shadow(0 0 0 black) drop-shadow(0.5px 0 black) drop-shadow(-0.5px 0 black)
+      drop-shadow(0 0.5px black) drop-shadow(0 -0.5px black);
+  }
 
-    /* .autoscroller[scrolldir="NS"] {
+  /* .autoscroller[scrolldir="NS"] {
   }
   .autoscroller[scrolldir="EW"] {
   } */
 
-    .dialogFrame,
-    #urlbar-background,
-    #statuspanel-label {
-/*         background-color: rgba(14, 14, 14, 0.7) !important; */
-        background-color: var(--panel-background) !important;
-    }
+  .dialogFrame,
+  #urlbar-background,
+  #statuspanel-label {
+    /*         background-color: rgba(14, 14, 14, 0.7) !important; */
+    background-color: var(--panel-background) !important;
+  }
 }
 
 /* ===== External windows ===== */
 /* make about dialog background transparent */
-@-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
+@-moz-document url("chrome://browser/content/aboutDialog.xhtml")
+{
+  #aboutDialog,
+  #aboutDialogContainer {
+    background: transparent !important;
+  }
 
-    #aboutDialog,
-    #aboutDialogContainer {
-        background: transparent !important;
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+    #clientBox,
+    #bottomBox {
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
+    }
+  }
+
+  #rightBox {
+    -moz-context-properties: fill !important;
+  }
+
+  @media (prefers-color-scheme: light) {
+    .text-link {
+      color: color-mix(in srgb, AccentColor 80%, black) !important;
     }
 
-    @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-
-        #clientBox,
-        #bottomBox {
-            background-color: var(--arrowpanel-background-mica) !important;
-            background-image: var(--acrylic-noise) !important;
-        }
+    .text-link:hover {
+      color: color-mix(in srgb, AccentColor 65%, black) !important;
     }
 
-    #rightBox {
-        -moz-context-properties: fill !important;
+    .text-link:hover:active {
+      color: color-mix(in srgb, AccentColor 50%, black) !important;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .text-link {
+      color: color-mix(in srgb, AccentColor 80%, white) !important;
     }
 
-    @media (prefers-color-scheme: light) {
-        .text-link {
-            color: color-mix(in srgb, AccentColor 80%, black) !important;
-        }
-
-        .text-link:hover {
-            color: color-mix(in srgb, AccentColor 65%, black) !important;
-        }
-
-        .text-link:hover:active {
-            color: color-mix(in srgb, AccentColor 50%, black) !important;
-        }
+    .text-link:hover {
+      color: color-mix(in srgb, AccentColor 65%, white) !important;
     }
 
-    @media (prefers-color-scheme: dark) {
-        .text-link {
-            color: color-mix(in srgb, AccentColor 80%, white) !important;
-        }
-
-        .text-link:hover {
-            color: color-mix(in srgb, AccentColor 65%, white) !important;
-        }
-
-        .text-link:hover:active {
-            color: color-mix(in srgb, AccentColor 50%, white) !important;
-        }
+    .text-link:hover:active {
+      color: color-mix(in srgb, AccentColor 50%, white) !important;
     }
+  }
 }
 
 /* make abuse-report-frame dialog background transparent */
-@-moz-document url("chrome://mozapps/content/extensions/abuse-report-frame.html") {
-    ul.abuse-report-reasons>li>label {
-        grid-template-columns: unset !important;
-        grid-template-rows: unset !important;
-        width: unset !important;
-        line-height: unset !important;
-    }
+@-moz-document url("chrome://mozapps/content/extensions/abuse-report-frame.html")
+{
+  ul.abuse-report-reasons > li > label {
+    grid-template-columns: unset !important;
+    grid-template-rows: unset !important;
+    width: unset !important;
+    line-height: unset !important;
+  }
 
-    html.dialog-window {
-        background-color: var(--in-content-page-background) !important;
-    }
+  html.dialog-window {
+    background-color: var(--in-content-page-background) !important;
+  }
 
-    .abuse-report-buttons {
-        margin-bottom: 10px !important;
-    }
+  .abuse-report-buttons {
+    margin-bottom: 10px !important;
+  }
 }
 
 /* make alert dialog background transparent */
-@-moz-document url("chrome://global/content/alerts/alert.xhtml") {
-    #alertNotification {
-        background: transparent !important;
-        padding-top: 8px !important;
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-        padding-bottom: 12px !important;
-    }
+@-moz-document url("chrome://global/content/alerts/alert.xhtml")
+{
+  #alertNotification {
+    background: transparent !important;
+    padding-top: 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-bottom: 12px !important;
+  }
 
-    #alertBox {
-        padding: 8px !important;
-        background-clip: padding-box !important;
-        background-image: none !important;
-        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.32) !important;
-    }
+  #alertBox {
+    padding: 8px !important;
+    background-clip: padding-box !important;
+    background-image: none !important;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.32) !important;
+  }
 }
 
 /* make createProfileWizard dialog background transparent */
-@-moz-document url("chrome://mozapps/content/profile/createProfileWizard.xhtml") {
-    .wizard-header {
-        background-color: transparent !important;
-        border-bottom: none !important;
-        height: 40px !important;
-        vertical-align: middle;
-    }
+@-moz-document url("chrome://mozapps/content/profile/createProfileWizard.xhtml")
+{
+  .wizard-header {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    height: 40px !important;
+    vertical-align: middle;
+  }
 
-    .wizard-header-label {
-        margin: 5.75px 12px 0px 12px !important;
-    }
+  .wizard-header-label {
+    margin: 5.75px 12px 0px 12px !important;
+  }
 
-    .wizard-buttons-separator {
-        display: none !important;
-    }
+  .wizard-buttons-separator {
+    display: none !important;
+  }
 
-    .wizard-next-deck {
-        margin-left: 10px !important;
-    }
+  .wizard-next-deck {
+    margin-left: 10px !important;
+  }
 }
 
 /* make commonDialog background transparent */
-@-moz-document url("chrome://global/content/commonDialog.xhtml") {
-    @media (prefers-color-scheme: dark) and (not (forced-colors)) {
-
-        /* For dialogs, use a different background colour. We don't do
+@-moz-document url("chrome://global/content/commonDialog.xhtml")
+{
+  @media (prefers-color-scheme: dark) and (not (forced-colors)) {
+    /* For dialogs, use a different background colour. We don't do
    * this in forced colors mode, as we should be using system colours then.
    */
-        :root[dialogroot] {
-            --background-color-canvas: transparent !important;
-        }
+    :root[dialogroot] {
+      --background-color-canvas: transparent !important;
+    }
+  }
+
+  window,
+  #commonDialogWindow {
+    background: transparent !important;
+  }
+
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+    window[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
     }
 
-    window,
-    #commonDialogWindow {
-        background: transparent !important;
+    #commonDialog {
+      background-color: var(--in-content-page-background);
     }
+  }
 
-    @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-        window[title="Incoming Connection"] #commonDialog[windowtype="prompt:confirmEx"] {
-            background-color: var(--arrowpanel-background-mica) !important;
-            background-image: var(--acrylic-noise) !important;
-        }
+  #checkbox {
+    margin-left: 23px !important;
+  }
 
-        #commonDialog {
-            background-color: var(--in-content-page-background);
-        }
-    }
+  #infoIcon {
+    -moz-context-properties: fill !important;
+    fill: var(--uwp-global-front) !important;
+  }
 
-    #checkbox {
-        margin-left: 23px !important;
-    }
-
-    #infoIcon {
-        -moz-context-properties: fill !important;
-        fill: var(--uwp-global-front) !important;
-    }
-
-    button[dlgtype="extra1"][label="Disable"] {
-        display: none;
-    }
+  button[dlgtype="extra1"][label="Disable"] {
+    display: none;
+  }
 }
 
 /* make datepicker dialog use accent color */
-@-moz-document url("chrome://global/content/datepicker.xhtml") {
-    body {
-        background: transparent;
-        --selected-fill-color: AccentColor !important;
-    }
+@-moz-document url("chrome://global/content/datepicker.xhtml")
+{
+  body {
+    background: transparent;
+    --selected-fill-color: AccentColor !important;
+  }
 
-    .spinner {
-        scrollbar-width: thin !important;
-    }
+  .spinner {
+    scrollbar-width: thin !important;
+  }
 
-    @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-        /*     {
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+    /*     {
       background-color: var(--arrowpanel-background-mica) !important;
       background-image: var(--acrylic-noise) !important;
       background-repeat: repeat !important;
     } */
-    }
+  }
 }
 
 /* make exceptionDialog background transparent */
-@-moz-document url("chrome://pippki/content/exceptionDialog.xhtml") {
-    #exceptiondialog {
-        background-color: black !important;
-    }
+@-moz-document url("chrome://pippki/content/exceptionDialog.xhtml")
+{
+  #exceptiondialog {
+    background-color: black !important;
+  }
 
-    .dialog-content-box {
-        color: white !important;
-    }
+  .dialog-content-box {
+    color: white !important;
+  }
 
-    caption {
-        background-color: transparent !important;
-        font-size: 16px !important;
-        font-weight: bold !important;
-    }
+  caption {
+    background-color: transparent !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
 
-    vbox>image {
-        display: none !important;
-    }
+  vbox > image {
+    display: none !important;
+  }
 
-    #locationGroupBox {
-        margin-top: 5px !important;
-    }
+  #locationGroupBox {
+    margin-top: 5px !important;
+  }
 }
 
 /* make library & download window background transparent */
-@-moz-document url("chrome://browser/content/places/places.xhtml") {
+@-moz-document url("chrome://browser/content/places/places.xhtml")
+{
+  #placesList,
+  #detailsPane,
+  #placesPopupset,
+  #placesToolbox,
+  #placesToolbar,
+  #downloadsListBox,
+  #placeContent,
+  #placesContentTags,
+  #placesContentTitle,
+  #placesContentUrl,
+  #places {
+    background-color: transparent !important;
+    border: 0.5px !important;
+  }
 
-    #placesList,
-    #detailsPane,
-    #placesPopupset,
-    #placesToolbox,
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
     #placesToolbar,
-    #downloadsListBox,
-    #placeContent,
-    #placesContentTags,
-    #placesContentTitle,
-    #placesContentUrl,
-    #places {
-        background-color: transparent !important;
-        border: 0.5px !important;
+    #placesList,
+    #contentView {
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
     }
+  }
 
-    @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+  #infoBox {
+    border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
+  }
 
-        #placesToolbar,
-        #placesList,
-        #contentView {
-            background-color: var(--arrowpanel-background-mica) !important;
-            background-image: var(--acrylic-noise) !important;
-        }
-    }
+  #placesView > splitter {
+    border-inline-end: 1px solid var(--arrowpanel-border-color-mica) !important;
+  }
 
-    #infoBox {
-        border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
-    }
-
-    #placesView>splitter {
-        border-inline-end: 1px solid var(--arrowpanel-border-color-mica) !important;
-    }
-
-    #infoBox {
-        border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
-    }
+  #infoBox {
+    border-top: 1px solid var(--arrowpanel-border-color-mica) !important;
+  }
 }
 
-@-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml") {
-    #main-window {
-        background: transparent !important;
-    }
+@-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml")
+{
+  #main-window {
+    background: transparent !important;
+  }
 
-    /* Change Header Size */
-    @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
-
-        #topBar,
-        #mainDeck {
-            color: lightgray !important;
-            background-color: var(--arrowpanel-background-mica) !important;
-            background-image: var(--acrylic-noise) !important;
-            border: none !important;
-        }
+  /* Change Header Size */
+  @media -moz-pref("widget.windows.mica.toplevel-backdrop", 2) {
+    #topBar,
+    #mainDeck {
+      color: lightgray !important;
+      background-color: var(--arrowpanel-background-mica) !important;
+      background-image: var(--acrylic-noise) !important;
+      border: none !important;
     }
+  }
 
-    #permHostBox>label {
-        margin-top: 7px !important;
-    }
+  #permHostBox > label {
+    margin-top: 7px !important;
+  }
 
-    #permList {
-        border: none !important;
-        -moz-appearance: none !important;
-    }
+  #permList {
+    border: none !important;
+    -moz-appearance: none !important;
+  }
 
-    #feedListbox {
-        border: none !important;
-        -moz-appearance: none !important;
-    }
+  #feedListbox {
+    border: none !important;
+    -moz-appearance: none !important;
+  }
 
-    #feedListbox>richlistitem {
-        padding-inline-start: 0px !important;
-        padding-inline-end: 0px !important;
-    }
+  #feedListbox > richlistitem {
+    padding-inline-start: 0px !important;
+    padding-inline-end: 0px !important;
+  }
 
-    #feedListbox richlistitem:not([selected="true"]) {
-        border-bottom: 0px !important;
-    }
+  #feedListbox richlistitem:not([selected="true"]) {
+    border-bottom: 0px !important;
+  }
 
-    .text-link {
-        margin-inline-start: 0px !important;
-        margin-inline-end: 0px !important;
-    }
+  .text-link {
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+  }
 
-    .permission {
-        border: none !important;
-    }
+  .permission {
+    border: none !important;
+  }
 
-    .permission:hover {
-        background-color: #191919 !important;
-        color: white !important;
-    }
+  .permission:hover {
+    background-color: #191919 !important;
+    color: white !important;
+  }
 
-    .permission:hover:active {
-        background-color: #333333 !important;
-    }
+  .permission:hover:active {
+    background-color: #333333 !important;
+  }
 
-    caption {
-        background-color: transparent !important;
-        font-size: 16px !important;
-        font-weight: bold !important;
-    }
+  caption {
+    background-color: transparent !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
 
-    #imagecontainerbox {
-        background-color: black !important;
-        border: none !important;
-    }
+  #imagecontainerbox {
+    background-color: black !important;
+    border: none !important;
+  }
 
-    #viewGroup>radio {
-        padding-left: 13px !important;
-        padding-right: 13px !important;
-        padding-top: 9.5px !important;
-        padding-bottom: 9.5px !important;
-    }
+  #viewGroup > radio {
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+    padding-top: 9.5px !important;
+    padding-bottom: 9.5px !important;
+  }
 
-    #viewGroup>radio[selected="true"] {
-        background-color: transparent !important;
-        border-bottom: 3px solid AccentColor;
-        padding-bottom: 6.5px !important;
-    }
+  #viewGroup > radio[selected="true"] {
+    background-color: transparent !important;
+    border-bottom: 3px solid AccentColor;
+    padding-bottom: 6.5px !important;
+  }
 
-    #viewGroup>radio>.radio-label-box {
-        outline: none !important;
-        color: var(--arrowpanel-color);
-    }
+  #viewGroup > radio > .radio-label-box {
+    outline: none !important;
+    color: var(--arrowpanel-color);
+  }
 
-    #viewGroup>radio:hover {
-        background-color: rgb(60, 60, 60) !important;
-        color: white !important;
-    }
+  #viewGroup > radio:hover {
+    background-color: rgb(60, 60, 60) !important;
+    color: white !important;
+  }
 }
