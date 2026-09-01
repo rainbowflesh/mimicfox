@@ -267,7 +267,6 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   list-style-image: url("mail.svg") !important;
 }
 
-
 #screenshot-button {
   list-style-image: url("screenshot.svg") !important;
 }
@@ -646,21 +645,21 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
     }
   }
 
-#context-copyemail {
-  --menu-image: url("ic_fluent_mail_copy_32_regular.svg") !important;
-}
+  #context-copyemail {
+    --menu-image: url("ic_fluent_mail_copy_32_regular.svg") !important;
+  }
 
-#context-ask-chat {
-  --menu-image: url("ic_fluent_agents_16_regular.svg") !important;
-}
+  #context-ask-chat {
+    --menu-image: url("ic_fluent_agents_16_regular.svg") !important;
+  }
 
-#context-add-engine {
-  --menu-image: url("ic_fluent_add_circle_16_regular.svg") !important;
-}
+  #context-add-engine {
+    --menu-image: url("ic_fluent_add_circle_16_regular.svg") !important;
+  }
 
-#context-visual-search {
-  --menu-image: url("ic_fluent_search_visual_16_regular.svg") !important;
-}
+  #context-visual-search {
+    --menu-image: url("ic_fluent_search_visual_16_regular.svg") !important;
+  }
   #context-video-pictureinpicture:not([checked="true"]) .menu-iconic-icon {
     list-style-image: url("media-pip.svg") !important;
   }
@@ -718,11 +717,13 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   }
 
   #context-savepage,
+  #edit-contextmenu-savepage,
   #context-savelink {
     --menu-image: url("save.svg");
   }
 
   #context-selectall,
+  #edit-contextmenu-select-all,
   .textbox-contextmenu menuitem[cmd*="selectAll"],
   #context_selectAllTabs,
   #toolbar-context-selectAllTabs {
@@ -730,6 +731,7 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   }
 
   #context-undo,
+  #edit-contextmenu-undo,
   .textbox-contextmenu menuitem[cmd*="undo"],
   #context_undoCloseTab,
   #toolbar-context-undoCloseTab {
@@ -737,11 +739,13 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   }
 
   #context-redo,
+  #edit-contextmenu-redo,
   .textbox-contextmenu menuitem[cmd*="redo"] {
     --menu-image: url("edit-redo.svg");
   }
 
   #context-copy,
+  #edit-contextmenu-copy,
   .textbox-contextmenu menuitem[cmd*="copy"],
   #placesContext_copy {
     --menu-image: url("edit-copy.svg");
@@ -753,18 +757,21 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   }
 
   #context-paste,
+  #edit-contextmenu-paste,
   .textbox-contextmenu menuitem[cmd*="paste"],
   #placesContext_paste_group {
     --menu-image: url("edit-paste.svg");
   }
 
   #context-cut,
+  #edit-contextmenu-cut,
   .textbox-contextmenu menuitem[cmd*="cut"],
   #placesContext_cut {
     --menu-image: url("edit-cut.svg");
   }
 
   #context-delete,
+  #edit-contextmenu-delete,
   .customize-context-removeExtension,
   .unified-extensions-context-menu-remove-extension,
   .textbox-contextmenu menuitem[cmd*="delete"],
@@ -777,6 +784,7 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   }
 
   #paste-and-go,
+  #edit-contextmenu-paste-and-go,
   .searchbar-paste-and-search {
     --menu-image: url("paste-and-go.svg");
   }
@@ -790,6 +798,7 @@ toolbarbutton[command="Browser:OpenAboutContainers"] {
   }
 
   #context-viewsource,
+  #edit-contextmenu-viewsource,
   #context-viewpartialsource-selection {
     --menu-image: url("source-code.svg");
   }
