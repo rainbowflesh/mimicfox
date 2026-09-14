@@ -11,6 +11,11 @@
   margin: var(--uc-tweak-rounded-corners-padding) !important;
 }
 
+/* limit min width of "view Tabs from other devices" */
+#sidebar-box[sidebar-panel-open][sidebarcommand="viewTabsSidebar"] {
+  min-width: var(--size-layout-small) !important;
+}
+
 /* stylelint-disable-next-line media-query-no-invalid */
 @media -moz-pref("sidebar.revamp") {
   #sidebar-splitter {
