@@ -1,0 +1,135 @@
+/* mimicfox 🔥🦊 */
+/* nova compatibility */
+
+/* browser.css */
+:root {
+  --panel-border-radius: 8px !important;
+}
+
+#sidebar-main:not([sidebar-panel-open]) + #sidebar-launcher-splitter {
+  margin-inline: calc(-1 * var(--chrome-window-gap)) !important;
+}
+
+.urlbarView-row {
+  padding: 0px !important;
+  min-height: var(--urlbarview-row-min-height) !important;
+  height: var(--urlbarview-row-min-height) !important;
+}
+
+
+@media not -moz-pref("browser.nova.enabled") {
+  @media -moz-pref("uc.tweak.browser-rounded-padding",1) {
+    :root {
+      @media -moz-pref("browser.nova.enabled") {
+        --chrome-window-gap: 2px !important;
+      }
+    }
+
+    #main-window #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",2) {
+    :root {
+      @media -moz-pref("browser.nova.enabled") {
+        --chrome-window-gap: 4px !important;
+      }
+    }
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",3) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+  @media -moz-pref("uc.tweak.browser-rounded-padding",4) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+}
+
+/* mica.css */
+
+/* urlbar.css */
+.urlbar-background {
+  .urlbar[popover-open] > & {
+    inset-inline: calc(-1 * (var(--urlbar-margin-inline) + var(--urlbar-input-growth-open-inline)));
+    inset-block: calc(-1 * (var(--urlbar-margin-inline) + var(--urlbar-input-growth-open-block)));
+  }
+}
+
+
+.urlbarView-row {
+  &:not([type="tip"], [type="dynamic"]) {
+    :root:not([uidensity="compact"]) & {
+      min-height: calc(var(--urlbarview-row-min-height) + 2 * var(--urlbarView-row-extra-padding-block));
+      margin-top:2px !important;
+    }
+  }
+}
+
+.urlbarView-row-inner{
+  padding-block:2px!important;
+}
+
+.urlbarView {
+  & .urlbarView-results {
+    padding-block: px !important;
+    padding-inline: 0px !important;
+  }
+}

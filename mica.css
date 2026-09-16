@@ -39,6 +39,24 @@
   --panel-background-mica: transparent !important;
 }
 
+#navigator-toolbox,
+#sidebar-main,
+#sidebar-box {
+  background-color: transparent !important;
+  border: unset !important;
+}
+
+#sidebar-box {
+  margin-left: 2px;
+  border-radius: 8px;
+}
+
+#tabbrowser-tabpanels > :not(.split-view-panel) .browserContainer,
+.chrome-block {
+  border-width: 1px !important;
+  border-color: var(--arrowpanel-border-color-mica) !important;
+}
+
 /* ===== DWM backdrop ===== */
 .browserContainer,
 .urlbarView,
@@ -97,27 +115,6 @@ browser#sidebar,
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
     background-size: 25% !important;
-  }
-
-  /* nova */
-  @media -moz-pref("browser.nova.enabled") {
-    #navigator-toolbox,
-    #sidebar-main,
-    #sidebar-box {
-      background-color: transparent !important;
-      border: unset !important;
-    }
-
-    #sidebar-box {
-      margin-left: 4px;
-      border-radius: 8px;
-    }
-
-    #tabbrowser-tabpanels > :not(.split-view-panel) .browserContainer,
-    .chrome-block {
-      border-width: 1px !important;
-      border-color: var(--arrowpanel-border-color-mica) !important;
-    }
   }
 
   @media (prefers-color-scheme: light) {

@@ -32,10 +32,23 @@
   }
 }
 
-::-moz-selection{
-  background: var(--button-primary-bgcolor);
+/* 157b1 shit update */
+.urlbarView-background{
+  left: 0px !important;
+  right: 0px !important;
+  margin-inline: var(--urlbar-margin-inline);
+  outline-color: var(--panel-separator-color) !important;
 }
 
+.urlbarView-body-outer{
+margin-top:-4px;
+  margin-inline: var(--urlbar-margin-inline);
+  outline-color: var(--panel-separator-color) !important;
+}
+
+::-moz-selection {
+  background: var(--button-primary-bgcolor);
+}
 
 button#main-button span.button-background.labelled {
   border-radius: var(--urlbar-icon-border-radius) !important;
@@ -66,21 +79,35 @@ button#main-button span.button-background.labelled {
   }
 }
 
-/* urlbar focus border size */
-#urlbar[focused] > .urlbar-background {
-  outline: 1px solid var(--focus-outline-color) !important;
-  outline-offset: -1px !important;
-}
-
-/* .urlbar-icon {
-  fill: accentColor !important;
-} */
-
 /* bookmark star as accent color */
 #star-button[starred] {
   fill: accentColor !important;
 }
+.urlbar-background{
+/*     top: 2px !important; */
+margin-inline: var(--urlbar-margin-inline);
+/*   margin-top: 4px; */
+}
+#urlbar[open] .urlbar-background{
+  margin-top: 4px;
+margin-inline: var(--urlbar-margin-inline)!important;;
+  
+}
+#urlbar[open] .urlbarView{
+/* margin-inline: var(--urlbar-margin-inline) !important;; */
+  margin-top: -1px;
+}
+#urlbar[open] {
+margin-inline: var(--urlbar-margin-inline) !important;;
+
+}
+
+.urlbarView-body-outer{
+border: var(--urlbar-background-border-open);
+/*   border-color:var(--input-border-color); */
+}
 .urlbar-background,
+.urlbarView-background,
 #searchbar {
   border-radius: calc(var(--urlbar-icon-border-radius) + 2px) !important;
 
@@ -97,7 +124,6 @@ button#main-button span.button-background.labelled {
       0 10px 16px rgb(0 0 0 / 0.18),
       0 3px 5px rgb(0 0 0 / 0.33) !important;
     outline: 0.5px solid var(--arrowpanel-border-color) !important;
-    top: 4px !important;
     :root:not([lwtheme]) & {
       outline-color: var(--panel-separator-color) !important;
     }
@@ -177,22 +203,29 @@ button#main-button span.button-background.labelled {
 }
 
 /* ===== urlbar item ===== */
+.urlbarView-favicon{
+  --urlbarView-icon-margin-start: 4px;
+    margin-inline-end: calc(var(--urlbarView-icon-margin-end) - 1.5* var(--urlbarView-icon-margin-start)) !important;;
+}
+
 /* Remove empty space from tabs bar */
 .urlbarView-row {
   padding-block: 0 !important;
   /* Vertically align search suggestion thumbnail images. */
   &[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
-    margin-inline-start: calc(
+/*     margin-inline-start: calc(
       var(--urlbarView-icon-margin-start) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
-    ) !important;
+    ) !important; */
     margin-inline-end: calc(
       var(--urlbarView-icon-margin-end) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
     ) !important;
   }
 }
+
 .urlbarView-row:hover {
   background-color: var(--urlbar-box-hover-bgcolor) !important;
 }
+
 .urlbarView-row[selected] .urlbarView-row-inner {
   display: flex;
   align-items: center;

@@ -45,5 +45,9 @@ mimic Microsoft Edge and several community userChromes.
 @import url("./animations.css") -moz-pref("uc.tweak.enable-nebula-animations");
 @import url("./pip.css") -moz-pref("uc.tweak.pip");
 
+/* nova compatibility */
+@import url("./nova-compat.css") -moz-pref("browser.nova.enabled");
+
 /* your personal custom css */
 @import url("./custom.css");
+
