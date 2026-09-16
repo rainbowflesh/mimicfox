@@ -34,6 +34,7 @@ Only on Windows11, Linux compatibility are on the way.
 >
 > 1. I reused Firefox’s native sidebar implementation. To enable the dynamic sidebar, you need to manually go to **about\:preferences > Ctrl+F > search "sidebar"**, then set **Browser Layout** to `Vertical tabs` and **Show sidebar** to `on`.
 > 2. Firefox are super dynamic on sidebar width, you will encounter unwanted sidebar size and tab size without adjusting by yourself in `./sidebar` and `./sidebery`.
+> 3. Nova are not supported, yet.
 
 #### Must have
 
