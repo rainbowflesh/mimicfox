@@ -1,3 +1,6 @@
+#root.root {
+  --ctx-menu-icon-opt-height: 30px;
+}
 /* mimicfox 🔥🦊 */
 /* mimic native styles */
 
@@ -9,6 +12,16 @@
   --tab-selected-shadow-size: 2px;
   --tab-size: max(32px, calc(1.7 * 1em));
   --tab-button-size: 12px;
+}
+
+#root[data-pinned-tabs-position="top"] .PinnedTabsBar {
+  padding: 0 4px 4px;
+}
+
+/* remove tree indent */
+.Tab[data-lvl="1"] {
+  /*   padding-left: var(--tabs-indent); */
+  --tabs-indent: 0;
 }
 
 /* auto zoom for small screen */
@@ -48,6 +61,10 @@
 }
 #root.root {
   --general-margin: 8px;
+}
+
+.menu-icon {
+  filter: brightness(0) invert(1);
 }
 
 /* fancy animation */

@@ -1,7 +1,7 @@
 /* mimicfox 🔥🦊 */
 /* sidebar.css */
 :root {
-  --sidebar-box-size: calc(4em);
+  --sidebar-box-size: 3.5em;
   --sidebar-tab-audio-size: 12px;
 }
 
@@ -24,23 +24,19 @@
 }
 
 /* sidebar icon */
-#contentAreaContextMenu
-  menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"]
-  .menu-icon {
-    filter: brightness(0) invert(0);
+#contentAreaContextMenu menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"] .menu-icon {
+  filter: brightness(0) invert(0);
 }
 
 @media (prefers-color-scheme: dark) {
-#contentAreaContextMenu
-  menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"]
-  .menu-icon {
+  #contentAreaContextMenu menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"] .menu-icon {
     filter: brightness(0) invert(1);
-}
+  }
 }
 
 /* allow smaller sidebar */
 .sidebar {
-  min-width: 4em;
+  min-width: var(--sidebar-box-size);
   width: fit-content;
 }
 
