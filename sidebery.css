@@ -1,8 +1,13 @@
+/* mimicfox 🔥🦊 */
 #root.root {
   --ctx-menu-icon-opt-height: 30px;
 }
-/* mimicfox 🔥🦊 */
-/* mimic native styles */
+
+@property --tab-size {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 32px;
+}
 
 :root {
   background: transparent !important;
@@ -10,8 +15,9 @@
     0 0.125px 0.25px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)),
     0 1px 2px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
   --tab-selected-shadow-size: 2px;
-  --tab-size: max(32px, calc(1.7 * 1em));
   --tab-button-size: 12px;
+
+  --tab-size: round(nearest, max(32px, calc(1.5 * 1em)), 4px);
 }
 
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
@@ -20,15 +26,19 @@
 
 /* remove tree indent */
 .Tab[data-lvl="1"] {
-  /*   padding-left: var(--tabs-indent); */
   --tabs-indent: 0;
 }
 
 /* auto zoom for small screen */
-@media (min-width: 60px) {
+@media (width < 48px) {
   :root {
-    /*     --tab-size: 41px; */
-    --tab-size: max(32px, calc(1.7 * 2em));
+    --tab-size: max(32px, calc(1.5 * 1em));
+  }
+}
+
+@media (width >= 48px) {
+  :root {
+    --tab-size: max(32px, calc(1.5 * 2em));
   }
 }
 
@@ -122,7 +132,7 @@
   fill: light-dark(black, white) !important;
 }
 
-@media (max-width: 100px) {
+@media (max-width: 96px) {
   /* add native like separator */
   .PinnedTabsBar[data-empty="false"] ~ .panel-box::before {
     content: "" !important;
@@ -200,7 +210,7 @@
     padding-left: 0px !important;
   }
 }
-@media (min-width: 101px) {
+@media (min-width: 96px) {
   /* make pinned tabs act like native grid */
   .PinnedTabsBar {
     display: flex;
