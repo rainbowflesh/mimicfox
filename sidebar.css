@@ -1,5 +1,6 @@
 /* mimicfox 🔥🦊 */
 /* sidebar.css */
+
 :root {
   --sidebar-box-size: 3.5em;
   --sidebar-tab-audio-size: 12px;
@@ -11,7 +12,7 @@
   margin: var(--uc-tweak-rounded-corners-padding) !important;
 }
 
-/* limit min width of "view Tabs from other devices" */
+/* shrink "view Tabs from other devices" */
 #sidebar-box[sidebar-panel-open][sidebarcommand="viewTabsSidebar"] {
   min-width: var(--size-layout-small) !important;
 }
@@ -23,7 +24,7 @@
   }
 }
 
-/* sidebar icon */
+/* fix tab icon color */
 #contentAreaContextMenu menu[id^="_3c078156-979c-498b-8990-85f7987dd929_-menuitem-"] .menu-icon {
   filter: brightness(0) invert(0);
 }
@@ -34,7 +35,7 @@
   }
 }
 
-/* allow smaller sidebar */
+/* allow smaller sidebars */
 .sidebar {
   min-width: var(--sidebar-box-size);
   width: fit-content;
@@ -44,7 +45,7 @@
   display: none;
 }
 
-/* fix big audio icon */
+/* 修复过大的音频图标 */
 .tab-icon-overlay {
   #tabbrowser-tabs[orient="vertical"]:not([expanded]) &:not([crashed]),
   &[pinned]:not([crashed]) {
@@ -55,18 +56,17 @@
   }
 }
 
-/* smooooth animation on sidebar size change */
+/* 侧边栏尺寸变化时的平滑动画（仅在非 autohide 模式生效） */
 #sidebar-box {
-  /* larger the value greater the damping */
   transition: width 30ms ease;
 }
 
-/* prevent drag */
+/* 防止拖拽 */
 browser#sidebar {
   -moz-window-dragging: no-drag;
 }
 
-/* dynamic padding sidebar */
+/* 动态内边距侧边栏 */
 @media -moz-pref("uc.tweak.rounded-corners") {
   #main-window[sizemode="maximized"] #vertical-tabs {
     margin-right: 0 !important;
@@ -81,7 +81,7 @@ browser#sidebar {
   display: none;
 }
 
-/* fix sidebar separator length  */
+/* 修复侧边栏分隔线长度 */
 #main-window:not([sizemode="maximized"]) #vertical-pinned-tabs-container-separator {
   display: block;
   border-bottom: var(--tabstrip-inner-border);
@@ -89,7 +89,7 @@ browser#sidebar {
   margin-right: calc(var(--tab-inner-inline-margin) + 3px) !important;
 }
 
-/* hide sidebar tab overflow shadow */
+/* 隐藏侧边栏标签页溢出阴影 */
 @media -moz-pref("uc.tweak.remove-overflow-indicator") {
   spacer[part="overflow-start-indicator"],
   spacer[part="overflow-end-indicator"] {
@@ -97,7 +97,7 @@ browser#sidebar {
   }
 }
 
-/* hide sidebar config button */
+/* 隐藏侧边栏配置按钮 */
 @media -moz-pref("uc.tweak.remove-sidebar-config-button") {
   button-group.tools-and-extensions.actions-list[orientation="vertical"] moz-button[view="viewCustomizeSidebar"] {
     display: none !important;
@@ -118,7 +118,7 @@ browser#sidebar {
   }
 }
 
-/* hide sidebar button-group */
+/* 隐藏侧边栏按钮组 */
 @media -moz-pref("uc.tweak.remove-sidebar-button-group") {
   button-group.tools-and-extensions.actions-list {
     display: none !important;
@@ -131,13 +131,11 @@ browser#sidebar {
   }
 }
 
-/* dynamic hide native tabbar when sidebery enabled */
+/* 启用 sidebery 时动态隐藏原生标签栏 */
 @media -moz-pref("uc.tweak.dynamic-tabbar") {
-  /* horizontal tabs */
   #main-window #TabsToolbar > .toolbar-items {
     transition: height 150ms ease;
   }
-  /*  initial height  */
   #main-window[uidensity="touch"] #TabsToolbar > .toolbar-items {
     height: 3.35em !important;
   }
@@ -156,7 +154,6 @@ browser#sidebar {
     display: none !important;
   }
 
-  /* vertical tabs */
   #sidebar-box,
   #sidebar-container {
     padding-bottom: 0 !important;
@@ -188,4 +185,173 @@ browser#sidebar {
 #main-window #TabsToolbar > .toolbar-items {
   overflow: hidden;
   transition: height 0.3s 0.3s !important;
+}
+
+/* =======================   Autohide Sidebar ================================== */
+/* ---------- basic ---------- */
+@media -moz-pref("uc.tweak.autohide-sidebar", 1), -moz-pref("uc.tweak.autohide-sidebar", 2) {
+  :root {
+    --uc-sidebar-width: var(--sidebar-box-size, 40px);
+    --uc-sidebar-hover-width: 210px;
+    --uc-autohide-sidebar-delay: 300ms;
+    --uc-autohide-transition-duration: 115ms;
+    --uc-autohide-transition-type: linear;
+  }
+
+  #main-window[sizemode="fullscreen"] {
+    --uc-sidebar-width: 1px;
+  }
+
+  #sidebar-splitter {
+    display: none !important;
+  }
+
+  #sidebar-box {
+    max-width: none !important;
+    width: var(--uc-sidebar-width) !important;
+    min-width: var(--uc-sidebar-width) !important;
+    background-color: inherit;
+    direction: ltr;
+    transition: width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type)
+      var(--uc-autohide-sidebar-delay) !important;
+  }
+
+  #sidebar-box:is([positionend], [sidebar-positionend]):not(:-moz-locale-dir(rtl)) {
+    direction: rtl;
+  }
+
+  #sidebar-box:hover {
+    width: var(--uc-sidebar-hover-width) !important;
+    transition-delay: 0ms !important;
+  }
+
+  #sidebar-box > #sidebar-header,
+  #sidebar-box > #sidebar,
+  #sidebar-box > .sidebar-browser-stack,
+  #sidebar-box > .sidebar-browser-stack > #sidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    will-change: width;
+  }
+
+  .sidebar-browser-stack {
+    background: inherit;
+  }
+
+  #sidebar-header {
+    overflow: hidden;
+    color: var(--chrome-color, inherit) !important;
+    padding-inline: 0 !important;
+  }
+
+  #sidebar-header::before,
+  #sidebar-header::after {
+    content: "";
+    display: flex;
+    padding-left: 8px;
+  }
+
+  .sidebar-panel {
+    background-color: transparent !important;
+    color: var(--newtab-text-primary-color) !important;
+  }
+
+  .sidebar-panel #search-box {
+    -moz-appearance: none !important;
+    background-color: rgba(249, 249, 250, 0.1) !important;
+    color: inherit !important;
+  }
+
+  /* 侧边栏分隔线与背景 */
+  #sidebar,
+  #sidebar-header {
+    background-color: inherit !important;
+    border-inline: 1px solid rgb(80, 80, 80);
+    border-inline-width: 0px 1px;
+  }
+
+  #sidebar-box:not([positionend], [sidebar-positionend]) > :-moz-locale-dir(rtl),
+  #sidebar-box:is([positionend], [sidebar-positionend]) > * {
+    border-inline-width: 1px 0px;
+  }
+
+  @media -moz-pref("sidebar.revamp") {
+    #sidebar,
+    #sidebar-header {
+      border-style: none;
+    }
+    #sidebar-box {
+      padding: 0 !important;
+    }
+  }
+
+  #sidebar-box:not([positionend], [sidebar-positionend]):hover ~ #appcontent #statuspanel {
+    inset-inline: auto 0px !important;
+  }
+  #sidebar-box:not([positionend], [sidebar-positionend]):hover ~ #appcontent #statuspanel-label {
+    margin-inline: 0px !important;
+    border-left-style: solid !important;
+  }
+}
+
+@media -moz-pref("uc.tweak.autohide-sidebar", 1) {
+  #sidebar-box {
+    position: relative;
+    z-index: 3;
+  }
+}
+@media -moz-pref("uc.tweak.autohide-sidebar", 2) {
+  #browser {
+    position: relative;
+    padding-inline-start: var(--uc-sidebar-width, 40px) !important;
+  }
+
+  #browser:has(> #sidebar-box[positionend]),
+  #browser:has(> #sidebar-box[sidebar-positionend]) {
+    padding-inline-start: 0 !important;
+    padding-inline-end: var(--uc-sidebar-width, 40px) !important;
+  }
+  .sidebar-browser-stack {
+    /*! background-color:var(--toolbar-field-background-color); */
+    backdrop-filter: blur(10px);
+    appearance: auto !important;
+    -moz-default-appearance: menupopup !important;
+
+    background-color: Menu !important;
+    background-image: var(--acrylic-noise) !important;
+    background-repeat: repeat !important;
+    background-size: 25% !important;
+  }
+
+  #sidebar-box {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    z-index: 3 !important;
+    transition:
+      width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay),
+      z-index 0s !important;
+  }
+
+  #sidebar-box:not([positionend], [sidebar-positionend]) {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  #sidebar-box:is([positionend], [sidebar-positionend]) {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  #sidebar-box:hover {
+    z-index: 2147483647 !important;
+  }
+}
+
+@media -moz-pref("uc.tweak.autohide-sidebar", 0) {
+  #sidebar-box {
+    min-width: var(--sidebar-box-size) !important;
+  }
 }
