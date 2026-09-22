@@ -32,16 +32,22 @@
   }
 }
 
+/* fix 157 goofyahhhhhh input box margin issue */
+#downloadsListBox {
+  min-width: -moz-available;
+  min-width: -webkit-fill-available;
+}
+
 /* 157b1 shit update */
-.urlbarView-background{
+.urlbarView-background {
   left: 0px !important;
   right: 0px !important;
   margin-inline: var(--urlbar-margin-inline);
   outline-color: var(--panel-separator-color) !important;
 }
 
-.urlbarView-body-outer{
-margin-top:-4px;
+.urlbarView-body-outer {
+  margin-top: -4px;
   margin-inline: var(--urlbar-margin-inline);
   outline-color: var(--panel-separator-color) !important;
 }
@@ -83,28 +89,26 @@ button#main-button span.button-background.labelled {
 #star-button[starred] {
   fill: accentColor !important;
 }
-.urlbar-background{
-/*     top: 2px !important; */
-margin-inline: var(--urlbar-margin-inline);
-/*   margin-top: 4px; */
+.urlbar-background {
+  /*     top: 2px !important; */
+  margin-inline: var(--urlbar-margin-inline);
+  /*   margin-top: 4px; */
 }
-#urlbar[open] .urlbar-background{
+#urlbar[open] .urlbar-background {
   margin-top: 4px;
-margin-inline: var(--urlbar-margin-inline)!important;;
-  
+  margin-inline: var(--urlbar-margin-inline) !important;
 }
-#urlbar[open] .urlbarView{
-/* margin-inline: var(--urlbar-margin-inline) !important;; */
+#urlbar[open] .urlbarView {
+  /* margin-inline: var(--urlbar-margin-inline) !important;; */
   margin-top: -1px;
 }
 #urlbar[open] {
-margin-inline: var(--urlbar-margin-inline) !important;;
-
+  margin-inline: var(--urlbar-margin-inline) !important;
 }
 
-.urlbarView-body-outer{
-border: var(--urlbar-background-border-open);
-/*   border-color:var(--input-border-color); */
+.urlbarView-body-outer {
+  border: var(--urlbar-background-border-open);
+  /*   border-color:var(--input-border-color); */
 }
 .urlbar-background,
 .urlbarView-background,
@@ -203,9 +207,9 @@ border: var(--urlbar-background-border-open);
 }
 
 /* ===== urlbar item ===== */
-.urlbarView-favicon{
+.urlbarView-favicon {
   --urlbarView-icon-margin-start: 4px;
-    margin-inline-end: calc(var(--urlbarView-icon-margin-end) - 1.5* var(--urlbarView-icon-margin-start)) !important;;
+  margin-inline-end: calc(var(--urlbarView-icon-margin-end) - 1.5 * var(--urlbarView-icon-margin-start)) !important;
 }
 
 /* Remove empty space from tabs bar */
@@ -213,7 +217,7 @@ border: var(--urlbar-background-border-open);
   padding-block: 0 !important;
   /* Vertically align search suggestion thumbnail images. */
   &[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
-/*     margin-inline-start: calc(
+    /*     margin-inline-start: calc(
       var(--urlbarView-icon-margin-start) + (16px - var(--urlbarView-rich-suggestion-default-icon-size)) / 2
     ) !important; */
     margin-inline-end: calc(
