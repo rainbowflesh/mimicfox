@@ -355,3 +355,163 @@ browser#sidebar {
     min-width: var(--sidebar-box-size) !important;
   }
 }
+
+/* ---------- mode 4: overlay autohide (ported from the old project), only active while the toggle is ON ----------
+   Toggle = window title preface (invisible char), same as the old project.
+   Toggle OFF -> normal, fully extended sidebar (drag-resizable with the mouse).
+   Toggle ON  -> 48px collapsed strip that expands over the page on hover. */
+@media -moz-pref("uc.tweak.autohide-sidebar", 4) {
+  /* no header / close button, in both toggle states */
+  #sidebar-header,
+  #sidebar-panel-header {
+    display: none !important;
+  }
+
+  :root:not([titlepreface*="᠎"]) #sidebar-box {
+    min-width: var(--sidebar-box-size) !important;
+  }
+
+  :root[titlepreface*="᠎"] {
+    --uc-sidebar-width: 48px;
+    --uc-sidebar-hover-width: 260px;
+    --uc-autohide-sidebar-delay: 0ms;
+    --uc-autohide-transition-duration: 300ms;
+    --uc-autohide-transition-type: linear(
+      0,
+      0.02755 2.27%,
+      0.11264 4.92%,
+      0.7987 20.072%,
+      0.93357 25.073%,
+      1.01477 30.443%,
+      1.04379 34.693%,
+      1.05225 39.704%,
+      1.00166 66.267%,
+      0.99956
+    );
+
+    /* wide mode: about:config -> uc.tweak.af.sidebar-width-350 = true */
+    @media -moz-pref("uc.tweak.af.sidebar-width-350") {
+      --uc-sidebar-hover-width: 350px;
+    }
+
+    &[sizemode="fullscreen"] {
+      --uc-sidebar-width: 1px;
+    }
+
+    #sidebar-splitter {
+      display: none !important;
+    }
+
+    #sidebar-box {
+      position: absolute !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      height: auto !important;
+      max-width: none !important;
+      width: var(--uc-sidebar-width) !important;
+      min-width: var(--uc-sidebar-width) !important;
+      background-color: inherit;
+      direction: ltr;
+      z-index: 3 !important;
+      border-inline: none !important;
+      transition:
+        width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type)
+          var(--uc-autohide-sidebar-delay),
+        z-index 0s !important;
+
+      &:not([positionend], [sidebar-positionend]) {
+        left: 0 !important;
+        right: auto !important;
+      }
+      &:is([positionend], [sidebar-positionend]) {
+        right: 0 !important;
+        left: auto !important;
+      }
+
+      /* right-side sidebar direction handling (from the old project) */
+      &:is([positionend], [sidebar-positionend]):not(:-moz-locale-dir(rtl)) {
+        direction: rtl;
+      }
+      &:is([positionend], [sidebar-positionend]):not(:-moz-locale-dir(rtl)) > * {
+        direction: ltr;
+      }
+      &:is([positionend], [sidebar-positionend]):-moz-locale-dir(rtl) {
+        direction: ltr;
+      }
+      &:is([positionend], [sidebar-positionend]):-moz-locale-dir(rtl) > * {
+        direction: rtl;
+      }
+
+      &:hover {
+        width: var(--uc-sidebar-hover-width) !important;
+        transition-delay: 0ms !important;
+        z-index: 2147483647 !important;
+      }
+
+      & > #sidebar,
+      & > .sidebar-browser-stack,
+      & > .sidebar-browser-stack > #sidebar {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: none !important;
+        will-change: width;
+      }
+    }
+
+    #browser {
+      position: relative;
+      padding-inline-start: var(--uc-sidebar-width) !important;
+    }
+    #browser:has(> #sidebar-box[positionend]),
+    #browser:has(> #sidebar-box[sidebar-positionend]) {
+      padding-inline-start: 0 !important;
+      padding-inline-end: var(--uc-sidebar-width) !important;
+    }
+
+    .sidebar-browser-stack {
+      backdrop-filter: blur(10px);
+      appearance: auto !important;
+      -moz-default-appearance: menupopup !important;
+      background-color: Menu !important;
+      background-image: var(--acrylic-noise) !important;
+      background-repeat: repeat !important;
+      background-size: 25% !important;
+      border: none !important;
+    }
+
+    .sidebar-panel {
+      background-color: transparent !important;
+      color: var(--newtab-text-primary-color) !important;
+    }
+
+    .sidebar-panel #search-box {
+      -moz-appearance: none !important;
+      background-color: rgba(249, 249, 250, 0.1) !important;
+      color: inherit !important;
+    }
+
+    /* no visible border */
+    #sidebar {
+      background-color: inherit !important;
+      border: none !important;
+      outline: none !important;
+    }
+
+    @media -moz-pref("sidebar.revamp") {
+      #sidebar-box {
+        padding: 0 !important;
+      }
+    }
+
+    /* keep the status panel visible while the sidebar is expanded */
+    #sidebar-box:not([positionend], [sidebar-positionend]):hover ~ #appcontent #statuspanel,
+    #sidebar-box:not([positionend], [sidebar-positionend]):hover ~ #tabbrowser-tabpanels #statuspanel {
+      inset-inline: auto 0px !important;
+    }
+    #sidebar-box:not([positionend], [sidebar-positionend]):hover ~ #appcontent #statuspanel-label,
+    #sidebar-box:not([positionend], [sidebar-positionend]):hover ~ #tabbrowser-tabpanels #statuspanel-label {
+      margin-inline: 0px !important;
+      border-left-style: solid !important;
+    }
+  }
+}
