@@ -1,0 +1,624 @@
+/* File goes into sidebery settings -> styles editor*/
+/* =====================================================================
+   SETTINGS - the values you are most likely to change
+   ===================================================================== */
+#root.root {
+    /* --- General --- */
+    --accent: #ff80ffff;          /* accent color (also used for the active pinned tab glow) */
+    --toolbar-bg: #000000;        /* toolbar / navigation bar background */
+
+    /* --- Collapsed sidebar (<= 160px wide) --- */
+    --tab-dim-brightness: 0.50;   /* dimming of ALL inactive tabs, pinned and normal: favicon + colored background (1 = normal, lower = darker/OLED friendly). Hover and the active tab undim. Not applied when the sidebar is expanded */
+    --sidebar-top-gap: 6px;       /* space between the top toolbar and the first tab (pinned or normal) - same value used in both collapsed and expanded, so they can no longer drift apart */
+    --collapsed-shift: 0.3px;     /* nudge ALL tabs sideways (positive = right, negative = left) */
+
+    /* --- Pinned tabs, COLLAPSED sidebar (<= 160px wide) --- */
+    --pin-size: 20px;             /* tile width AND height */
+    --pin-gap: 4px;               /* space between pinned tabs */
+    --pin-cols: 2;                /* number of columns (make sure cols*size+gaps fits the sidebar) */
+    --pin-icon: 14px;             /* favicon size */
+    --pin-shift: -2px;            /* extra sideways nudge for pinned tabs only, on top of --collapsed-shift (positive = right, negative = left) */
+    --pin-active-brightness: 0.7; /* brightness of the active pinned tab icon (1 = normal) */
+    --pin-active-glow: 3px;       /* glow radius around the active pinned tab icon (0px = off) */
+    --pin-bottom-gap: 4px;        /* space between the last pinned row and the normal tabs, COLLAPSED sidebar only */
+    --pin-bottom-gap-expanded: 6px; /* same, but for the EXPANDED sidebar - kept separate because that pinned bar is Sidebery's own layout and resizes on its own, so it will never track the collapsed grid 1:1 */
+    --pin-container-line: 2px;    /* thickness of the container color line at the bottom of each pinned tab (0px = hide) */
+    --pin-container-line-inset: 1px; /* distance of that line from the bottom edge of the pinned tab (bigger = further up) */
+
+    /* --- Pinned tabs, EXPANDED sidebar (> 160px wide) --- */
+    --pin-icon-expanded: 22px;    /* favicon size */
+    /* (the container line settings above apply to the expanded sidebar as well) */
+}
+
+#root.root {
+    --notification-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
+--tabs-margin: 6px !important;
+    --search-border-radius: 6px;
+    --search-font-size: 0.9rem;
+    --search-icon-width: 40px;
+    --ctx-menu-shadow: 0 0 0 1px light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)), 
+0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3))!important;
+    --ctx-menu-bg: color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20)));
+    --ctx-menu-min-width: 160px;
+    --popup-shadow: 0 0 5px 5px light-dark(rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+
+    --tabs-indent: 18px;
+    --tabs-inner-gap: 6px;
+    --tabs-pinned-height: 38px;
+    --tabs-pinned-width: 42px;
+    --general-margin: 8px;
+    --tabs-height: 32px;
+    --history-item-padding-left: 6px;
+    --history-item-margin: 5px;
+    --history-item-border-radius: 8px;
+    --tabs-close-btn-margin: 3px;
+    --nav-btn-margin: 3px 4px;
+    --nav-btn-len-margin: -1px;
+    --ntb-padding: 0px !important;
+    --ntb-btn-height: 28px;
+    --tabs-lvl-opacity: 0.3;
+    --tweak-general-padding: 4px;
+    --active-el-bg: light-dark(rgb(100, 100, 100, 30%),
+            rgb(180, 180, 180, 30%));
+    --tabs-audio-btn-width: 16px;
+    --tabs-activated-shadow: inset 0 0 0 1px light-dark(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.7));
+    --tabs-normal-fg: light-dark(rgba(0, 0, 0, 1),
+            rgba(255, 255, 255, 1));
+    --tabs-activated-bg: light-dark(rgb(200, 200, 200, 0.6),
+            rgb(255, 255, 255, 0.9)) !important;
+    --tabs-activated-fg: light-dark(black, black) !important;
+    --ctx-menu-fg: light-dark(black, white);
+--ctx-menu-icon-opt-height: 30px;
+--ctx-menu-text-opt-inner-gap: 6px;
+--ctx-menu-padding: 4px;
+
+transition:width none;
+}
+
+
+
+/* Padding adjustments */
+#root.root {
+padding: var(--sidebar-top-gap) 0 !important;
+margin:0px !important;
+}
+
+
+/* Hidden panels */
+
+#hidden_panels_btn.nav-item .icon {
+transform: scaleY(-1);
+}
+.hidden-panels-popup-layer {
+position: fixed !important;
+top:0 !important;
+left: 0 !important;
+margin-top:-40px !important;
+width: 100vw !important;
+height: 100vh !important;
+z-index: 999 !important;
+transform: scaleY(-1);
+--toolbar-bg:color-mix(in srgb, var(--frame-bg) 50%, light-dark(rgb(255, 255, 255), rgb(20, 20, 20))) !important;
+
+
+}
+.NavigationBar .hidden-panels-popup-content {
+transform: scaleY(-1);
+padding:4px 4px 4px 4px !important;
+
+
+}
+.hidden-panels-popup .nav-item .len {
+background-color:transparent !important;
+}
+.hidden-panels-popup .nav-item {
+margin:3px !important;
+}
+
+.NavigationBar:has(.hidden-panels-popup) *{border-radius:6px !important; color:light-dark(black, white) !important;}
+
+#root .popup-container {background-color: transparent;}
+
+#root .hidden-panels-popup-layer:before {
+background-color:transparent;}
+
+
+.hidden-panels-popup {
+border:1px solid light-dark(rgba(0,0,0,0.6), rgba(255,255,255,0.6)) !important;
+}
+
+
+
+/* Main box */
+#root.root .main-box {
+    transition: opacity 100ms ease;
+    padding: 0;
+    opacity: 1;
+
+}
+
+
+/* Tabs */
+/*tab containers*/
+.Tab[data-pin="false"] {
+.ctx {
+transition:height 300ms ease, width 300ms ease, top 300ms ease;}
+}
+
+.Tab[data-discarded="true"] .t-box {
+    opacity: 0.7 !important;
+}
+
+.Tab:hover[data-discarded="true"] .t-box {
+    opacity: 1 !important;
+}
+
+/* Tab colors */
+.scrollable .Tab .color-layer {
+    width: 32px !important;
+    --tabs-color-layer-opacity: 0.5;
+}
+
+.scrollable .Tab[data-discarded="true"] .color-layer {
+    width: 34px !important;
+    --tabs-color-layer-opacity: 0.2 !important;
+}
+
+.scrollable .Tab[data-active="true"] .color-layer,
+.scrollable .Tab:hover .color-layer {
+    border-radius: 4px 0px 0px 4px !important;
+    --tabs-color-layer-opacity:0.8 !important;
+}
+.scrollable .Tab[data-active="true"] .color-layer {
+--tabs-color-layer-opacity:1 !important;}
+.scrollable {
+    & .t-box {
+        padding: 0 3px !important;
+    }
+
+    & .Tab[data-colorized="true"] .t-box {
+        padding: 0 6px !important;
+    }
+
+}
+
+
+/* Container line of normal tabs: same approach as the original theme -
+   only toggle height/width/border-radius, let Sidebery position the element itself */
+.Tab[data-pin="false"] {
+    &[data-active="true"] .ctx {
+        width: 3px !important;
+        height: 100% !important;
+        border-radius: 0 4px 4px 0 !important;
+    }
+    &[data-active="false"] .ctx, &:hover .ctx {
+        height: 50% !important;
+        width: 3px !important;
+        border-radius: 20px !important;
+    }
+}
+
+
+/* Grouped tabs */
+.Tab .exp-icon {
+    opacity: 1 !important;
+}
+
+#root.root .Tab .child-count {
+    opacity: 1 !important;
+text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5) !important;
+font-weight:800 !important;
+}
+
+#root.root .Tab[data-folded="true"] .fav {
+opacity: 1 !important;
+}
+#root.root .Tab[data-pin="false"][data-colorized="true"] .fav .img {
+        width:50px  !important;
+    }
+
+#root.root:not(:hover) .Tab .audio-icon {
+    height: 12px !important;
+}
+
+/* New Tab button */
+.new-tab-btns {
+    padding: 0 10px !important;
+margin:5px auto 0 auto !important;
+max-width:100vw;
+}
+
+/* Search Bar */
+#root.root #search_bar {
+    order: 2;
+    padding-left: 0px;
+    padding-right: 6px;
+}
+
+
+/* Navigation box */
+
+@media (min-width: 150px) and (max-width: 239px) {
+#root.root{
+--nav-btn-width:30px !important;}
+}
+#root.root .top-horizontal-box {
+    display: flex;
+    order: 3 !important;
+    margin: 0 auto -2px auto !important;
+    padding-top: 10px;
+    max-height: 140px;
+    padding-bottom: 8px !important;
+    overflow: hidden !important;
+    & .main-items {
+        justify-content: center;
+        align-items: center;
+        overflow: hidden !important;
+    }
+}
+
+.top-horizontal-box #nav_bar {
+    background-color: transparent !important;
+}
+
+#root.root .top-horizontal-box {
+    opacity: 1;
+}
+
+.left-vertical-box #nav_bar {
+    background-color: transparent !important;
+    padding: 12px 6px;
+}
+
+/* Misc */
+.TabsPanel .bottom-space {
+    background: transparent !important;
+}
+
+#root.root .top-horizontal-box .main-items {
+    transition: height 100ms ease-in-out 0ms, width 100ms ease-in-out 0ms;
+    overflow: hidden !important;
+}
+
+#root.root .top-horizontal-box .nav-item[data-class="space"] {
+    display: block !important;
+    min-width: 100% !important;
+    height: 2px !important;
+}
+
+
+/* =====================================================================
+   PINNED TABS - normal / wide sidebar (> 160px)
+   ===================================================================== */
+
+#root.root .PinnedTabsBar {
+    & .Tab {
+        --tabs-color-layer-opacity: 0.4;
+        &:hover { --tabs-color-layer-opacity: 0.8; }
+        /* no background at rest */
+        &:not([data-active="true"]) .body {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        /* subtle background only on hover (expanded sidebar) */
+        &:not([data-active="true"]):hover .body {
+            background-color: light-dark(rgba(200,200,200,0.35), rgba(200,200,200,0.12)) !important;
+        }
+    }
+}
+
+#root.root .PinnedTabsBar .Tab .fav,
+#root.root .PinnedTabsBar .Tab .fav-icon {
+    width: var(--pin-icon-expanded) !important;
+    height: var(--pin-icon-expanded) !important;
+}
+
+/* center the favicon inside the pinned tab (applies to collapsed + expanded) */
+#root.root .PinnedTabsBar .Tab .body {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+#root.root .PinnedTabsBar .Tab .fav {
+    /* .body is position:relative, so this centers the icon exactly,
+       ignoring any margins, offsets or sibling elements */
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    flex: none !important;
+}
+#root.root .PinnedTabsBar .Tab .fav .img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* resize pinned tab widths so they fill the row */
+#root.root {
+    --total-pinned-width: calc(100vw - 6px);
+
+    & .PinnedTabsBar {
+        margin: 0 0 var(--pin-bottom-gap-expanded) 0 !important;
+        --general-padding: 0 !important;
+        --general-margin: 0 !important;
+        & .tab-wrapper {
+            --calc-pinned-tab-width: calc((var(--total-pinned-width) - (var(--tabs-margin) * var(--pinned-tabs-col))) / var(--pinned-tabs-col));
+            --tabs-pinned-width: var(--calc-pinned-tab-width);
+        }
+    }
+
+    /* narrow sidebar */
+    @media (min-width: 161px) and (max-width: 239px) {
+        --pinned-tabs-col: 3;
+        /* one tab in bottom row */
+        .PinnedTabsBar .tab-wrapper:nth-child(3n+1):last-child {
+            --pinned-tabs-col: 1 !important;
+        }
+        /* two tabs in bottom row */
+        .PinnedTabsBar .tab-wrapper:nth-child(3n+2):nth-last-child(1),
+        .PinnedTabsBar .tab-wrapper:nth-child(3n+1):nth-last-child(2) {
+            --pinned-tabs-col: 2 !important;
+        }
+    }
+
+    /* regular sidebar */
+    @media (min-width: 240px) and (max-width: 280px) {
+        --pinned-tabs-col: 4;
+        /* one tab in bottom row */
+        .PinnedTabsBar .tab-wrapper:nth-child(4n-3):last-child {
+            --pinned-tabs-col: 1 !important;
+        }
+        /* two tabs in bottom row */
+        .PinnedTabsBar .tab-wrapper:nth-child(3n+3):last-child,
+        .PinnedTabsBar .tab-wrapper:nth-child(4n-3):nth-last-child(2) {
+            --pinned-tabs-col: 2 !important;
+        }
+        /* three tabs in bottom row */
+        .PinnedTabsBar .tab-wrapper:nth-child(3):last-child,
+        .PinnedTabsBar .tab-wrapper:nth-child(2):nth-last-child(2),
+        .PinnedTabsBar .tab-wrapper:nth-child(1):nth-last-child(3),
+        .PinnedTabsBar .tab-wrapper:nth-child(7n):last-child,
+        .PinnedTabsBar .tab-wrapper:nth-child(6n):nth-last-child(2),
+        .PinnedTabsBar .tab-wrapper:nth-child(5n):nth-last-child(3) {
+            --pinned-tabs-col: 3 !important;
+        }
+    }
+
+    @media (min-width: 281px) {
+        --pinned-tabs-col: 5;
+    }
+}
+
+#root.root .PinnedTabsBar,
+#root.root .PinnedTabsBar .Tab,
+#root.root .top-horizontal-box .main-items {
+    transition: height 0ms linear 0ms, width 0ms linear 0ms !important;
+}
+
+
+
+/* =====================================================================
+   COLLAPSED SIDEBAR (<= 160px)
+   ===================================================================== */
+
+@media (max-width: 160px) {
+    #root.root {
+        --tabs-indent: 0;
+        --tabs-lvl-opacity: 0;
+        width: 100vw;
+        max-width: 280px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    /* hide the tree indent line (only while collapsed - expanded keeps it) */
+    #root.root .Tab .body {
+        --tabs-indent-line-color: transparent !important;
+    }
+
+    #root.root {
+        padding: var(--sidebar-top-gap) 0px 0px 0 !important;
+        .close {
+            display: none !important;
+        }
+    }
+
+    #root.root .scrollable {
+        margin-left: var(--collapsed-shift) !important;
+    }
+
+    #root.root .Tab .audio {
+        margin-left: -11px;
+        margin-top: -7px;
+    }
+
+    .scrollable .Tab[data-colorized="true"] .color-layer {
+        opacity: 0.3;
+        transition: opacity 100ms linear !important;
+    }
+
+    /* Tab colors */
+    .scrollable .Tab, .scrollable .Tab .color-layer .color-layer {
+        width: 32px !important;
+        --tabs-color-layer-opacity: 0.5;
+    }
+
+    .scrollable .Tab[data-discarded="true"] .color-layer {
+        width: 32px !important;
+        --tabs-color-layer-opacity: 0.2 !important;
+    }
+
+    .scrollable .Tab[data-active="true"] .color-layer,
+    .scrollable .Tab:hover .color-layer {
+        border-radius: 4px 4px 4px 4px !important;
+        --tabs-color-layer-opacity: 0.8 !important;
+    }
+
+    .left-vertical-box,
+    #root.root #search_bar,
+    #root.root .new-tab-btns,
+    .Tab .t-box,
+    #root.root .top-horizontal-box .nav-item:not([data-class="panel"]),
+    #root.root .nav-item[data-active="false"] {
+        display: none !important;
+    }
+
+    #root.root .nav-item[data-active="true"] {
+        width: 32px !important;
+        height: 32px !important;
+        margin-bottom: 3px !important;
+        margin-left: 2px !important;
+        border: 1px solid light-dark(rgba(0,0,0,0.4), rgba(255,255,255,0.2)) !important;
+        opacity: 1 !important;
+        filter: contrast(130%) !important;
+    }
+
+    #root.root .top-horizontal-box .main-items {
+        transition: height 0ms linear 0ms, width 0ms linear 0ms !important;
+    }
+
+
+    /* ===== Dim inactive normal tabs (favicon + colored background), collapsed only ===== */
+    .scrollable .Tab[data-pin="false"]:not([data-active="true"]) .fav,
+    .scrollable .Tab[data-pin="false"]:not([data-active="true"]) .color-layer {
+        filter: brightness(var(--tab-dim-brightness));
+        transition: filter 150ms ease;
+    }
+    .scrollable .Tab[data-pin="false"]:hover .fav,
+    .scrollable .Tab[data-pin="false"]:hover .color-layer {
+        filter: none;
+    }
+
+
+    /* ===== Pinned tabs (collapsed): fixed grid of square tiles ===== */
+
+    /* sizes come from the SETTINGS block at the top of the file */
+    #root.root {
+        --tabs-pinned-width: var(--pin-size);
+        --tabs-pinned-height: var(--pin-size);
+    }
+
+    #root.root .PinnedTabsBar {
+        display: grid !important;
+        grid-template-columns: repeat(var(--pin-cols), var(--pin-size)) !important;
+        grid-auto-rows: var(--pin-size) !important;
+        gap: var(--pin-gap) !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        flex: 0 0 auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin: 0 0 var(--pin-bottom-gap) calc(var(--collapsed-shift) + var(--pin-shift)) !important;
+        background-color: transparent !important;
+    }
+
+    #root.root .PinnedTabsBar .tab-wrapper {
+        --tabs-pinned-width: var(--pin-size) !important;
+        --tabs-pinned-height: var(--pin-size) !important;
+        width: var(--pin-size) !important;
+        height: var(--pin-size) !important;
+        flex: none !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #root.root .PinnedTabsBar .Tab {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        opacity: 1 !important;
+        background-color: transparent !important;
+    }
+
+    /* inactive pinned tabs: dimmed like the normal tabs (--tab-dim-brightness), hover undims */
+    #root.root .PinnedTabsBar .Tab .fav {
+        filter: brightness(var(--tab-dim-brightness));
+        transition: filter 150ms ease;
+    }
+    #root.root .PinnedTabsBar .Tab:hover .fav {
+        filter: none;
+    }
+    /* active: own brightness + soft glow in the accent color */
+    #root.root .PinnedTabsBar .Tab[data-active="true"] .fav {
+        filter: brightness(var(--pin-active-brightness)) saturate(1.15) drop-shadow(0 0 var(--pin-active-glow) var(--accent));
+    }
+
+    #root.root .PinnedTabsBar .Tab .body {
+        min-height: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 6px !important;
+    }
+
+    /* no background at rest and no hover background while collapsed */
+    #root.root .PinnedTabsBar .Tab:not([data-active="true"]) .body,
+    #root.root .PinnedTabsBar .Tab:not([data-active="true"]):hover .body {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    #root.root .PinnedTabsBar .Tab .fav,
+    #root.root .PinnedTabsBar .Tab .fav-icon {
+        width: var(--pin-icon) !important;
+        height: var(--pin-icon) !important;
+    }
+
+    #root.root .PinnedTabsBar .color-layer {
+        display: none !important;
+    }
+
+    /* container color line: only exists in collapsed mode (expanded uses Sidebery's own, unmodified) */
+    #root.root .PinnedTabsBar .Tab {
+        position: relative !important;
+    }
+    #root.root .PinnedTabsBar .Tab .ctx {
+        position: absolute !important;
+        top: calc(var(--tabs-pinned-height) - var(--pin-container-line) - var(--pin-container-line-inset)) !important;
+        bottom: auto !important;
+        left: 3px !important;
+        right: 3px !important;
+        width: auto !important;
+        height: var(--pin-container-line) !important;
+        margin: 0 !important;
+        transform: none !important;
+        border-radius: 2px !important;
+    }
+
+    /* active pinned tab: no background while COLLAPSED only (expanded keeps the normal highlight) */
+    #root.root .PinnedTabsBar .Tab,
+    #root.root .PinnedTabsBar .Tab[data-active="true"] {
+        --tabs-activated-bg: transparent !important;
+        --tabs-activated-fg: var(--tabs-normal-fg) !important;
+    }
+    #root.root .PinnedTabsBar .Tab[data-active="true"],
+    #root.root .PinnedTabsBar .Tab[data-active="true"] .body,
+    #root.root .PinnedTabsBar .Tab[data-active="true"]:hover .body {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
+    /* catch-all: whatever element draws the white (tab, wrapper, body, pseudo-elements, ring) */
+    #root.root .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]),
+    #root.root .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) *,
+    #root.root .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) *::before,
+    #root.root .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) *::after,
+    #root.root .PinnedTabsBar .Tab[data-active="true"]::before,
+    #root.root .PinnedTabsBar .Tab[data-active="true"]::after {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border-color: transparent !important;
+    }
+}
