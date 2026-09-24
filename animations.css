@@ -112,17 +112,16 @@
 #tabbrowser-tabpanels > hbox:not(:has(.zen-glance-background)):not([zen-split="true"]) {
   &:is([zen-split]) {
     transition:
-      all 0.17s cubic-bezier(0.175, 0.685, 0.52, 1.05),
+      all 0.15s cubic-bezier(0.175, 0.685, 0.52, 1.05),
       filter 0.1s ease-out !important;
   }
 
   &:not(.zen-glance-background):not([zen-split="true"]) {
     transition:
-      all 0.17s cubic-bezier(0.175, 0.685, 0.52, 1),
-      filter 0.1s ease-out !important;
-    /*         scale: 0.975 !important; */
+      all 0.15s cubic-bezier(0.175, 0.685, 0.52, 1),
+      filter 0.15s ease-out !important;
     opacity: 1;
-    filter: blur(5px) !important;
+    filter: blur(3px) ;
   }
 }
 
@@ -137,26 +136,27 @@
 @media (-moz-pref("uc.tweak.animation.page-showing", 2)) {
   #tabbrowser-tabpanels > hbox:not([zen-split="true"], .zen-glance-background, :has(.zen-glance-background)) {
     transition:
-      all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-      filter 0.2s ease-out !important;
-    scale: 0.95 !important;
+      all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+      filter 0.15s ease-out !important;
+    scale: 0.98 !important;
+      filter: none !important;
     opacity: 1;
-    filter: blur(0) !important;
   }
 
   #tabbrowser-tabpanels
     > hbox.deck-selected:not([zen-split="true"], .zen-glance-background, :has(.zen-glance-background)) {
     scale: 1 !important;
     opacity: 1 !important;
-    filter: none !important;
+      filter: none !important;
   }
 }
 
 @media (-moz-pref("uc.tweak.animation.page-showing", 3)) {
   #tabbrowser-tabpanels > hbox:not([zen-split="true"], .zen-glance-background, :has(.zen-glance-background)) {
-    transition: all 0.24s cubic-bezier(0.3, 0.6, 0.3, 1.2) !important;
+    transition: all 0.15s cubic-bezier(0.3, 0.6, 0.3, 1.2) !important;
     scale: 0.98 !important;
-    transform: translateY(10px);
+    transform: translateY(5px);
+    filter: none !important;
     opacity: 1;
   }
 
@@ -171,7 +171,7 @@
 
 @media (-moz-pref("uc.tweak.animation.page-showing", 4)) {
   #tabbrowser-tabpanels > hbox:not([zen-split="true"], .zen-glance-background, :has(.zen-glance-background)) {
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     opacity: 0 !important;
     scale: 0.975 !important;
     position: absolute !important;
@@ -187,13 +187,14 @@
 }
 @media (-moz-pref("uc.tweak.animation.page-showing", 5)) {
   #tabbrowser-tabpanels > hbox:not([zen-split="true"], .zen-glance-background, :has(.zen-glance-background)) {
-    transform: scale(1.05);
-    filter: blur(15px);
+    transform: scale(1.02);
+    filter: blur(10px);
     opacity: 1;
     transition:
-      transform 0.2s ease,
-      filter 0.2s ease,
-      opacity 0.2s;
+      transform 0.15s ease,
+      filter 0.15s ease,
+      opacity 0.15s;
+    filter: none !important;
     will-change: transform, filter, opacity;
   }
 
