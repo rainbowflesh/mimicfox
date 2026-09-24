@@ -32,10 +32,22 @@
   }
 }
 
-/* fix 157 goofyahhhhhh input box margin issue */
+/* fix 157 goofyahhhhhh download list margin issue */
+#downloadsSummary {
+  background: transparent !important;
+}
+
 #downloadsListBox {
   min-width: -moz-available;
   min-width: -webkit-fill-available;
+}
+
+@media -moz-pref("browser.urlbar.trustPanel.featureGate") {
+  #trust-icon-container {
+    &.has-blocked-trackers {
+      background-color: transparent;
+    }
+  }
 }
 
 /* 157b1 shit update */
@@ -54,6 +66,7 @@
 
 ::-moz-selection {
   background: var(--button-primary-bgcolor);
+  /*! background: red; */
 }
 
 button#main-button span.button-background.labelled {
