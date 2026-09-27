@@ -56,6 +56,17 @@ tooltip {
   padding: 4px !important;
 }
 
+richlistbox#downloadsListBox richlistitem.download-state {
+  margin-right: 8px !important;
+}
+
+richlistitem.download-state button.downloadButton.downloadIconShow {
+  margin-right: 2px !important;
+}
+
+richlistitem.download > button {
+  margin: auto !important;
+}
 #editBookmarkPanelContent {
   padding: 8px !important;
 }
@@ -385,7 +396,7 @@ panelview .toolbarbutton-1,
 }
 
 #downloadsListBox > richlistitem {
-  padding-inline-end: 8px !important;
+  /*! padding-inline-end: 8px !important; */
   border-radius: var(--arrowpanel-menuitem-border-radius) !important;
 }
 
