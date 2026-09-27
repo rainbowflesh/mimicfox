@@ -7,10 +7,9 @@ Draw inspiration from several beautiful designs, then synthesize and emulate the
 Only on Windows11, Linux compatibility are on the way.
 
 ## Preview
-
-[![Preview](./assets/previews/preview.png)](https://rainbowflesh.github.io/html/mimicfox.html "click image show light/dark theme comparison")
-
-###### click image show light/dark theme comparison
+<a href="https://rainbowflesh.github.io/html/mimicfox.html" target="_blank" style='margin-right:0px; margin-top:5px'>
+    <img align="center" src="https://github.com/rainbowflesh/mimicfox/blob/main/assets/previews/preview.png" alt="preview" title="click image to show live light/dark theme comparison" />
+</a>
 
 ## Installation
 
