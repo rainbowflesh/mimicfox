@@ -18,7 +18,6 @@
   --general-border-radius: 8px;
   --tabs-normal-bg: color-mix(in srgb, var(--tabs-activated-bg) 50%, transparent);
   --ntb-btn-height: var(--tab-size);
-  --general-margin: 8px;
 }
 
 :root {
@@ -46,11 +45,17 @@
   :root {
     --tab-size: max(32px, calc(1.5 * 1em));
   }
+  #root.root {
+    --general-margin: 6px;
+  }
 }
 
 @media (width >= 48px) {
   :root {
     --tab-size: max(32px, calc(1.5 * 2em));
+  }
+  #root.root {
+    --general-margin: 6px;
   }
 }
 
@@ -228,4 +233,38 @@
 /* hide empty space under tab bar */
 .TabsPanel.panel .bottom-space {
   display: none;
+}
+
+.Tab .exp {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  z-index: -1;
+  cursor: pointer;
+  transform-origin: center;
+  transition:
+    opacity var(--d-fast),
+    transform var(--d-fast);
+}
+
+.Tab .exp-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  fill: var(--tabs-normal-fg);
+}
+
+#root[data-search="false"] .Tab[data-parent="true"][data-folded="true"] .fav .exp {
+  z-index: 1;
+  opacity: 1;
+  transform: rotate(-90deg);
+}
+
+.Tab[data-folded="true"] .fav .exp::before {
+  opacity: 0 !important;
 }
