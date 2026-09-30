@@ -16,6 +16,7 @@
     --toolbarbutton-outer-padding: 2px !important;
     --toolbarbutton-padding-outer: 2px !important;
     --tabs-navbar-shadow-size: 0px !important;
+    --toolbar-start-end-padding: 4px !important;
 }
 
 
@@ -51,7 +52,7 @@
 /* move navbar */
 html:not([sizemode="fullscreen"]) {
     #nav-bar {
-        margin-bottom: -1px;
+/*         margin-bottom: -1px; */
     }
 }
 

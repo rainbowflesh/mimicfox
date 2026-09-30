@@ -1,12 +1,24 @@
 /* mimicfox 🔥🦊 */
-#root.root {
-  --ctx-menu-icon-opt-height: 30px;
-}
-
 @property --tab-size {
   syntax: "<length>";
   inherits: true;
   initial-value: 32px;
+}
+
+#root.root {
+  --ctx-menu-icon-opt-height: 30px;
+  --popup-shadow: 0 0 0 1px rgba(255, 255, 255, 0.086), 0 1px 16px 0 rgba(0, 0, 0, 0.282);
+  --popup-bg: #282828;
+  --tabs-pinned-height: var(--tab-size);
+  --tabs-pinned-width: var(--tab-size);
+  --tabs-height: var(--tab-size);
+  --tabs-indent: 8px;
+  --tabs-inner-gap: 5px;
+  --frame-bg: transparent;
+  --general-border-radius: 8px;
+  --tabs-normal-bg: color-mix(in srgb, var(--tabs-activated-bg) 50%, transparent);
+  --ntb-btn-height: var(--tab-size);
+  --general-margin: 8px;
 }
 
 :root {
@@ -42,37 +54,6 @@
   }
 }
 
-#root.root {
-  --tabs-pinned-height: var(--tab-size);
-}
-#root.root {
-  --tabs-pinned-width: var(--tab-size);
-}
-#root.root {
-  --tabs-height: var(--tab-size);
-}
-#root.root {
-  --tabs-indent: 8px;
-}
-#root.root {
-  --tabs-inner-gap: 5px;
-}
-#root.root {
-  --frame-bg: transparent;
-}
-#root.root {
-  --general-border-radius: 8px;
-}
-#root.root {
-  --tabs-normal-bg: color-mix(in srgb, var(--tabs-activated-bg) 50%, transparent);
-}
-#root.root {
-  --ntb-btn-height: var(--tab-size);
-}
-#root.root {
-  --general-margin: 8px;
-}
-
 .menu-icon {
   filter: brightness(0) invert(1);
 }
@@ -81,6 +62,7 @@
 .Tab {
   transition: all 300ms ease;
 }
+
 .new-tab-btns {
   transition: all 300ms ease;
 }
@@ -121,12 +103,13 @@
   align-items: center;
   justify-content: center;
 }
+
 .Tab .close:hover,
 .Tab[data-active="true"] .close:hover {
   /* hover color */
-  background-color: light-dark(#f7f7f7, rgba(255, 255, 255, 0.1)) !important;
-  backdrop-filter: blur(10px);
+  background-color: color-mix(in srgb, currentColor 14%, solid) !important;
 }
+
 .close-icon {
   /* brighter icon */
   fill: light-dark(black, white) !important;
@@ -139,6 +122,7 @@
     display: block !important;
     border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent) !important;
   }
+
   .PinnedTabsBar[data-empty="false"] ~ .panel-box .TabsPanel.panel {
     padding-top: 10px;
   }
@@ -150,9 +134,11 @@
     width: var(--tab-size);
     padding-inline: 0;
   }
+
   .fav {
     margin: auto !important;
   }
+
   .t-box {
     /* remove text box */
     display: none;
@@ -160,10 +146,9 @@
 
   /* move close button to upper left*/
   .Tab .close {
-    top: -7px !important;
-    /*     right: -8px; */
-    /* uncomment this line to move close button to left*/
-    left: -7px !important;
+    top: -6px !important;
+    /*     right: -8px; uncomment this line to move close button to left*/
+    left: -4px !important;
   }
 
   /* audio button hover color */
@@ -172,30 +157,37 @@
     width: 16px !important;
     border-radius: 99px;
   }
+
   .Tab .audio:hover {
     background: var(--tabs-activated-bg);
   }
+
   .Tab[data-pin="true"] .audio {
     box-shadow: 0 !important;
     background: none !important;
   }
+
   .Tab[data-pin="true"] .audio:hover {
     background: var(--tabs-activated-bg) !important;
   }
+
   /* move audio button to lower right */
   .Tab[data-pin="false"] .audio {
     top: calc(1em + var(--tabs-inner-gap));
     left: calc(1em + var(--tabs-inner-gap));
   }
+
   .Tab[data-pin="true"] .audio {
     top: 16px !important;
     left: calc(8px + var(--tabs-inner-gap));
   }
+
   @media (min-width: 60px) {
     .Tab[data-pin="false"] .audio {
       top: calc(1.3em + var(--tabs-inner-gap));
       left: calc(1.3em + var(--tabs-inner-gap));
     }
+
     .Tab[data-pin="true"] .audio {
       top: calc(1.3em + var(--tabs-inner-gap)) !important;
       left: calc(1.3em + var(--tabs-inner-gap));
@@ -210,6 +202,7 @@
     padding-left: 0px !important;
   }
 }
+
 @media (min-width: 96px) {
   /* make pinned tabs act like native grid */
   .PinnedTabsBar {
@@ -218,9 +211,11 @@
     gap: var(--tabs-margin);
     padding: 0 var(--tabs-margin) var(--tabs-margin);
   }
+
   .PinnedTabsBar .tab-wrapper {
     flex: 1 1 0;
   }
+
   .PinnedTabsBar .tab-wrapper .Tab {
     min-width: var(--tab-size) !important;
     width: auto !important;

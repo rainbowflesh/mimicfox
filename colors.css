@@ -27,6 +27,7 @@
   --panel-background: light-dark(#fff, #4a4a4a) !important;
   --panel-background-color: light-dark(#fff, #4a4a4a) !important;
   --arrowpanel-border-color: transparent !important;
+  --panel-list-background-color: var(--panel-background) !important;
   --panel-border-color: transparent !important;
   --arrowpanel-color: light-dark(#1c1c1c, #fff) !important;
   --panel-color: light-dark(#1c1c1c, #fff) !important;

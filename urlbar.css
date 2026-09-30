@@ -50,7 +50,7 @@
   }
 }
 
-/* 157b1 shit update */
+/* fix 157b1 & 158 shit update */
 .urlbarView-background {
   left: 0px !important;
   right: 0px !important;
@@ -58,15 +58,24 @@
   outline-color: var(--panel-separator-color) !important;
 }
 
-.urlbarView-body-outer {
-  margin-top: -4px;
-  margin-inline: var(--urlbar-margin-inline);
-  outline-color: var(--panel-separator-color) !important;
+.urlbarView-results {
+  #urlbar[open] > .urlbarView > & {
+    border-top: 0px !important;
+  }
+}
+.urlbarView-row {
+  &:not([type="tip"], [type="dynamic"]) {
+    :root[uidensity="touch"] & {
+      margin-inline: 8px !important;
+    }
+  }
+}
+.urlbarView-results {
+  width: 100% !important;
 }
 
 ::-moz-selection {
   background: var(--button-primary-bgcolor);
-  /*! background: red; */
 }
 
 button#main-button span.button-background.labelled {
@@ -103,17 +112,14 @@ button#main-button span.button-background.labelled {
   fill: accentColor !important;
 }
 .urlbar-background {
-  /*     top: 2px !important; */
   margin-inline: var(--urlbar-margin-inline);
-  /*   margin-top: 4px; */
 }
 #urlbar[open] .urlbar-background {
   margin-top: 4px;
   margin-inline: var(--urlbar-margin-inline) !important;
 }
 #urlbar[open] .urlbarView {
-  /* margin-inline: var(--urlbar-margin-inline) !important;; */
-  margin-top: -1px;
+  margin-top: -4px;
 }
 #urlbar[open] {
   margin-inline: var(--urlbar-margin-inline) !important;
@@ -121,7 +127,6 @@ button#main-button span.button-background.labelled {
 
 .urlbarView-body-outer {
   border: var(--urlbar-background-border-open);
-  /*   border-color:var(--input-border-color); */
 }
 .urlbar-background,
 .urlbarView-background,

@@ -35,10 +35,8 @@
   }
 }
 
-/* allow smaller sidebars */
-.sidebar {
-  min-width: var(--sidebar-box-size);
-  width: fit-content;
+#sidebar {
+  padding-left: 1px;
 }
 
 #sidebar-panel-header {
@@ -166,7 +164,7 @@ browser#sidebar {
     display: none;
   }
   #nav-bar-customization-target {
-    padding-left: var(--toolbar-start-end-padding);
+    padding-left: 4px;
   }
 }
 
