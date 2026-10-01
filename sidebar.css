@@ -38,14 +38,12 @@
 
 /* fix tab icon color */
 /* light theme */
-#contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon,
-#contentAreaContextMenu menuitem[id*="-menuitem-"] .menu-icon {
+#contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon {
   filter: brightness(0) invert(0) !important;
 }
 /* dark */
 @media (prefers-color-scheme: dark) {
-  #contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon,
-  #contentAreaContextMenu menuitem[id*="-menuitem-"] .menu-icon {
+  #contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon{
     filter: brightness(0) invert(1) !important;
   }
 }
