@@ -36,7 +36,7 @@
 }
 
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
-  padding: 0 4px 4px;
+  padding: 0 6px 6px;
 }
 
 /* remove tree indent */

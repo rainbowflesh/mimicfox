@@ -3,6 +3,7 @@
 /* OG https://github.com/bmFtZQ/edge-frfox  */
 root {
   --chrome-block-radius: 8px;
+  --card-border-radius: 8px !important;
 }
 
 /* 145.0b1 browser content area fix */

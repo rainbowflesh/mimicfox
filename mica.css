@@ -47,8 +47,8 @@
 }
 
 #sidebar-box {
-/*   margin-left: 1px; */
-/*   border-radius: 8px; */
+  /*   margin-left: 1px; */
+  /*   border-radius: 8px; */
 }
 
 #tabbrowser-tabpanels > :not(.split-view-panel) .browserContainer,
@@ -105,13 +105,15 @@ browser#sidebar,
   #tab-group-suggestions-heading,
   #tab-group-suggestions-load-actions,
   #tab-group-suggestions-loading,
+  #sidebar-tools-overflow,
+  #tools-overflow-list,
   panel.tab-group-editor-panel,
   panel#editBookmarkPanel,
   panel#tab-preview-panel html description,
   panelmultiview,
   popupnotification,
   tooltip {
-    background-color: Menu !important;
+    background-color: var(--arrowpanel-background-mica) !important;
     background-image: var(--acrylic-noise) !important;
     background-repeat: repeat !important;
     background-size: 25% !important;
