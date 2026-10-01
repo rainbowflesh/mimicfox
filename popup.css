@@ -48,10 +48,14 @@
   --uc-contextmenu-separator-vertical: calc(4px - var(--uc-contextmenu-menuitem-border-width));
   --uc-contextmenu-separator-horizontal: 0;
   /* --panel-menuitem-margin: 0 4px 0 4px !important; */
-  --space-medium: 1rem;
+  --space-medium: 1rem !important;
 }
 
 /* fix 158 menu icon wrong margin */
+menupopup#contentAreaContextMenu > menuitem .menu-icon {
+  margin-inline-end: var(--space-medium) !important;
+}
+
 .toolbar-menupopup {
   & .menu-icon {
     margin-inline-end: var(--space-medium) !important;
@@ -76,7 +80,7 @@ richlistitem.download > button {
   margin: auto !important;
 }
 
-richlistitem.download-state hbox.downloadMainArea image.downloadTypeIcon{
+richlistitem.download-state hbox.downloadMainArea image.downloadTypeIcon {
   margin: 8px 14px 8px 0px !important;
 }
 
@@ -84,9 +88,9 @@ richlistitem.download.download-state hbox.downloadMainArea image.downloadTypeIco
   margin: 8px 14px 8px 8px !important;
 }
 
-hbox#downloadsSummary image.downloadTypeIcon{
-  margin-left:16px !important;
-  margin-right:14px !important;
+hbox#downloadsSummary image.downloadTypeIcon {
+  margin-left: 16px !important;
+  margin-right: 14px !important;
 }
 
 #editBookmarkPanelContent {

@@ -1,6 +1,5 @@
 /* mimicfox 🔥🦊 */
 /* sidebar.css */
-
 :root {
   --sidebar-box-size: 3.5em;
   --sidebar-tab-audio-size: 12px;
@@ -48,6 +47,7 @@
   }
 }
 
+/* fix sidebery popup context menu icon margin */
 @media (-moz-platform: windows) or (-moz-platform: macos) {
   #contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon {
     menuitem:where(.menuitem-iconic, [image]) > &,
