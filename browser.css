@@ -96,6 +96,7 @@ root {
     -moz-window-dragging: no-drag;
     border-radius: var(--uc-tweak-rounded-corners-radius);
   }
+
   @media -moz-pref("uc.tweak.browser-rounded-padding",0) {
     #main-window #tabbrowser-tabbox {
       margin-right: 0 !important;
@@ -104,6 +105,93 @@ root {
     #main-window[sizemode="maximized"] #tabbrowser-tabbox {
       margin-right: 0 !important;
       margin-bottom: 0 !important;
+    }
+  }
+
+  @media -moz-pref("uc.tweak.browser-rounded-padding",1) {
+    :root {
+      @media -moz-pref("browser.nova.enabled") {
+        --chrome-window-gap: 2px !important;
+      }
+    }
+
+    #main-window #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-bottom: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+    }
+  }
+
+  @media -moz-pref("uc.tweak.browser-rounded-padding",2) {
+    :root {
+      @media -moz-pref("browser.nova.enabled") {
+        --chrome-window-gap: 4px !important;
+      }
+    }
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(1.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+
+  @media -moz-pref("uc.tweak.browser-rounded-padding",3) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+  }
+
+  @media -moz-pref("uc.tweak.browser-rounded-padding",4) {
+    #main-window #tabbrowser-tabbox {
+      margin-right: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #tabbrowser-tabbox {
+      margin-right: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+      margin-bottom: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
+    }
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #appcontent #tabbrowser-tabbox,
+    #main-window[sizemode="maximized"] #sidebar-main[hidden="true"] ~ #tabbrowser-tabbox {
+      margin: calc(2.5 * var(--uc-tweak-rounded-corners-padding)) !important;
     }
   }
 
