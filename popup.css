@@ -48,6 +48,14 @@
   --uc-contextmenu-separator-vertical: calc(4px - var(--uc-contextmenu-menuitem-border-width));
   --uc-contextmenu-separator-horizontal: 0;
   /* --panel-menuitem-margin: 0 4px 0 4px !important; */
+  --space-medium: 1rem;
+}
+
+/* fix 158 menu icon wrong margin */
+.toolbar-menupopup {
+  & .menu-icon {
+    margin-inline-end: var(--space-medium) !important;
+  }
 }
 
 tooltip {
@@ -914,7 +922,7 @@ panel[type="autocomplete-richlistbox"] {
     padding: var(--uc-contextmenu-menuitem-padding-block) var(--uc-contextmenu-menuitem-padding-inline) !important;
     margin: var(--uc-contextmenu-menuitem-margin) !important;
     border-radius: var(--uc-contextmenu-menuitem-border-radius) !important;
-    border: var(--uc-contextmenu-menuitem-border-width) solid transparent !important;
+    border: 1px solid transparent !important;
     background-clip: padding-box !important;
     min-height: calc(
       16px + (var(--uc-contextmenu-menuitem-padding-block) + var(--uc-contextmenu-menuitem-border-width)) * 2
