@@ -43,8 +43,18 @@
 }
 /* dark */
 @media (prefers-color-scheme: dark) {
-  #contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon{
+  #contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon {
     filter: brightness(0) invert(1) !important;
+  }
+}
+
+@media (-moz-platform: windows) or (-moz-platform: macos) {
+  #contentAreaContextMenu menuitem[id*="_3c078156-979c-498b-8990-85f7987dd929_"] .menu-icon {
+    menuitem:where(.menuitem-iconic, [image]) > &,
+    menu:where(.menu-iconic) > & {
+      margin-inline-end: var(--space-medium) !important;
+      margin-inline-start: -2px;
+    }
   }
 }
 
