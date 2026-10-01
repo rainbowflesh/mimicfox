@@ -31,6 +31,10 @@
   --tab-size: round(nearest, max(32px, calc(1.5 * 1em)), 4px);
 }
 
+.Notifications + .main-box .central-box {
+  margin-top: 0px !important;
+}
+
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
   padding: 0 4px 4px;
 }
@@ -70,10 +74,6 @@
 
 .new-tab-btns {
   transition: all 300ms ease;
-}
-
-.Notifications + .main-box .central-box {
-  margin-top: 5px !important;
 }
 
 /* remove tabs background */
@@ -126,10 +126,30 @@
     content: "" !important;
     display: block !important;
     border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent) !important;
+    border: none;
+    background-color: transparent;
+    background-image:
+      radial-gradient(circle closest-side, light-dark(#000, #fff) 100%, transparent 100%),
+      radial-gradient(circle closest-side, light-dark(#000, #fff) 100%, transparent 100%),
+      linear-gradient(light-dark(#000, #fff), light-dark(#000, #fff));
+    background-size: var(2px 2px, 2px 2px, calc(16px - 2px) 2px);
+    background-repeat: no-repeat;
+    margin-inline: var(0.75rem);
+    min-height: 2px;
+    max-width: 1rem;
+    margin-inline: auto;
+    border-radius: 99px;
+    border-width: 1px 0px;
+    border-top-color: threedhighlight;
+    border-bottom-color: threedshadow;
+    cursor: ns-resize;
+    border-style: solid;
+    border-inline-color: threedhighlight threedshadow;
+    min-width: 6px;
   }
 
   .PinnedTabsBar[data-empty="false"] ~ .panel-box .TabsPanel.panel {
-    padding-top: 10px;
+    padding-top: 8px;
   }
 
   /* center tab */
