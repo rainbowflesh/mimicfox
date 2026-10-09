@@ -40,8 +40,11 @@
 }
 
 /* remove tree indent */
-.Tab[data-lvl="1"] {
-  --tabs-indent: 0;
+.Tab[data-lvl="1"],
+.Tab[data-lvl="2"],
+.Tab[data-lvl="3"],
+.Tab[data-lvl="*"] {
+  --tabs-indent: 4px;
 }
 
 /* auto zoom for small screen */
@@ -65,6 +68,7 @@
 
 .menu-icon {
   filter: brightness(0) invert(1);
+  margin-right: 4px;
 }
 
 /* fancy animation */

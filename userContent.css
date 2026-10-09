@@ -39,7 +39,7 @@ div.popup[style*="--fg"][style*="--bg"] {
   }
 }
 
-@-moz-document domain(monkeytype.com) {
+@-moz-document domain("monkeytype.com") {
   body {
     background-color: rgba(15, 15, 20, 0.4) !important;
     /* Darker base color */
@@ -76,7 +76,6 @@ groupbox:not(#sineInstallationGroup:popover-open) {
   nav,
   header {
     background-color: transparent !important;
-    background: none !important;
     border: none !important;
     box-shadow: none !important;
   }

@@ -72,12 +72,12 @@
   }
 
   &:focus {
-    outline-width: 2px !important;
+    outline-width: 1px !important;
     outline-offset: -1px !important;
   }
 
   &[status="notfound"] {
-    outline: 2px solid var(--input-error-border-color, #e22850) !important;
+    outline: 1px solid var(--input-error-border-color, #e22850) !important;
     outline-offset: -1px !important;
   }
 }
@@ -98,13 +98,14 @@ findbar .close-icon {
 /* Rounded corners */
 @media -moz-pref("uc.tweak.rounded-corners") {
   findbar {
+    margin-bottom: calc(-3 * var(--uc-tweak-rounded-corners-padding) + 6px);
     -moz-window-dragging: drag;
     border: none !important;
     background-color: transparent !important;
     padding-inline: var(--uc-tweak-rounded-corners-padding, 0px) !important;
 
     &[hidden] {
-      margin-bottom: calc(var(--uc-tweak-rounded-corners-padding, 0px) - 40px) !important;
+      margin-bottom: calc(var(--uc-tweak-rounded-corners-padding, 0px) - 4rem) !important;
     }
   }
 }
