@@ -63,6 +63,7 @@
 #browser:not(.browser-toolbox-background),
 #urlbar-results,
 #urlbar,
+#PersonalToolbar,
 browser#sidebar,
 menupopup,
 menupopup[placespopup="true"],
