@@ -52,7 +52,7 @@
 /* move navbar */
 html:not([sizemode="fullscreen"]) {
     #nav-bar {
-/*         margin-bottom: -1px; */
+        margin-bottom: -1px !important;
     }
 }
 
