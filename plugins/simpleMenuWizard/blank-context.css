@@ -11,9 +11,9 @@
 /* #context-navigation,             /* Hide whole navigation bar            */
 /* #context-back,                     /* Navi: Back arrow                     */
 /* #context-forward,                  /* Navi: Forward arrow                  */
-/* #context-reload,                   /* Navi: Reload icon - 
+/* #context-reload,                   /* Navi: Reload icon -
                                            combined position with stop icon   */
-/* #context-stop,                     /* Navi: Stop icon (x) - 
+/* #context-stop,                     /* Navi: Stop icon (x) -
                                            combined position with reload icon */
 #context-bookmarkpage,             /* Navi: Bookmark star icon             */
 #context-sep-navigation,         /************** Separator ***************/
@@ -24,9 +24,11 @@
 #context-take-screenshot,        /* Take Screenshot                      */
 #context-sep-screenshots,        /************** Separator ***************/
 #context-viewsource,             /* View Page Source                     */
+#context-use-mini-window,
 /* #context-inspect,                /* Inspect (Q)                          */
 #context-media-eme-separator,    /************** Separator ***************/
 /* Here are context menus of addons */
 
-#leave_this_dummy_here
-    { display:none !important; }
+#leave_this_dummy_here {
+  display: none !important;
+}

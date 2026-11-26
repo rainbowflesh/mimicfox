@@ -77,17 +77,20 @@
   --urlbar-box-active-bgcolor: light-dark(rgb(0 0 0 / 0.22), rgb(255 255 255 / 0.28)) !important;
   --urlbar-box-bgcolor: light-dark(rgb(0 0 0 / 0.09), rgb(255 255 255 / 0.11)) !important;
   --toolbar-field-color: var(--button-color) !important;
+  --toolbar-field-text-color: light-dark(#000, #fff) !important;
   --urlbar-box-hover-bgcolor: light-dark(rgb(0 0 0 / 0.09), rgb(255 255 255 / 0.11)) !important;
   --urlbar-box-background-color-hover: light-dark(rgb(0 0 0 / 0.09), rgb(255 255 255 / 0.11)) !important;
   --urlbarView-highlight-background: light-dark(#f2f2f2, #383838) !important;
+  --urlbarview-background-color-selected: var(--urlbarView-highlight-background) !important;
   --urlbarView-highlight-color: var(--button-color) !important;
   --urlbarView-hover-background: light-dark(#e5e5e5, #444444) !important;
+  --urlbarview-background-color-hover: var(--urlbarView-hover-background) !important;
   --urlbarView-separator-color: light-dark(#efefef, #5f5f5f) !important;
 
   --focus-outline-color: AccentColor !important;
   --color-accent-primary-selected: AccentColor !important;
   --color-accent-primary: AccentColor !important;
-    
+
   --tab-selected-bgcolor: light-dark(#f7f7f7, rgba(255, 255, 255, 0.1)) !important;
   --button-background-color-hover: var(--tab-selected-bgcolor) !important;
   --button-background-color-ghost-hover: var(--tab-selected-bgcolor) !important;
@@ -97,6 +100,7 @@
   --tabpanel-background-color: var(--newtab-background-color, var(--toolbar-bgcolor, transparent)) !important;
   --tab-icon-overlay-fill: var(--toolbar-color) !important;
   --toolbar-field-focus-color: var(--toolbar-field-color) !important;
+  --toolbar-field-text-color-focus: var(--toolbar-field-color) !important;
   --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor) !important;
   --toolbarbutton-icon-fill: var(--toolbar-color) !important;
   --urlbar-box-focus-bgcolor: var(--urlbar-box-hover-bgcolor) !important;

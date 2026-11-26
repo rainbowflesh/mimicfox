@@ -216,11 +216,6 @@ root {
     }
   }
 
-  /* Prevent status panel corners and shadow from appearing outside the browser. */
-  #statuspanel {
-    overflow: hidden;
-  }
-
   /* make picture in picture rounded   */
   @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml")
   {

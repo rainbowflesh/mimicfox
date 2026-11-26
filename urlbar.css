@@ -90,6 +90,7 @@ button#main-button span.button-background.labelled {
 }
 .urlbar-background,
 .urlbarView-background,
+.urlbar:not([open]) .urlbar-background,
 #searchbar {
   border-radius: calc(var(--urlbar-icon-border-radius) + 2px) !important;
 
@@ -184,26 +185,42 @@ button#main-button span.button-background.labelled {
   --urlbarView-icon-margin-end: calc(
     var(--uc-urlbar-icon-inline-padding) + var(--identity-box-margin-inline)
   ) !important;
-
+  --urlbar-background-overhang-open: 4px !important;
+  --urlbarView-margin-inline: 0px !important;
+  --urlbar-border-radius: 8px !important;
+  --urlbarView-row-gutter: 0px !important;
+  --urlbarView-row-padding-inline: 21px !important;
+  --urlbarView-padding: 0 !important;
+  
   margin-inline: 0 !important;
   width: 100% !important;
   border-inline: 0 !important;
   padding-block: 0 !important;
 
   & .urlbarView-body-inner {
-    width: 100% !important;
-    margin-inline: 0 !important;
+    /* Align edge of items with edge of open panel */
+    margin: calc(-1 * var(--urlbar-background-overhang-open)) !important;
+    margin-top: 0 !important;
+    padding-top: var(--urlbar-background-overhang-open) !important;
+    padding-bottom: var(--urlbar-border-radius) !important;
   }
 
   & .urlbarView-results {
     padding-block: 2px !important;
-    /* margin-inline: 4px; */
-    width: 100% !important;
+    overflow-y: clip !important;
 
     #urlbar[open] > .urlbarView > & {
       border-top: 0px !important;
     }
   }
+}
+
+.urlbar,
+#searchbar {
+  --urlbar-background-border-open: var(--urlbar-input-container-border-width) solid transparent !important;
+  --urlbar-background-border-top-radius-open: var(--urlbar-background-border-radius) !important;
+  --urlbar-background-box-shadow-open: 0 10px 16px rgb(0 0 0 / 0.18), 0 3px 5px rgb(0 0 0 / 0.33) !important;
+  --urlbar-input-container-outline-open-focused: transparent !important;
 }
 
 /* urlbar content row item */
@@ -497,8 +514,6 @@ button#main-button span.button-background.labelled {
     opacity: 0;
     margin-inline-end: -2em;
     pointer-events: none;
-  }
-  #page-action-buttons .urlbar-page-action {
     transition:
       opacity 250ms ease 0ms,
       margin-inline-end 250ms ease 50ms;
