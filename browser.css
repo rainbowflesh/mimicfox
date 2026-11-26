@@ -1,9 +1,29 @@
 /* mimicfox 🔥🦊 */
 /* browser.css  */
 /* OG https://github.com/bmFtZQ/edge-frfox  */
+
 root {
   --chrome-block-radius: 8px;
   --card-border-radius: 8px !important;
+  --panel-border-radius: 8px !important;
+}
+
+/* nova compat */
+#sidebar-main:not([sidebar-panel-open]) + #sidebar-launcher-splitter {
+  margin-inline: calc(-1 * var(--chrome-window-gap)) !important;
+}
+.urlbarView-row {
+  padding: 0px !important;
+  min-height: var(--urlbarview-row-min-height) !important;
+  height: var(--urlbarview-row-min-height) !important;
+}
+#tabbrowser-tabpanels > :not(.split-view-panel) .browserContainer {
+  :root:not([inDOMFullscreen])
+    #tabbrowser-tabbox:not([sidebar-positionend]):is([sidebar-shown], [sidebar-panel-open])
+    &,
+  :root:not([inDOMFullscreen]) #tabbrowser-tabbox[sidebar-positionend][ai-window-open] & {
+    border-width: 0px !important;
+  }
 }
 
 /* 145.0b1 browser content area fix */

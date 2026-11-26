@@ -15,20 +15,15 @@
   --uc-urlbar-shadow: 0 0 4px rgb(0 0 0 / 0.1);
   --urlbarView-rich-suggestion-default-icon-size: 32px !important;
   --uc-urlbar-open-border-radius: 8px !important;
+  /*  162 bullsht  */
+  /*   --urlbar-input-container-outline-open-focused: var(--urlbar-input-container-border-width-open) solid var(--toolbar-field-border-color-focus); */
+  --urlbar-input-container-outline-open-focused: 0px solid var(--toolbar-field-border-color-focus);
   --dot-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg fill="context-fill" width="13px" height="12px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M20.25 16c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 27c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25zM20.25 5c0 2.347-1.903 4.25-4.25 4.25s-4.25-1.903-4.25-4.25c0-2.347 1.903-4.25 4.25-4.25s4.25 1.903 4.25 4.25z"></path></svg>');
   & #urlbar {
     --urlbar-toolbar-height: calc(8px + 16px + var(--toolbarbutton-inner-padding) * 2) !important;
     --urlbar-height: calc(16px + var(--toolbarbutton-inner-padding) * 2) !important;
     --urlbar-min-height: calc(16px + var(--toolbarbutton-inner-padding) * 2) !important;
     --urlbar-basic-component-size: calc(var(--urlbar-height) - 6px) !important;
-  }
-
-  /* Spacing for urlbar suggestion icons. */
-  .urlbarView-row {
-    --urlbarView-icon-margin-start: 0px !important;
-    --urlbarView-icon-margin-end: calc(
-      var(--uc-urlbar-icon-inline-padding) + var(--identity-box-margin-inline)
-    ) !important;
   }
 }
 
@@ -43,35 +38,11 @@
 }
 
 @media -moz-pref("browser.urlbar.trustPanel.featureGate") {
-    &.has-blocked-trackers {
-      background-color: transparent;
-    }
+  &.has-blocked-trackers {
+    background-color: transparent;
+  }
   #trust-icon-container {
   }
-}
-
-/* fix 157b1 & 158 shit update */
-.urlbarView-background {
-  left: 0px !important;
-  right: 0px !important;
-  margin-inline: var(--urlbar-margin-inline);
-  outline-color: var(--panel-separator-color) !important;
-}
-
-.urlbarView-results {
-  #urlbar[open] > .urlbarView > & {
-    border-top: 0px !important;
-  }
-}
-.urlbarView-row {
-  &:not([type="tip"], [type="dynamic"]) {
-    :root[uidensity="touch"] & {
-      margin-inline: 8px !important;
-    }
-  }
-}
-.urlbarView-results {
-  width: 100% !important;
 }
 
 ::-moz-selection {
@@ -80,14 +51,6 @@
 
 button#main-button span.button-background.labelled {
   border-radius: var(--urlbar-icon-border-radius) !important;
-}
-
-.urlbarView-row {
-  border-radius: var(--uc-urlbar-open-border-radius) !important;
-}
-
-.urlbarView-row[label] {
-  margin-block-start: 1.5rem !important;
 }
 
 /* search mod background */
@@ -111,18 +74,15 @@ button#main-button span.button-background.labelled {
 #star-button[starred] {
   fill: accentColor !important;
 }
-.urlbar-background {
-  margin-inline: var(--urlbar-margin-inline);
-}
 #urlbar[open] .urlbar-background {
-  margin-top: 4px;
+  margin-top: var(--urlbar-margin-inline);
   margin-inline: var(--urlbar-margin-inline) !important;
 }
 #urlbar[open] .urlbarView {
   margin-top: -4px;
 }
 #urlbar[open] {
-  margin-inline: var(--urlbar-margin-inline) !important;
+  /*   margin-inline: var(--urlbar-margin-inline) !important; */
 }
 
 .urlbarView-body-outer {
@@ -155,25 +115,7 @@ button#main-button span.button-background.labelled {
 /* Add padding to sides of urlbar. */
 :is(#urlbar-input-container, .urlbar-input-container),
 #searchbar {
-  padding-inline: var(--uc-urlbar-inline-padding) !important;
-}
-
-/* urlbar suggestions container. */
-.urlbarView {
-  margin-inline: 0 !important;
-  width: 100% !important;
-  border-inline: 0 !important;
-  padding-block: 0 !important;
-  & .urlbarView-body-inner {
-    width: 100% !important;
-    margin-inline: 0 !important;
-  }
-
-  /* Remove padding from top of urlbar results, not needed as urlbar input already has padding. */
-  & .urlbarView-results {
-    padding-block: 2px !important;
-    padding-inline: 2px;
-  }
+  /*! padding-inline: var(--uc-urlbar-inline-padding) !important; */
 }
 
 /* margin search engine button */
@@ -225,6 +167,78 @@ button#main-button span.button-background.labelled {
 }
 
 /* ===== urlbar item ===== */
+
+/* nova compat */
+.urlbar-background {
+  .urlbar[popover-open] > & {
+    inset-inline: calc(-1 * (var(--urlbar-margin-inline) + var(--urlbar-input-growth-open-inline)));
+    inset-block: calc(-1 * (var(--urlbar-margin-inline) + var(--urlbar-input-growth-open-block)));
+  }
+}
+
+/* urlbar outside */
+/* urlbar suggestions container. */
+.urlbarView {
+  /* Spacing for urlbar suggestion icons. */
+  --urlbarView-icon-margin-start: 0px !important;
+  --urlbarView-icon-margin-end: calc(
+    var(--uc-urlbar-icon-inline-padding) + var(--identity-box-margin-inline)
+  ) !important;
+
+  margin-inline: 0 !important;
+  width: 100% !important;
+  border-inline: 0 !important;
+  padding-block: 0 !important;
+
+  & .urlbarView-body-inner {
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  & .urlbarView-results {
+    padding-block: 2px !important;
+    /* margin-inline: 4px; */
+    width: 100% !important;
+
+    #urlbar[open] > .urlbarView > & {
+      border-top: 0px !important;
+    }
+  }
+}
+
+/* urlbar content row item */
+.urlbarView-row {
+  border-radius: var(--uc-urlbar-open-border-radius) !important;
+
+  &:not([type="tip"], [type="dynamic"]) {
+    :root:not([uidensity="compact"]) & {
+      min-height: calc(var(--urlbarview-row-min-height) + 2 * var(--urlbarView-row-extra-padding-block));
+      margin-top: 4px !important;
+    }
+  }
+  &:not([type="tip"], [type="dynamic"]) {
+    :root[uidensity="touch"] & {
+      /*       margin-inline: 0px !important; */
+      /*         margin-right: 4px; */
+      margin-inline: 4px;
+    }
+  }
+}
+.urlbarView-background {
+  left: 0px !important;
+  right: 0px !important;
+  margin-inline: -2px;
+  outline-color: var(--panel-separator-color) !important;
+}
+
+.urlbarView-row[label] {
+  /*   margin-block-start: 1.5rem !important; */
+}
+
+.urlbarView-row-inner {
+  /*   padding-block: 2px !important; */
+}
+
 .urlbarView-favicon {
   --urlbarView-icon-margin-start: 4px;
   margin-inline-end: calc(var(--urlbarView-icon-margin-end) - 1.5 * var(--urlbarView-icon-margin-start)) !important;
